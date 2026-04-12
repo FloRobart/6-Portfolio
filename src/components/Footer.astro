@@ -1,0 +1,127 @@
+---
+import { Image } from "astro:assets";
+
+import githubIcon from "@assets/icons_white/github.png";
+import cvIcon from "@assets/icons_white/cv_icon.png";
+import linkedinIcon from "@assets/icons_white/linkedin.png";
+import gmailIcon from "@assets/icons_white/gmail.png";
+import lettreRecommandationIcon from "@assets/icons_white/lettre_recommandation.png";
+
+const socialLinks = [
+  {
+    title: "Github",
+    href: "https://github.com/FloRobart",
+    icon: githubIcon,
+    alt: "Github",
+  },
+  {
+    title: "Linkedin",
+    href: "https://www.linkedin.com/in/floris-robart",
+    icon: linkedinIcon,
+    alt: "Linkedin",
+  },
+  {
+    title: "Envoyer un mail",
+    href: "mailto:florisrobart.pro@gmail.com",
+    icon: gmailIcon,
+    alt: "Gmail",
+  },
+  {
+    title: "CV pdf",
+    href: "/pdf/CV_Floris_Robart.pdf",
+    icon: cvIcon,
+    alt: "CV",
+  },
+  {
+    title: "Lettre de recommandation",
+    href: "",
+    icon: lettreRecommandationIcon,
+    alt: "Lettre de recommandation",
+  },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-neutral-800 bg-black text-white">
+  <div class="mx-auto w-full max-w-6xl px-4 py-14 sm:py-16">
+    <div class="grid gap-10 sm:grid-cols-2 sm:items-start">
+      <section>
+        <h2
+          class="text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-white)]"
+        >
+          Floris Robart
+        </h2>
+        <p class="mt-4 max-w-md text-sm leading-7 text-[color:color-mix(in_srgb,var(--color-white)_84%,transparent)]">
+          Un developpeur specialise dans le developpement d'applications et le
+          developpement de scripts systeme.
+        </p>
+      </section>
+
+      <section>
+        <h2
+          class="text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-white)]"
+        >
+          Reseaux
+        </h2>
+        <ul class="mt-4 flex list-none flex-wrap items-center gap-3 p-0">
+          {
+            socialLinks.map((link) => (
+              <li>
+                {link.href ? (
+                  <a
+                    rel="noreferrer"
+                    title={link.title}
+                    href={link.href}
+                    class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-neutral-700 bg-neutral-900 transition hover:-translate-y-0.5 hover:border-[var(--color-primary-dark)] hover:bg-neutral-800"
+                  >
+                    <Image
+                      src={link.icon}
+                      alt={link.alt}
+                      width={40}
+                      height={40}
+                      loading="lazy"
+                      decoding="async"
+                      class="h-5 w-5 object-contain"
+                    />
+                  </a>
+                ) : (
+                  <span
+                    title={link.title}
+                    class="inline-flex h-10 w-10 cursor-not-allowed items-center justify-center rounded-md border border-neutral-700 bg-neutral-900 opacity-50"
+                  >
+                    <Image
+                      src={link.icon}
+                      alt={link.alt}
+                      width={40}
+                      height={40}
+                      loading="lazy"
+                      decoding="async"
+                      class="h-5 w-5 object-contain"
+                    />
+                  </span>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </div>
+
+    <div
+      class="mt-10 border-t border-neutral-800 pt-6 text-center text-xs text-neutral-400"
+    >
+      <p>
+        &copy; {year}. Cree par
+        <a
+          rel="noreferrer"
+          target="_self"
+          href="https://github.com/FloRobart"
+          class="ml-1 font-semibold text-[var(--color-white)] underline decoration-[color:color-mix(in_srgb,var(--color-white)_50%,transparent)] underline-offset-2 transition hover:text-[var(--color-background-light)]"
+        >
+          Floris Robart
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>

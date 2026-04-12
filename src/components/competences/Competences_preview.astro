@@ -1,0 +1,28 @@
+---
+import Projet from "@components/projets/Projet_preview.astro";
+import AlloscpImage from "@assets/projects/alloscp/alloscp_1_white.png";
+
+const competencesList = [
+  {
+    id: "Organisation",
+    title: "Organisation",
+    description: "Description Organisation",
+    imageSrc: AlloscpImage,
+    link: "/projets/organisation",
+  },
+];
+---
+
+<div class="mt-12 space-y-12" role="list">
+  {
+    competencesList.map((project) => (
+      <Projet
+        id={project.id}
+        title={project.title}
+        description={project.description}
+        imageSrc={project.imageSrc}
+        link={project.link}
+      />
+    ))
+  }
+</div>

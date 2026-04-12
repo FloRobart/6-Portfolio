@@ -1,0 +1,79 @@
+---
+const normalizedPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+
+const links = [
+  { label: "Parcours complet", href: "/parcours" },
+  { label: "Parcours scolaire", href: "/parcours/scolaire" },
+  { label: "Parcours perso", href: "/parcours/perso" },
+];
+
+const isActive = (href: string) => {
+  const normalizedHref = href.replace(/\/+$/, "") || "/";
+  return normalizedPath === normalizedHref;
+};
+---
+
+<nav class="parcours-nav" aria-label="Navigation entre les sections de parcours">
+  {
+    links.map((link) => (
+      <a
+        href={link.href}
+        class:list={[
+          "parcours-nav__link",
+          { "parcours-nav__link--active": isActive(link.href) },
+        ]}
+        aria-current={isActive(link.href) ? "page" : undefined}
+      >
+        {link.label}
+      </a>
+    ))
+  }
+</nav>
+
+<style>
+  .parcours-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .parcours-nav__link {
+    padding: 0.55rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-background-dark);
+    background: var(--color-white);
+    color: var(--color-text);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .parcours-nav__link:hover,
+  .parcours-nav__link:focus-visible {
+    border-color: var(--color-background-dark);
+    background: var(--color-background-dark);
+    color: var(--color-primary);
+    outline: none;
+  }
+
+  .parcours-nav__link--active {
+    border-color: var(--color-background-dark);
+    background: var(--color-background-dark);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 640px) {
+    .parcours-nav {
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .parcours-nav__link {
+      font-size: 0.9rem;
+      padding: 0.5rem 0.9rem;
+    }
+  }
+</style>

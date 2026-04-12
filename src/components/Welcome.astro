@@ -1,0 +1,89 @@
+---
+import Button from "@components/Button.astro";
+import SocialLink from "@components/Social_link.astro";
+
+interface Props {
+  buttonHref: string;
+  buttonText: string;
+  nextSectionId: string;
+}
+
+const { buttonHref, buttonText, nextSectionId } = Astro.props;
+---
+
+<script type="module">
+  const btn = document.getElementById("scrollBtn");
+  btn?.addEventListener("click", () => {
+    const target = btn.dataset.next?.trim();
+    if (!target) return;
+
+    const id = target.startsWith("#") ? target.slice(1) : target;
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  });
+</script>
+
+<style>
+  .wheel {
+    width: 5px;
+    height: 5px;
+    background-color: #333;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 7px;
+    opacity: 1;
+    animation: wheel 1.3s infinite;
+  }
+
+  @keyframes wheel {
+    to {
+      opacity: 0;
+      top: 27px;
+    }
+  }
+
+  @-webkit-keyframes wheel {
+    to {
+      opacity: 0;
+      top: 27px;
+    }
+  }
+</style>
+
+<section
+  class="relative min-h-[93vh] bg-[var(--color-background-light)] text-[var(--color-text)]"
+>
+  <div
+    class="mx-auto flex min-h-[93vh] w-full max-w-4xl flex-col items-center justify-center px-6 py-24 text-center"
+  >
+    <h1
+      class="text-4xl font-bold tracking-tight text-[var(--color-text)] sm:text-5xl md:text-6xl"
+    >
+      Floris Robart
+    </h1>
+    <div class="mt-6 max-w-2xl">
+      <p class="text-base leading-relaxed text-[var(--color-text)] sm:text-lg">
+        Développeur spécialisé dans le développement d'applications et le
+        développement de script système.
+      </p>
+    </div>
+    <div class="mt-10">
+      <Button href={buttonHref} text={buttonText} />
+    </div>
+  </div>
+  
+  <SocialLink />
+
+  <div class="hidden sm:block absolute bottom-[3%] left-1/2 -translate-x-1/2">
+    <div
+      id="scrollBtn"
+      data-next={nextSectionId}
+      class="w-[25px] h-[40px] border-2 border-[#333] rounded-[60px] relative overflow-hidden hover:cursor-pointer"
+      role="button"
+      aria-label="Aller à la prochaine section"
+    >
+      <span class="wheel" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>

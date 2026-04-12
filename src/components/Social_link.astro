@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+
+import githubIcon from "@assets/icons_red/github.png";
+import cvIcon from "@assets/icons_red/cv_icon.png";
+import linkedinIcon from "@assets/icons_red/linkedin.png";
+import gmailIcon from "@assets/icons_red/gmail.png";
+import lettreRecommandationIcon from "@assets/icons_red/lettre_recommandation.png";
+
+const socialLinks = [
+  {
+    title: "Github",
+    href: "https://github.com/FloRobart",
+    icon: githubIcon,
+    alt: "Github",
+  },
+  {
+    title: "Linkedin",
+    href: "https://www.linkedin.com/in/floris-robart",
+    icon: linkedinIcon,
+    alt: "Linkedin",
+  },
+  {
+    title: "Envoyer un mail",
+    href: "mailto:florisrobart.pro@gmail.com",
+    icon: gmailIcon,
+    alt: "Gmail",
+  },
+  {
+    title: "CV pdf",
+    href: "/pdf/CV_Floris_Robart.pdf",
+    icon: cvIcon,
+    alt: "CV",
+  },
+  {
+    title: "Lettre de recommandation",
+    href: "",
+    icon: lettreRecommandationIcon,
+    alt: "Lettre de recommandation",
+  },
+];
+---
+
+<div
+    class="absolute left-0 top-1/2 hidden -translate-y-1/2 rounded-r-xl bg-[var(--color-white)] p-2 shadow-lg md:block z-10"
+  >
+    {
+      socialLinks.map((link) => (
+        <div class="mb-2 last:mb-0">
+          {link.href ? (
+            <a
+              rel="noreferrer"
+              title={link.title}
+              href={link.href}
+              class="inline-flex h-11 w-11 items-center justify-center rounded-md border border-[var(--color-background-dark)] bg-[var(--color-white)] transition hover:-translate-y-0.5 hover:border-[var(--color-primary-dark)] hover:bg-[var(--color-background-dark)]"
+            >
+              <Image
+                src={link.icon}
+                alt={link.alt}
+                width={40}
+                height={40}
+                loading="eager"
+                decoding="async"
+                class="h-6 w-6 object-contain"
+              />
+            </a>
+          ) : (
+            <span
+              title={link.title}
+              aria-disabled="true"
+              class="inline-flex h-11 w-11 cursor-not-allowed items-center justify-center rounded-md border border-[var(--color-background-dark)] bg-[var(--color-background-dark)] opacity-60"
+            >
+              <Image
+                src={link.icon}
+                alt={link.alt}
+                width={40}
+                height={40}
+                loading="eager"
+                decoding="async"
+                class="h-6 w-6 object-contain"
+              />
+            </span>
+          )}
+        </div>
+      ))
+    }
+  </div>

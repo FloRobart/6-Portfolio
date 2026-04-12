@@ -1,0 +1,47 @@
+---
+import Button from "@components/Button.astro";
+import SocialLink from "@components/Social_link.astro";
+
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  githubButtonText: string;
+  githubButtonLink: string;
+  externalButtonText?: string;
+  externalButtonLink?: string;
+}
+
+const { id, title, description, githubButtonText: buttonText, githubButtonLink: buttonLink, externalButtonText, externalButtonLink } = Astro.props;
+---
+
+<section
+  id={id}
+  class="relative min-h-[80vh] bg-[var(--color-background-light)] text-[var(--color-text)]"
+>
+  <div
+    class="mx-auto flex min-h-[80vh] w-full max-w-4xl flex-col items-center justify-center px-6 py-24 text-center"
+  >
+    <h1
+      class="text-4xl font-bold tracking-tight text-[var(--color-text)] sm:text-5xl md:text-6xl"
+    >
+      {title}
+    </h1>
+    <div class="mt-6 max-w-2xl">
+      <p class="text-base leading-relaxed text-[var(--color-text)] sm:text-lg" set:html={description}></p>
+    </div>
+    <div class="mt-10">
+      <Button href={buttonLink} text={buttonText} />
+      {externalButtonLink && externalButtonText && (
+        <span class="ml-4"></span>
+        <Button href={externalButtonLink!} text={externalButtonText!} />
+      )}
+    </div>
+  </div>
+
+  <SocialLink />
+
+  <div>
+    <slot name="content" />
+  </div>
+</section>

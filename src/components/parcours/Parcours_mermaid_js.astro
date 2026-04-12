@@ -1,0 +1,245 @@
+<script type="module">
+  /**
+   * Initialise Mermaid pour le rendu des diagrammes de parcours.
+   * Configure les options de thème et de timeline pour une meilleure lisibilité.
+   */
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({
+    startOnLoad: false,
+    logLevel: "error",
+    theme: "neutral",
+    timeline: {
+      disableMulticolor: true,
+    },
+    themeVariables: {
+      cScale0: "#721414",
+      cScaleLabel0: "#ffffff",
+      cScale1: "#721414",
+      cScaleLabel1: "#ffffff",
+      cScale2: "#721414",
+      cScaleLabel2: "#ffffff",
+      cScale3: "#721414",
+      cScaleLabel3: "#ffffff",
+    },
+  });
+
+  /**
+   * Rend Mermaid et enrichit les nœuds après le rendu.
+   * Compatible avec la navigation Astro (ClientRouter).
+   */
+  async function renderMermaidTimeline() {
+    const timeline = document.querySelector("pre.mermaid");
+    if (!timeline) {
+      return;
+    }
+
+    if (!timeline.hasAttribute("data-current-month-applied")) {
+      const currentMonth = new Date().toLocaleString("fr-FR", {
+        month: "long",
+      });
+      const capitalizedMonth =
+        currentMonth.charAt(0).toUpperCase() + currentMonth.slice(1);
+
+      timeline.textContent = timeline.textContent.replace(
+        "__CURRENT_MONTH__",
+        capitalizedMonth,
+      );
+      timeline.setAttribute("data-current-month-applied", "true");
+    }
+
+    await mermaid.run({ querySelector: ".mermaid" });
+
+    const nodes = document.querySelectorAll(".mermaid svg text");
+    nodes.forEach((node) => {
+      /*----------------------*/
+      /* Obtention de diplome */
+      /*----------------------*/
+      if (
+        node.textContent.toUpperCase().includes("Obtention".toUpperCase()) &&
+        node.textContent.toUpperCase().includes("du".toUpperCase())
+      ) {
+        addBoldToNode(node);
+
+        if (node.textContent.toUpperCase().includes("BUT".toUpperCase())) {
+          addLinkToNode(
+            node,
+            "https://fr.wikipedia.org/wiki/Bachelor_universitaire_de_technologie",
+          );
+        }
+
+        if (node.textContent.toUpperCase().includes("DUT".toUpperCase())) {
+          addLinkToNode(
+            node,
+            "https://fr.wikipedia.org/wiki/Dipl%C3%B4me_universitaire_de_technologie",
+          );
+        }
+
+        if (node.textContent.toUpperCase().includes("BAC".toUpperCase())) {
+          addLinkToNode(
+            node,
+            "https://fr.wikipedia.org/wiki/Baccalaur%C3%A9at_sciences_et_technologies_de_l%27industrie_et_du_d%C3%A9veloppement_durable",
+          );
+        }
+      }
+
+      /*-------*/
+      /* Ecole */
+      /*-------*/
+      /* ISCOD */
+      if (node.textContent.toUpperCase().includes("ISCOD".toUpperCase())) {
+        addLinkToNode(
+          node,
+          "https://www.iscod.fr/formation-ingenierie-avancee-du-logiciel-en-alternance?utm_source=google-branding&utm_medium=cpc&utm_campaign=ISCOD_Etudiant&utm_term=%2Biscod&gad_source=1&gad_campaignid=9492102615&gbraid=0AAAAAD1Gu2KpvdPAtzunrbgKdDcf8hInm&gclid=Cj0KCQjwv-LOBhCdARIsAM5hdKdNatsI2RcBDg9azl9cRLnq90XRkBYxH9abpJpxfT-6u4yZADX56CcaAow3EALw_wcB",
+        );
+        addBoldToNode(node);
+      }
+
+      /* IUT du Havre */
+      if (node.textContent.toUpperCase().includes("IUT".toUpperCase())) {
+        addLinkToNode(node, "https://www-iut.univ-lehavre.fr/info");
+        addBoldToNode(node);
+      }
+
+      /* SADI Carnot */
+      if (
+        node.textContent.toUpperCase().includes("SADI".toUpperCase()) &&
+        node.textContent.toUpperCase().includes("CARNOT".toUpperCase())
+      ) {
+        addLinkToNode(
+          node,
+          "https://lyc-bertin-carnot.paysdelaloire.e-lyco.fr/",
+        );
+        addBoldToNode(node);
+      }
+
+      /* Duplessis Mornay */
+      if (
+        node.textContent.toUpperCase().includes("Duplessis".toUpperCase()) &&
+        node.textContent.toUpperCase().includes("Mornay".toUpperCase())
+      ) {
+        addLinkToNode(
+          node,
+          "https://duplessis-mornay.paysdelaloire.e-lyco.fr/",
+        );
+        addBoldToNode(node);
+      }
+
+      /*---------*/
+      /* Projets */
+      /*---------*/
+      /* FlorAccess */
+      if (
+        node.textContent.toUpperCase().includes("FlorAccess".toUpperCase())
+      ) {
+        addLinkToNode(node, "/projets/floraccess");
+      }
+
+      /* Flower garden */
+      if (
+        node.textContent.toUpperCase().includes("Flower".toUpperCase()) &&
+        node.textContent.toUpperCase().includes("garden".toUpperCase())
+      ) {
+        addLinkToNode(node, "/projets/flower-garden");
+      }
+
+      /* FlollyList */
+      if (
+        node.textContent.toUpperCase().includes("FlollyList".toUpperCase())
+      ) {
+        addLinkToNode(node, "/projets/flollylist");
+      }
+
+      /* Econoris */
+      if (
+        node.textContent.toUpperCase().includes("Econoris".toUpperCase())
+      ) {
+        addLinkToNode(node, "/projets/econoris");
+      }
+
+      /* Lyssecure */
+      if (
+        node.textContent.toUpperCase().includes("LysSecure".toUpperCase())
+      ) {
+        addLinkToNode(node, "/projets/lyssecure");
+      }
+
+      /* Documentation */
+      if (
+        node.textContent.toUpperCase().includes("Documentation".toUpperCase())
+      ) {
+        addLinkToNode(node, "/projets/documentation");
+      }
+
+      /* Maven Lite */
+      if (
+        node.textContent.toUpperCase().includes("Maven".toUpperCase()) &&
+        node.textContent.toUpperCase().includes("Lite".toUpperCase())
+      ) {
+        addLinkToNode(node, "/projets/maven-lite");
+      }
+
+      /* All'OScp */
+      if (
+        node.textContent.toUpperCase().includes("All'OScp".toUpperCase())
+      ) {
+        addLinkToNode(node, "/projets/alloscp");
+      }
+
+      /* Thème pour Visual Studio Code */
+      if (
+        node.textContent.toUpperCase().includes("thème".toUpperCase()) &&
+        node.textContent.toUpperCase().includes("Code".toUpperCase())
+      ) {
+        addLinkToNode(node, "/projets/theme-vscode");
+      }
+    });
+  }
+
+  if (!window.__mermaidTimelineInitBound) {
+    window.__mermaidTimelineInitBound = true;
+    document.addEventListener("astro:page-load", renderMermaidTimeline);
+    document.addEventListener("DOMContentLoaded", renderMermaidTimeline);
+  }
+
+  renderMermaidTimeline();
+
+  /**
+   * Ajoute un lien cliquable à un nœud SVG.
+   * @param {Element} node - Le nœud SVG auquel ajouter le lien.
+   * @param {string} url - L'URL vers laquelle le lien doit pointer.
+   */
+  function addLinkToNode(node, url) {
+    const group = node.closest("g");
+    if (!group || !group.parentNode || !group.parentNode.parentNode) {
+      return;
+    }
+
+    if (group.closest("a")) {
+      return;
+    }
+
+    const parent = group.parentNode;
+
+    const link = document.createElementNS("http://www.w3.org/2000/svg", "a");
+    link.setAttribute("href", url);
+
+    parent.parentNode.insertBefore(link, parent);
+    link.appendChild(parent);
+  }
+
+  /**
+   * Ajoute un style de texte en gras à un nœud SVG.
+   * @param node - Le nœud SVG auquel ajouter le style en gras.
+   */
+  function addBoldToNode(node) {
+    const group = node.closest("g");
+    if (!group) {
+      return;
+    }
+
+    const text = group.querySelector("text");
+    if (text) {
+      text.setAttribute("font-weight", "bold");
+    }
+  }
+</script>

@@ -1,0 +1,18 @@
+---
+import ProjetPreview from "@components/projets/Projet_preview.astro";
+import { projectsPreviewList } from "@/data/projects";
+---
+
+<div class="mt-12 space-y-12" role="list">
+  {
+    projectsPreviewList.map((project) => (
+      <ProjetPreview
+        id={project.id}
+        title={project.title}
+        description={project.description}
+        imageSrc={project.imageSrc}
+        link={project.localLink}
+      />
+    ))
+  }
+</div>

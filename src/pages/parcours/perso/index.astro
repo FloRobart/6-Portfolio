@@ -1,0 +1,13 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import ParcoursMermaidJs from "@/components/parcours/Parcours_mermaid_js.astro";
+import ParcoursPerso from "@/components/parcours/Parcours_perso.astro";
+---
+
+<MainLayout title="Mon Parcours">
+  <Fragment slot="head">
+    <ParcoursMermaidJs />
+  </Fragment>
+
+  <ParcoursPerso />
+</MainLayout>

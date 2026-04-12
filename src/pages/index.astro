@@ -1,0 +1,31 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Welcome from "@/components/Welcome.astro";
+import ProjetsPreview from "@/components/projets/Projets_preview.astro";
+import About from "@/components/About.astro";
+import ProjetsPreviewTitle from "@/components/projets/Projets_preview_title.astro";
+import CompetencesPreview from "@/components/competences/Competences_preview.astro";
+import CompetencesPreviewTitle from "@/components/competences/Competences_preview_title.astro";
+---
+
+<MainLayout>
+  <Welcome buttonHref="#projets" buttonText="PROJETS" nextSectionId="#about" />
+
+  <About />
+
+  <section id="projets" class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <ProjetsPreviewTitle />
+
+      <ProjetsPreview />
+    </div>
+  </section>
+
+  <section id="competences" class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <CompetencesPreviewTitle />
+
+      <CompetencesPreview />
+    </div>
+  </section>
+</MainLayout>

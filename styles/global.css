@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+    --color-primary: #721414;
+    --color-primary-light: #901414;
+    --color-primary-dark: #521414;
+    --color-black: #000;
+    --color-white: #fff;
+    --color-text: #111;
+    --font-family-primary: sans-serif;
+    --color-background: #fff;
+    --color-background-light: #fafafa;
+    --color-background-dark: #EAEAEA;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+@layer components {
+    .ui-nav-link {
+        @apply inline-flex items-center rounded-md px-3 py-2 text-sm font-semibold text-neutral-700 transition hover:bg-[var(--color-background-dark)];
+    }
+
+    .ui-nav-link:hover {
+        color: var(--color-primary);
+    }
+
+    .ui-nav-link--active {
+        @apply bg-[var(--color-background-dark)];
+        color: var(--color-primary);
+    }
+}

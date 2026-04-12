@@ -1,0 +1,15 @@
+---
+import CompetencesPreview from '@/components/competences/Competences_preview.astro';
+import CompetencesPreviewTitle from '@/components/competences/Competences_preview_title.astro';
+import MainLayout from '@layouts/MainLayout.astro';
+---
+
+<MainLayout>
+  <section id="competences" class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <CompetencesPreviewTitle />
+
+      <CompetencesPreview />
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,95 @@
+---
+import HeadingSecBar from "@components/Heading_sec_bar.astro";
+import ParcoursMermaidScolaire from "./Parcours_mermaid_scolaire.astro";
+import ParcoursNav from "./Parcours_nav.astro";
+---
+
+<section id="parcours" class="parcours-section">
+  <div class="parcours-wrapper">
+    <h2 class="parcours-title">
+      <span class="parcours-title__main">Mon Parcours Scolaire</span>
+      <HeadingSecBar />
+    </h2>
+
+    <ParcoursNav />
+
+    <div
+      class="mermaid-container"
+      role="img"
+      aria-label="Timeline de mon parcours scolaire"
+    >
+      <ParcoursMermaidScolaire />
+    </div>
+  </div>
+</section>
+
+<style>
+  .parcours-section {
+    background: var(--color-background-light);
+    padding: 5rem 1.5rem;
+  }
+
+  .parcours-wrapper {
+    max-width: 72rem;
+    margin: 0 auto;
+    animation: parcours-enter 280ms ease-out both;
+  }
+
+  .parcours-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .parcours-title__main {
+    display: block;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #111827;
+  }
+
+  .mermaid-container {
+    width: auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 1rem;
+    background: var(--color-white);
+    box-shadow: 0 10px 24px rgb(0 0 0 / 7%);
+  }
+
+  .mermaid-container :global(svg) {
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  @keyframes parcours-enter {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .parcours-wrapper {
+      animation: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .parcours-section {
+      padding: 4rem 1rem;
+    }
+
+    .parcours-title {
+      margin-bottom: 2rem;
+    }
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+import Button from "@components/Button.astro";
+import SocialLink from "@components/Social_link.astro";
+
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  link: string;
+}
+
+const { id, title, description, buttonText, link } = Astro.props;
+---
+
+<section
+  id={id}
+  class="relative min-h-[80vh] bg-[var(--color-background-light)] text-[var(--color-text)]"
+>
+  <div
+    class="mx-auto flex min-h-[80vh] w-full max-w-4xl flex-col items-center justify-center px-6 py-24 text-center"
+  >
+    <h1
+      class="text-4xl font-bold tracking-tight text-[var(--color-text)] sm:text-5xl md:text-6xl"
+    >
+      {title}
+    </h1>
+    <div class="mt-6 max-w-2xl">
+      <p class="text-base leading-relaxed text-[var(--color-text)] sm:text-lg">
+        {description}
+      </p>
+    </div>
+    <div class="mt-10">
+      <Button href={link} text={buttonText} />
+    </div>
+  </div>
+
+  <SocialLink />
+</section>

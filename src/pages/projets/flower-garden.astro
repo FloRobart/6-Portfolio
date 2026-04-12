@@ -1,0 +1,27 @@
+---
+import ProjetDetail from "@/components/projets/Projet_detail_header.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import { getProjectById } from "@/data/projects";
+
+const project = getProjectById("flower-garden");
+
+if (!project) {
+  throw new Error("Project 'flower-garden' not found in projects data.");
+}
+---
+
+<MainLayout>
+  <ProjetDetail
+    id={project.id}
+    title={project.title}
+    description={project.description}
+    githubButtonText="Voir le projet sur Github"
+    githubButtonLink={project.githubLink}
+    externalButtonText="Voir le projet en ligne"
+    externalButtonLink={project.projectLink}
+  >
+    <Fragment slot="content">
+      <p>Test</p>
+    </Fragment>
+  </ProjetDetail>
+</MainLayout>

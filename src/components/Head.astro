@@ -1,0 +1,46 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const imagePath = "/favicon.ico";
+const description = "Portfolio Floris Robart";
+---
+
+
+<base href="/">
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Floris Robart" />
+<meta content="IE=Edge" http-equiv="X-UA-Compatible">
+<meta name="title" content={title}>
+<meta name="description" content={description}>
+<meta name="generator" content={Astro.generator} />
+
+<!-- Balises Open Graph pour le partage -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imagePath} />
+<meta property="og:image:alt" content="Image de présentation du portfolio de Floris Robart" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://portfolio-iscod.florobart.fr/" />
+
+<!-- Balises Twitter Card (optionnel mais recommandé) -->
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content={imagePath} />
+
+<!-- iOS meta tags & icons -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content={title}>
+<link rel="apple-touch-icon" href={imagePath}>
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href={imagePath}/>
+
+<title>{title}</title>

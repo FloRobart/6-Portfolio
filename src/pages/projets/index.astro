@@ -1,0 +1,15 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import ProjetsPreview from "@/components/projets/Projets_preview.astro";
+import ProjetsPreviewTitle from "@/components/projets/Projets_preview_title.astro";
+---
+
+<MainLayout>
+  <section id="projets" class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <ProjetsPreviewTitle />
+
+      <ProjetsPreview />
+    </div>
+  </section>
+</MainLayout>
