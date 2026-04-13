@@ -222,6 +222,7 @@
 
     const link = document.createElementNS("http://www.w3.org/2000/svg", "a");
     link.setAttribute("href", url);
+    link.setAttribute("class", "parcours-link");
 
     parent.parentNode.insertBefore(link, parent);
     link.appendChild(parent);

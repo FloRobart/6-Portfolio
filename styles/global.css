@@ -25,6 +25,13 @@ html {
     @apply text-2xl font-bold text-gray-900 mt-10 mb-2;
 }
 
+.parcours-link:hover text {
+    text-decoration: underline;
+    font-weight: bold;
+    text-decoration-color: var(--color-white);
+    fill: var(--color-white);
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
