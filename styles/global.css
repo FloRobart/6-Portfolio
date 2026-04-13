@@ -17,6 +17,14 @@ html {
     scroll-behavior: smooth;
 }
 
+.paragraph {
+    @apply text-base leading-relaxed mb-6;
+}
+
+.title-h2 {
+    @apply text-2xl font-bold text-gray-900 mt-10 mb-2;
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;

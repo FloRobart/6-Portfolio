@@ -1,7 +1,23 @@
 ---
-import MainLayout from '@layouts/MainLayout.astro';
+import Presentation from "@/components/presentation/Presentation.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeadingSecBar from "@components/Heading_sec_bar.astro";
 ---
 
 <MainLayout>
-	<h1>Présentation</h1>
+  <h2 class="text-center mb-14 mt-20">
+    <span
+      class="heading-sec__main block text-3xl md:text-4xl uppercase tracking-wider font-extrabold text-gray-900"
+      >Présentation</span
+    >
+    <HeadingSecBar />
+    <span
+      class="block mt-4 text-sm md:text-base text-gray-600 max-w-3xl mx-auto"
+      >Vous trouverez ici plus d'informations sur moi, ce que j'aime dans le
+      développement et mes compétences actuelles principalement en termes de
+      technologie et d'outils que je sais réellement utilisé.</span
+    >
+  </h2>
+
+  <Presentation />
 </MainLayout>
