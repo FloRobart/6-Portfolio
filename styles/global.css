@@ -22,7 +22,11 @@ html {
 }
 
 .title-h2 {
-    @apply text-2xl font-bold text-gray-900 mt-10 mb-2;
+    @apply text-2xl font-bold mt-10 mb-2 text-[var(--color-primary-dark)];
+}
+
+.title-h3 {
+    @apply text-xl font-semibold mt-8 mb-2 text-[var(--color-primary-dark)];
 }
 
 .parcours-link:hover text {

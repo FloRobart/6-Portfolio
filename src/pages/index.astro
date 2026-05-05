@@ -6,6 +6,7 @@ import About from "@/components/About.astro";
 import ProjetsPreviewTitle from "@/components/projets/Projets_preview_title.astro";
 import CompetencesPreview from "@/components/competences/Competences_preview.astro";
 import CompetencesPreviewTitle from "@/components/competences/Competences_preview_title.astro";
+import Button from "@/components/Button.astro";
 ---
 
 <MainLayout>
@@ -18,6 +19,10 @@ import CompetencesPreviewTitle from "@/components/competences/Competences_previe
       <ProjetsPreviewTitle />
 
       <ProjetsPreview />
+    </div>
+
+    <div class="flex justify-center mt-20">
+      <Button href="https://florobart.fr" text="Voir plus de réalisations" size={24} />
     </div>
   </section>
 
