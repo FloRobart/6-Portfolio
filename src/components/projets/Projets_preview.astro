@@ -5,7 +5,7 @@ import { projectsPreviewList } from "@/data/projects";
 
 <div class="mt-12 space-y-12" role="list">
   {
-    projectsPreviewList.map((project) => (
+    projectsPreviewList.filter((project) => project.displayable).map((project) => (
       <ProjetPreview
         id={project.id}
         title={project.title}
