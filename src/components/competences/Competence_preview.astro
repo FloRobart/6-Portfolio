@@ -14,28 +14,43 @@ interface Props {
 const { id, title, description, imageSrc, link } = Astro.props;
 ---
 
-<div class="projects__row" id={id} role="article" aria-labelledby={id + '-title'}>
-  <div class="projects__row-img-cont">
+<div
+  class="competences__row"
+  id={id}
+  role="article"
+  aria-labelledby={id + "-title"}
+>
+  <div class="competences__row-img-cont">
     <Picture
       src={imageSrc}
       alt={title}
-      width={1200}
-      height={600}
+      width={600}
+      height={300}
       loading="lazy"
       decoding="async"
-      class="projects__row-img"
+      class="competences__row-img"
     />
   </div>
-  <div class="projects__row-content">
-    <h3 class="projects__row-content-title" id={id + '-title'}>{title}</h3>
-    <p class="projects__row-content-desc" set:html={description}></p>
-    <Button href={link} text="En savoir plus" />
+  <div class="competences__row-content">
+    <h3
+      class="competences__row-content-title"
+      id={id + "-title"}
+    >
+      {title}
+    </h3>
+    <p
+      class="competences__row-content-desc"
+      set:html={description}
+    />
+    <Button
+      href={link}
+      text="En savoir plus"
+    />
   </div>
 </div>
 
-
 <style>
-  .projects__row {
+  .competences__row {
     display: grid;
     grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
     gap: 2rem;
@@ -43,44 +58,48 @@ const { id, title, description, imageSrc, link } = Astro.props;
     align-items: center;
   }
 
-  .projects__row:last-child {
+  .competences__row:last-child {
     margin-bottom: 0;
   }
 
-  .projects__row-img-cont {
+  .competences__row-img-cont {
     overflow: hidden;
-    border: 1px solid var(--color-black);
+    /* border: 1px solid var(--color-black); */
     border-radius: 12px;
+    justify-self: end;
+    max-width: 480px;
+    width: 100%;
+    align-self: center;
   }
 
-  .projects__row-img {
+  .competences__row-img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  .projects__row-content {
+  .competences__row-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.9rem;
   }
 
-  .projects__row-content-title {
+  .competences__row-content-title {
     font-weight: 700;
     font-size: 1.45rem;
     line-height: 1.2;
     margin: 0;
   }
 
-  .projects__row-content-desc {
+  .competences__row-content-desc {
     font-size: 0.92rem;
     color: #555;
     line-height: 1.55;
     margin: 0;
   }
 
-  .projects__row-link {
+  .competences__row-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -91,30 +110,36 @@ const { id, title, description, imageSrc, link } = Astro.props;
     font-weight: 600;
     color: var(--color-black);
     text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
   }
 
-  .projects__row-link:hover {
+  .competences__row-link:hover {
     background: var(--color-black);
     color: var(--color-white);
   }
 
   @media (max-width: 900px) {
-    .projects__row {
+    .competences__row {
       grid-template-columns: 1fr;
       gap: 1rem;
       text-align: center;
     }
 
-    .projects__row-content {
+    .competences__row-img-cont {
+      justify-self: center;
+    }
+
+    .competences__row-content {
       align-items: center;
     }
 
-    .projects__row-content-title {
+    .competences__row-content-title {
       font-size: 1.3rem;
     }
 
-    .projects__row-content-desc {
+    .competences__row-content-desc {
       font-size: 0.88rem;
     }
   }

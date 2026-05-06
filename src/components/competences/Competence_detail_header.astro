@@ -6,11 +6,13 @@ interface Props {
   id: string;
   title: string;
   description: string;
-  buttonText: string;
-  link: string;
+  githubButtonText: string;
+  githubButtonLink: string;
+  externalButtonText?: string;
+  externalButtonLink?: string;
 }
 
-const { id, title, description, buttonText, link } = Astro.props;
+const { id, title, description, githubButtonText: buttonText, githubButtonLink: buttonLink, externalButtonText, externalButtonLink } = Astro.props;
 ---
 
 <section
@@ -26,14 +28,20 @@ const { id, title, description, buttonText, link } = Astro.props;
       {title}
     </h1>
     <div class="mt-6 max-w-2xl">
-      <p class="text-base leading-relaxed text-[var(--color-text)] sm:text-lg">
-        {description}
-      </p>
+      <p class="text-base leading-relaxed text-[var(--color-text)] sm:text-lg" set:html={description}></p>
     </div>
     <div class="mt-10">
-      <Button href={link} text={buttonText} />
+      <Button href={buttonLink} text={buttonText} />
+      {externalButtonLink && externalButtonText && (
+        <span class="ml-4"></span>
+        <Button href={externalButtonLink!} text={externalButtonText!} />
+      )}
     </div>
   </div>
 
   <SocialLink />
+
+  <div>
+    <slot name="content" />
+  </div>
 </section>

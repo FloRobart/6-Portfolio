@@ -1,15 +1,19 @@
 ---
+import MainLayout from '@layouts/MainLayout.astro';
 import CompetencesPreview from '@/components/competences/Competences_preview.astro';
 import CompetencesPreviewTitle from '@/components/competences/Competences_preview_title.astro';
-import MainLayout from '@layouts/MainLayout.astro';
 ---
 
 <MainLayout>
   <section id="competences" class="bg-white py-20">
     <div class="max-w-6xl mx-auto px-6">
-      <CompetencesPreviewTitle />
+      <CompetencesPreviewTitle competencesType='soft' />
+      <CompetencesPreview competencesType="soft" />
 
-      <CompetencesPreview />
+      <div class="h-20"></div>
+
+      <CompetencesPreviewTitle competencesType='hard' />
+      <CompetencesPreview competencesType="hard" />
     </div>
   </section>
 </MainLayout>
