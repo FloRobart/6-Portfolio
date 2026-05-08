@@ -1,0 +1,27 @@
+---
+import CompetenceDetailHeader from "@/components/competences/Competence_detail_header.astro";
+import PolyvalenceContent from "@/components/competences/contents/polyvalence_content.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import { getCompetenceById } from "@/data/competences";
+import SocialLink from "@/components/Social_link.astro";
+
+const competence = getCompetenceById("polyvalence");
+
+if (!competence) {
+  throw new Error("Competence 'polyvalence' not found in competences data.");
+}
+---
+
+<MainLayout>
+  <CompetenceDetailHeader
+    id={competence.id}
+    title={competence.title}
+    description={competence.description}
+  />
+
+  <SocialLink />
+
+  <div class="max-w-7xl mx-auto mb-24">
+    <PolyvalenceContent />
+  </div>
+</MainLayout>

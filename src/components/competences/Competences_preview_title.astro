@@ -3,18 +3,45 @@ import HeadingSecBar from "../Heading_sec_bar.astro";
 
 interface Props {
   competencesType?: "hard" | "soft";
+  link: boolean;
 }
 
-const { competencesType } = Astro.props;
+const { competencesType, link } = Astro.props;
 ---
 
-<h2 class="text-center mb-10">
-  <span
-    class="heading-sec__main block text-3xl md:text-4xl uppercase tracking-wider font-extrabold text-gray-900"
-    >Compétences {competencesType === undefined ? "" : (competencesType === "hard" ? "Techniques" : "Humaines")}</span
-  >
+<h2
+  class="text-center mb-10"
+  id={`competences-preview-title-${competencesType ?? "all"}`}
+>
+  {
+    link ? (
+      <a
+        href={`/competences#competences-preview-title-${competencesType}`}
+        class="inline-block"
+      >
+        <span class="heading-sec__main block text-3xl md:text-4xl uppercase tracking-wider font-extrabold text-gray-900">
+          Compétences{" "}
+          {competencesType === undefined
+            ? ""
+            : competencesType === "hard"
+              ? "Techniques"
+              : "Humaines"}
+        </span>
+      </a>
+    ) : (
+      <span class="heading-sec__main block text-3xl md:text-4xl uppercase tracking-wider font-extrabold text-gray-900">
+        Compétences{" "}
+        {competencesType === undefined
+          ? ""
+          : competencesType === "hard"
+            ? "Techniques"
+            : "Humaines"}
+      </span>
+    )
+  }
+
   <HeadingSecBar />
   <span class="block mt-4 text-sm md:text-base text-gray-600 max-w-3xl mx-auto"
-    >Vous trouverez ici une liste de mes compétences professionnelles.</span
+    >Vous trouverez ici une liste de mes compétences {competencesType === undefined ? "" : competencesType === "hard" ? "techniques" : "humaines"}.</span
   >
 </h2>
