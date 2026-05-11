@@ -3,16 +3,17 @@ interface Props {
     href: string;
     text: string;
     size?: number;
+    class?: string;
 }
 
-const { href, text, size } = Astro.props;
+const { href, text, size, class: buttonClass } = Astro.props;
 const style = size ? `font-size: ${size}px;` : undefined;
 ---
 
 <a
   href={href}
   style={style}
-  class="inline-flex items-center rounded-md bg-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-[var(--color-white)] transition hover:bg-[var(--color-primary-light)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-light)] focus-visible:ring-offset-2"
+  class={"inline-flex items-center rounded-md bg-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-[var(--color-white)] transition hover:bg-[var(--color-primary-light)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-light)] focus-visible:ring-offset-2 " + buttonClass}
 >
   {text}
 </a>

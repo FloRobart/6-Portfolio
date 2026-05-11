@@ -1,62 +1,16 @@
 ---
 import { Image } from "astro:assets";
+import { navigations } from "@/data/header_navigation";
+import profileImage from "@assets/profile_picture.jpg";
 
 const profile = {
   firstName: "Floris",
   lastName: "Robart",
 };
 
-import profileImage from "@assets/profile_picture.jpg";
-
-const navItems = [
-  { label: "Accueil", href: "/" },
-  { label: "Parcours", href: "/parcours" },
-  { label: "Réalisations", href: "/projets" },
-  { label: "Compétences", href: "/competences" },
-  { label: "Contact", href: "/contact" },
-];
 
 const currentPath = Astro.url.pathname;
 ---
-
-<style>
-  .mobile-menu-panel {
-    transform-origin: top right;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-
-  details:not([open]) .mobile-menu-panel {
-    opacity: 0;
-    transform: scale(0.97) translateY(-6px);
-    pointer-events: none;
-  }
-
-  details[open] .mobile-menu-panel {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-
-  .burger-line {
-    transform-origin: center;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-
-  details[open] .burger-line--top {
-    transform: translateY(6px) rotate(45deg);
-  }
-
-  details[open] .burger-line--middle {
-    opacity: 0;
-  }
-
-  details[open] .burger-line--bottom {
-    transform: translateY(-6px) rotate(-45deg);
-  }
-
-  summary::-webkit-details-marker {
-    display: none;
-  }
-</style>
 
 <header
   class="sticky top-0 z-50 border-b border-[var(--color-background-dark)] bg-[color:color-mix(in_srgb,var(--color-white)_90%,transparent)] backdrop-blur"
@@ -85,10 +39,13 @@ const currentPath = Astro.url.pathname;
     </a>
 
     <!-- Desktop navigation (> 700px) -->
-    <nav aria-label="Navigation principale" class="max-[700px]:hidden">
+    <nav
+      aria-label="Navigation principale"
+      class="max-[700px]:hidden"
+    >
       <ul class="m-0 flex list-none flex-wrap items-center gap-1 p-0">
         {
-          navItems.map((item) => (
+          navigations.map((item) => (
             <li>
               <a
                 href={item.href}
@@ -111,10 +68,19 @@ const currentPath = Astro.url.pathname;
         class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-md border border-[var(--color-background-dark)] text-[var(--color-text)] transition hover:bg-[var(--color-background-light)] hover:text-[var(--color-primary)]"
         aria-label="Ouvrir le menu"
       >
-        <span class="relative block h-4 w-5" aria-hidden="true">
-          <span class="burger-line burger-line--top absolute left-0 top-0 h-0.5 w-5 rounded-full bg-current"></span>
-          <span class="burger-line burger-line--middle absolute left-0 top-[7px] h-0.5 w-5 rounded-full bg-current"></span>
-          <span class="burger-line burger-line--bottom absolute left-0 top-[14px] h-0.5 w-5 rounded-full bg-current"></span>
+        <span
+          class="relative block h-4 w-5"
+          aria-hidden="true"
+        >
+          <span
+            class="burger-line burger-line--top absolute left-0 top-0 h-0.5 w-5 rounded-full bg-current"
+          ></span>
+          <span
+            class="burger-line burger-line--middle absolute left-0 top-[7px] h-0.5 w-5 rounded-full bg-current"
+          ></span>
+          <span
+            class="burger-line burger-line--bottom absolute left-0 top-[14px] h-0.5 w-5 rounded-full bg-current"
+          ></span>
         </span>
       </summary>
 
@@ -124,7 +90,7 @@ const currentPath = Astro.url.pathname;
       >
         <ul class="m-0 list-none p-0">
           {
-            navItems.map((item) => (
+            navigations.map((item) => (
               <li>
                 <a
                   href={item.href}
@@ -143,3 +109,46 @@ const currentPath = Astro.url.pathname;
     </details>
   </div>
 </header>
+
+<style>
+  .mobile-menu-panel {
+    transform-origin: top right;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  details:not([open]) .mobile-menu-panel {
+    opacity: 0;
+    transform: scale(0.97) translateY(-6px);
+    pointer-events: none;
+  }
+
+  details[open] .mobile-menu-panel {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  .burger-line {
+    transform-origin: center;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  details[open] .burger-line--top {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  details[open] .burger-line--middle {
+    opacity: 0;
+  }
+
+  details[open] .burger-line--bottom {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
