@@ -1,0 +1,45 @@
+---
+import { Picture } from "astro:assets";
+
+interface Props {
+  image: ImageMetadata;
+}
+
+const { image } = Astro.props;
+---
+
+<section class="flex flex-col items-center">
+  <div class="max-w-[80%]">
+    <Picture
+      src={image}
+      alt="Logo de Qowisio"
+      width={image.width / 2}
+      height={image.height / 2}
+      loading="lazy"
+      decoding="async"
+    />
+
+    <h2 class="title-h2">Présentation de l’établissement</h2>
+    <p class="paragraph">
+      ISCOD (Institut Supérieur des Compétences de Demain) est une école supérieure accessible partout en France. Elle propose des formations diplômantes en alternance, allant du Bac+2 au Bac+5, dans les domaines du marketing, du commerce, des ressources humaines et de l’informatique.
+    </p>
+
+    <p class="paragraph">
+      J’ai intégrer cette école parce qu'elle m'a été proposée par l'entreprise dans laquelle j'ai fait ma première alternance, que le diplôme de mastère en ingénierie logiciel (BAC+5) est reconnu par l'état et que l'idée d'avoir un BAC+5 en informatique me plaisait. La seul rétissance que j'avais à l'idée de continuer mes études après mon BUT était de devoir retourner à l'école à plein temps, ce qui n'est pas le cas avec l'ISCOD puisque c'est une école en alternance et en plus elle est à distance, ce qui me permet de pouvoir suivre mon propre rythme d'apprentissage et de continuer à travailler en parallèle.
+    </p>
+
+    <h2 class="title-h2">Ma vision de la pédagogie pratiquée</h2>
+    <p class="paragraph">
+      Pendant ma formation, je vais suivre un rythme d'alternance de 1 jour à l'école et 4 jours en entreprise, ce qui permet une vraie continuité dans les missions en entreprise et évite les coupures. En plus de l'aspect professionnel, cette école enseigne via une plateforme digitale avec des cours en vidéo, ce qui apporte un apprentissage en autonomie et permet de progresser à son propre rythme, ceux qui sont rapide, connaissent certains concepts ou intègre de nouveaux concepts rapidement peuvent avancé très vite sans attendre personne et les personnes qui ont plus de difficultés peuvent revoir plusieurs fois les cours sans avoir l'impression d'être en retard. Autrement dis c'est beaucoup plus personnalisé et je trouve que c'est une très bonne chose.
+    </p>
+
+    <p class="paragraph">
+      En plus des vidéos il y a également des lives d'organisé toute les semaines avec la personne qui a fais les vidéos, se qui permet au personnes qui ont des difficultés de posé des questions. Il y a également un discord pour que tous les élève s'entraide. Donc même s'il faut faire preuvent d'autonomie, les élève ne sont pas seul pour autant.
+    </p>
+
+    <p class="paragraph">
+      Ce système demande de la discipline pour apprendre et gérer soi-même ses horaires de travail, des qualités que je possède et qui me permettent d'avancer efficacement à mon propre rythme. Pour autant je pense que ça ne convient à tous le monde donc il faut le prendre en compte avant de s'inscrire.
+    </p>
+
+  </div>
+</section>

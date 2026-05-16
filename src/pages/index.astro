@@ -4,6 +4,8 @@ import Welcome from "@/components/Welcome.astro";
 import ProjetsPreview from "@/components/projets/Projets_preview.astro";
 import About from "@/components/About.astro";
 import ProjetsPreviewTitle from "@/components/projets/Projets_preview_title.astro";
+import ExperiencesPreview from "@/components/experiences/Experiences_preview.astro";
+import ExperiencesPreviewTitle from "@/components/experiences/Experiences_preview_title.astro";
 import CompetencesPreview from "@/components/competences/Competences_preview.astro";
 import CompetencesPreviewTitle from "@/components/competences/Competences_preview_title.astro";
 import Button from "@/components/Button.astro";
@@ -35,6 +37,13 @@ import Button from "@/components/Button.astro";
 
       <CompetencesPreviewTitle competencesType="hard" link={true} />
       <CompetencesPreview competencesType="hard" />
+    </div>
+  </section>
+
+  <section id="experiences" class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <ExperiencesPreviewTitle />
+      <ExperiencesPreview />
     </div>
   </section>
 </MainLayout>

@@ -1,0 +1,32 @@
+---
+import HeadingSecBar from "@components/Heading_sec_bar.astro";
+import Button from "@components/Button.astro";
+
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  buttonLink?: string;
+  buttonText?: string;
+}
+
+const { id, title, description, buttonLink, buttonText } = Astro.props;
+---
+
+<h2
+  id={id}
+  class="text-center mb-14 mt-20"
+>
+  <span class="heading-sec__main block text-3xl md:text-4xl uppercase tracking-wider font-extrabold text-gray-900">{title}</span>
+  <HeadingSecBar />
+  <span class="block mt-4 px-4 text-sm md:text-base text-gray-600 max-w-3xl mx-auto">{description}</span>
+  {
+    buttonLink && buttonText && (
+      <Button
+        href={buttonLink}
+        text={buttonText}
+        class="mt-6"
+      />
+    )
+  }
+</h2>

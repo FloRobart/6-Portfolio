@@ -1,4 +1,51 @@
+---
+import { getExperienceById } from "@/data/experiences";
+import { getProjectById } from "@/data/projects";
+
+const experienceLocalLinks = {
+  qowisio: getExperienceById("qowisio")?.localLink || "https://www.qowisio.com/",
+  lalachante: getExperienceById("lalachante")?.localLink || "https://www.lalachante.com/",
+  iscod: getExperienceById("iscod")?.localLink || "https://www.iscod.fr/formation-ingenierie-avancee-du-logiciel-en-alternance",
+  iut_le_havre: getExperienceById("iut-le-havre")?.localLink || "https://www-iut.univ-lehavre.fr/info",
+  lycee_sadi_carnot: getExperienceById("lycee-sadi-carnot")?.localLink || "https://lyc-bertin-carnot.paysdelaloire.e-lyco.fr/",
+  lycee_duplessis: getExperienceById("lycee-duplessis")?.localLink || "https://duplessis-mornay.paysdelaloire.e-lyco.fr/",
+};
+
+const projectLocalLinks = {
+  floraccess: getProjectLink("floraccess"),
+  flower_garden: getProjectLink("flower-garden"),
+  flollylist: getProjectLink("flollylist"),
+  econoris: getProjectLink("econoris"),
+  lyssecure: getProjectLink("lyssecure"),
+  documentation: getProjectLink("documentation"),
+  maven_lite: getProjectLink("maven-lite"),
+  alloscp: getProjectLink("alloscp"),
+  theme_vscode: getProjectLink("theme-vscode"),
+};
+
+function getProjectLink(projectId: string): string {
+  const project = getProjectById(projectId);
+  if (!project) {
+    return "#";
+  }
+
+  if (!project.displayable) {
+    return project.githubLink || "#";
+  }
+
+  return project?.localLink || project?.githubLink || "#";
+}
+---
+
+<script define:vars={{ experienceLocalLinks, projectLocalLinks }}>
+  window.__experienceLocalLinks = experienceLocalLinks;
+  window.__projectLocalLinks = projectLocalLinks;
+</script>
+
 <script type="module">
+  const experienceLocalLinks = window.__experienceLocalLinks || {};
+  const projectLocalLinks = window.__projectLocalLinks || {};
+
   /**
    * Initialise Mermaid pour le rendu des diagrammes de parcours.
    * Configure les options de thème et de timeline pour une meilleure lisibilité.
@@ -37,13 +84,9 @@
       const currentMonth = new Date().toLocaleString("fr-FR", {
         month: "long",
       });
-      const capitalizedMonth =
-        currentMonth.charAt(0).toUpperCase() + currentMonth.slice(1);
+      const capitalizedMonth = currentMonth.charAt(0).toUpperCase() + currentMonth.slice(1);
 
-      timeline.textContent = timeline.textContent.replace(
-        "__CURRENT_MONTH__",
-        capitalizedMonth,
-      );
+      timeline.textContent = timeline.textContent.replace("__CURRENT_MONTH__", capitalizedMonth);
       timeline.setAttribute("data-current-month-applied", "true");
     }
 
@@ -54,24 +97,15 @@
       /*----------------------*/
       /* Obtention de diplome */
       /*----------------------*/
-      if (
-        node.textContent.toUpperCase().includes("Obtention".toUpperCase()) &&
-        node.textContent.toUpperCase().includes("du".toUpperCase())
-      ) {
+      if (node.textContent.toUpperCase().includes("Obtention".toUpperCase()) && node.textContent.toUpperCase().includes("du".toUpperCase())) {
         addBoldToNode(node);
 
         if (node.textContent.toUpperCase().includes("BUT".toUpperCase())) {
-          addLinkToNode(
-            node,
-            "https://fr.wikipedia.org/wiki/Bachelor_universitaire_de_technologie",
-          );
+          addLinkToNode(node, "https://fr.wikipedia.org/wiki/Bachelor_universitaire_de_technologie");
         }
 
         if (node.textContent.toUpperCase().includes("DUT".toUpperCase())) {
-          addLinkToNode(
-            node,
-            "https://fr.wikipedia.org/wiki/Dipl%C3%B4me_universitaire_de_technologie",
-          );
+          addLinkToNode(node, "https://fr.wikipedia.org/wiki/Dipl%C3%B4me_universitaire_de_technologie");
         }
 
         if (node.textContent.toUpperCase().includes("BAC".toUpperCase())) {
@@ -82,45 +116,45 @@
         }
       }
 
+      /*------------*/
+      /* Entreprise */
+      /*------------*/
+      /* Qowisio */
+      if (node.textContent.toUpperCase().includes("QOWISIO".toUpperCase())) {
+        addLinkToNode(node, experienceLocalLinks.qowisio);
+        addBoldToNode(node);
+      }
+
+      /* LalaChante */
+      if (node.textContent.toUpperCase().includes("LALACHANTE".toUpperCase())) {
+        addLinkToNode(node, experienceLocalLinks.lalachante);
+        addBoldToNode(node);
+      }
+
       /*-------*/
       /* Ecole */
       /*-------*/
       /* ISCOD */
       if (node.textContent.toUpperCase().includes("ISCOD".toUpperCase())) {
-        addLinkToNode(
-          node,
-          "https://www.iscod.fr/formation-ingenierie-avancee-du-logiciel-en-alternance?utm_source=google-branding&utm_medium=cpc&utm_campaign=ISCOD_Etudiant&utm_term=%2Biscod&gad_source=1&gad_campaignid=9492102615&gbraid=0AAAAAD1Gu2KpvdPAtzunrbgKdDcf8hInm&gclid=Cj0KCQjwv-LOBhCdARIsAM5hdKdNatsI2RcBDg9azl9cRLnq90XRkBYxH9abpJpxfT-6u4yZADX56CcaAow3EALw_wcB",
-        );
+        addLinkToNode(node, experienceLocalLinks.iscod);
         addBoldToNode(node);
       }
 
       /* IUT du Havre */
       if (node.textContent.toUpperCase().includes("IUT".toUpperCase())) {
-        addLinkToNode(node, "https://www-iut.univ-lehavre.fr/info");
+        addLinkToNode(node, experienceLocalLinks.iut_le_havre);
         addBoldToNode(node);
       }
 
       /* SADI Carnot */
-      if (
-        node.textContent.toUpperCase().includes("SADI".toUpperCase()) &&
-        node.textContent.toUpperCase().includes("CARNOT".toUpperCase())
-      ) {
-        addLinkToNode(
-          node,
-          "https://lyc-bertin-carnot.paysdelaloire.e-lyco.fr/",
-        );
+      if (node.textContent.toUpperCase().includes("SADI".toUpperCase()) && node.textContent.toUpperCase().includes("CARNOT".toUpperCase())) {
+        addLinkToNode(node, experienceLocalLinks.lycee_sadi_carnot);
         addBoldToNode(node);
       }
 
       /* Duplessis Mornay */
-      if (
-        node.textContent.toUpperCase().includes("Duplessis".toUpperCase()) &&
-        node.textContent.toUpperCase().includes("Mornay".toUpperCase())
-      ) {
-        addLinkToNode(
-          node,
-          "https://duplessis-mornay.paysdelaloire.e-lyco.fr/",
-        );
+      if (node.textContent.toUpperCase().includes("Duplessis".toUpperCase()) && node.textContent.toUpperCase().includes("Mornay".toUpperCase())) {
+        addLinkToNode(node, experienceLocalLinks.lycee_duplessis);
         addBoldToNode(node);
       }
 
@@ -128,69 +162,48 @@
       /* Projets */
       /*---------*/
       /* FlorAccess */
-      if (
-        node.textContent.toUpperCase().includes("FlorAccess".toUpperCase())
-      ) {
-        addLinkToNode(node, "/projets/floraccess");
+      if (node.textContent.toUpperCase().includes("FlorAccess".toUpperCase())) {
+        addLinkToNode(node, projectLocalLinks.floraccess);
       }
 
       /* Flower garden */
-      if (
-        node.textContent.toUpperCase().includes("Flower".toUpperCase()) &&
-        node.textContent.toUpperCase().includes("garden".toUpperCase())
-      ) {
-        addLinkToNode(node, "/projets/flower-garden");
+      if (node.textContent.toUpperCase().includes("Flower".toUpperCase()) && node.textContent.toUpperCase().includes("garden".toUpperCase())) {
+        addLinkToNode(node, projectLocalLinks.flower_garden);
       }
 
       /* FlollyList */
-      if (
-        node.textContent.toUpperCase().includes("FlollyList".toUpperCase())
-      ) {
-        addLinkToNode(node, "/projets/flollylist");
+      if (node.textContent.toUpperCase().includes("FlollyList".toUpperCase())) {
+        addLinkToNode(node, projectLocalLinks.flollylist);
       }
 
       /* Econoris */
-      if (
-        node.textContent.toUpperCase().includes("Econoris".toUpperCase())
-      ) {
-        addLinkToNode(node, "/projets/econoris");
+      if (node.textContent.toUpperCase().includes("Econoris".toUpperCase())) {
+        addLinkToNode(node, projectLocalLinks.econoris);
       }
 
       /* Lyssecure */
-      if (
-        node.textContent.toUpperCase().includes("LysSecure".toUpperCase())
-      ) {
-        addLinkToNode(node, "/projets/lyssecure");
+      if (node.textContent.toUpperCase().includes("LysSecure".toUpperCase())) {
+        addLinkToNode(node, projectLocalLinks.lyssecure);
       }
 
       /* Documentation */
-      if (
-        node.textContent.toUpperCase().includes("Documentation".toUpperCase())
-      ) {
-        addLinkToNode(node, "/projets/documentation");
+      if (node.textContent.toUpperCase().includes("Documentation".toUpperCase())) {
+        addLinkToNode(node, projectLocalLinks.documentation);
       }
 
       /* Maven Lite */
-      if (
-        node.textContent.toUpperCase().includes("Maven".toUpperCase()) &&
-        node.textContent.toUpperCase().includes("Lite".toUpperCase())
-      ) {
-        addLinkToNode(node, "/projets/maven-lite");
+      if (node.textContent.toUpperCase().includes("Maven".toUpperCase()) && node.textContent.toUpperCase().includes("Lite".toUpperCase())) {
+        addLinkToNode(node, projectLocalLinks.maven_lite);
       }
 
       /* All'OScp */
-      if (
-        node.textContent.toUpperCase().includes("All'OScp".toUpperCase())
-      ) {
-        addLinkToNode(node, "/projets/alloscp");
+      if (node.textContent.toUpperCase().includes("All'OScp".toUpperCase())) {
+        addLinkToNode(node, projectLocalLinks.alloscp);
       }
 
       /* Thème pour Visual Studio Code */
-      if (
-        node.textContent.toUpperCase().includes("thème".toUpperCase()) &&
-        node.textContent.toUpperCase().includes("Code".toUpperCase())
-      ) {
-        addLinkToNode(node, "/projets/theme-vscode");
+      if (node.textContent.toUpperCase().includes("thème".toUpperCase()) && node.textContent.toUpperCase().includes("Code".toUpperCase())) {
+        addLinkToNode(node, projectLocalLinks.theme_vscode);
       }
     });
   }
@@ -209,8 +222,12 @@
    * @param {string} url - L'URL vers laquelle le lien doit pointer.
    */
   function addLinkToNode(node, url) {
+    if (!url || url === "#") {
+      return;
+    }
+
     const group = node.closest("g");
-    if (!group || !group.parentNode || !group.parentNode.parentNode) {
+    if (!group || !group.parentNode) {
       return;
     }
 
@@ -218,14 +235,12 @@
       return;
     }
 
-    const parent = group.parentNode;
-
     const link = document.createElementNS("http://www.w3.org/2000/svg", "a");
     link.setAttribute("href", url);
     link.setAttribute("class", "parcours-link");
 
-    parent.parentNode.insertBefore(link, parent);
-    link.appendChild(parent);
+    group.parentNode.insertBefore(link, group);
+    link.appendChild(group);
   }
 
   /**

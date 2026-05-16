@@ -3,167 +3,63 @@ import HeadingSecBar from "./Heading_sec_bar.astro";
 import Button from "@components/Button.astro";
 ---
 
-<section id="about" class="bg-gray-50 py-20">
+<section
+  id="about"
+  class="bg-gray-50 py-20"
+>
   <div class="max-w-6xl mx-auto px-6">
     <h2 class="text-center mb-10">
-      <span
-        class="heading-sec__main block text-3xl md:text-4xl uppercase tracking-wider font-extrabold text-gray-900"
-        >A propos de moi</span
-      >
+      <span class="heading-sec__main block text-3xl md:text-4xl uppercase tracking-wider font-extrabold text-gray-900">A propos de moi</span>
       <HeadingSecBar />
-      <span
-        class="block mt-4 text-sm md:text-base text-gray-600 max-w-3xl mx-auto"
-        >Vous trouverez ici plus d'informations sur moi, ce que j'aime dans le
-        développement et mes compétences actuelles principalement en termes de
-        technologie et d'outils que je sais réellement utilisé.</span
+      <span class="block mt-4 text-sm md:text-base text-gray-600 max-w-3xl mx-auto"
+        >Vous trouverez ici plus d'informations sur moi, ce que j'aime dans le développement ainsi que mes outils préférés, que j'utilise le plus
+        souvent et que je maîtrise le mieux.</span
       >
     </h2>
 
     <div class="grid gap-10 md:grid-cols-2">
       <div>
         <h3 class="text-xl md:text-2xl font-bold mb-4">Mes motivations</h3>
-        <div
-          class="space-y-4 text-gray-700 text-base md:text-lg leading-relaxed"
-        >
-          <p>
-            Je suis étudiant en quatrième année d'informatique, et je suis <span
-              class="font-semibold">passionné</span
-            > par ce domaine depuis que je l'ai découvert. <span
-              class="font-semibold">J'aime beaucoup apprendre</span
-            > de nouvelles technologies, de nouveaux langages, de nouvelles astuces,
-            ou encore le fonctionnement du matériel que j'utilise.
+        <div class="space-y-4 text-gray-700 text-base md:text-lg leading-relaxed">
+          <p class="paragraph">
+            Je suis étudiant en deuxième année de mastère en ingénierie logicielle. Je suis passionné par le <b>développement logiciel</b>, le <b>rollers</b> ainsi
+            que le <b>vélo de route</b>.
           </p>
 
-          <p>
-            Ma <span class="font-semibold">curiosité</span> m'a permis de découvrir
-            <span class="font-semibold">différents aspects</span> de l'informatique,
-            que ce soit le <span class="font-semibold"
-              >développement d'application</span
-            >, le <span class="font-semibold">développement web</span>, la <span
-              class="font-semibold">gestion de serveur</span
-            >, la <span class="font-semibold">sécurité informatique</span>, la <span
-              class="font-semibold">base de données</span
-            > ou encore des domaines plus éloignés du code comme la <span
-              class="font-semibold">documentation</span
-            >, la <span class="font-semibold">gestion d'équipe</span> et la <span
-              class="font-semibold">gestion de projet</span
-            >.
+          <p class="paragraph">
+            <b>Passionné</b> par le <b>développement logiciel</b>, J'aime résoudre des problèmes, simple ou complexe, et trouver des <b
+              >solutions efficaces</b
+            > afin de <b>simplifier la vie des utilisateurs</b>. De nature très <b>curieuse</b>, j'aime découvrir de nouvelles technologies et de
+            nouveaux outils, et je suis toujours à la recherche de nouvelles opportunités pour <b>apprendre</b> et <b>progresser</b> en tant que développeur.
           </p>
 
-          <p>
-            Je pense qu'il y a encore beaucoup à faire dans ce domaine, et qu'il
-            peut apporter beaucoup à tout le monde, que ce soit pour <span
-              class="font-semibold">faciliter la vie quotidienne</span
-            >, <span class="font-semibold">améliorer la productivité</span> ou encore
-            <span class="font-semibold">aider</span> les personnes qui en ont besoin,
-            notamment avec des <span class="font-semibold"
-              >applications sur mesure</span
-            >. C'est la raison pour laquelle j'ai réalisé les projets que vous
-            trouverez <a
-              href="#projets"
-              class="underline font-semibold text-red-800">ci-dessous</a
-            > et que je continue à en réaliser.
+          <p class="paragraph">
+            Se que <b>j'affectionne</b> le plus dans le développement logiciel, c'est la possibilité de créer des outils pour <b
+              >faciliter la vie des utilisateurs</b
+            >, que ce soit pour les <b>aider</b> à accomplir des tâches plus <b>rapidement</b>, ou pour leur permettre de faire des choses qu'ils ne
+            pouvaient pas faire auparavant. <b>Ma vision de l'informatique</b> est qu'elle doit être <b>au service de l'humain</b>. C'est afin de
+            répondre à cette vision que je réalise un <b>mastère en ingénierie logicielle</b> et que je fais beaucoup de <b>projets personnels</b>.
           </p>
         </div>
 
-        <Button class="mt-6" href="/presentation" text="En savoir plus" />
+        <Button
+          class="mt-6"
+          href="/presentation"
+          text="En savoir plus"
+        />
       </div>
 
       <div>
-        <h3 class="text-xl md:text-2xl font-bold mb-4">Mes spécialités</h3>
+        <h3 class="text-xl md:text-2xl font-bold mb-4">Mes Outils de prédilection</h3>
         <div class="flex flex-wrap gap-3">
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Git</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Github</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Linux</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Bash</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >CMD</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Powershell</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Batch</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Java</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Java Android API</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Android Studio</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Wildfly</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Maven</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Microsoft SQL Server</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >MySQL</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >PostgreSQL</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >PL/pgSQL</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >VBS</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >PHP</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Laravel</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >Tailwind CSS</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >JavaScript</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >HTML</span
-          >
-          <span
-            class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium"
-            >CSS</span
-          >
+          <span class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium">Git</span>
+          <span class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium">Github / GitLab</span>
+          <span class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium">Linux (Debian)</span>
+          <span class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium">Bash</span>
+          <span class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium">Docker</span>
+          <span class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium">TypeScript</span>
+          <span class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium">Node.js</span>
+          <span class="px-3 py-1.5 bg-white border border-gray-200 text-gray-700 rounded-md text-sm font-medium">Flutter</span>
         </div>
       </div>
     </div>

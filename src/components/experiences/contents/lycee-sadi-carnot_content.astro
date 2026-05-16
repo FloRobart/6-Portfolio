@@ -1,0 +1,36 @@
+---
+import { Picture } from "astro:assets";
+
+interface Props {
+  image: ImageMetadata;
+}
+
+const { image } = Astro.props;
+---
+
+<section class="flex flex-col items-center">
+  <div class="max-w-[80%]">
+    <Picture
+      src={image}
+      alt="Logo de Qowisio"
+      width={image.width / 2}
+      height={image.height / 2}
+      loading="lazy"
+      decoding="async"
+    />
+
+    <h2 class="title-h2">Présentation de l’établissement</h2>
+    <p class="paragraph">
+      Le lycée Sadi Carnot - Jean Bertin est un établissement d'enseignement secondaire public situé à Saumur (49400), dans le département de Maine-et-Loire en région Pays de la Loire. Il propose des formations générales, technologiques et professionnelles dans divers domaines allant de la mécanique à la restauration en passant par la menuiserie, l'électrotechnique et la maintenance des équipements industriels.
+    </p>
+
+    <p class="paragraph">
+      J'ai intégré ce lycée en STI2D (Sciences et Technologies de l'Industrie et du Développement Durable) en première, puis j'ai poursuivi en terminale dans la même filière. J'ai choisi cette filière car elle me permettait de faire plus de science et de mathématiques que la filière générale en plus d'avoir des matières plus techniques et pratiques, ce qui correspondait mieux à mon profil et à mes aspirations professionnelles.
+    </p>
+
+    <h2 class="title-h2">Ma vision de la pédagogie pratiquée</h2>
+    <p class="paragraph">
+      La pédagogie pratiquée au lycée Sadi Carnot - Jean Bertin est assez classique, et largement axé sur les matières techniques et scientifiques, ce qui correspond à la filière STI2D que j'ai suivi.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+---
+import ExperienceDetailHeader from "@/components/experiences/Experience_detail_header.astro";
+import QowisioContent from "@/components/experiences/contents/qowisio_content.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import { getExperienceById } from "@/data/experiences";
+import SocialLink from "@/components/Social_link.astro";
+
+const experience = getExperienceById("qowisio");
+
+if (!experience) {
+  throw new Error("Experience 'qowisio' not found in experiences data.");
+}
+---
+
+<MainLayout>
+  <ExperienceDetailHeader
+    id={experience.id}
+    title={experience.title}
+    description={experience.description}
+    buttonLink={experience.externalLink}
+    buttonText={"Voir le site de " + experience.title}
+  />
+
+  <SocialLink />
+
+  <div class="max-w-7xl mx-auto mb-24">
+    <QowisioContent image={experience.imageSrc} />
+  </div>
+</MainLayout>

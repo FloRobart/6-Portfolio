@@ -1,0 +1,75 @@
+---
+import { Picture } from "astro:assets";
+import { getProjectById } from "@/data/projects";
+
+interface Props {
+  image: ImageMetadata;
+}
+
+const { image } = Astro.props;
+const genesisProject = getProjectById("genesis");
+---
+
+<section class="flex flex-col items-center">
+  <div class="max-w-[80%]">
+    <Picture
+      src={image}
+      alt="Logo de Qowisio"
+      width={image.width / 2}
+      height={image.height / 2}
+      loading="lazy"
+      decoding="async"
+    />
+
+    <h2 class="title-h2">Présentation de l’établissement</h2>
+    <p class="paragraph">
+      Qowisio est une entreprise angevine fondé en 2009 spécialisé dans les solutions IoT (Internet of Things ou Internet des Objets en français).
+      Depuis son rachat par le groupe <a href="https://www.groupe-ocea.fr/qui-sommes-nous/">Ocea Smart Building</a> en 2022, Qowisio est le pôle recherche
+      et développement du groupe, se concentrant sur la création de solutions innovantes pour les bâtiments intelligents. L'entreprise propose une gamme
+      de produits et services qui permettent de connecter, surveiller et gérer différent élément des habitations. Parmis ses éléments ont retrouve notamment
+      l'eau, le chauffage, la climatisation et d'autres systèmes dans les bâtiments, contribuant ainsi à améliorer l'efficacité énergétique et la durabilité.
+      Qowisio travaille avec divers secteurs, notamment les bâtiments résidentiels, commerciaux et industriels, offrant des solutions adaptées à chaque
+      besoin spécifique.
+    </p>
+
+    <h2 class="title-h2">Travail effectué</h2>
+    <p class="paragraph">
+      Durant mon alternance chez Qowisio, qui est toujours en cours, j'ai eu l'opportunité de travailler sur plusieurs projets passionnants. J'ai
+      commencé par créer un backend de notification auquel les applications clientes peuvent se connecter pour recevoir des notifications en temps
+      réel sur les relevé des compteurs et des capteurs posé dans les logements des clients de Qowisio et Ocea Smart Building.
+    </p>
+
+    <p class="paragraph">
+      J'ai également travaillé sur la refonte de l'application principale de Qowisio. Nous avons migrer l'application de Angular 1 (Angular JS) vers
+      Angular 19.
+    </p>
+
+    <p class="paragraph">
+      J'ai aussi travaillé sur la création d'une application dédier au techniciens de Ocea Smart Building{genesisProject ? " nommé " : ""}<a
+        href={genesisProject?.localLink}><b><u>{genesisProject?.title}</u></b></a
+      >, qui leur permet de posé et de visualité la couverture des passerelles. Une passerelle est un boitier qui fais le lien entre les capteurs et
+      les serveurs de Qowisio, elle sont généralement posé dans les parties communes des immeubles ou dans les locaux techniques.
+    </p>
+
+    <p class="paragraph">
+      Maintenant je travaille sur la création d'une application de monitoring des passerelles nommé Nexus, qui permet de visualiser les passerelles,
+      vérifier leur état de fonctionnement, modifier leur configuration ainsi que leur firmware à distance. Cette application est développé en Angular
+      19 pour le frontend et en NodeJS pour le backend.
+    </p>
+
+    <h2 class="title-h2">Ma place dans l'entreprise</h2>
+    <p class="paragraph">
+      J'ai intégré Qowisio en tant que développeur web en alternance en mars 2025. Je me suis intégrer assez facilement, d'autant plus qu'au début
+      nous étions que deux développeurs web en plus de mon maitre d'apprentissage. L'équipe est aujourd'hui de 4 développeurs, 1 directeur technique
+      qui est mon maitre d'apprentissage et cofondateur de l'entreprise avec le directeur général, 1 directeur général, 1 alternant commercial, 1
+      ingénieur firmware, 1 alternant hardware, 1 ingénieur hardware, 1 ingénieure radio et télécommunication et 1 comptable. Donc en tout nous sommes
+      12 personnes dans l'entreprise.
+    </p>
+
+    <p class="paragraph">
+      J'ai été très bien accueilli par toute l'équipe. Un des gros point fort de Qowisio est que tous le monde travail au même endroit, donc nous
+      avons tous l'occasion de voir se que font les autres membre de l'équipe, peut importe leur poste. Cela permet d'avoir une bonne vision
+      d'ensemble de l'entreprise et de se sentir intégré dans l'équipe en plus d'apprendre beaucoup de chose sur les autres métier de l'entreprise.
+    </p>
+  </div>
+</section>

@@ -7,4 +7,5 @@ export const navigations = [
   { label: "Parcours", href: "/parcours" },
   { label: "Réalisations", href: "/projets" },
   { label: "Compétences", href: "/competences" },
+  { label: "Expériences", href: "/experiences" },
 ];

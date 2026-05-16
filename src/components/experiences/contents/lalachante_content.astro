@@ -1,0 +1,54 @@
+---
+import { Picture } from "astro:assets";
+
+interface Props {
+  image: ImageMetadata;
+}
+
+const { image } = Astro.props;
+---
+
+<section class="flex flex-col items-center">
+  <div class="max-w-[80%]">
+    <Picture
+      src={image}
+      alt="Logo de Qowisio"
+      width={image.width / 2}
+      height={image.height / 2}
+      loading="lazy"
+      decoding="async"
+    />
+
+    <h2 class="title-h2">Présentation de l’établissement</h2>
+    <p class="paragraph">
+      LalaChante est un studio de champ situé à Toulouse. J'ai effectué un stage de 4 mois en télétravail en tant que développeur web ainsi que le
+      début de mon alternance également en télétravail en tant que chef de projet et chef d'équipe.
+    </p>
+
+    <h2 class="title-h2">Travail effectué</h2>
+    <p class="paragraph">
+      Pendant mon stage, j'ai aider à développer une application web sur laquelle travaillais l'équipe depuis plusieurs mois. Cette application est
+      une sorte de réseau social pour les clients de LalaChante et des studios associés.
+    </p>
+
+    <p class="paragraph">
+      Après mon stage, le patron de LalaChante m'a proposé de continuer en tant que chef de projet pour remplacer celui qui allais partir. Il avait
+      aimer mon esprit d'initiative et ma capacité à prendre des décisions rapidement pendant le stage. J'ai accepté et j'ai commencé mon alternance
+      en septembre 2024. En tant que chef de projet, je suis responsable de la planification, de l'organisation et de la supervision du projet de
+      développement web de LalaChante.
+    </p>
+
+    <h2 class="title-h2">Ma place dans l'entreprise</h2>
+    <p class="paragraph">
+      J'ai intégré LalaChante en tant que stagiaire, puis j'ai continué en tant que chef de projet en alternance. La prise de responsabilité a été
+      rapide et j'ai du faire preuve d'autonomie dès le début de mon alternance. J'ai du apprendre à gérer une équipe de développeurs, à prendre des
+      décisions importantes pour le projet et ceux avec seulement l'expérience que j'ai eu en cours et en stage.
+    </p>
+
+    <p class="paragraph">
+      J'ai démissionné de mon poste de chef de projet en décembre 2024, car nous avons eu des divergences de vision sur la direction du projet. De
+      plus un membre de l'équipe de développement qui était en stage m'a dit que le projet qu'on étais en train de développer ne lui permettrait pas
+      de validé sont diplôme de Licence. Je ne voulais donc pas continuer à travailler sur un projet qui ne me permettrait pas de validé mon diplôme.
+    </p>
+  </div>
+</section>

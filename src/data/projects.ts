@@ -121,7 +121,8 @@ export const projectsPreviewList: ProjectPreview[] = [
   {
     id: "jeu-aventuriers-du-rail",
     title: "Jeu Les aventuriers du rail",
-    description: "Ce projet est un jeu vidéo de type <b>adaptation du jeu de société 'Les aventuriers du rail'</b>. C'est un projet que j'ai réalisé dans le cadre scolaire en troisième et dernière année d'IUT informatique. J'ai réalisé ce projet avec 4 autres personnes. J'ai occupé le rôle de <b>chef de projet</b>, j'ai donc été responsable de la <b>gestion du projet</b> et de la <b>coordination de l'équipe</b>. J'ai également participé à la <b>conception du jeu</b> et à la <b>programmation de certaines fonctionnalités</b>. Ce projet a été pour moi une expérience très enrichissante, qui m'a permis de développer mes compétences en gestion de projet, en travail d'équipe et en programmation.",
+    description:
+      "Ce projet est un jeu vidéo de type <b>adaptation du jeu de société 'Les aventuriers du rail'</b>. C'est un projet que j'ai réalisé dans le cadre scolaire en troisième et dernière année d'IUT informatique. J'ai réalisé ce projet avec 4 autres personnes. J'ai occupé le rôle de <b>chef de projet</b>, j'ai donc été responsable de la <b>gestion du projet</b> et de la <b>coordination de l'équipe</b>. J'ai également participé à la <b>conception du jeu</b> et à la <b>programmation de certaines fonctionnalités</b>. Ce projet a été pour moi une expérience très enrichissante, qui m'a permis de développer mes compétences en gestion de projet, en travail d'équipe et en programmation.",
     imageSrc: JeuAventuriersDuRailImage,
     localLink: "/projets/jeu-aventuriers-du-rail",
     githubLink: "https://github.com/FloRobart/Jeu_aventurier_du_rail",

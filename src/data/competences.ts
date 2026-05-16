@@ -131,18 +131,11 @@ export const competencesPreviewList: CompetencePreview[] = [
   },
 ];
 
-export function getCompetenceById(
-  competenceId: string,
-): CompetencePreview | undefined {
+export function getCompetenceById(competenceId: string): CompetencePreview | undefined {
   try {
-    return competencesPreviewList.find(
-      (competence) => competence.id === competenceId,
-    );
+    return competencesPreviewList.find((competence) => competence.id === competenceId);
   } catch (error) {
-    console.error(
-      `Error occurred while fetching competence with ID ${competenceId}:`,
-      error,
-    );
+    console.error(`Error occurred while fetching competence with ID ${competenceId}:`, error);
     return undefined;
   }
 }
