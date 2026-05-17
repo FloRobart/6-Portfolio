@@ -51,7 +51,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "ingeniosite",
     title: "Ingéniosité",
     description:
-      "Mon ingéniosité me permet de trouver des solutions créatives et innovantes aux problèmes auxquels je suis confronté. Je suis capable de penser de manière originale et de proposer des idées novatrices pour améliorer les processus et les résultats.",
+      "L'ingéniosité est la capacité à trouver des solutions à des problèmes, complèxe ou non, uniqument à partir de connaissances et de ressources déjà existantes.",
     imageSrc: IngeniositeImage,
     localLink: "/competences/ingeniosite",
     type: "soft",
