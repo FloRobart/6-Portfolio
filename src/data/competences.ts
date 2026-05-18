@@ -73,7 +73,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "flutter",
     title: "Flutter",
     description:
-      "J'aime beaucoup Flutter, déjà parce qu'il permet de créer des applications multiplateformes avec une seule base de code, ce qui est très efficace, surtout pour les petites équipes ou quand on est seul à créer un projet. Flutter offre des designs à la fois d'une grande flexibilité mais aussi d'une grande qualité et ceux de façon très simple à mettre en place. De plus Flutter est un framework open-source, ce qui signifie que la communauté peut contribuer à son développement et à son amélioration, ce qui en fait un choix solide pour les développeurs qui cherchent à créer des applications de haute qualité.",
+      "Flutter est un framework de développement d'applications mobiles, web et desktop développé par Google. Il permet de créer des applications performantes et esthétiques en utilisant un langage de programmation unique, c'est à dire qu'avec une seule base de code, on peut créer des applications pour quasiment toutes les plateformes (iOS, Android, Web, Windows, MacOS, Linux).",
     imageSrc: FlutterImage,
     localLink: "/competences/flutter",
     type: "hard",
