@@ -61,7 +61,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "polyvalence",
     title: "Polyvalence",
     description:
-      "Le fais d'être seul à créer mes projets m'a permis de développer une grande polyvalence. Je suis capable de gérer tous les aspects d'un projet, de l'idée à la mise en place de la gestion de projet, en passant par la réalisation du projet, la sécurité, la documentation, l'automatisation du processus de déploiement, le déploiement lui même sur un serveur distants type VPS (Virtual Private Server), la maintenance et la sécurité du serveur lui même, la gestion des enregistrements DNS, etc. Cette polyvalence me permet de gerer efficacement tous les aspects d'un projet.",
+      "La polyvalence est la capacité à s'adapter et à exceller dans différents domaines, tâches ou rôles",
     imageSrc: PolyvalenceImage,
     localLink: "/competences/polyvalence",
     type: "soft",
