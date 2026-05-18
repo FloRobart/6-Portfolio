@@ -73,7 +73,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "flutter",
     title: "Flutter",
     description:
-      "Flutter est un framework de développement d'applications mobiles, web et desktop développé par Google. Il permet de créer des applications performantes et esthétiques en utilisant un langage de programmation unique, c'est à dire qu'avec une seule base de code, on peut créer des applications pour quasiment toutes les plateformes (iOS, Android, Web, Windows, MacOS, Linux).",
+      "Flutter est un framework open-source de développement d'applications mobiles, web et desktop développé par Google. Il permet de créer des applications performantes et esthétiques en utilisant un langage de programmation unique, c'est à dire qu'avec une seule base de code, on peut créer des applications pour quasiment toutes les plateformes (iOS, Android, Web, Windows, MacOS, Linux).",
     imageSrc: FlutterImage,
     localLink: "/competences/flutter",
     type: "hard",
@@ -83,7 +83,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "nodejs",
     title: "NodeJS",
     description:
-      "Node.js est un environnement d'exécution JavaScript côté serveur, ce qui me permet de développer des applications backend performantes et évolutives. Je couple toujours Node.js avec Express et Typescript, ce qui me permet de créer des API RESTful robustes et bien structurées. J'apprécie la sécurité et la facilité de maintenance et de mise en production que me permet cette stack, notamment grâce à l'image officielle de Node.js sur Docker, qui facilite le déploiement de mes applications sur des serveurs distants ou des services cloud. De plus, Node.js dispose d'un écosystème riche en bibliothèques et en outils, ce qui me permet de trouver facilement des solutions pour répondre à mes besoins spécifiques lors du développement de mes projets. De plus Node.js est également open-source.",
+      "Node.js est un environnement d'exécution JavaScript côté serveur open-source qui permet aux développeurs de créer des applications web évolutives et performantes.",
     imageSrc: NodejsImage,
     localLink: "/competences/nodejs",
     type: "hard",
@@ -93,7 +93,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "docker",
     title: "Docker",
     description:
-      "Docker est une plateforme de conteneurisation qui me permet de créer, déployer et gérer des applications dans des conteneurs. Cela me permet de garantir que mon application fonctionne de la même manière dans différents environnements, ce qui améliore la cohérence et la fiabilité du déploiement. Je suis capable de créer des images Docker optimisées et de les utiliser pour déployer mes applications sur des serveurs distants ou des services cloud de façon très simple et rapide.",
+      "Docker est une plateforme open-source de conteneurisation qui me permet de créer, déployer et gérer des applications dans des conteneurs. Cela me permet de garantir que mon application fonctionne de la même manière dans différents environnements, ce qui améliore la cohérence et la fiabilité du déploiement. Je suis capable de créer des images Docker optimisées et de les utiliser pour déployer mes applications sur des serveurs distants ou des services cloud de façon très simple et rapide.",
     imageSrc: DockerImage,
     localLink: "/competences/docker",
     type: "hard",
