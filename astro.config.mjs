@@ -2,6 +2,7 @@
 import { defineConfig, envField } from "astro/config";
 
 import sitemap from "@astrojs/sitemap";
+import expressiveCode from "astro-expressive-code";
 
 import tailwindcss from "@tailwindcss/vite";
 
@@ -24,7 +25,7 @@ export default defineConfig({
     },
   },
 
-  integrations: [sitemap()],
+  integrations: [sitemap(), expressiveCode()],
 
   vite: {
     plugins: [tailwindcss()],

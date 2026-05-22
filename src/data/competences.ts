@@ -93,7 +93,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "docker",
     title: "Docker",
     description:
-      "Docker est une plateforme open-source de conteneurisation qui me permet de créer, déployer et gérer des applications dans des conteneurs. Cela me permet de garantir que mon application fonctionne de la même manière dans différents environnements, ce qui améliore la cohérence et la fiabilité du déploiement. Je suis capable de créer des images Docker optimisées et de les utiliser pour déployer mes applications sur des serveurs distants ou des services cloud de façon très simple et rapide.",
+      "Docker est une plateforme open-source de conteneurisation qui permet de créer, déployer et exécuter des applications dans des conteneurs.",
     imageSrc: DockerImage,
     localLink: "/competences/docker",
     type: "hard",
