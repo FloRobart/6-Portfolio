@@ -96,6 +96,101 @@ RUN addgroup -g 1800 -S econorisgroup && adduser -u 1800 -S econorisuser -G econ
 USER econorisuser
 `;
 
+const EconorisDockerCompose = `
+services:
+  # Econoris Database #
+  econoris-db:
+    image: florobart/econoris-db:latest
+    restart: always
+    env_file:
+      - ./config/.env.econoris_db
+    volumes:
+      - econoris_db_data:/var/lib/postgresql/econoris_db_data
+    networks:
+      - econoris-net
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \${ECONORIS_DB_USER} -d \${ECONORIS_DB_NAME} || exit 1"]
+      interval: 5s
+      timeout: 30s
+      retries: 5
+
+  # Econoris Server #
+  econoris-server:
+    image: florobart/econoris-server:latest
+    working_dir: /app
+    restart: always
+    env_file:
+      - ./config/.env.econoris_server
+    depends_on:
+      econoris-db:
+        condition: service_healthy
+    networks:
+      - flower-garden-net
+      - econoris-net
+    ports:
+      - \${ECONORIS_SERVER_PORT:-}:80
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    read_only: true
+    user: "1800:1800"
+    tmpfs:
+      - /tmp:exec,nosuid,nodev
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://econoris-server:80/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Econoris App Web #
+  econoris-app-web:
+    image: florobart/econoris-app-web:latest
+    restart: always
+    env_file:
+      - ./config/.env.econoris_app
+    volumes:
+      - ./config/.env.econoris_app:/usr/share/nginx/html/assets/.env:ro
+    networks:
+      - flower-garden-net
+    ports:
+      - \${ECONORIS_APP_PORT:-}:80
+    depends_on:
+      econoris-server:
+        condition: service_healthy
+      floraccess-server:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+      - CHOWN
+      - SETGID
+      - SETUID
+    read_only: true
+    user: "1800:1800"
+    tmpfs:
+      - /tmp:exec,nosuid,nodev,uid=1800,gid=1800
+      - /run:rw,mode=0755,uid=1800,gid=1800
+      - /run/nginx:rw,mode=0755,uid=1800,gid=1800
+      - /var/cache/nginx:rw,uid=1800,gid=1800
+      - /var/cache/nginx/client_temp:rw,uid=1800,gid=1800
+      - /var/cache/nginx/proxy_temp:rw,uid=1800,gid=1800
+      - /var/cache/nginx/fastcgi_temp:rw,uid=1800,gid=1800
+      - /var/cache/nginx/uwsgi_temp:rw,uid=1800,gid=1800
+      - /var/cache/nginx/scgi_temp:rw,uid=1800,gid=1800
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://econoris-app-web:80/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+`;
 ---
 
 <section class="flex flex-col items-center">
@@ -201,25 +296,78 @@ USER econorisuser
     </p>
 
     <p class="paragraph">
-      L'autre point que je voulais montrer sur cette image c'est l'optimisation. Il faut savoir que le build prend du temps. C'est pour ça que docker à un cache très puissant. Vous pouvez voir que j'ajoute le code source du projet relativement tard. En fait c'est parce que tout se qui au dessus ne change jamais, donc docker peut le mettre en cache, et du coup si je fais un changement dans le code source, docker n'aura pas à refaire tout se qui est au dessus, et il pourra directement utiliser le cache pour ne pas a avoir à réinstallé flutter depuis internet. Cela permet de gagner plusieurs minutes par build, se qui n'est pas négligeable.
+      L'autre point que je voulais montrer sur cette image c'est l'optimisation. Il faut savoir que le build prend du temps. C'est pour ça que docker à un mécanisme de cache très puissant. Vous pouvez voir que j'ajoute le code source du projet relativement tard. En fait c'est parce que tout se qui est au dessus ne change jamais, donc docker peut le mettre en cache, et du coup si je fais un changement dans le code source, docker n'aura pas à refaire tout se qui est au dessus de la copie du code source, et il pourra directement utiliser le cache pour ne pas a avoir à réinstallé flutter depuis internet. Cela permet de gagner plusieurs minutes par build, se qui n'est pas négligeable.
     </p>
 
     <p class="paragraph">
-      Pour l'aspet sécurité, vous pouvez donc voir que si un attaquant parvient à sortir de l'application et accéder au système d'exploitation, se sera celui du conteneur, donc aucun problème pour les autres applications ou pour le serveur hôte, et en plus de ça, l'attaquant n'aura pas de privilèges d'administrateur sur le système d'exploitation du conteneur, et même s'il essaie d'exploiter une faille de sécurité pour obtenir des privilèges d'administrateur, il ne pourra pas le faire parce que dans le docker compose j'ai configuré le conteneur pour qu'il soit impossible d'obtenir des privilèges d'administrateur, ce qui rend l'application encore plus sécurisée en production.
+      Pour l'aspet sécurité, vous pouvez donc voir que si un attaquant parvient à sortir de l'application et accéder au système d'exploitation, se sera celui du conteneur, donc aucun problème pour les autres applications ou pour le serveur hôte, et en plus de ça, l'attaquant n'aura pas de privilèges d'administrateur sur le système d'exploitation du conteneur, et même s'il essaie d'exploiter une faille de sécurité pour obtenir des privilèges d'administrateur, il ne pourra pas le faire parce que dans le docker compose, j'ai configuré le conteneur pour qu'il soit impossible d'obtenir des privilèges d'administrateur, ce qui rend l'application encore plus sécurisée en production.
     </p>
 
     <p class="paragraph">
       Vous voyez que grâce à Docker, il y a au moins trois couches de sécurité en plus des sécurités de l'application elle même, ce qui rend le tout extremement fiable et sécurisé pour la mise en production, et c'est en partie pour ça que Docker est un outil incontournable pour le déploiement des applications et que jamais je ne mettrais une application sans l'utiliser.
     </p>
 
+    <p class="paragraph">
+      Voyant maintenant le fameux docker compose, qui va permettre permettre de parametrer tous les conteneurs de l'application, et de les lancer tous en même temps avec une seule commande. C'est un outil vraiment très puissant qui me permet de gérer facilement tous les conteneurs dont j'ai besoin pour faire fonctionner mes applications, que se sois pour le développement ou pour la mise en production.
+    </p>
+
+    <Code
+        class="paragraph"
+        code={EconorisDockerCompose}
+        lang="yaml"
+        title="Econoris Docker Compose"
+        frame="code"
+        showLineNumbers
+      />
+
+    <p class="paragraph">
+      Vous pouvez voir ci-dessus le docker compose complet d'Econoris. Chaque service est un conteneur qui va être lancé pour faire fonctionner l'application, il y a le conteneur de la base de données, le conteneur du serveur backend et le conteneur du frontend. Chaque conteneur est configuré de manière à être optimisé pour la production, avec des bonnes pratiques de sécurité, de performance et de fiabilité, comme par exemple les healthchecks pour vérifier que les conteneurs sont en bonne santé, les volumes pour stocker les données de manière persistante, les réseaux pour permettre aux conteneurs de communiquer entre eux sans passer par le réseau hôte, les options de sécurité pour limiter les privilèges des conteneurs, etc. C'est vraiment un outil très puissant qui me permet de gérer facilement tous les conteneurs.
+    </p>
+
+    <p class="paragraph">
+      Je ne vais pas passé en revu tous le fichier de configuration, mais on peux quand même regarder quelques points intéressants, notament d'un point de vue sécurité. On peux voir que j'ai défini des réseaux personnalisés pour les conteneurs, ce qui permet de faire en sorte que les conteneurs puissent communiquer uniquement avec les conteneurs dont ils ont besoin pour fonctionner. Il a donc un réseau partager avec le reverse-proxy ("flower-garden-net" ligne 31), qui permet au serveur backend d'être exposé sur internet via le nom de domaine configurer dans le reverse-proxy, et il a un réseau privé ("econoris-net" ligne 32) qui permet au serveur backend de communiquer avec la base de données sans que la base de données soit exposé sur internet.
+    </p>
+
+    <p class="paragraph">
+      Seul le serveur backend et la base de données sont présent dans le réseau privé "econoris-net", ce qui fait que la base de données n'est pas exposé sur internet, et que seul le serveur backend peut y accéder, ce qui rend la base de données beaucoup plus sécurisée en production. De plus, j'ai configuré les conteneurs pour qu'ils soient en read-only, ce qui signifie que même si un attaquant parvient à accéder au conteneur, il ne pourra pas modifier les fichiers du conteneur, ce qui rend l'application encore plus sécurisée en production.
+    </p>
+
+    <p class="paragraph">
+      En bref, grâce à Docker et à Docker compose et à la façon de configurer les conteneurs et les images, Mes applications sont confinées dans des environnements isolés et même si un attaquant arrive à entrer dans l'application, se qui est déjà très difficile grâce à la sécurité de l'application elle même, il ne pourra rien faire puisqu'il ne pourra rien écrire dans le conteneur, il ne peux pas se donner des privilèges et il ne pourra pas accéder au système d'exploitation hôte ou à d'autres conteneurs. Donc il a uniquement accès au code source en production, qui est de façon en open-source, donc sa ne sert à rien.
+    </p>
+
+    <p class="paragraph">
+      Il aura quand même accès au fichier d'environnement de l'application, qui contient des secrets, notament les clés d'accès à la base de données, mais même s'il a accès à ces secrets, il ne pourra pas les utiliser pour faire quoi que se soit, parce que la base de données n'est pas exposé sur internet, et que depuis le conteneur, qui est le seul à pouvoir techniquement vir la base de données il n'aura pas les droits pour se connecter à la base de données, même en possèdant les clés d'accès.
+    </p>
+
+    <p class="paragraph">
+      Autrement dis même si l'application fait l'objet d'attaque ciblé et sofistiqué, les attanquants ne pourrons pas accéder au données.
+    </p>
+
     <h2 class="title-h2">Mon autocritique</h2>
     <p class="paragraph">
-      Paragraphe
+      J'ai pris comme exemple Econoris parce que c'est le premier projet pour lequel j'ai appliqué toutes les bonnes pratiques de Docker, et que c'est le projet qui m'a permis de vraiment comprendre comment fonctionne Docker et comment l'utiliser de manière efficace mais j'aurais pu prendre n'importe lequel de mes projets, parce que j'ai appliqué éxactement les même bonnes pratiques de Docker pour tous mes projets et également dans un cadre proffessionnel, pour Genesis. Grâce à Génésis j'ai pu montrer à d'autre développeurs plus expérimenté que moi comment j'ai utilisé et tous les systèmes d'automatisation et de sécurité que j'ai mis en place avec Docker.
+    </p>
+
+    <p class="paragraph">
+      Ils ont pu vérifier se que j'avais fais et me donner des conseils pour aller encore plus loin et m'améliorer. Je pense notament au cache docker que je ne connaissais pas. Au final il s'est avérer que j'ai fais un très bon travail sur la configuration de mes images et de mes conteneurs, parce qu'a part le cache docker, j'ai tous fait correctement et j'ai même utilisé des techniques d'optimisation et de sécurité qu'ils ne connaissaient pas, comme par exemple le fait de faire une étape de build séparé pour pouvoir inclure des secrets et des outils de build sans les inclure dans l'image finale.
+    </p>
+
+    <p class="paragraph">
+      J'ai une très bonne connaissance et utilisation de Docker et c'est génial, maintenant pour m'améliorer et faudrai que je passe à Kubernetes. Kubernetes utilise les mêmes concepts que Docker, comme les images et les conteneurs, mais il ajoute une couche d'orchestration pour gérer les conteneurs à grande échelle. Il a un gestionnaire de secret pour gérer les secrets de manière encore plus sécurisée, notament avec du chiffrement, et il a également des fonctionnalités d'autoscaling pour faire en sorte que l'application puisse s'adapter automatiquement au nombre d'utilisateurs  qui l'utilisent. C'est un outil très puissant qui me permettra de faire du déploiement à grande échelle de manière encore plus efficace et sécurisée, et c'est clairement la prochaine étape pour moi dans l'apprentissage de la conteneurisation et du déploiement des applications.
+    </p>
+
+    <p class="paragraph">
+      Attention quand même pour passer à Kubernetes, il faut d'abord avoir une très bonne connaissance de Docker, parce que Kubernetes utilise les mêmes concepts, les mêmes images et les mêmes conteneurs, donc si vous ne maîtrisez pas Docker, vous ne pourrez pas maîtriser Kubernetes, et que Kubernetes est un outil bien plus complexe que Docker. 
     </p>
 
     <h2 class="title-h2">Mon évolution dans cette compétence</h2>
     <p class="paragraph">
-      Paragraphe
+      Docker faisant partie à mon sens du trio des outils parfait, avec Git et Linux, je compte continuer de l'utiliser pour tous mes projets actuel et futur, que se sois pour le développement ou pour la mise en production. Je pense que je n'ai plus grand chose à apprendre sur Docker, mais je vais continuer à me tenir informé des nouveautés et des bonnes pratiques pour continuer à l'utiliser de la manière la plus efficace et sécurisée possible.
+    </p>
+
+    <p class="paragraph">
+      Je compte également passer à Kubernetes qui est à mon sens l'évolution logique après Docker pour le déploiement des applications à grande échelle, et qui me permettra de faire du déploiement encore plus efficace et sécurisé pour mes applications, notamment grâce à son gestionnaire de secret et à ses fonctionnalités d'autoscaling.
     </p>
   </div>
 </section>
