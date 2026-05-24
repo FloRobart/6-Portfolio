@@ -103,7 +103,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "linux",
     title: "Linux",
     description:
-      "Linux est un système d'exploitation open-source. Il a été créer pour fonctionner sur une grande variété de matériel, des ordinateurs personnels aux serveurs en passant par les appareils embarqués. J'utilise Linux au qotidien depuis plus 2023, sur mon ordinateur personnel. Mon entreprise est également 100% basée sur Linux, que ce soit pour les ordinateurs de bureau ou les serveurs de production. J'ai une grande expérience avec les distributions Linux, notamment Ubuntu et Debian, et je suis à l'aise avec la ligne de commande pour effectuer des tâches d'administration système, de gestion des fichiers, de configuration réseau et de dépannage.",
+      "Linux est un noyau de système d'exploitation libre et open source, développé initialement par Linus Torvalds en 1991. Il est utilisé dans une grande variété de systèmes, allant des serveurs aux ordinateurs personnels, en passant par les appareils mobiles et les systèmes embarqués.",
     imageSrc: LinuxImage,
     localLink: "/competences/linux",
     type: "hard",
