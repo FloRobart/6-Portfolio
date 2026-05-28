@@ -123,7 +123,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "gestion-de-projet",
     title: "Gestion de projet",
     description:
-      "La gestion de projet est une compétence essentielle pour assurer le succès de tout projet. Je suis capable de planifier, organiser et gérer efficacement les ressources et les risques pour atteindre les objectifs du projet. Je n'utilise pas de méthodologie de gestion de projet spécifique, mais grâce à mon expérience et à l'expérience de mes collaborateurs, j'ai développé une approche pragmatique qui me permet de m'adapter aux besoins spécifiques de chaque projet et de garantir une exécution efficace et toujours avec un résultat d'une grande qualité.",
+      "La gestion de projet est une compétence qui consiste à planifier, organiser, diriger et contrôler les ressources (humaines, financières, matérielles) pour atteindre des objectifs spécifiques dans un délai imparti. Elle implique la coordination de différentes tâches et activités pour assurer la réussite d'un projet, en respectant les contraintes de temps, de budget et de qualité. La gestion de projet nécessite également une communication efficace, c'est pourquoi elle est souvent associée à la compétence de gestion d'équipe.",
     imageSrc: GestionProjetImage,
     localLink: "/competences/gestion-de-projet",
     type: "hard",
@@ -131,6 +131,11 @@ export const competencesPreviewList: CompetencePreview[] = [
   },
 ];
 
+/**
+ * Récupère une compétence à partir de son ID
+ * @param competenceId L'ID de la compétence à récupérer
+ * @returns La compétence correspondante à l'ID, ou undefined si aucune compétence ne correspond à l'ID
+ */
 export function getCompetenceById(competenceId: string): CompetencePreview | undefined {
   try {
     return competencesPreviewList.find((competence) => competence.id === competenceId);
