@@ -1,0 +1,38 @@
+---
+import { Picture } from "astro:assets";
+
+interface Props {
+  image: ImageMetadata;
+}
+
+const { image } = Astro.props;
+---
+
+<section class="flex flex-col items-center">
+  <div class="max-w-[80%]">
+    <Picture
+      src={image}
+      alt="Logo de Extrait d'Anjou"
+      width={image.width / 2}
+      height={image.height / 2}
+      loading="lazy"
+      decoding="async"
+    />
+
+    <h2 class="title-h2">Présentation de l’établissement</h2>
+    <p class="paragraph">
+      Paragraphe
+    </p>
+
+    <h2 class="title-h2">Travail effectué</h2>
+    <p class="paragraph">
+      Paragraphe
+    </p>
+
+
+    <h2 class="title-h2">Ma place dans l'entreprise</h2>
+    <p class="paragraph">
+      Paragraphe
+    </p>
+  </div>
+</section>

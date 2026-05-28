@@ -113,7 +113,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "documentation",
     title: "Documentation",
     description:
-      "La documentation est un aspect crucial du développement logiciel. Je suis adepte de la documentation claire, complète et à jour. Je m'assure toujours que mes projets soient bien documentés, que ce soit pour les utilisateurs finaux ou pour les développeurs qui pourraient avoir à intervenir sur le code à l'avenir. Cela permet de faciliter la maintenance et l'évolution des applications.",
+      "Savoir faire une bonne documentation, qu'elle sois technique ou utilisateur, c'est être capable de faire à la fois un document clair et précis, qui explique de manière simple et compréhensible comment utiliser un produit ou un service, tout en fournissant suffisamment de détails pour que les utilisateurs puissent comprendre les fonctionnalités et les avantages du produit ou du service.",
     imageSrc: DocumentationImage,
     localLink: "/competences/documentation",
     type: "hard",

@@ -1,0 +1,27 @@
+---
+import ExperienceDetailHeader from "@/components/experiences/Experience_detail_header.astro";
+import ExtraitDanjouContent from "@/components/experiences/contents/extrait_danjou_content.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import { getExperienceById } from "@/data/experiences";
+import SocialLink from "@/components/Social_link.astro";
+
+const experience = getExperienceById("extrait-danjou");
+
+if (!experience) {
+  throw new Error("Experience 'extrait-danjou' not found in experiences data.");
+}
+---
+
+<MainLayout>
+  <ExperienceDetailHeader
+    id={experience.id}
+    title={experience.title}
+    description={experience.description}
+  />
+
+  <SocialLink />
+
+  <div class="max-w-7xl mx-auto mb-24">
+    <ExtraitDanjouContent image={experience.imageSrc} />
+  </div>
+</MainLayout>

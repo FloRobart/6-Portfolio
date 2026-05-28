@@ -2,6 +2,7 @@ import type { ImageMetadata } from "astro";
 
 /* Experience images */
 import QowisioImage from "@assets/experiences/qowisio.png";
+import ExtraitdAnjouImage from "@assets/experiences/extrait_danjou.png";
 import LalachanteImage from "@assets/experiences/lalachante.png";
 import IscodImage from "@assets/experiences/iscod.png";
 import IutLeHavreImage from "@assets/experiences/iut_le_havre.png";
@@ -27,6 +28,15 @@ export const experiencesPreviewList: ExperiencePreview[] = [
     imageSrc: QowisioImage,
     localLink: "/experiences/qowisio",
     externalLink: "https://www.qowisio.com/",
+    displayable: true,
+  },
+  {
+    id: "extrait-danjou",
+    title: "Extrait d'Anjou",
+    description:
+      "Extrait d'Anjou est une entreprise spécialisée dans la production d'extraits de plantes, notamment d'artichauts.",
+    imageSrc: ExtraitdAnjouImage,
+    localLink: "/experiences/extrait-danjou",
     displayable: true,
   },
   {

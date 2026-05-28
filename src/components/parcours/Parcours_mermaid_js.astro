@@ -4,6 +4,7 @@ import { getProjectById } from "@/data/projects";
 
 const experienceLocalLinks = {
   qowisio: getExperienceById("qowisio")?.localLink || "https://www.qowisio.com/",
+  extrait_danjou: getExperienceById("extrait-danjou")?.localLink || "",
   lalachante: getExperienceById("lalachante")?.localLink || "https://www.lalachante.com/",
   iscod: getExperienceById("iscod")?.localLink || "https://www.iscod.fr/formation-ingenierie-avancee-du-logiciel-en-alternance",
   iut_le_havre: getExperienceById("iut-le-havre")?.localLink || "https://www-iut.univ-lehavre.fr/info",
@@ -122,6 +123,12 @@ function getProjectLink(projectId: string): string {
       /* Qowisio */
       if (node.textContent.toUpperCase().includes("QOWISIO".toUpperCase())) {
         addLinkToNode(node, experienceLocalLinks.qowisio);
+        addBoldToNode(node);
+      }
+
+      /* Extrait d'Anjou */
+      if (node.textContent.toUpperCase().includes("EXTRAIT".toUpperCase()) && node.textContent.toUpperCase().includes("ANJOU".toUpperCase())) {
+        addLinkToNode(node, experienceLocalLinks.extrait_danjou);
         addBoldToNode(node);
       }
 
