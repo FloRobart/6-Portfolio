@@ -31,7 +31,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "organisation",
     title: "Organisation",
     description:
-      "Il est essentiel pour moi d'organiser tous se que je fais, que ce soit dans ma vie professionnelle ou personnelle. Cela me permet de toujours suivre se que j'ai à faire, de ne pas me laisser submerger et d'assurer un travail de haute qualité.",
+      "Il est essentiel pour moi d'organiser tout ce que je fais, que ce soit dans ma vie professionnelle ou personnelle. Cela me permet de toujours savoir ce que j'ai à faire, de ne pas me laisser submerger et d'assurer un travail de grande qualité.",
     imageSrc: OrganisationImage,
     localLink: "/competences/organisation",
     type: "soft",
@@ -51,7 +51,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "ingeniosite",
     title: "Ingéniosité",
     description:
-      "L'ingéniosité est la capacité à trouver des solutions à des problèmes, complèxe ou non, uniqument à partir de connaissances et de ressources déjà existantes.",
+      "L'ingéniosité est la capacité à trouver des solutions à des problèmes, complexes ou non, uniquement à partir de connaissances et de ressources déjà existantes.",
     imageSrc: IngeniositeImage,
     localLink: "/competences/ingeniosite",
     type: "soft",
@@ -61,7 +61,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "polyvalence",
     title: "Polyvalence",
     description:
-      "La polyvalence est la capacité à s'adapter et à exceller dans différents domaines, tâches ou rôles",
+      "La polyvalence est la capacité à s'adapter et à exceller dans différents domaines, tâches ou rôles.",
     imageSrc: PolyvalenceImage,
     localLink: "/competences/polyvalence",
     type: "soft",
@@ -73,7 +73,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "flutter",
     title: "Flutter",
     description:
-      "Flutter est un framework open-source de développement d'applications mobiles, web et desktop développé par Google. Il permet de créer des applications performantes et esthétiques en utilisant un langage de programmation unique, c'est à dire qu'avec une seule base de code, on peut créer des applications pour quasiment toutes les plateformes (iOS, Android, Web, Windows, MacOS, Linux).",
+      "Flutter est un framework open source de développement d'applications mobiles, web et ordinateur développé par Google. Il permet de créer des applications performantes et esthétiques en utilisant un langage de programmation unique, c'est-à-dire qu'avec une seule base de code, on peut créer des applications pour quasiment toutes les plateformes (IOS, Android, Web, Windows, MacOS, Linux).",
     imageSrc: FlutterImage,
     localLink: "/competences/flutter",
     type: "hard",
@@ -113,7 +113,7 @@ export const competencesPreviewList: CompetencePreview[] = [
     id: "documentation",
     title: "Documentation",
     description:
-      "Savoir faire une bonne documentation, qu'elle sois technique ou utilisateur, c'est être capable de faire à la fois un document clair et précis, qui explique de manière simple et compréhensible comment utiliser un produit ou un service, tout en fournissant suffisamment de détails pour que les utilisateurs puissent comprendre les fonctionnalités et les avantages du produit ou du service.",
+      "Savoir rédiger une bonne documentation, qu'elle soit technique ou destinée aux utilisateurs, consiste à produire un document à la fois clair et précis. Il explique de manière simple comment utiliser un produit ou un service, tout en fournissant suffisamment de détails pour comprendre ses fonctionnalités et ses avantages.",
     imageSrc: DocumentationImage,
     localLink: "/competences/documentation",
     type: "hard",

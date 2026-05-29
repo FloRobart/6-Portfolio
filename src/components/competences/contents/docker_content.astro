@@ -201,52 +201,52 @@ services:
     </p>
 
     <p class="paragraph">
-      Docker fonction en deux parties, d'un coté les images Docker et de l'autre les conteneurs Docker. Il est très important de comprendre la différence entre les deux, car ils sont souvent confondus alors que c'est vraiment la base du fonctionnement de Docker. Je précise toute fois que docker est un outil très complexe et que je n'expliquerai pas tout son fonctionnement en détail, mais je vais quand même expliquer dans les grandes lignes et en faisant des approximations pour simplifier les choses comment fonctionnent les images et les conteneurs Docker, pour que vous puissiez comprendre les bases de Docker et comment il fonctionne.
+      Docker fonctionne selon deux concepts complémentaires : les images Docker et les conteneurs Docker. Il est important de comprendre la différence entre les deux, car elles sont souvent confondues alors qu'il s'agit de la base du fonctionnement de Docker. Je précise toutefois que Docker est un outil vaste et complexe. Je n'expliquerai pas tout en détail, mais je vais tout de même expliquer, de manière simplifiée, les principes essentiels pour comprendre les images et les conteneurs.
     </p>
 
     <p class="paragraph">
-      Pour commencer, les images. Une image Docker est la base de l'application, c'est à dire que c'est elle qui contient tout le code, les bibliothèques, les dépendances et le système d'exploitation nécessaire pour faire fonctionner l'application. Donc pour créer l'image d'une application, on choisie le système d'exploitation adapté à notre application, puis on ajoute tout le code qu'on a écrit, on installe toutes les bibliothèques et les dépendances dont notre application a besoin, et on configure tout ce qui est nécessaire pour que l'application puisse fonctionner correctement.
+      Pour commencer, les images. Une image Docker contient tout le code, les bibliothèques, les dépendances et parfois un système minimal nécessaire pour exécuter l'application. Pour créer l'image d'une application, on choisit une image de base adaptée, puis on ajoute le code, on installe les dépendances et on configure l'environnement nécessaire au bon fonctionnement de l'application. Le but étant d'obtenir une image complète et autonome qui peut être exécutée sur n'importe quelle machine disposant de Docker, sans se soucier des différences d'environnement ou de configuration.
     </p>
 
     <p class="paragraph">
-      Une fois l'image créer, on peux la mettre dans un conteneur Docker et elle va fonctionner, peux importe si elle est lancé sur un serveur, un ordinateur windows, un ordinateur Linux ou un ordinateur Mac, tant que Docker est installé, l'application va fonctionner de la même manière. C'est ça qui fait la force de Docker, c'est que les applications fonctionnent de la même manière partout, ce qui facilite énormément le développement et le déploiement des applications.
+      Une fois l'image créée, on peut l'exécuter dans un conteneur Docker. Peu importe que le conteneur soit lancé sur un serveur, un ordinateur Windows, Linux ou macOS, tant que Docker est installé, l'application va se comporter de la même façon. C'est l'un des principaux intérêts de Docker, car cela facilite considérablement le développement et surtout le déploiement.
     </p>
 
     <p class="paragraph">
-      Le conteneur Docker quand à lui, c'est l'instance de l'image Docker qui est en cours d'exécution. Si vous voulez lancé votre application plusieurs fois, il vous suffit de créer plusieurs conteneurs à partir de la même image, et chaque conteneur va fonctionner de manière indépendante, avec sa propre configuration et ses propres données. C'est ça qui fait la puissance de Docker, c'est que vous pouvez facilement créer et gérer plusieurs instances de votre application, sans avoir à vous soucier des problèmes de compatibilité ou de configuration.
+      Le conteneur Docker, quant à lui, est l'instance d'une image en cours d'exécution. Pour exécuter plusieurs instances d'une application, il suffit de lancer plusieurs conteneurs à partir de la même image. Chaque conteneur fonctionne de manière isolée, avec sa propre configuration et ses propres données. Cela rend la gestion d'instances multiples simple et fiable.
     </p>
 
     <p class="paragraph">
-      En bref une image est litéralement une image de votre application, c'est à dire qu'elle contient tout ce dont votre application a besoin pour fonctionner de façon autonome, tandis qu'un conteneur est une instance de cette image qui est en cours d'exécution. On met l'image dans un conteneur pour que l'application puisse fonctionner, le conteneur est l'environnement d'exécution de l'application, tandis que l'image est la base de l'application.
+      En bre, l'image décrit l'état de votre application (fichiers, dépendances, configuration) tandis que le conteneur est l'environnement d'exécution créé à partir de cette image. L'image est la base, le conteneur est l'instance en fonctionnement.
     </p>
 
     <p class="paragraph">
-      Toute les données que peux enregistrer l'application, ou si elle créer des fichiers par exemple, et bien elle le fera dans le conteneur. Vous pouvez arrêter le conteneur pour stopper l'application, puis le redémarrer pour la relancer, et elle fonctionnera toujours de la même manière, avec les mêmes données et les mêmes fichiers, parce que tout est stocké dans le conteneur. En revanche, si vous supprimer le conteneur, vous perdrez toutes les données et les fichiers qui étaient stockés dans le conteneur.
+      Toutes les données que l'application enregistre (fichiers, etc.) peuvent être écrites dans le conteneur. Vous pouvez arrêter puis redémarrer un conteneur : l'application retrouvera généralement le même état si des volumes persistants sont utilisés. En revanche, si vous supprimez un conteneur sans avoir externalisé les données grâce à des volumes, vous allez perdre ces données. Les volumes sont des fichiers ou des répertoires sur l'hôte qui sont rendus accessibles au conteneur. Ils permettent de stocker les données de manière persistante, même si le conteneur est supprimé ou recréé.
     </p>
 
     <p class="paragraph">
-      En plus de toute les qualités que j'ai déjà mentionné, Docker offre une sécurité énorme. Le but d'un conteneur, en plus de faire en sorte que l'application fonctionne de la même manière partout, c'est aussi d'isoler l'application du système d'exploitation hôte, c'est à dire que même si l'application a une faille de sécurité, qui permet à l'attaquant d'accéder au système d'exploitation, en faite il accedera uniquement au système d'exploitation du conteneur, il ne pourra pas accéder au système d'exploitation hôte, parce que le conteneur est complètement isolé du système d'exploitation hôte. Si d'autre application sont en cours d'exécution sur le même système d'exploitation hôte, elles ne seront pas affectées par la faille de sécurité de l'application qui est dans le conteneur, parce que chaque application est dans son propre conteneur, et que les conteneurs sont isolés les uns des autres.
+      En plus de ses avantages fonctionnels, Docker apporte un niveau d'isolation qui contribue à la sécurité. Un conteneur isole l'application du système d'exploitation hôte. En cas de faille, l'attaque reste confinée au conteneur et n'affecte pas directement l'hôte ou les autres conteneurs. Cette isolation réduit les risques, mais ne doit pas remplacer d'autres bonnes pratiques de sécurité.
     </p>
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
     <p class="paragraph">
-      Docker est, au même titre que Git, un incontournable pour tout développeur, il est aujourd'hui impensable de ne pas utiliser Docker pour, au minimum, la mise en production. Pour ma part j'ai utilisé Docker pour absolument tous mes projets, que se sois pour le développement ou pour la mise en production, et je ne pourrais pas imaginer ne pas l'utiliser, parce que c'est un outil tellement puissant et tellement pratique pour le développement et le déploiement des applications, que se serai impensable de faire sans.
+      Docker est, au même titre que Git, un outil incontournable pour de nombreux développeurs. Aujourd'hui, il est difficile d'envisager le déploiement sans Docker. Pour ma part, je l'ai utilisé sur absolument tous mes projets, en développement comme en production, car il est à la fois puissant et pratique pour créer des environnements reproductibles.
     </p>
 
     <p class="paragraph">
-      Pour être plus précis, j'utilise Docker compose, qui est un outil qui permet de définir et de gérer des applications multi-conteneurs, entrement dis, cela permet de définir plusieurs conteneurs qui vont fonctionner ensemble pour faire fonctionner une application complète, avec tous les services dont elle a besoin, comme la base de données, le serveur web, etc. C'est un outil très puissant qui me permet de gérer facilement tous les conteneurs dont j'ai besoin pour faire fonctionner mes applications.
+      Pour être plus précis, j'utilise Docker Compose, un outil qui permet de définir et de gérer des applications multi-conteneurs. Autrement dit, il permet de décrire plusieurs services (base de données, serveur web, frontend, etc.) qui fonctionnent ensemble pour former une application complète. C'est très pratique pour orchestrer un ensemble de conteneurs.
     </p>
 
     <p class="paragraph">
-      C'est important parce que chaqu'une de mes applications a besoin de trois conteneurs pour fonctionner, un pour le frontend, un pour le backend et un pour la base de données, et grâce à Docker compose, je peux facilement définir tous ces conteneurs dans un seul fichier de configuration, et les lancer tous en même temps avec une seule commande. Cela me permet de gagner énormément de temps et d'efforts pour le développement et le déploiement de mes applications, parce que je n'ai pas à me soucier de la configuration de chaque conteneur individuellement, je peux tout gérer à partir d'un seul fichier de configuration, ce qui est vraiment très pratique et efficace.
+      Cela m'est utile car chacune de mes applications repose généralement sur trois conteneurs : frontend, backend et base de données. Grâce à Docker Compose, je peux définir ces conteneurs dans un seul fichier et les lancer simultanément avec une commande, ce qui me fait gagner beaucoup de temps et simplifie la configuration.
     </p>
 
     <p class="paragraph">
-      La première fois que j'ai réellement utilisé Docker, c'était pour Econoris, pour la mise en production de l'application. J'avais déjà utilisé Docker au travail mais ne faisais que lancé des conteneurs pré-existants. Cela ma quand même permis de decouvrir docker, voir comment sont construites les images, comment sont configurés les conteneurs, etc. Mais pour Econoris, j'ai du créer moi même les images Docker de l'application, et les configurer pour qu'elles puissent fonctionner correctement en production, ce qui m'a permis de vraiment comprendre comment fonctionne Docker et comment l'utiliser de manière efficace pour le développement et le déploiement des applications.
+      La première fois que j'ai réellement utilisé Docker en profondeur, c'était pour Econoris, lors de la mise en production. Auparavant, je n'avais fait que lancer des conteneurs existants. Pour Econoris, j'ai dû créer moi-même les images Docker et les configurer pour la production. Cette expérience m'a permis de comprendre réellement comment Docker fonctionne et comment l'utiliser efficacement pour le développement et le déploiement.
     </p>
 
     <p class="paragraph">
-      Le premier concepte que j'ai appris se sont évidement les images. J'ai appris à créer des images Docker optimisées pour mes applications, en utilisant des images de base légères et en n'incluant que les dépendances dont j'avais réellement besoin pour faire fonctionner l'application. Nous allons voir en détails le Dockerfile d'Econoris, qui est le fichier qui décrit l'image de l'application. Ce Dockerfile est globalement le même pour toute mes applications mais à également servie de base pour Genesis.
+      Le premier concept que j'ai appris concerne évidemment les images. J'ai appris à créer des images optimisées en partant d'images de base légères et en n'incluant que les dépendances nécessaires. Le Dockerfile d'Econoris, que nous présentons ci-dessous, illustre ces bonnes pratiques. Il a d'ailleurs servi de base pour d'autres projets comme FlorAccess et Genesis.
     </p>
 
     <Code
@@ -259,19 +259,19 @@ services:
     />
 
     <p class="paragraph">
-      Cette exemple est relativement simple, mais il montre à quel point Docker est puissant et flexible pour créer des images optimisées et sécurisées pour les applications.
+      Cet exemple est relativement simple, mais il montre à quel point Docker est puissant et flexible pour créer des images optimisées et sécurisées.
     </p>
 
     <p class="paragraph">
-      Vous pouvez voir que le Dockerfile est séparé en deux étapes, la première étape est l'étape de build, c'est cette partie qui va installer toutes les dépendances, compilé le projet, potentiellement faire des tests et embarquer des secrets comme des clés d'accès pour installé des dépendances privées. La deuxième partie elle, c'est l'étape de production, c'est cette partie qui va créer l'image finale qui sera utilisée pour exécuter l'application en production, donc elle va contenir uniquement les fichiers nécessaires pour faire fonctionner l'application, et elle va être configuré de manière à être optimisée pour la production, avec des bonnes pratiques de sécurité, de performance et de fiabilité.
+      Le Dockerfile bien fait est souvent séparé en deux étapes. L'étape de build et l'étape de production. La première installe les dépendances, compile le projet, exécute éventuellement des tests et peut contenir des secrets nécessaires au build. La seconde crée l'image finale destinée à la production. Elle ne contient que les fichiers nécessaires à l'exécution et est optimisée pour la sécurité, la performance et la fiabilité.
     </p>
 
     <p class="paragraph">
-      Cette architecture en deux étapes est vraiment très puissante, parce que tout se qui se passe dans l'étape 1 sera purement et simplement supprimer à la fin et ne sera pas dans l'image finale, c'est pour ça qu'elle peut contenir des secrets, des outils de build, des dépendances de développement, etc. Ensuite on copie uniquement ce dont on a besoin dans l'étape 2 pour créer l'image finale, ce qui permet d'avoir une image finale très légère, très rapide à lancer et surtout très sécurisée, parce que tout ce qui n'est pas nécessaire et qui pourrait potentiellement être une faille de sécurité, ne sera pas dans l'image finale et donc pas en production, ce qui réduit considérablement les risques de sécurité pour l'application en production.
+      Cette architecture multi-étapes est puissante car tout ce qui se passe dans l'étape de build est supprimé de l'image finale. On peut donc utiliser des outils de build et inclure des secrets temporaires sans les intégrer à l'image finale. En copiant uniquement l'essentiel dans l'étape de production, on obtient une image plus légère, plus rapide à démarrer et moins exposée aux risques de sécurité.
     </p>
 
     <p class="paragraph">
-      Vous remarqué également que dans l'étape 2, l'étape de production, j'ai ajouté un utilisateur non-root (dans sans privilèges) pour exécuter l'application. Cette bonne pratique de sécurité permet d'éviter que si l'application est compromise, l'attaquant puisse avec des droits d'administrateur sur le système d'exploitation du conteneur, ce qui pourrait potentiellement lui permettre d'accéder au système d'exploitation hôte ou à d'autres conteneurs qui sont en cours d'exécution sur le même système d'exploitation hôte.
+      Vous remarquerez aussi que, dans l'étape de production, j'exécute l'application avec un utilisateur non-root (sans privilèges). Cette bonne pratique réduit les risques de sécurité. Si l'application est compromise, l'attaquant n'obtient pas automatiquement des droits d'administrateur au sein du conteneur, se qui lui rend plus difficile l'exploitation de la faille.
     </p>
 
       <Code
@@ -292,23 +292,23 @@ services:
     </p>
 
     <p class="paragraph">
-      Se qui est intéréssant dans ce Dockerfile, c'est qu'il n'y a pas la même image entre l'etape 1 et l'etape 2. Par ailleur, vous pouvez créer autant d'étape que vous voulez pour faire toute sorte de chose. Quoi qu'il arrive seul la dernière étape sera conserver pour l'image final.
+      Ce qui est intéressant dans le Dockerfile de l'application frontend d'Econoris, c'est l'utilisation d'images différentes entre l'étape de build et l'étape de production. Par ailleurs, on peut créer autant d'étapes que nécessaire, seule la dernière étape est conservée dans l'image finale.
     </p>
 
     <p class="paragraph">
-      L'autre point que je voulais montrer sur cette image c'est l'optimisation. Il faut savoir que le build prend du temps. C'est pour ça que docker à un mécanisme de cache très puissant. Vous pouvez voir que j'ajoute le code source du projet relativement tard. En fait c'est parce que tout se qui est au dessus ne change jamais, donc docker peut le mettre en cache, et du coup si je fais un changement dans le code source, docker n'aura pas à refaire tout se qui est au dessus de la copie du code source, et il pourra directement utiliser le cache pour ne pas a avoir à réinstallé flutter depuis internet. Cela permet de gagner plusieurs minutes par build, se qui n'est pas négligeable.
+      Un autre point important est l'optimisation du build. Le build peut être long, plusieurs minutes. Docker dispose donc d'un mécanisme de cache efficace. En ajoutant le code source relativement tard dans le Dockerfile, on maximise l'utilisation du cache pour les étapes précédentes qui changent rarement. Ainsi, lors d'un changement de code, Docker n'a pas à réexécuter toutes les instructions et peut éviter de réinstaller Flutter depuis Internet, ce qui permet de gagner plusieurs minutes par build.
     </p>
 
     <p class="paragraph">
-      Pour l'aspet sécurité, vous pouvez donc voir que si un attaquant parvient à sortir de l'application et accéder au système d'exploitation, se sera celui du conteneur, donc aucun problème pour les autres applications ou pour le serveur hôte, et en plus de ça, l'attaquant n'aura pas de privilèges d'administrateur sur le système d'exploitation du conteneur, et même s'il essaie d'exploiter une faille de sécurité pour obtenir des privilèges d'administrateur, il ne pourra pas le faire parce que dans le docker compose, j'ai configuré le conteneur pour qu'il soit impossible d'obtenir des privilèges d'administrateur, ce qui rend l'application encore plus sécurisée en production.
+      Sur l'aspect sécurité, si un attaquant parvenait à compromettre l'application depuis le conteneur, l'impact reste limité au conteneur. De plus, la configuration (par exemple, l'exécution en read-only, l'impossibilité d'augmentation de privilèges) limite la capacité d'escalade des privilèges, ce qui renforce grandement la sécurité en production.
     </p>
 
     <p class="paragraph">
-      Vous voyez que grâce à Docker, il y a au moins trois couches de sécurité en plus des sécurités de l'application elle même, ce qui rend le tout extremement fiable et sécurisé pour la mise en production, et c'est en partie pour ça que Docker est un outil incontournable pour le déploiement des applications et que jamais je ne mettrais une application sans l'utiliser.
+      Grâce à Docker et à une configuration soignée, on ajoute plusieurs niveaux d'isolation en complément des sécurités applicatives, ce qui renforce la fiabilité et la sécurité pour la production. C'est en partie pour ces raisons que j'utilise systématiquement Docker pour le déploiement.
     </p>
 
     <p class="paragraph">
-      Voyant maintenant le fameux docker compose, qui va permettre permettre de parametrer tous les conteneurs de l'application, et de les lancer tous en même temps avec une seule commande. C'est un outil vraiment très puissant qui me permet de gérer facilement tous les conteneurs dont j'ai besoin pour faire fonctionner mes applications, que se sois pour le développement ou pour la mise en production.
+      Voyons maintenant Docker Compose, qui permet de paramétrer tous les conteneurs d'une application et de les lancer simultanément avec une seule commande. C'est un outil puissant pour gérer les services d'une application, en développement comme en production.
     </p>
 
     <Code
@@ -321,53 +321,53 @@ services:
       />
 
     <p class="paragraph">
-      Vous pouvez voir ci-dessus le docker compose complet d'Econoris. Chaque service est un conteneur qui va être lancé pour faire fonctionner l'application, il y a le conteneur de la base de données, le conteneur du serveur backend et le conteneur du frontend. Chaque conteneur est configuré de manière à être optimisé pour la production, avec des bonnes pratiques de sécurité, de performance et de fiabilité, comme par exemple les healthchecks pour vérifier que les conteneurs sont en bonne santé, les volumes pour stocker les données de manière persistante, les réseaux pour permettre aux conteneurs de communiquer entre eux sans passer par le réseau hôte, les options de sécurité pour limiter les privilèges des conteneurs, etc. C'est vraiment un outil très puissant qui me permet de gérer facilement tous les conteneurs.
+      Vous pouvez voir ci-dessus le Docker Compose complet d'Econoris. Chaque service est un conteneur (base de données, backend, frontend). Les conteneurs sont configurés pour la production : healthchecks, volumes pour la persistance, réseaux internes pour la communication entre services, et options de sécurité visant à limiter les privilèges.
     </p>
 
     <p class="paragraph">
-      Je ne vais pas passé en revu tous le fichier de configuration, mais on peux quand même regarder quelques points intéressants, notament d'un point de vue sécurité. On peux voir que j'ai défini des réseaux personnalisés pour les conteneurs, ce qui permet de faire en sorte que les conteneurs puissent communiquer uniquement avec les conteneurs dont ils ont besoin pour fonctionner. Il a donc un réseau partager avec le reverse-proxy ("flower-garden-net" ligne 31), qui permet au serveur backend d'être exposé sur internet via le nom de domaine configurer dans le reverse-proxy, et il a un réseau privé ("econoris-net" ligne 32) qui permet au serveur backend de communiquer avec la base de données sans que la base de données soit exposé sur internet.
+      Je ne vais pas passer en revue l'ensemble du fichier de configuration, mais voici quelques points intéressants, notamment sur la sécurité. J'ai défini des réseaux personnalisés pour limiter la communication aux services nécessaires. Par exemple, un réseau partagé avec le reverse-proxy ("flower-garden-net") permet d'exposer le backend via un nom de domaine, tandis qu'un réseau privé ("econoris-net") permet au backend de communiquer avec la base de données sans exposer cette dernière sur Internet.
     </p>
 
     <p class="paragraph">
-      Seul le serveur backend et la base de données sont présent dans le réseau privé "econoris-net", ce qui fait que la base de données n'est pas exposé sur internet, et que seul le serveur backend peut y accéder, ce qui rend la base de données beaucoup plus sécurisée en production. De plus, j'ai configuré les conteneurs pour qu'ils soient en read-only, ce qui signifie que même si un attaquant parvient à accéder au conteneur, il ne pourra pas modifier les fichiers du conteneur, ce qui rend l'application encore plus sécurisée en production.
+      Seuls le backend et la base de données sont présents sur le réseau privé "econoris-net", ce qui évite d'exposer la base de données sur Internet et limite l'accès à cette dernière. De plus, certains conteneurs sont configurés en read-only, de sorte qu'un attaquant ayant compromis un conteneur ne puisse pas modifier ses fichiers, ce qui renforce encore la sécurité.
     </p>
 
     <p class="paragraph">
-      En bref, grâce à Docker et à Docker compose et à la façon de configurer les conteneurs et les images, Mes applications sont confinées dans des environnements isolés et même si un attaquant arrive à entrer dans l'application, se qui est déjà très difficile grâce à la sécurité de l'application elle même, il ne pourra rien faire puisqu'il ne pourra rien écrire dans le conteneur, il ne peux pas se donner des privilèges et il ne pourra pas accéder au système d'exploitation hôte ou à d'autres conteneurs. Donc il a uniquement accès au code source en production, qui est de façon en open-source, donc sa ne sert à rien.
+      En résumé, grâce à Docker et à une configuration adaptée, mes applications évoluent dans des environnements isolés. Même si une vulnérabilité applicative est exploitée, l'impact reste limité. Il est impossible d'écrire dans le conteneur, d'escalader les privilèges ou d'accéder à l'hôte ou à d'autres conteneurs. Le code source étant généralement public, l'accès aux fichiers ne suffit pas à compromettre l'infrastructure.
     </p>
 
     <p class="paragraph">
-      Il aura quand même accès au fichier d'environnement de l'application, qui contient des secrets, notament les clés d'accès à la base de données, mais même s'il a accès à ces secrets, il ne pourra pas les utiliser pour faire quoi que se soit, parce que la base de données n'est pas exposé sur internet, et que depuis le conteneur, qui est le seul à pouvoir techniquement vir la base de données il n'aura pas les droits pour se connecter à la base de données, même en possèdant les clés d'accès.
+      L'attaquant pourrait éventuellement accéder au fichier d'environnement contenant des secrets (clés d'accès), mais si la base de données n'est pas exposée et si les accès sont correctement restreints, ces secrets restent difficilement exploitables depuis le conteneur compromise.
     </p>
 
     <p class="paragraph">
-      Autrement dis même si l'application fait l'objet d'attaque ciblé et sofistiqué, les attanquants ne pourrons pas accéder au données.
+      Autrement dit, même si l'application fait l'objet d'attaques ciblées et sophistiquées, la configuration et l'isolation limitent considérablement l'accès aux données, ce qui protège les utilisateurs et les données sensibles.
     </p>
 
     <h2 class="title-h2">Mon autocritique</h2>
     <p class="paragraph">
-      J'ai pris comme exemple Econoris parce que c'est le premier projet pour lequel j'ai appliqué toutes les bonnes pratiques de Docker, et que c'est le projet qui m'a permis de vraiment comprendre comment fonctionne Docker et comment l'utiliser de manière efficace mais j'aurais pu prendre n'importe lequel de mes projets, parce que j'ai appliqué éxactement les même bonnes pratiques de Docker pour tous mes projets et également dans un cadre proffessionnel, pour Genesis. Grâce à Génésis j'ai pu montrer à d'autre développeurs plus expérimenté que moi comment j'ai utilisé et tous les systèmes d'automatisation et de sécurité que j'ai mis en place avec Docker.
+      J'ai choisi Econoris comme exemple car c'est le premier projet pour lequel j'ai appliqué systématiquement les bonnes pratiques Docker. Cela m'a permis d'acquérir une solide expérience. J'ai appliqué des pratiques similaires sur d'autres projets, qu'il soit personnel ou professionnel, notamment sur Genesis, où j'ai pu présenter les automatisations et mesures de sécurité mises en place sur Econoris à d'autres développeurs plus expérimentés qui travail sur Genesis.
     </p>
 
     <p class="paragraph">
-      Ils ont pu vérifier se que j'avais fais et me donner des conseils pour aller encore plus loin et m'améliorer. Je pense notament au cache docker que je ne connaissais pas. Au final il s'est avérer que j'ai fais un très bon travail sur la configuration de mes images et de mes conteneurs, parce qu'a part le cache docker, j'ai tous fait correctement et j'ai même utilisé des techniques d'optimisation et de sécurité qu'ils ne connaissaient pas, comme par exemple le fait de faire une étape de build séparé pour pouvoir inclure des secrets et des outils de build sans les inclure dans l'image finale.
+      Ils ont pu vérifier ce que j'avais réalisé et me donner des conseils pour aller plus loin, notamment sur l'utilisation du cache Docker. Au final, la configuration de mes images et conteneurs s'est révélée de très bonne qualité, hormis l'utilisation du cache, j'avais appliqué des techniques d'optimisation et de sécurité pertinentes, comme la séparation d'une étape de build permettant d'inclure des secrets sans les intégrer à l'image finale.
     </p>
 
     <p class="paragraph">
-      J'ai une très bonne connaissance et utilisation de Docker et c'est génial, maintenant pour m'améliorer et faudrai que je passe à Kubernetes. Kubernetes utilise les mêmes concepts que Docker, comme les images et les conteneurs, mais il ajoute une couche d'orchestration pour gérer les conteneurs à grande échelle. Il a un gestionnaire de secret pour gérer les secrets de manière encore plus sécurisée, notament avec du chiffrement, et il a également des fonctionnalités d'autoscaling pour faire en sorte que l'application puisse s'adapter automatiquement au nombre d'utilisateurs  qui l'utilisent. C'est un outil très puissant qui me permettra de faire du déploiement à grande échelle de manière encore plus efficace et sécurisée, et c'est clairement la prochaine étape pour moi dans l'apprentissage de la conteneurisation et du déploiement des applications.
+      Grâce à cette expérience, j'ai une bonne maîtrise de Docker. Maintenant, pour continuer de progresser, je compte m'intéresser à Kubernetes. Kubernetes reprend les concepts d'images et de conteneurs, mais ajoute une couche d'orchestration pour gérer les déploiements à grande échelle. Il propose un gestionnaire de secrets, souvent chiffrés, et des fonctionnalités d'auto-scaling pour adapter automatiquement les ressources en fonction de la charge. C'est la prochaine étape logique pour approfondir la conteneurisation.
     </p>
 
     <p class="paragraph">
-      Attention quand même pour passer à Kubernetes, il faut d'abord avoir une très bonne connaissance de Docker, parce que Kubernetes utilise les mêmes concepts, les mêmes images et les mêmes conteneurs, donc si vous ne maîtrisez pas Docker, vous ne pourrez pas maîtriser Kubernetes, et que Kubernetes est un outil bien plus complexe que Docker. 
+      Attention toutefois, pour aborder Kubernetes il faut maîtriser Docker, car Kubernetes repose sur les mêmes concepts, mais il est plus complexe et nécessite une bonne connaissance préalable des images et conteneurs, qui donc plus facile à apprendre avec Docker.
     </p>
 
     <h2 class="title-h2">Mon évolution dans cette compétence</h2>
     <p class="paragraph">
-      Docker faisant partie à mon sens du trio des outils parfait, avec Git et Linux, je compte continuer de l'utiliser pour tous mes projets actuel et futur, que se sois pour le développement ou pour la mise en production. Je pense que je n'ai plus grand chose à apprendre sur Docker, mais je vais continuer à me tenir informé des nouveautés et des bonnes pratiques pour continuer à l'utiliser de la manière la plus efficace et sécurisée possible.
+      Pour moi, Docker fait partie du trio d'outils parfait avec Git et Linux. Je compte continuer à l'utiliser sur mes projets actuels et futurs, en développement comme en production. Même si j'estime avoir une bonne maîtrise, je resterai attentif aux nouveautés et aux bonnes pratiques pour l'utiliser de façon toujours plus efficace et sûre.
     </p>
 
     <p class="paragraph">
-      Je compte également passer à Kubernetes qui est à mon sens l'évolution logique après Docker pour le déploiement des applications à grande échelle, et qui me permettra de faire du déploiement encore plus efficace et sécurisé pour mes applications, notamment grâce à son gestionnaire de secret et à ses fonctionnalités d'autoscaling.
+      Je compte également me former à Kubernetes, qui représente selon moi l'évolution logique après Docker pour le déploiement à grande échelle, notamment grâce à son gestionnaire de secrets et à ses fonctionnalités d'auto-scaling. Pour cela, je vais suivre des formations en ligne, lire la documentation officielle et expérimenter Kubernetes sur les trois serveurs de test que j'ai mis en place chez moi.
     </p>
   </div>
 </section>
