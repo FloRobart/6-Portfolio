@@ -8,19 +8,19 @@ import NodejsCalculSpeedImage from "@assets/competences/hard/nodejs_calcul_speed
   <div class="max-w-[80%]">
     <h2 class="title-h2">Ma définition</h2>
     <p class="paragraph">
-      Node.js est un environnement d'exécution JavaScript côté serveur qui permet aux développeurs de créer des applications web évolutives et performantes. Il utilise le moteur JavaScript V8 de Google Chrome pour exécuter du code JavaScript en dehors d'un navigateur, ce qui permet de créer des applications côté serveur avec JavaScript. Node.js est particulièrement adapté pour les applications en temps réel, les API RESTful, les applications de streaming et les applications nécessitant une grande scalabilité.
+      Node.js est un environnement d'exécution JavaScript côté serveur qui permet de créer des applications web évolutives et performantes. Il repose sur le moteur V8 de Google Chrome pour exécuter du JavaScript hors navigateur. Node.js est particulièrement adapté aux applications temps réel, aux API RESTful, aux flux (streaming) et aux services nécessitant une forte scalabilité.
     </p>
 
     <p class="paragraph">
-      À première vue Node.js n'a pas vraiment de quoi séduire, parce qu'il utilise JavaScript, qui est probablement l'une des plus grosse dette technique de l'histoire de l'informatique. Cependant, Node.js a su tirer parti de la popularité de JavaScript et de son écosystème pour devenir l'un des environnements d'exécution côté serveur les plus populaires et les plus utilisés dans le monde du développement web.
+      À première vue, Node.js peut surprendre car il utilise JavaScript, un langage parfois critiqué pour son historicité et ses pièges. Pourtant, Node.js a su tirer parti de la popularité et de l'écosystème JavaScript pour devenir l'un des environnements serveur les plus utilisés dans le développement web.
     </p>
 
     <p class="paragraph">
-      Les grandes forces de Node.js sont sa rapidité, et sa capacité à gérer un grand nombre de connexions simultanées grâce à son modèle d'exécution non bloquant et orienté événement. De plus, Node.js dispose d'un écosystème riche de modules et de bibliothèques disponibles via le gestionnaire de paquets npm, ce qui facilite le développement d'applications web complexes et robustes. Node.js est très facile à mettre en production, cela peux être fais avec une seul commande et aucune configuration particulière n'est nécessaire, ce qui en fait un choix populaire pour les développeurs qui souhaitent créer des applications web rapidement et efficacement, contrairement à la plupart des autres environnements d'exécution côté serveur qui nécessitent une configuration plus complexe, avec un serveur web comme Apache ou Nginx.
+      Les grandes forces de Node.js sont sa rapidité et sa capacité à gérer un grand nombre de connexions simultanées grâce à son modèle d'exécution non bloquant, orienté événements. De plus, Node.js dispose d'un écosystème riche de modules et de bibliothèques via le gestionnaire de paquets npm, ce qui facilite le développement d'applications web complexes et robustes. Node.js se met très facilement en production, parfois en une seule commande, sans configuration particulière, ce qui en fait un choix apprécié des développeurs souhaitant livrer rapidement des applications, contrairement à certains environnements serveur nécessitant des configurations plus lourdes comme Apache ou Nginx.
     </p>
 
     <p class="paragraph">
-      Pour vous montrer à quel point Node.js est rapide, voici un graphique comparant les performances de différents langages de programmation, on peut voir que JavaScript dans le context de Node.js est l'un des plus rapides, bien plus que PHP ou Python. On vois quand même qu'il est près de deux fois plus lent que Java, mais Java n'est pas fais pour le web, même si c'est possible de créer un serveur web avec Java en réalité c'est fastidieux, les mises à jour sont compliqué et il souffre du manque de packages et de bibliothèques pour le développement web et c'est sans compter les serveurs web java qui sont compliqué à mettre en place en plus d'être très peu pratique. Tous ses défauts de Java font que Node.js est un choix beaucoup plus judicieux pour le développement web, même si Java est plus rapide que Node.js, d'autant plus que le langage le plus utilisé pour le développement web après JavaScript c'est PHP et de sont coté il est plus de 6 fois plus lent que JavaScript avec Node.js. Autant dire que quand ont passe de PHP à Node.js, et qu'on augmente les performances de notre application de 600%, on n'a pas vraiment besoin de Java pour être encore plus rapide (sauf dans certain cas très spécifiques, mais qui sont très rares dans le développement web).
+      Le graphique ci-dessous compare les performances de plusieurs langages. Selon les cas d'usage, Node.js peut être plus performant que des langages interprétés comme PHP ou Python, tandis que des langages compilés comme Java peuvent offrir des performances supérieures dans d'autres scénarios. Le choix dépend donc des exigences fonctionnelles et opérationnelles : Node.js propose un bon compromis entre performance, productivité et richesse d'écosystème pour de nombreuses applications web, là ou Java par exemple n'est pas du tout adapté pour des applications web.
     </p>
 
     <p class="paragraph">
@@ -29,82 +29,62 @@ import NodejsCalculSpeedImage from "@assets/competences/hard/nodejs_calcul_speed
         alt="Graphique comparant les performances de différents langages de programmation"
         width={NodejsCalculSpeedImage.width}
         height={NodejsCalculSpeedImage.height}
-        />
+      />
     </p>
 
     <p class="paragraph">
-      Node.js à également bénéficier de TypeScript, pour corriger le plus gros défaut de JavaScript, à savoir son typage dynamique, qui peut sembler êre une bonne idée mais qui est en réalité une source de bugs et rend le code beaucoup plus difficile à lire et à comprendre, surtout pour les projets de grande envergure. TypeScript apporte un typage statique à JavaScript, ce qui permet de détecter les erreurs de type à la compilation, d'améliorer la lisibilité du code et de faciliter la maintenance des applications Node.js. De plus, l'utilisation de TypeScript avec Node.js permet d'améliorer la productivité des développeurs en offrant des fonctionnalités telles que l'autocomplétion, la navigation dans le code et la refactorisation, ce qui rend le développement d'applications Node.js encore plus rapide et encore plus efficace.
+      Node.js a aussi bénéficié de l'adoption de TypeScript, qui corrige l'un des principaux défauts de JavaScript : l'absence de typage statique. TypeScript permet de détecter des erreurs à la compilation, d'améliorer la lisibilité et la maintenabilité du code, et d'augmenter la productivité grâce à l'autocomplétion et aux outils de refactorisation.
     </p>
 
     <p class="paragraph">
-      Personnellement, je ne code jamais en JavaScript, j'utilise toujours TypeScript, même pour les petits projets, parce que je trouve que le typage statique est tellement bénéfique pour la qualité du code et la productivité des développeurs que je ne vois pas l'intérêt de coder en JavaScript sans TypeScript, surtout que l'installation de TypeScript est très simple et rapide, et qu'il est compatible avec tous les projets Node.js. De plus, de nombreux frameworks et bibliothèques populaires pour Node.js, tels que Express.js, NestJS ou encore Next.js, sont entièrement compatibles avec TypeScript, ce qui facilite encore plus son adoption dans les projets Node.js.
+      Personnellement, j'utilise systématiquement TypeScript, même pour de petits projets, car il améliore la qualité du code et la productivité. De nombreux frameworks populaires (Express, NestJS, Next.js, Zod) sont pleinement compatibles avec TypeScript, ce qui facilite grandement son adoption.
     </p>
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
     <p class="paragraph">
-      Tous comme Flutter, Node.js est une compétence technique que j'ai beaucoup utilisé, que se sois dans mes projets personnels ou dans mes projets professionnels. J'ai majoritairement utilisé Node.js pour créer des API RESTful, mais je l'ai également utilisé pour créer ma <a href="https://florobart.fr/">liste de projets</a> généré automatiquement grâce au enregistrement DNS de mon nom de domaine.
+      Comme pour Flutter, Node.js est une compétence que j'ai largement mise en pratique, tant sur des projets personnels que professionnels. J'ai principalement utilisé Node.js pour construire des API RESTful, mais aussi pour des tâches d'automatisation comme la génération automatique de ma <a href="https://florobart.fr/">liste de projets</a> à partir d'enregistrements DNS.
     </p>
 
     <p class="paragraph">
-      Parmi tous les projets que j'ai réalisé avec Node.js, je peux citer Econoris, Flollylist, FlorAccess, Flower garden app (ma liste de projets), Genesis et Nexus.
+      Parmi mes réalisations en Node.js : Econoris, Flollylist, FlorAccess, Flower Garden (la liste automatisée de projets), Genesis et Nexus (API pour la configuration des paserelles Qowisio).
     </p>
 
     <p class="paragraph">
-      Toutes ses applications se base exactement sur la même architecture, avec la même base de librairies et toujours écrit en TypeScript et mis en production à l'aide de Docker. L'idée derrière se choix est simple, un workflow uniforme, rapide, efficace et facile à maintenir, même pour une petite équipe de développeurs, et qui permet de se concentrer sur la logique métier de l'application plutôt que sur la configuration et la mise en place de l'environnement de développement et de production.
+      Ces applications partagent la même architecture de base, sont écrites en TypeScript et sont déployées avec Docker. Ce choix vise un workflow uniforme, rapide et facile à maintenir, permettant de se concentrer sur la logique métier plutôt que sur la configuration de l'environnement.
     </p>
 
     <p class="paragraph">
-      Je vais vous parler un peu plus en profondeur de Nexus parce que j'en ai pas encore parlé dans mes autres compétences mais les principes et les logique que j'ai appliquer pour Nexus sont les mêmes que pour tous les autres projets que j'ai réalisé avec Node.js, à l'exception de Flower Garden app dont je parlerai après.
+      Je détaille ici Nexus : il s'agit de l'évolution d'une API historique (Qowisio) originellement écrite en JavaScript. L'ancienne version mélangeait plusieurs API et manquait de conventions. Pour Nexus, j'ai identifié et isolé les points d'entrée pertinents, puis réécrit la logique en TypeScript dans une nouvelle API plus propre et maintenable. La documentation complète de l'architecture est disponible ici : <a href="https://docs.florobart.fr/01_development/backend/create_api_typescript/">architecture d'une API Node.js + TypeScript</a>.
     </p>
 
     <p class="paragraph">
-      Nexus est l'évolution d'une application historique de Qowisio écrite en JavaScript. à l'origine cette API fonctionne avec un frontend html pur, sans css. C'était une application très simple, avec une API un peu plus complexe mélanger dans le même projet que d'autre API et sans reel convention, ni pour le code, ni pour les url d'entrée de l'API, ni pour les réponses de l'API. En créant Nexus, j'ai donc séparer les point d'entrée qui m'interessait pour les répliquer dans une nouvelle API.
+      Flower Garden diffère car ce n'est pas une API : c'est un site statique listant automatiquement mes projets. L'application interroge les enregistrements DNS du domaine, filtre les entrées pertinentes (A, CNAME), récupère les métadonnées Open Graph de chaque cible (titre, description, favicon), puis génère une page HTML statique. Le processus est déclenchable via une URL dédiée et met à jour la liste.
     </p>
 
     <p class="paragraph">
-      Une fois la logique identifier et les points d'entrée isolés, j'ai créer une nouvelle API avec une architecture plus moderne, plus propre et plus maintenable, que je ne détaillerais pas ici parce que se n'est pas le sujet mais si cela vous intéresse voici <a href="https://docs.florobart.fr/01_development/backend/create_api_typescript/">la documentation complète</a> que j'ai écrite sur l'architecture d'une API avec Node.js et TypeScript.
+      Ce projet montre la vitesse et la flexibilité de Node.js : la même architecture permet de construire des APIs et des sites statiques avec peu d'effort, en restant cohérent dans les choix techniques.
     </p>
 
     <p class="paragraph">
-      J'ai donc réécrire toute la logique de l'API en TypeScript en m'assurant pour que le résultat soit cohérent avec se qui existait avant. J'ai également ajouter de nouvelles fonctionnalités à l'API, se qui se fait très facilement grâce à l'architecture que j'ai mise en place.
-    </p>
-
-    <p class="paragraph">
-      Pour Flower Garden app, c'est un projet qui diffère un peu des autres parce que ce n'est pas une API, c'est un site web qui affiche une liste de projets relier à un nom de domaine. L'idée derrière ce projet était de créer un site web statique qui répertorie tous les projets que j'ai réalisé, puisque je commence à en avoir pas mal, et que je voulais un moyen simple de les présenter. Le problème c'est que je ne voulais pas devoir faire de mise à jour à chaque fois que je créer une nouvelle application.
-    </p>
-
-    <p class="paragraph">
-      Suite à ce constat, j'ai chercher un moyen de lister mes projets de manière automatique. Je me suis donc donc demendé où est ce que j'ai des informations sur absolument tous mes projets. a réponse était le nom de domaine. J'ai qu'un seul nom de domaine, et il est relié à tous mes projets grâce à des enregistrements DNS. J'ai donc créer une application Node.js qui interroge les enregistrements DNS de mon nom de domaine pour récupérer la liste des enregistrements DNS. Ensuite j'applique des filtres pour ne garder que les enregistrements qui m'intéressent, c'est à dire les enregistrements de type A et CNAME qui sont d'une forme particulière, pour ne pas récupérer les enregistrements des API en plus des applications Flutter.
-    </p>
-
-    <p class="paragraph">
-      Une fois que j'ai la liste de mes projets correctement filtrée, je récupère sur chaque projet les informations de l'application comme le titre, la description et le favicon grâce au balise open graph. Je compile toute ses informations dans un template stylisé de page HTML statique, puis je sauvegarde le résultat sur le disque. Une fois se processus terminé, j'ai une page HTML statique qui liste tous mes projets de manière automatique et très rapide à charger, puisque c'est une page statique. Si à un moment je veux la mettre à jour, j'ai aucun code à ajouter, j'ai simplement à aller sur une URL précise de FLower Garden app qui va déclencher le processus de mise à jour, et en moins d'une minute, la page est à jour avec tous mes nouveaux projets.
-    </p>
-
-    <p class="paragraph">
-      C'est un projet très simple, mais qui montre à quel point Node.js est rapide et efficace pour créer des applications web, même pour des projets très simples comme celui-ci et cela montre aussi que Node.js avec Express.js et TypeScript ne servent pas uniquement à créer des API, mais peuvent être utilisé pour créer n'importe quel type d'application web. De plus l'archtecture est toujours la même que pour les autres projets, ce qui montre que l'architecture que j'ai mise en place est très flexible et peut être utilisée pour créer n'importe quel type d'application web, que se sois une API ou un site web statique et ceux de façon toujours aussi simple et rapide.
-    </p>
-
-    <p class="paragraph">
-      Vous noterez que malgré les qualités de Node.js, je ne l'ai pas utilisé pour créer se portfolio. En effet, pour créer ce portfolio j'ai choisi d'utiliser Astro, qui est un framework de génération de site statique qui utilise Node.js pour le développement et la génération du site, mais qui génère un site statique qui ne nécessite pas Node.js pour être hébergé. J'ai fais se choix parce que malgré toute les qualités de Node.js, il n'est pas nécessaire pour créer un site web statique comme celui-ci, et que Astro est un excellent choix pour créer des sites web statiques rapidement et efficacement, avec une excellente performance et une grande flexibilité.
+      Notez que pour ce portfolio j'ai choisi Astro : il utilise Node.js pour le développement et la génération, mais génère un site statique static qui n'exige pas Node.js en production. C'était le meilleur compromis pour les performances et la simplicité d'hébergement.
     </p>
 
     <h2 class="title-h2">Mon autocritique</h2>
     <p class="paragraph">
-      Avec toutes ses expériences que j'ai eu avec Node.js, je pense que je maitrise très bien cette technologie, et que je suis capable de créer n'importe quel type d'application web avec Node.js, que se sois une API ou un site web statique, et que je suis capable de le faire rapidement et efficacement grâce à l'architecture que j'ai mise en place.
+      Grâce à mes expériences, je maîtrise bien Node.js et je suis capable de concevoir différents types d'applications web rapidement et efficacement. Toutefois, je peux encore m'améliorer sur les tests unitaires et les solutions de monitoring/logging en production.
     </p>
 
     <p class="paragraph">
-      Cependant, je pense que je pourrais encore m'améliorer, notamment en apprenant à mieux utiliser les testes unitaires et également en apprenant à mieux utiliser les outils de monitoring et de logging pour les applications Node.js en production, pour pouvoir détecter et résoudre les problèmes plus rapidement et efficacement. J'utilise déjà des outils de logging comme Morgan mais ça reste relativement basique, et je n'ai pas de reel alerte en cas de problème. Je reçois un mail en cas de gros problème, mais ça reste très artisanal et pas du tout optimisé. Se que j'aimerai c'est une vrai solution de monitoring et de logging qui me permette de détecter les problèmes en temps réel, d'avoir des alertes précises et de pouvoir analyser les logs de manière efficace pour résoudre les problèmes rapidement.
+      J'utilise déjà des outils de logging (par exemple Morgan), mais mon dispositif d'alerte est artisanal. Je souhaite mettre en place une solution de monitoring complète pour détecter les incidents en temps réel, disposer d'alertes précises et analyser les logs efficacement.
     </p>
 
     <p class="paragraph">
-      C'est une solution que j'essaierai de mettre en place après être passé à Kurbernetes, parce que je pense que Kubernetes offre de nombreuses fonctionnalités pour le monitoring et le logging des applications en production, et que ça serait une excellente occasion pour moi d'apprendre à utiliser ces outils de manière efficace pour mes applications Node.js en production.
+      C'est une évolution que j'envisage lors de l'adoption de Kubernetes, qui offre des fonctionnalités intéressantes pour le monitoring et le logging en production.
     </p>
 
     <h2 class="title-h2">Mon évolution dans cette compétence</h2>
     <p class="paragraph">
-      Node.js est une compétence précieuse pour tout développeur web, et je suis fier de ma maîtrise de cette technologie. J'ai fais enormément de progrès cette dernière année, en apprenant à mieux utiliser les fonctionnalités de Node.js, en améliorant l'architecture de mes applications et en adoptant des outils comme TypeScript pour améliorer la qualité de mon code. Je suis convaincu que je continuerai à progresser dans cette compétence, en apprenant de nouvelles techniques et en adoptant de nouvelles librairies et outils pour améliorer encore plus la qualité de mes applications Node.js.
+      Node.js reste une compétence essentielle pour le développement web. J'ai fait d'importants progrès récemment (architecture, TypeScript, bonnes pratiques) et je continuerai à apprendre de nouvelles techniques et outils pour améliorer la qualité de mes applications.
     </p>
   </div>
 </section>
