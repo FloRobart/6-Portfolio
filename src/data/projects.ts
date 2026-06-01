@@ -28,7 +28,7 @@ export const projectsPreviewList: ProjectPreview[] = [
     id: "floraccess",
     title: "FlorAccess",
     description:
-      "<b>FlorAccess</b> est avant tout une <b>API d'authentification</b> utilisée par mes autres projets. Elle permet un <b>accès sécurisé</b> et <b>sans mot de passe</b> à toutes mes applications, le tout avec un seul compte utilisateur. <b>FlorAccess</b> est également une <b>application d'administration</b> disponible seulement pour moi et qui me permet de <b>gérer les utilisateurs</b>.",
+      "<b>FlorAccess</b> est avant tout une <b>API d'authentification</b> utilisée par mes autres projets. Elle permet un <b>accès sécurisé</b> et <b>sans mot de passe</b> à toutes mes applications, avec un seul compte utilisateur. <b>FlorAccess</b> inclut aussi une <b>application d'administration</b>, accessible uniquement par moi, qui me permet de <b>gérer les utilisateurs</b>.",
     imageSrc: FloraccessImage,
     localLink: "/projets/floraccess",
     githubLink: "https://github.com/FloRobart/FlorAccess",
@@ -38,7 +38,7 @@ export const projectsPreviewList: ProjectPreview[] = [
     id: "flower-garden",
     title: "Flower Garden",
     description:
-      "<b>Flower Garden</b> est un wrapper qui me permet de <b>lancer et de gérer mes applications</b> de manière simple et rapide. C'est également un site de <b>présentation de mes projets</b>. Grâce au <b>enregistrement DNS</b> de mon domaine, Flower garden app <b>liste automatiquement tous les projets</b> que j'ai développé et qui sont hébergés sur mon serveur, en utilisant les sous-domaines correspondants.",
+      "<b>Flower Garden</b> est un wrapper qui me permet de <b>lancer et gérer mes applications</b> de manière simple et rapide. C'est aussi un site de <b>présentation de mes projets</b>. Grâce à l'<b>enregistrement DNS</b> de mon domaine, <b>Flower Garden</b> <b>liste automatiquement tous les projets</b> que j'ai développés et qui sont hébergés sur mon serveur, en utilisant les sous-domaines correspondants.",
     imageSrc: FlowerGardenImage,
     localLink: "/projets/flower-garden",
     githubLink: "https://github.com/FloRobart/Flower-garden-app",
@@ -49,7 +49,7 @@ export const projectsPreviewList: ProjectPreview[] = [
     id: "flollylist",
     title: "Flollylist",
     description:
-      "<b>Flollylist</b> est une application de <b>gestion de cadeau de noël</b>. Elle permet d'<b>enregistrer</b> toutes <b>les personnes à qui vous voulez offrir un cadeau</b>, ainsi que les <b>idées de cadeaux</b> pour chacune d'entre elles.",
+      "<b>Flollylist</b> est une application de <b>gestion de cadeaux de Noël</b>. Elle permet d'<b>enregistrer</b> toutes <b>les personnes auxquelles vous souhaitez offrir un cadeau</b>, ainsi que les <b>idées de cadeaux</b> pour chacune d'entre elles.",
     imageSrc: FlollylistImage,
     localLink: "/projets/flollylist",
     githubLink: "https://github.com/FloRobart/flollylist_app",
@@ -60,7 +60,7 @@ export const projectsPreviewList: ProjectPreview[] = [
     id: "econoris",
     title: "Econoris",
     description:
-      "<b>Econoris</b> est une application de <b>gestion de budget</b>. Elle permet d'<b>enregistrer</b> toutes les <b>dépenses</b> et les <b>revenus</b>, ainsi que de <b>visualiser l'évolution de votre budget</b> au fil du temps. Elle se distingue des autres applications de gestion de budget par son <b>interface simple et intuitive</b> et elle permets de faire des <b>prévisions de budget</b>, c'est à dire qu'elle vous permet au début de chaque mois de <b>savoir combien vous pourrez dépenser</b> au cours du mois.",
+      "<b>Econoris</b> est une application de <b>gestion de budget</b>. Elle permet d'<b>enregistrer</b> les <b>dépenses</b> et les <b>revenus</b>, et de <b>visualiser l'évolution de votre budget</b> au fil du temps. Elle se distingue par son <b>interface simple et intuitive</b> et permet de réaliser des <b>prévisions de budget</b>, c'est-à-dire de <b>savoir combien vous pourrez dépenser</b> au début de chaque mois.",
     imageSrc: EconorisImage,
     localLink: "/projets/econoris",
     githubLink: "https://github.com/FloRobart/econoris_app",
@@ -71,7 +71,7 @@ export const projectsPreviewList: ProjectPreview[] = [
     id: "lyssecure",
     title: "LysSecure",
     description:
-      "<b>LysSecure</b> est une <b>application web</b> qui permet de <b>stocker ses mots de passe</b> de façon <b>sécurisée</b>. Elle permet de <b>générer des mots de passe fort</b> et de les <b>stocker</b> de façon sécurisée. Elle permet également de <b>copier un mot de passe</b> en un clic. La force de ce gestionnaire de mot de passe est sa sécurité, les mots de passe sont <b>chiffrés</b> avec une clé de chiffrement <b>unique</b> pour chaque utilisateur et formée à partir de trois sources différentes, dont une source qui n'est pas enregistrée, ce qui permet de <b>garantir la sécurité</b> des mots de passe même si la base de données et le code source sont compromis.<br><em>Ce projet n'est pas disponible en ligne et doit faire l'objet d'une réécriture totale</em>",
+      "<b>LysSecure</b> est une <b>application web</b> qui permet de <b>stocker des mots de passe</b> de façon <b>sécurisée</b>. Elle peut <b>générer des mots de passe forts</b> et les <b>stocker</b> de manière sécurisée. Elle permet aussi de <b>copier un mot de passe</b> en un clic. La force de ce gestionnaire réside dans sa sécurité : les mots de passe sont <b>chiffrés</b> à l'aide d'une clé <b>unique</b> pour chaque utilisateur, dérivée de trois sources différentes, dont l'une n'est pas enregistrée. Cela contribue à <b>garantir la sécurité</b> des mots de passe même si la base de données ou le code source sont compromis.<br><em>Ce projet n'est pas disponible en ligne et doit faire l'objet d'une réécriture totale</em>",
     imageSrc: LysSecureImage,
     localLink: "/projets/lyssecure",
     githubLink: "https://github.com/FloRobart/Lys_secure",
@@ -81,7 +81,7 @@ export const projectsPreviewList: ProjectPreview[] = [
     id: "documentation",
     title: "Documentation",
     description:
-      "Ce projet n'est pas vraiment un projet à proprement parler. C'est plutôt une <b>collection de documentation</b> que j'ai écrite. Elle répartorie toutes sorte d'<b>aide</b> pour <b>différents sujets</b>, cela va de <b>l'installation de certains logiciels</b> à des <b>tutoriels</b> pour apprendre à faire certaines choses. Je l'ai créé à la fois pour me servir d'<b>aide mémoire</b> et pour <b>partager mes connaissances</b> et <b>aider d'autre personnes</b> à apprendre plus facilement.",
+      "Ce projet n'est pas à proprement parler une application, c'est une <b>collection de documentations</b> que j'ai écrites. Elle <b>répertorie</b> toutes sortes d'<b>aides</b> sur <b>différents sujets</b>, depuis <b>l'installation de logiciels</b> jusqu'à des <b>tutoriels</b>. Je l'ai créée à la fois comme <b>aide-mémoire</b> et pour <b>partager mes connaissances</b> afin d'<b>aider d'autres personnes</b> à apprendre plus facilement.",
     imageSrc: DocumentationImage,
     localLink: "/projets/documentation",
     githubLink: "https://github.com/FloRobart/Documentations",
@@ -92,7 +92,7 @@ export const projectsPreviewList: ProjectPreview[] = [
     id: "maven-lite",
     title: "Maven Lite",
     description:
-      "<b>Maven Lite</b> est un <b>logiciel en ligne de commande</b> de <b>construction de projets Java</b> qui permet de <b>gérer les dépendances</b> locales d'un projet, de le <b>compiler</b> et de l'<b>exécuter</b> très <b>facilement</b> et sans grande connaissance préalable, 5 à <b>10 minutes</b> suffisent <b>pour apprendre à l'utiliser</b>.<br><em>Ce projet est fonctionnel mais n'est pas terminé</em>",
+      "<b>Maven Lite</b> est un <b>outil en ligne de commande</b> pour la <b>construction de projets Java</b>. Il permet de <b>gérer les dépendances</b> locales d'un projet, de le <b>compiler</b> et de l'<b>exécuter</b> très facilement, sans grande connaissance préalable. En 5 à <b>10 minutes</b>, on peut <b>apprendre à l'utiliser</b>.<br><em>Ce projet est fonctionnel mais n'est pas terminé</em>",
     imageSrc: MavenLiteImage,
     localLink: "/projets/maven-lite",
     githubLink: "https://github.com/FloRobart/Maven_lite",
@@ -102,7 +102,7 @@ export const projectsPreviewList: ProjectPreview[] = [
     id: "alloscp",
     title: "All'OScp",
     description:
-      "<b>AllOScp</b> (All OS cp) est un <b>client FTP et SFTP multi-plateforme</b> (Linux, Windows et MacOS) qui permet de <b>transférer des fichiers</b> entre un ordinateur et un serveur distant ou en local. Il permet également de <b>faciliter la mise en place de backup</b>, ainsi que la <b>comparaison de dossiers et de fichier</b> grâce à un système de comparaison au niveau de la ligne similaire à celui de Git.<br><em>Ce projet est fonctionnel mais n'est pas terminé</em>",
+      "<b>AllOScp</b> (All OS cp) est un <b>client FTP et SFTP multi-plateforme</b> (Linux, Windows et macOS) qui permet de <b>transférer des fichiers</b> entre un ordinateur et un serveur distant ou localement. Il facilite la mise en place de <b>sauvegardes</b> et propose la <b>comparaison de dossiers et de fichiers</b> grâce à un système de comparaison ligne par ligne similaire à Git.<br><em>Ce projet est fonctionnel mais n'est pas terminé</em>",
     imageSrc: AlloscpImage,
     localLink: "/projets/alloscp",
     githubLink: "https://github.com/FloRobart/AllOScp",
@@ -112,7 +112,7 @@ export const projectsPreviewList: ProjectPreview[] = [
     id: "theme-vscode",
     title: "Thème pour Visual Studio Code",
     description:
-      "Ce projet est <b>mon thème personnalisé</b> pour Visual Studio Code, qui est un <b>thème sombre</b> avec des <b>couleurs vives</b> et <b>contrastées</b> pour une <b>meilleure lisibilité</b> du code. Il se base sur l'<b>extension 'GitHub.github-vscode-theme'</b>, par conséquent il ne peux pas être mis sur market place de Visual Studio Code. Il est fourni avec un <b>script d'installation bash</b> qui permet d'installer l'extension s'il n'est pas déjà installé puis installe ensuite le thème personnalisé nommé <b>'Github dark perso'</b>.",
+      "Ce projet est <b>mon thème personnalisé</b> pour Visual Studio Code. C'est un <b>thème sombre</b> aux <b>couleurs vives</b> et <b>contrastées</b> pour une <b>meilleure lisibilité</b>. Il se base sur l'<b>extension 'GitHub.github-vscode-theme'</b>. De ce fait, il ne peut pas être publié sur le Marketplace de Visual Studio Code. Un <b>script d'installation bash</b> est fourni pour installer l'extension si nécessaire, puis le thème personnalisé nommé <b>'Github dark perso'</b>.",
     imageSrc: ThemeVscodeImage,
     localLink: "/projets/theme-vscode",
     githubLink: "https://github.com/FloRobart/Themes_for_vsCode",
@@ -122,7 +122,7 @@ export const projectsPreviewList: ProjectPreview[] = [
     id: "jeu-aventuriers-du-rail",
     title: "Jeu Les aventuriers du rail",
     description:
-      "Ce projet est un jeu vidéo de type <b>adaptation du jeu de société 'Les aventuriers du rail'</b>. C'est un projet que j'ai réalisé dans le cadre scolaire en troisième et dernière année d'IUT informatique. J'ai réalisé ce projet avec 4 autres personnes. J'ai occupé le rôle de <b>chef de projet</b>, j'ai donc été responsable de la <b>gestion du projet</b> et de la <b>coordination de l'équipe</b>. J'ai également participé à la <b>conception du jeu</b> et à la <b>programmation de certaines fonctionnalités</b>. Ce projet a été pour moi une expérience très enrichissante, qui m'a permis de développer mes compétences en gestion de projet, en travail d'équipe et en programmation.",
+      "Ce projet est un jeu vidéo, une <b>adaptation du jeu de société 'Les aventuriers du rail'</b>. Il a été réalisé dans le cadre scolaire lors de ma troisième et dernière année d'IUT informatique, avec quatre autres personnes. J'ai occupé le rôle de <b>chef de projet</b>, responsable de la <b>gestion du projet</b> et de la <b>coordination de l'équipe</b>. J'ai aussi participé à la <b>conception du jeu</b> et à la <b>programmation de fonctionnalités</b>.",
     imageSrc: JeuAventuriersDuRailImage,
     localLink: "/projets/jeu-aventuriers-du-rail",
     githubLink: "https://github.com/FloRobart/Jeu_aventurier_du_rail",
@@ -131,7 +131,7 @@ export const projectsPreviewList: ProjectPreview[] = [
   {
     id: "genesis",
     title: "Genesis",
-    description: "",
+    description: "<em>Description à venir.</em>",
     imageSrc: GenesisImage,
     localLink: "/projets/genesis",
     githubLink: "",
