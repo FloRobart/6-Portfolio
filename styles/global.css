@@ -17,16 +17,23 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Texte style */
 .paragraph {
     @apply text-base leading-relaxed mb-6;
 }
-
+/* Titles style */
 .title-h2 {
     @apply text-2xl font-bold mt-10 mb-2 text-[var(--color-primary-dark)];
 }
 
 .title-h3 {
     @apply text-xl font-semibold mt-8 mb-2 text-[var(--color-primary-dark)];
+}
+
+/* Links style */
+.paragraph a {
+    @apply font-bold underline hover:text-[var(--color-primary)] transition;
+    /* text-decoration-thickness: 2px; */
 }
 
 .parcours-link:hover text {
@@ -36,12 +43,14 @@ html {
     fill: var(--color-white);
 }
 
+/* Accessibility: Disable smooth scrolling for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
     }
 }
 
+/* Navigation links style */
 @layer components {
     .ui-nav-link {
         @apply inline-flex items-center rounded-md px-3 py-2 text-sm font-semibold text-neutral-700 transition hover:bg-[var(--color-background-dark)];

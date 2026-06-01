@@ -1,11 +1,13 @@
 ---
 import { Picture } from "astro:assets";
+import { getCompetenceById } from "@/data/competences";
 
 interface Props {
   image: ImageMetadata;
 }
 
 const { image } = Astro.props;
+const documentationCompetence = getCompetenceById("documentation");
 ---
 
 <section class="flex flex-col items-center">
@@ -21,18 +23,58 @@ const { image } = Astro.props;
 
     <h2 class="title-h2">Présentation de l’établissement</h2>
     <p class="paragraph">
-      Paragraphe
+      Extrait d'Anjou est une entreprise spécialisée dans l'extraction de principes actifs naturels issus de plantes.
+
+      Elle possède deux pôles. Le premier est un pôle de recherche et développement (R&D), qui travaille sur l'optimisation des procédés d'extraction et la découverte de nouvelles molécules d'intérêt. Le second est un pôle de production industrielle, qui extrait les principes actifs destinés aux industries pharmaceutique, cosmétique et agroalimentaire.
     </p>
 
     <h2 class="title-h2">Travail effectué</h2>
     <p class="paragraph">
-      Paragraphe
+      Pendant mon stage, j'ai réalisé une application de ticketing pour le service de production industrielle.
+    </p>
+
+    <h3 class="title-h3">Problématique</h3>
+    <p class="paragraph">
+      Le gérant cumule la responsabilité du pôle recherche et développement et du pôle production industrielle. La partie R&D est un petit laboratoire d'environ quatre ingénieurs, où la communication est aisée.
+    </p>
+
+    <p class="paragraph">
+      En revanche, la production industrielle est beaucoup plus vaste, avec plus de 40 employés et des dizaines de machines réparties sur un site de près de 5 hectares (≈ 50 000 m²). Lorsqu'une machine présente un problème, les opérateurs doivent appeler le gérant, qui doit se déplacer pour constater la panne et décider de la marche à suivre. Ces allers-retours entraînent des délais importants, le gérant n'étant pas toujours disponible.
+    </p>
+
+    <p class="paragraph">
+      L'objectif de l'application de ticketing est de permettre aux opérateurs de signaler les problèmes directement depuis leur poste de travail, sans avoir à appeler le gérant. Le gérant peut ensuite consulter les tickets en temps réel et décider de la marche à suivre sans avoir à se déplacer.
+    </p>
+
+    <p class="paragraph">
+      Un autre intérêt est de conserver un historique des incidents rencontrés sur les machines, ce qui facilite l'analyse des problèmes récurrents et la traçabilité des solutions apportées.
     </p>
 
 
+    <h3 class="title-h3">Solutions</h3>
+    <p class="paragraph">
+      Pour résoudre ce problème, j'ai développé une application Android en Java, qui permet aux opérateurs de signaler les problèmes.
+    </p>
+
+    <p class="paragraph">
+      L'application communique avec une API développée en Java avec le framework Spring Boot et déployée sur un serveur Tomcat. C'était la première fois que je développais une API. Pour être honnête, je ne savais pas vraiment ce qu'était une API, et j'ai réalisé que j'avais fait une API seulement en troisième année d'IUT.
+    </p>
+
+    <p class="paragraph">
+      L'API interagit ensuite avec une base de données MySQL pour stocker les tickets. En parallèle, j'ai développé une interface web permettant au gérant de consulter les tickets depuis son ordinateur. Cette interface est réalisée en HTML/CSS avec du JavaScript pour les appels à l'API.
+    </p>
+
+    <p class="paragraph">
+      J'ai également conçu la base de données. Le tout était stocké sur un serveur local, l'entreprise ne disposant d'aucun serveur accessible depuis l'extérieur pour des raisons de sécurité. Comme ils n'en avaient pas besoin, ils ont choisi de tout héberger en local, ce qui limite les risques de fuite de données ou de cyberattaque.
+    </p>
+
+    <p class="paragraph">
+      J'ai beaucoup appris lors de ce stage. Même si, techniquement, je n'utilise plus exactement les mêmes technologies aujourd'hui, cette expérience a été très enrichissante. Elle m'a permis de découvrir le monde professionnel et d'approfondir mes connaissances sur le système Android. Surtout, j'ai compris l'importance de la documentation en Markdown. C'est après ce stage que j'ai créé <a href={documentationCompetence?.localLink}>ma documentation technique</a>, qui constitue aujourd'hui un élément central de mon portfolio et de ma démarche de partage des connaissances.
+    </p>
+
     <h2 class="title-h2">Ma place dans l'entreprise</h2>
     <p class="paragraph">
-      Paragraphe
+      J'ai été très bien accueilli par mon maître de stage et par la personne chargée de l'informatique de l'entreprise, qui m'ont beaucoup aidé. Il y avait également une autre stagiaire en informatique, chargée de développer une intelligence artificielle capable de traiter des graphiques représentant les molécules présentes dans une plante donnée et leurs concentrations, afin d'aider les chercheurs à identifier les molécules d'intérêt. Tout le monde était très sympathique et à l'écoute, ce qui a rendu mon stage très agréable.
     </p>
   </div>
 </section>
