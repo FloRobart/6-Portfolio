@@ -1,44 +1,6 @@
 ---
 import { Image } from "astro:assets";
-
-import githubIcon from "@assets/icons_red/github.png";
-import cvIcon from "@assets/icons_red/cv_icon.png";
-import linkedinIcon from "@assets/icons_red/linkedin.png";
-import gmailIcon from "@assets/icons_red/gmail.png";
-import lettreRecommandationIcon from "@assets/icons_red/lettre_recommandation.png";
-
-const socialLinks = [
-  {
-    title: "Github",
-    href: "https://github.com/FloRobart",
-    icon: githubIcon,
-    alt: "Github",
-  },
-  {
-    title: "Linkedin",
-    href: "https://www.linkedin.com/in/floris-robart",
-    icon: linkedinIcon,
-    alt: "Linkedin",
-  },
-  {
-    title: "Envoyer un mail",
-    href: "mailto:florisrobart.pro@gmail.com",
-    icon: gmailIcon,
-    alt: "Gmail",
-  },
-  {
-    title: "CV pdf",
-    href: "/pdf/CV_Floris_Robart.pdf",
-    icon: cvIcon,
-    alt: "CV",
-  },
-  {
-    title: "Lettre de recommandation",
-    href: "",
-    icon: lettreRecommandationIcon,
-    alt: "Lettre de recommandation",
-  },
-];
+import { socialLinks } from "@/data/social_links";
 ---
 
 <div

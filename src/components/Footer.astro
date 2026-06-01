@@ -1,44 +1,6 @@
 ---
 import { Image } from "astro:assets";
-
-import githubIcon from "@assets/icons_white/github.png";
-import cvIcon from "@assets/icons_white/cv_icon.png";
-import linkedinIcon from "@assets/icons_white/linkedin.png";
-import gmailIcon from "@assets/icons_white/gmail.png";
-import lettreRecommandationIcon from "@assets/icons_white/lettre_recommandation.png";
-
-const socialLinks = [
-  {
-    title: "Github",
-    href: "https://github.com/FloRobart",
-    icon: githubIcon,
-    alt: "Github",
-  },
-  {
-    title: "Linkedin",
-    href: "https://www.linkedin.com/in/floris-robart",
-    icon: linkedinIcon,
-    alt: "Linkedin",
-  },
-  {
-    title: "Envoyer un mail",
-    href: "mailto:florisrobart.pro@gmail.com",
-    icon: gmailIcon,
-    alt: "Gmail",
-  },
-  {
-    title: "CV pdf",
-    href: "/pdf/CV_Floris_Robart.pdf",
-    icon: cvIcon,
-    alt: "CV",
-  },
-  {
-    title: "Lettre de recommandation",
-    href: "",
-    icon: lettreRecommandationIcon,
-    alt: "Lettre de recommandation",
-  },
-];
+import { socialLinks } from "@/data/social_links";
 
 const year = new Date().getFullYear();
 ---
@@ -53,8 +15,7 @@ const year = new Date().getFullYear();
           Floris Robart
         </h2>
         <p class="mt-4 max-w-md text-sm leading-7 text-[color:color-mix(in_srgb,var(--color-white)_84%,transparent)]">
-          Un developpeur specialise dans le developpement d'applications et le
-          developpement de scripts systeme.
+          Un développeur full-stack passionné, avec une vision de l'informatique centrée sur l'humain et une forte volonté de créer des outils pour faciliter la vie des utilisateurs.
         </p>
       </section>
 
@@ -62,7 +23,7 @@ const year = new Date().getFullYear();
         <h2
           class="text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-white)]"
         >
-          Reseaux
+          Réseaux
         </h2>
         <ul class="mt-4 flex list-none flex-wrap items-center gap-3 p-0">
           {
@@ -112,7 +73,7 @@ const year = new Date().getFullYear();
       class="mt-10 border-t border-neutral-800 pt-6 text-center text-xs text-neutral-400"
     >
       <p>
-        &copy; {year}. Cree par
+        &copy; {year}. Créé par
         <a
           rel="noreferrer"
           target="_self"
