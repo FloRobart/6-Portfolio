@@ -31,7 +31,7 @@ html {
 }
 
 /* Links style */
-.paragraph a {
+.paragraph a, .paragraph-link {
     @apply font-bold underline hover:text-[var(--color-primary)] transition;
     /* text-decoration-thickness: 2px; */
 }

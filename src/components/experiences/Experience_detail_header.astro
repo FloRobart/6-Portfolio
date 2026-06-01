@@ -19,7 +19,7 @@ const { id, title, description, buttonLink, buttonText } = Astro.props;
 >
   <span class="heading-sec__main block text-3xl md:text-4xl uppercase tracking-wider font-extrabold text-gray-900">{title}</span>
   <HeadingSecBar />
-  <span class="block mt-4 px-4 text-sm md:text-base text-gray-600 max-w-3xl mx-auto">{description}</span>
+  <span class="block mt-4 px-4 text-sm md:text-base text-gray-600 max-w-3xl mx-auto" set:html={description}></span>
   {
     buttonLink && buttonText && (
       <Button

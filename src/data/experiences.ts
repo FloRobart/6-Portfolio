@@ -24,7 +24,7 @@ export const experiencesPreviewList: ExperiencePreview[] = [
     id: "qowisio",
     title: "Qowisio",
     description:
-      "Fondée en 2009 près d'Angers et intégrée au groupe Ocea Smart Building en 2022, Qowisio est une entreprise spécialisée dans les solutions de l'Internet des Objets (IoT). Agissant comme le pôle recherche et développement du groupe, elle conçoit des systèmes innovants pour connecter, surveiller et gérer les équipements (eau, chauffage, climatisation) des bâtiments résidentiels et tertiaires. Ses technologies sur mesure permettent d'optimiser l'efficacité énergétique, le confort et la durabilité des infrastructures.",
+      "Fondée en 2009 près d'<b>Angers</b> et intégrée au groupe <a class=\"paragraph-link\" href=\"https://www.groupe-ocea.fr/qui-sommes-nous/\">Ocea Smart Building</a> en 2022, Qowisio est une entreprise spécialisée dans les solutions de <a class=\"paragraph-link\" href=\"https://fr.wikipedia.org/wiki/Internet_des_objets\">l'Internet des Objets (IoT)</a>. Agissant comme le pôle <b>recherche et développement</b> du groupe, elle <b>conçoit des systèmes innovants</b> pour connecter, surveiller et gérer les équipements (eau, chauffage, climatisation) des bâtiments résidentiels et tertiaires. Ses <b>technologies sur mesure</b> permettent d'<b>optimiser l'efficacité énergétique</b>, le confort et la durabilité des infrastructures.",
     imageSrc: QowisioImage,
     localLink: "/experiences/qowisio",
     externalLink: "https://www.qowisio.com/",
