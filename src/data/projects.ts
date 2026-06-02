@@ -131,7 +131,7 @@ export const projectsPreviewList: ProjectPreview[] = [
   {
     id: "genesis",
     title: "Genesis",
-    description: "<em>Description à venir.</em>",
+    description: "Ce projet est une <b>application de gestion des passerelles</b>. Elle permet entre autres de <b>visualiser les passerelles</b> sur une carte, ainsi que dans un tableau représentant les bâœtiments dans lesquels elles se trouvent. L'application permet également d'ajouter des passerelles, de les modifier et de les supprimer. Elle est utilisée par les techniciens de maintenance pour gérer les passerelles et planifier les interventions de maintenance.",
     imageSrc: GenesisImage,
     localLink: "/projets/genesis",
     githubLink: "",
