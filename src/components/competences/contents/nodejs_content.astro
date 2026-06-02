@@ -2,25 +2,35 @@
 import Picture from "astro/components/Picture.astro";
 import NodejsCalculSpeedImage from "@assets/competences/hard/nodejs_calcul_speed.png";
 
+import { getCompetenceById } from '@/data/competences';
+import { getProjectById } from '@/data/projects';
+
+const nodejsCompetence = getCompetenceById('nodejs');
+const EconorisProjet = getProjectById('econoris');
+const FloraccessProjet = getProjectById('floraccess');
+const FlollylistProjet = getProjectById('flollylist');
+const FlowerGardenProjet = getProjectById('flower-garden');
+const GenesisProjet = getProjectById('genesis');
+
 ---
 
 <section class="flex flex-col items-center">
   <div class="max-w-[80%]">
     <h2 class="title-h2">Ma définition</h2>
     <p class="paragraph">
-      Node.js est un environnement d'exécution JavaScript côté serveur qui permet de créer des applications web évolutives et performantes. Il repose sur le moteur V8 de Google Chrome pour exécuter du JavaScript hors navigateur. Node.js est particulièrement adapté aux applications temps réel, aux API RESTful, aux flux (streaming) et aux services nécessitant une forte scalabilité.
+      <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> est un <b>environnement d'exécution JavaScript côté serveur</b> qui permet de créer des applications web <b>évolutives et performantes</b>. Il repose sur le moteur V8 de Google Chrome pour exécuter du JavaScript hors navigateur. Node.js est particulièrement adapté aux <b>applications temps réel</b>, aux <b>API RESTful</b>, aux flux (streaming) et aux services nécessitant une <b>forte scalabilité</b>.
     </p>
 
     <p class="paragraph">
-      À première vue, Node.js peut surprendre car il utilise JavaScript, un langage parfois critiqué pour son historicité et ses pièges. Pourtant, Node.js a su tirer parti de la popularité et de l'écosystème JavaScript pour devenir l'un des environnements serveur les plus utilisés dans le développement web.
+      À première vue, <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> peut surprendre car il utilise <b>JavaScript</b>, un langage parfois critiqué pour son historicité et ses pièges. Pourtant, Node.js a su tirer parti de la popularité et de l'écosystème JavaScript pour devenir l'un des <b>environnements serveur les plus utilisés</b> dans le développement web.
     </p>
 
     <p class="paragraph">
-      Les grandes forces de Node.js sont sa rapidité et sa capacité à gérer un grand nombre de connexions simultanées grâce à son modèle d'exécution non bloquant, orienté événements. De plus, Node.js dispose d'un écosystème riche de modules et de bibliothèques via le gestionnaire de paquets npm, ce qui facilite le développement d'applications web complexes et robustes. Node.js se met très facilement en production, parfois en une seule commande, sans configuration particulière, ce qui en fait un choix apprécié des développeurs souhaitant livrer rapidement des applications, contrairement à certains environnements serveur nécessitant des configurations plus lourdes comme Apache ou Nginx.
+      Les grandes forces de <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> sont sa <b>rapidité</b> et sa capacité à gérer un grand nombre de connexions simultanées grâce à son <b>modèle d'exécution non bloquant, orienté événements</b>. De plus, Node.js dispose d'un écosystème riche de modules et de bibliothèques via le gestionnaire de paquets <a href="https://www.npmjs.com/"><b>npm</b></a>, ce qui facilite le développement d'applications web <b>complexes et robustes</b>. Node.js se met très facilement en production, parfois en une seule commande, sans configuration particulière, ce qui en fait un choix apprécié des développeurs souhaitant livrer rapidement des applications, contrairement à certains environnements serveur nécessitant des configurations plus lourdes comme Apache ou Nginx.
     </p>
 
     <p class="paragraph">
-      Le graphique ci-dessous compare les performances de plusieurs langages. Selon les cas d'usage, Node.js peut être plus performant que des langages interprétés comme PHP ou Python, tandis que des langages compilés comme Java peuvent offrir des performances supérieures dans d'autres scénarios. Le choix dépend donc des exigences fonctionnelles et opérationnelles : Node.js propose un bon compromis entre performance, productivité et richesse d'écosystème pour de nombreuses applications web, là ou Java par exemple n'est pas du tout adapté pour des applications web.
+      Le graphique ci-dessous compare les performances de plusieurs langages. Selon les cas d'usage, <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> peut être plus performant que des langages interprétés comme PHP ou Python, tandis que des langages compilés comme Java peuvent offrir des performances supérieures dans d'autres scénarios. Le choix dépend donc des exigences fonctionnelles et opérationnelles : Node.js propose un <b>bon compromis entre performance, productivité et richesse d'écosystème</b> pour de nombreuses applications web.
     </p>
 
     <p class="paragraph">
@@ -33,24 +43,24 @@ import NodejsCalculSpeedImage from "@assets/competences/hard/nodejs_calcul_speed
     </p>
 
     <p class="paragraph">
-      Node.js a aussi bénéficié de l'adoption de TypeScript, qui corrige l'un des principaux défauts de JavaScript : l'absence de typage statique. TypeScript permet de détecter des erreurs à la compilation, d'améliorer la lisibilité et la maintenabilité du code, et d'augmenter la productivité grâce à l'autocomplétion et aux outils de refactorisation.
+      <a href="https://www.typescriptlang.org/"><b>TypeScript</b></a> a aussi largement contribué à l'adoption de Node.js, corrigeant l'un des principaux défauts de JavaScript : l'absence de typage statique. TypeScript permet de détecter des erreurs à la compilation, d'améliorer la lisibilité et la maintenabilité du code, et d'augmenter la productivité grâce à l'autocomplétion et aux outils de refactorisation.
     </p>
 
     <p class="paragraph">
-      Personnellement, j'utilise systématiquement TypeScript, même pour de petits projets, car il améliore la qualité du code et la productivité. De nombreux frameworks populaires (Express, NestJS, Next.js, Zod) sont pleinement compatibles avec TypeScript, ce qui facilite grandement son adoption.
+      Personnellement, j'utilise systématiquement <a href="https://www.typescriptlang.org/"><b>TypeScript</b></a>, même pour de petits projets, car il améliore la qualité du code et la productivité. De nombreux frameworks populaires (Express, NestJS, Next.js, Zod) sont pleinement compatibles avec TypeScript, ce qui facilite grandement son adoption.
     </p>
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
     <p class="paragraph">
-      Comme pour Flutter, Node.js est une compétence que j'ai largement mise en pratique, tant sur des projets personnels que professionnels. J'ai principalement utilisé Node.js pour construire des API RESTful, mais aussi pour des tâches d'automatisation comme la génération automatique de ma <a href="https://florobart.fr/">liste de projets</a> à partir d'enregistrements DNS.
+      Comme pour Flutter, <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> est une compétence que j'ai largement mise en pratique, tant sur des projets personnels que professionnels. J'ai principalement utilisé Node.js pour construire des <b>API RESTful</b>, mais aussi pour des tâches d'automatisation comme la génération automatique de ma <a href="https://florobart.fr/"><b>liste de projets</b></a> à partir d'enregistrements DNS.
     </p>
 
     <p class="paragraph">
-      Parmi mes réalisations en Node.js : Econoris, Flollylist, FlorAccess, Flower Garden (la liste automatisée de projets), Genesis et Nexus (API pour la configuration des paserelles Qowisio).
+      Parmi mes réalisations en <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> : <a href={EconorisProjet?.localLink}><b>Econoris</b></a>, <a href={FlollylistProjet?.localLink}><b>Flollylist</b></a>, <a href={FloraccessProjet?.localLink}><b>FlorAccess</b></a>, <a href={FlowerGardenProjet?.localLink}><b>Flower Garden</b></a>, <a href={GenesisProjet?.localLink}><b>Genesis</b></a> et Nexus (API pour la configuration des passerelles Qowisio).
     </p>
 
     <p class="paragraph">
-      Ces applications partagent la même architecture de base, sont écrites en TypeScript et sont déployées avec Docker. Ce choix vise un workflow uniforme, rapide et facile à maintenir, permettant de se concentrer sur la logique métier plutôt que sur la configuration de l'environnement.
+      Ces applications partagent la même <b>architecture de base</b>, sont écrites en <a href="https://www.typescriptlang.org/"><b>TypeScript</b></a> et sont déployées avec <a href="https://www.docker.com/"><b>Docker</b></a>. Ce choix vise un workflow uniforme, rapide et facile à maintenir, permettant de se concentrer sur la logique métier plutôt que sur la configuration de l'environnement.
     </p>
 
     <p class="paragraph">
@@ -66,16 +76,16 @@ import NodejsCalculSpeedImage from "@assets/competences/hard/nodejs_calcul_speed
     </p>
 
     <p class="paragraph">
-      Notez que pour ce portfolio j'ai choisi Astro : il utilise Node.js pour le développement et la génération, mais génère un site statique static qui n'exige pas Node.js en production. C'était le meilleur compromis pour les performances et la simplicité d'hébergement.
+      Notez que pour ce portfolio j'ai choisi Astro : il utilise Node.js pour le développement et la génération, mais génère un site statique static qui n'exige pas Node.js en production. C'était le <b>meilleur compromis pour les performances et la simplicité d'hébergement</b>.
     </p>
 
     <h2 class="title-h2">Mon autocritique</h2>
     <p class="paragraph">
-      Grâce à mes expériences, je maîtrise bien Node.js et je suis capable de concevoir différents types d'applications web rapidement et efficacement. Toutefois, je peux encore m'améliorer sur les tests unitaires et les solutions de monitoring/logging en production.
+      Grâce à mes expériences, je maîtrise bien <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> et je suis capable de concevoir différents types d'applications web rapidement et efficacement. Toutefois, je peux encore m'améliorer sur les <b>tests unitaires</b> et les solutions de <b>monitoring/logging en production</b>.
     </p>
 
     <p class="paragraph">
-      J'utilise déjà des outils de logging (par exemple Morgan), mais mon dispositif d'alerte est artisanal. Je souhaite mettre en place une solution de monitoring complète pour détecter les incidents en temps réel, disposer d'alertes précises et analyser les logs efficacement.
+      J'utilise déjà des outils de logging (par exemple Morgan), mais mon dispositif d'alerte est artisanal. Je souhaite mettre en place une solution de <b>monitoring complète</b> pour détecter les incidents en temps réel, disposer d'<b>alertes précises</b> et analyser les logs efficacement. L'adoption future de <a href="https://kubernetes.io/"><b>Kubernetes</b></a> facilitera l'intégration de solutions de monitoring et de logging.
     </p>
 
     <p class="paragraph">

@@ -1,63 +1,73 @@
 ---
+import { getCompetenceById } from "@/data/competences";
+import { getExperienceById } from "@/data/experiences";
+import { getProjectById } from "@/data/projects";
 
+const documentationCompetence = getCompetenceById("documentation");
+const nodejsCompetence = getCompetenceById("nodejs");
+const flutterCompetence = getCompetenceById("flutter");
+const dockerCompetence = getCompetenceById("docker");
+const extraitAnjouExperience = getExperienceById("extrait-danjou");
+const econorisProject = getProjectById("econoris");
+const mavenLiteProject = getProjectById("maven-lite");
 ---
 
 <section class="flex flex-col items-center">
   <div class="max-w-[80%]">
     <h2 class="title-h2">Ma définition</h2>
     <p class="paragraph">
-      Savoir rédiger une bonne documentation, qu'elle soit technique ou destinée aux utilisateurs, consiste à produire un document clair et précis. Il doit expliquer de façon simple et compréhensible comment utiliser un produit ou un service, tout en apportant suffisamment de détails pour que les lecteurs comprennent ses fonctionnalités et ses avantages.
+      Savoir rédiger une bonne documentation, qu'elle soit technique ou destinée aux utilisateurs, consiste à produire un document <b>clair, précis et utile</b>. Il doit expliquer de façon simple et compréhensible comment utiliser un produit ou un service, tout en apportant suffisamment de détails pour que les lecteurs comprennent ses fonctionnalités et ses avantages.
     </p>
 
     <p class="paragraph">
-      Une bonne documentation doit être lisible, structurée de manière logique et permettre de trouver rapidement l'information recherchée. C'est un outil essentiel pour aider les utilisateurs à tirer le meilleur parti d'un produit et pour favoriser leur satisfaction sur le long terme.
+      Une bonne documentation doit être <b>lisible</b>, <b>structurée de manière logique</b> et permettre de trouver rapidement l'information recherchée. C'est un outil essentiel pour aider les utilisateurs à tirer le meilleur parti d'un produit et pour favoriser leur satisfaction sur le long terme.
     </p>
 
     <p class="paragraph">
-      Il existe plusieurs types de documentation, chacun avec ses objectifs. Les documentations techniques expliquent le fonctionnement interne d'un produit, tandis que les documentations utilisateur décrivent l'installation, la configuration et l'utilisation. La plupart des autres formats se rattachent à l'une de ces deux grandes catégories.
+      Il existe plusieurs types de documentation, chacun avec ses objectifs. Les documentations techniques expliquent le <b>fonctionnement interne</b> d'un produit, tandis que les documentations utilisateur décrivent l'installation, la configuration et l'utilisation. La plupart des autres formats se rattachent à l'une de ces deux grandes catégories.
     </p>
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
     <p class="paragraph">
-      Je préfère la documentation technique, que je trouve plus intéressante à rédiger. Elle a l'avantage d'être souvent concise, dans certains cas, elle peut se présenter sous forme de listes d'instructions claires, accompagnées d'explications techniques à chaque étape. Ce format me convient particulièrement.
+      Je préfère la documentation technique, que je trouve plus intéressante à rédiger. Elle a l'avantage d'être souvent <b>concise</b> et peut, dans certains cas, se présenter sous forme de <b>listes d'instructions claires</b>, accompagnées d'explications techniques à chaque étape. Ce format me convient particulièrement.
     </p>
 
     <p class="paragraph">
-      La documentation utilisateur doit être accessible à un public plus large et est souvent plus descriptive. Là où une documentation technique peut se permettre la concision, la documentation utilisateur nécessite des phrases complètes et des explications détaillées pour que tous les utilisateurs comprennent les fonctionnalités et les bénéfices.
+      La documentation utilisateur doit être accessible à un <b>public plus large</b> et est souvent plus descriptive. Là où une documentation technique peut se permettre la concision, la documentation utilisateur nécessite des phrases complètes et des explications détaillées pour que tous les utilisateurs comprennent les fonctionnalités et les bénéfices.
     </p>
 
     <p class="paragraph">
-      Ce n'est pas forcément plus complexe, mais le style est différent, c'est de la rédaction plus conventionnelle, moins alignée avec mes habitudes. La documentation utilisateur nécessite souvent davantage d'illustrations (captures d'écran, vidéos), ce qui rallonge le travail, alors que la documentation technique peut souvent se contenter de texte, de code ou de schémas générés en texte (par exemple avec Mermaid Diagramme).
+      Ce n'est pas forcément plus complexe, mais le style est différent, c'est de la rédaction plus conventionnelle, moins alignée avec mes habitudes. La documentation utilisateur nécessite souvent davantage d'illustrations (captures d'écran, vidéos), ce qui rallonge le travail, alors que la documentation technique peut souvent se contenter de texte, de code ou de schémas générés en texte (par exemple avec <a href="https://fr.wikipedia.org/wiki/Mermaid_(logiciel)">Mermaid</a>).
     </p>
 
     <p class="paragraph">
-      J'ai commencé à rédiger des documentations en mars 2023, lors de mon premier stage en entreprise chez Extrait d'Anjou, une société spécialisée dans les extraits de plantes. Le service informatique était assuré par une seule personne, qui s'occupait des postes, des serveurs de production et des logiciels. Il m'a beaucoup appris durant ce stage.
+      J'ai commencé à rédiger des documentations en mars 2023, lors de mon premier stage en entreprise chez <a href={extraitAnjouExperience?.localLink}>{extraitAnjouExperience?.title}</a>, une société spécialisée dans les extraits de plantes. Le service informatique était assuré par une seule personne, qui s'occupait des postes, des serveurs de production et des logiciels. Il m'a beaucoup appris durant ce stage.
     </p>
 
     <p class="paragraph">
-      Parmi ses enseignements, il m'a montré la documentation qu'il avait rédigée en Markdown. Elle permet au prochain informaticien de comprendre rapidement l'infrastructure, la configuration des serveurs et les logiciels utilisés.
+      Parmi ses enseignements, il m'a montré la documentation qu'il avait rédigée en <a href="https://fr.wikipedia.org/wiki/Markdown">Markdown</a>. Elle permet au prochain informaticien de comprendre rapidement l'infrastructure, la configuration des serveurs et les logiciels utilisés.
     </p>
 
     <p class="paragraph">
-      En découvrant cette documentation, j'ai réalisé l'importance qu'avait une bonne documentation. Le Markdown présente de nombreux avantages : simplicité, facilité de partage et de modification, et possibilité de conversion vers d'autres formats (HTML, PDF, etc.), ce qui en fait un format très polyvalent et complet pour la documentation.
+      En découvrant cette documentation, j'ai réalisé l'importance qu'avait une bonne documentation. Le <a href="https://fr.wikipedia.org/wiki/Markdown">Markdown</a> présente de nombreux avantages : <b>simplicité</b>, <b>facilité de partage et de modification</b>, et possibilité de conversion vers d'autres formats (HTML, PDF, etc.), ce qui en fait un format très polyvalent et complet pour la documentation.
     </p>
 
     <p class="paragraph">
-      Grâce à des extensions comme Mermaid, il est possible de produire des schémas d'architecture, des diagrammes de classes ou de séquence uniquement en texte. C'est notamment ainsi que j'ai réalisé le schéma de mon parcours.
+      Grâce à des extensions comme <a href="https://mermaid.js.org/">Mermaid</a>, il est possible de produire des schémas d'architecture, des diagrammes de classes ou de séquence uniquement en texte. C'est notamment ainsi que j'ai réalisé le schéma de mon parcours.
     </p>
 
     <!-- Documentation technique (avec ma documentation) -->
     <h3 class="title-h3">Documentation Technique</h3>
     <p class="paragraph">
-      Suite à cette découverte, j'ai commencé ma documentation technique en juin 2023, elle aussi entièrement rédigée en Markdown. Elle a beaucoup évolué : d'un fichier initial, le projet est passé à plusieurs fichiers organisés en dossiers. J'ai ensuite créé un dépôt GitHub pour y accéder partout, puis utilisé GitHub Pages pour la publier en ligne avec une interface plus agréable et une meilleure organisation.
+      Suite à cette découverte, j'ai commencé ma <b>documentation technique</b> en juin 2023, elle aussi entièrement rédigée en Markdown. Elle a beaucoup évolué : d'un fichier initial, le projet est passé à plusieurs fichiers organisés en dossiers. J'ai ensuite créé un dépôt <a href="https://github.com/">GitHub</a> pour y accéder partout, puis utilisé <a href="https://pages.github.com/">GitHub Pages</a> pour la publier en ligne avec une interface plus agréable et une meilleure organisation.
     </p>
 
     <p class="paragraph">
-      Aujourd'hui, ma documentation est toujours écrite en Markdown mais publiée avec MkDocs. À partir des fichiers Markdown, MkDocs génère un site HTML/CSS statique offrant une recherche intégrée et un thème clair/sombre. Les fichiers générés sont hébergés sur GitHub Pages et sont aussi servis via un conteneur Docker sur mon serveur de production. L'objectif de cette double publication est de lier mon nom de domaine à ma documentation pour la rendre facilement accessible et la faire figurer dans la liste automatisée de mes projets.
+      Aujourd'hui, ma documentation est toujours écrite en <a href="https://fr.wikipedia.org/wiki/Markdown">Markdown</a> mais publiée avec <a href="https://www.mkdocs.org/">MkDocs</a>. À partir des fichiers Markdown, MkDocs génère un site HTML/CSS statique offrant une recherche intégrée et un thème clair/sombre. Les fichiers générés sont hébergés sur GitHub Pages et sont aussi servis via un conteneur <a href={dockerCompetence?.localLink}>{dockerCompetence?.title}</a> sur mon serveur de production. L'objectif de cette double publication est de lier mon nom de domaine à ma documentation pour la rendre facilement accessible et la faire figurer dans la liste automatisée de mes projets.
     </p>
 
     <p class="paragraph">
-      Ma documentation couvre de nombreux sujets : configuration de serveurs, installation de logiciels, création d'une micro-entreprise en France, etc. Elle me sert de base de connaissances personnelle et d'aide-mémoire, afin de retrouver facilement des procédures éprouvées sans devoir tout réapprendre.
+      Ma documentation couvre de nombreux sujets : configuration de serveurs, installation de logiciels, création d'une micro-entreprise en France, etc. Elle me sert de <b>base de connaissances personnelle</b> et d'<b>aide-mémoire</b>, afin de retrouver facilement des procédures éprouvées sans devoir tout réapprendre.
     </p>
 
     <p class="paragraph">
@@ -65,11 +75,11 @@
     </p>
 
     <p class="paragraph">
-      Par exemple, après des recherches sur la création d'API avec Node.js et la mise en pratique d'une architecture, j'ai rédigé une documentation technique complète avec explications, exemples de code et schémas d'architecture, disponible <a href="https://documentation.florobart.fr/01_development/backend/create_api_typescript/"><b><u>ici</u></b></a>.
+      Par exemple, après des recherches sur la création d'API avec <a href={nodejsCompetence?.localLink}>{nodejsCompetence?.title}</a> et la mise en pratique d'une architecture, j'ai rédigé une documentation technique complète avec explications, exemples de code et schémas d'architecture, disponible <a href="https://documentation.florobart.fr/01_development/backend/create_api_typescript/">ici</a>.
     </p>
 
     <p class="paragraph">
-      Cette documentation sur l'architecture d'API avec TypeScript est complète : création, comparaison et lancement de l'API, commandes, fichiers de configuration et exemples de code y figurent.
+      Cette documentation sur l'architecture d'API avec <b>TypeScript</b> est complète : création, comparaison et lancement de l'API, commandes, fichiers de configuration et exemples de code y figurent.
     </p>
 
     <p class="paragraph">
@@ -77,11 +87,11 @@
     </p>
 
     <p class="paragraph">
-      C'est notamment pour cela que j'ai rédigé une <a href="https://documentation.florobart.fr/01_development/others/web_development_micro_service/">documentation complète pour créer une application web de zéro</a>. Elle couvre la création d'une base PostgreSQL, la création d'une API avec Node.js, le frontend avec Flutter et la mise en production avec Docker. Avec cette documentation et l'exemple d'Econoris, un développeur junior devrait pouvoir créer et déployer une application moderne sans avoir à chercher des informations dispersées.
+      C'est notamment pour cela que j'ai rédigé une <a href="https://documentation.florobart.fr/01_development/others/web_development_micro_service/">documentation complète pour créer une application web de zéro</a>. Elle couvre la création d'une base PostgreSQL, la création d'une API avec <a href={nodejsCompetence?.localLink}>{nodejsCompetence?.title}</a>, le frontend avec <a href={flutterCompetence?.localLink}>{flutterCompetence?.title}</a> et la mise en production avec <a href={dockerCompetence?.localLink}>{dockerCompetence?.title}</a>. Avec cette documentation et l'exemple d'<a href={econorisProject?.localLink}>{econorisProject?.title}</a>, un développeur junior devrait pouvoir créer et déployer une application moderne sans avoir à chercher des informations dispersées.
     </p>
 
     <p class="paragraph">
-      J'ai rédigé de nombreuses documentations sur des sujets variés : clean code (10 bonnes pratiques), Java (parmi mes premiers travaux), TypeScript (très détaillé), création de paquets Debian, configuration de Visual Studio Code pour Node.js/TypeScript, Git (aide-mémoire) et SSH (aide-mémoire pour l'installation et la configuration de serveurs).
+      J'ai rédigé de nombreuses documentations sur des sujets variés : clean code (10 bonnes pratiques), Java (parmi mes premiers travaux), TypeScript (très détaillé), création de paquets Debian, configuration de Visual Studio Code pour <a href={nodejsCompetence?.localLink}>{nodejsCompetence?.title}</a>/<b>TypeScript</b>, <a href="https://fr.wikipedia.org/wiki/Git">Git</a> (aide-mémoire) et SSH (aide-mémoire pour l'installation et la configuration de serveurs).
     </p>
 
     <p class="paragraph">
@@ -99,23 +109,23 @@
     <!-- Documentation utilisateur (Avec maven Lite) -->
     <h3 class="title-h3">Documentation Utilisateur</h3>
     <p class="paragraph">
-      Bien que la majorité de mes documents soient techniques, j'ai aussi rédigé des documentations utilisateur, notamment pour mon application : Maven Lite. Maven Lite était destiné aux étudiants pour les aider à créer et développer des projets Java, il est donc essentiel que sa documentation soit claire et accessible aux débutants.
+      Bien que la majorité de mes documents soient techniques, j'ai aussi rédigé des documentations utilisateur, notamment pour <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a>. <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a> était destiné aux étudiants pour les aider à <b>créer et développer des projets Java</b>, il est donc essentiel que sa documentation soit <b>claire et accessible aux débutants</b>.
     </p>
 
     <p class="paragraph">
-      J'ai rédigé cette documentation en me mettant à la place d'un nouvel utilisateur qui découvre Maven Lite. Il va dabord se demander qu'est-ce que Maven Lite, à quoi sert-il et comment fonctionne-t-il ? J'ai donc commencé par présenter l'application, ses fonctionnalités et ses avantages.
+      J'ai rédigé cette documentation en me mettant à la place d'un nouvel utilisateur qui découvre <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a>. Il va dabord se demander qu'est-ce que <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a>, à quoi sert-il et comment fonctionne-t-il ? J'ai donc commencé par présenter l'application, ses fonctionnalités et ses avantages.
     </p>
 
     <p class="paragraph">
-      Ensuite, une fois que l'utilisateur a compris ce qu'est Maven Lite, il va vouloir savoir comment l'installer. C'est pourquoi à la suite de l'introduction j'ai mis une section d'installation, qui explique comment installer Maven Lite sur les différents systèmes d'exploitation, avec des explications détaillées et toutes les commandes à utiliser.
+      Ensuite, une fois que l'utilisateur a compris ce qu'est <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a>, il va vouloir savoir comment l'installer. C'est pourquoi à la suite de l'introduction j'ai mis une section d'installation, qui explique comment installer <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a> sur les différents systèmes d'exploitation, avec des explications détaillées et toutes les commandes à utiliser.
     </p>
 
     <p class="paragraph">
-      Enfin, une section d'utilisation montre comment créer et développer des projets Java avec Maven Lite, accompagnée d'exemples de commandes et de code.
+      Enfin, une section d'utilisation montre comment créer et développer des projets Java avec <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a>, accompagnée d'exemples de commandes et de code.
     </p>
 
     <p class="paragraph">
-      De plus, la commande "maven-lite --help" fournit une aide rapide sur les fonctionnalités principales et des exemples d'utilisation. Pour une référence complète, la page de manuel accessible via "man maven-lite" (sur Linux) détaille toutes les options avec de courtes explications.
+      De plus, la commande <b>"maven-lite --help"</b> fournit une aide rapide sur les fonctionnalités principales et des exemples d'utilisation. Pour une référence complète, la page de manuel accessible via <b>"man maven-lite"</b> (sur Linux) détaille toutes les options avec de courtes explications.
     </p>
 
     <p class="paragraph">
@@ -123,24 +133,24 @@
     </p>
 
     <p class="paragraph">
-      Les pages de manuel ("man maven-lite") servent d'aide-mémoire pour les utilisateurs familiers de l'outil qui recherchent une référence rapide, y compris pour des fonctionnalités avancées.
+      Les pages de manuel (<b>"man maven-lite"</b>) servent d'aide-mémoire pour les utilisateurs familiers de l'outil qui recherchent une référence rapide, y compris pour des fonctionnalités avancées.
     </p>
 
     <p class="paragraph">
-      La commande "maven-lite --help" est pratique pour obtenir rapidement des exemples et des options de base sans consulter la documentation complète. Personnellement, je l'utilisais pour copier-coller les exemples de création de projet.
+      La commande <b>"maven-lite --help"</b> est pratique pour obtenir rapidement des exemples et des options de base sans consulter la documentation complète. Personnellement, je l'utilisais pour copier-coller les exemples de création de projet.
     </p>
 
     <p class="paragraph">
-      Ainsi, ces trois formats répondent à des besoins différents : découverte, référence et aide rapide. Il me semble important de proposer plusieurs types de documentation pour couvrir tous les usages.
+      Ainsi, ces trois formats répondent à des besoins différents : <b>découverte</b>, <b>référence</b> et <b>aide rapide</b>. Il me semble important de proposer plusieurs types de documentation pour couvrir tous les usages.
     </p>
 
     <h2 class="title-h2">Mon autocritique</h2>
     <p class="paragraph">
-      La documentation est cruciale en développement. Je sais que mes documents ne sont pas parfaits : ils peuvent contenir des fautes et parfois manquer d'organisation, notamment parce que je les rédiges en parallèle du travail pratique. Malgré tout, le contenu technique est vérifié et fiable.
+      La documentation est cruciale en développement. Je sais que mes documents ne sont pas parfaits : ils peuvent contenir des fautes et parfois manquer d'organisation, notamment parce que je les rédiges en parallèle du travail pratique. Malgré tout, le contenu technique est <b>vérifié et fiable</b>.
     </p>
 
     <p class="paragraph">
-      Malgré ces limites, la documentation reste une compétence que je maîtrise : je sais produire du contenu technique fiable. Il me suffit de relire pour améliorer la forme. Peu de développeurs aiment documenter, mais j'apprécie cet exercice car il me permet de partager mes connaissances et de valider ma compréhension des sujets.
+      Malgré ces limites, la documentation reste une compétence que je maîtrise : je sais produire du contenu technique fiable. Il me suffit de relire pour améliorer la forme. Peu de développeurs aiment documenter, mais j'apprécie cet exercice car il me permet de <b>partager mes connaissances</b> et de <b>valider ma compréhension</b> des sujets.
     </p>
 
     <p class="paragraph">
@@ -165,7 +175,7 @@
     </p>
 
     <p class="paragraph">
-      Je compte continuer à produire de la documentation. J'aime cet exercice et c'est essentiel pour mes projets personnels comme professionnels. C'est une compétence importante que je développe continuellement.
+      Je compte continuer à produire de la documentation. J'aime cet exercice et c'est essentiel pour mes projets personnels comme professionnels. C'est une compétence <b>importante</b> que je développe continuellement.
     </p>
 
     <p class="paragraph">

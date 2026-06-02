@@ -1,5 +1,7 @@
 ---
+import { getProjectById } from "@/data/projects";
 
+const mavenLiteProject = getProjectById("maven-lite");
 ---
 
 <section class="flex flex-col items-center">
@@ -30,7 +32,7 @@
     </p>
 
     <p class="paragraph">
-      Clarifions un point : Linux est un noyau, pas un système d'exploitation complet. Le noyau gère les ressources matérielles, mais il a besoin de bibliothèques, d'outils et d'applications pour constituer un système opérationnel. C'est pourquoi on parle de <a href="https://fr.wikipedia.org/wiki/Distribution_Linux"><b><u>distributions Linux</u></b></a> (Ubuntu, Debian, Fedora, Arch Linux, etc.), chacune offrant des choix et des compromis différents. Cependant, le terme "Linux" est souvent utilisé pour désigner l'ensemble de l'écosystème, y compris les distributions, les applications et les outils associés.
+      Clarifions un point : Linux est un noyau, pas un système d'exploitation complet. Le noyau gère les ressources matérielles, mais il a besoin de bibliothèques, d'outils et d'applications pour constituer un système opérationnel. C'est pourquoi on parle de <a href="https://fr.wikipedia.org/wiki/Distribution_Linux">distributions Linux</a> (Ubuntu, Debian, Fedora, Arch Linux, etc.), chacune offrant des choix et des compromis différents. Cependant, le terme "Linux" est souvent utilisé pour désigner l'ensemble de l'écosystème, y compris les distributions, les applications et les outils associés.
     </p>
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
@@ -54,17 +56,16 @@
       Debian et Ubuntu partagent de nombreux outils (APT, format .deb, etc.), ce qui facilite la portabilité des applications entre ces distributions, notamment Linux Mint, Pop!_OS, Elementary OS, etc.
     </p>
 
-    <!-- App Linux (Maven Lite) -->
     <p class="paragraph">
-      J'ai notamment créé Maven Lite, une application pour développeurs Java. C'est une version allégée de Maven. Maven Lite permet de créer, configurer, compiler, lancer et packager des projets Java via une interface en ligne de commande simple et intuitive. L'application est disponible sur Linux, Windows et macOS, avec une distribution au format .deb pour les distributions basées sur Debian.
+      J'ai notamment créé <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a>, une application pour développeurs Java. C'est une version allégée de Maven. <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a> permet de créer, configurer, compiler, lancer et packager des projets Java via une interface en ligne de commande simple et intuitive. L'application est disponible sur Linux, Windows et macOS, avec une distribution au format .deb pour les distributions basées sur Debian.
     </p>
 
     <p class="paragraph">
-      Maven Lite est distribué sur Linux via un paquet .deb, ce qui facilite son installation sur Debian, Ubuntu et distributions dérivées. Des installeurs sont également fournis pour Windows et macOS mais via un fichier compressé contenant l'exécutable, ainsi qu'un script d'installation pour simplifier le processus.
+      <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a> est distribué sur Linux via un paquet .deb, ce qui facilite son installation sur Debian, Ubuntu et distributions dérivées. Des installeurs sont également fournis pour Windows et macOS mais via un fichier compressé contenant l'exécutable, ainsi qu'un script d'installation pour simplifier le processus.
     </p>
 
     <p class="paragraph">
-      Maven Lite inclut, grâce à son paquet .deb, des pages de manuel (manpages) consultables depuis la ligne de commande, un atout pour les utilisateurs Linux habitués aux outils en terminal.
+      <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a> inclut, grâce à son paquet .deb, des pages de manuel (manpages) consultables depuis la ligne de commande, un atout pour les utilisateurs Linux habitués aux outils en terminal.
     </p>
 
     <p class="paragraph">

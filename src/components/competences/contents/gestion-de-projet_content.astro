@@ -1,4 +1,11 @@
 ---
+import { getCompetenceById } from '@/data/competences';
+import { getProjectById } from '@/data/projects';
+
+const travailEquipeCompetence = getCompetenceById('travail-equipe');
+const gestionProjetCompetence = getCompetenceById('gestion-de-projet');
+const AventurierDuRailProjet = getProjectById('jeu-aventuriers-du-rail');
+const EconorisProjet = getProjectById('econoris');
 
 ---
 
@@ -6,112 +13,112 @@
   <div class="max-w-[80%]">
     <h2 class="title-h2">Ma définition</h2>
     <p class="paragraph">
-      La gestion de projet est une compétence qui consiste à planifier, organiser et diriger les ressources (humaines, financières, matériellesn temporelle) pour atteindre des objectifs spécifiques dans un délai imparti. Elle implique la coordination de différentes tâches et activités pour assurer la réussite d'un projet, en respectant les contraintes de temps, de budget et de qualité. La gestion de projet nécessite également une communication efficace, c'est pourquoi elle est souvent associée à la compétence de gestion d'équipe.
+      La <a href={gestionProjetCompetence?.localLink}><b>gestion de projet</b></a> est une <b>compétence</b> qui consiste à <b>planifier, organiser et diriger les ressources</b> (humaines, financières, matériellesn temporelle) pour atteindre des <b>objectifs spécifiques</b> dans un <b>délai imparti</b>. Elle implique la <b>coordination de différentes tâches et activités</b> pour assurer la <b>réussite d'un projet</b>, en respectant les <b>contraintes de temps, de budget et de qualité</b>. La gestion de projet nécessite également une <b>communication efficace</b>, c'est pourquoi elle est souvent associée à la compétence de <a href={travailEquipeCompetence?.localLink}><b>gestion d'équipe</b></a>.
     </p>
 
     <p class="paragraph">
-      C'est une compétence essentielle pour toute personne qui souhaite devenir chef de projet. Elle permet de garantir que les projets sont menés à bien dans les délais impartis, avec un budget maîtrisé et une qualité satisfaisante.
+      C'est une <b>compétence essentielle</b> pour toute personne qui souhaite devenir <b>chef de projet</b>. Elle permet de garantir que les projets sont menés à bien dans les <b>délais impartis</b>, avec un <b>budget maîtrisé</b> et une <b>qualité satisfaisante</b>.
     </p>
 
     <p class="paragraph">
-      Pour ma part, c'est une compétence que je dois acquérir, puisque je souhaite développer mes propres applications au sein de mon entreprise et donc, je serai forcement amené à être chef de projet. On peut même dire que j'en suis déjà un dans une certaine mesure, ayant déjà développé trois applications. La différence avec le monde professionnel est l'absence d'équipe, de budget et de contraintes de délais. Ma gestion reste simplifiée, mais elle m'a déjà permis de poser de bonnes bases et d'acquérir des acquis utiles pour la suite.
+      Pour ma part, c'est une compétence que je dois acquérir, puisque je souhaite développer mes propres applications au sein de mon entreprise et donc, je serai forcement amené à être <b>chef de projet</b>. On peut même dire que j'en suis déjà un dans une certaine mesure, ayant déjà développé <b>trois applications</b>. La différence avec le monde professionnel est l'absence d'équipe, de budget et de contraintes de délais. Ma gestion reste simplifiée, mais elle m'a déjà permis de poser de <b>bonnes bases</b> et d'acquérir des acquis utiles pour la suite.
     </p>
 
     <p class="paragraph">
-      C'est d'ailleurs positif de commencer de manière simple, j'apprends mieux avec des exemples concrets, ce qui facilite le lien entre théorie et pratique. Commencer directement par une méthodologie complexe peut nuire à l'application concrète et conduire à des dépassements de budget ou des retards, car la théorie sans pratique est difficile à mettre en œuvre.
+      C'est d'ailleurs positif de commencer de manière simple, j'apprends mieux avec des <b>exemples concrets</b>, ce qui facilite le lien entre <b>théorie et pratique</b>. Commencer directement par une <b>méthodologie complexe</b> peut nuire à l'application concrète et conduire à des <b>dépassements de budget</b> ou des <b>retards</b>, car la théorie sans pratique est difficile à mettre en œuvre.
     </p>
 
     <p class="paragraph">
-      La gestion de projet s'apprend progressivement. Il vaut mieux construire des bases solides, puis ajouter des éléments de complexité au fur et à mesure. Cette approche permet d'acquérir une compétence durable et applicable à des projets de plus grande envergure.
+      La gestion de projet s'apprend <b>progressivement</b>. Il vaut mieux <b>construire des bases solides</b>, puis ajouter des éléments de complexité <b>au fur et à mesure</b>. Cette approche permet d'acquérir une <b>compétence durable</b> et applicable à des projets de <b>plus grande envergure</b>.
     </p>
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
     <p class="paragraph">
-      Je n'ai pas encore une longue expérience formelle en gestion de projet, mais j'ai déjà mené plusieurs initiatives qui m'ont servi de terrain d'apprentissage.
+      Je n'ai pas encore une longue expérience formelle en gestion de projet, mais j'ai déjà mené plusieurs initiatives qui m'ont servi de <b>terrain d'apprentissage</b>.
     </p>
 
     <h3 class="title-h3">Jeu Les aventuriers du rail</h3>
     <p class="paragraph">
-      Mon expérience la plus complète en gestion de projet est le développement du jeu "Les Aventuriers du Rail", réalisé en deuxième année d'IUT avec une équipe de cinq personnes sur deux semaines.
+      Mon expérience la plus complète en gestion de projet est le développement du jeu <a href={AventurierDuRailProjet?.localLink}><b>Les Aventuriers du Rail</b></a>, réalisé en deuxième année d'IUT avec une <b>équipe de cinq personnes</b> sur <b>deux semaines</b>.
     </p>
 
     <p class="paragraph">
-      Sur ce projet, j'ai assuré le rôle de chef de projet : planification, organisation, pilotage et contrôle. Je n'étais pas seul, un coéquipier plus expérimenté techniquement m'a aidé pour la partie technique.
+      Sur ce projet, j'ai assuré le rôle de <b>chef de projet</b> : <b>planification</b>, <b>organisation</b>, <b>pilotage</b> et <b>contrôle</b>. Je n'étais pas seul, un coéquipier plus expérimenté techniquement m'a aidé pour la partie technique.
     </p>
 
     <p class="paragraph">
-      Pour mener ce projet à bien, la première étape a été la présentation de chaque membre de l'équipe, afin d'identifier les compétences de chacun. Même si cela relève autant de la gestion d'équipe que de la gestion de projet, c'est crucial pour répartir les tâches et instaurer une ambiance de travail productive.
+      Pour mener ce projet à bien, la première étape a été la présentation de chaque membre de l'équipe, afin d'identifier les <b>compétences de chacun</b>. Même si cela relève autant de la <b>gestion d'équipe</b> que de la gestion de projet, c'est crucial pour <b>répartir les tâches</b> et instaurer une <b>ambiance de travail productive</b>.
     </p>
 
     <p class="paragraph">
-      Ensuite, nous avons défini les objectifs. Le sujet de l'école proposait plusieurs paliers, permettant à chaque groupe d'obtenir une note en fonction du palier atteint. Nous avons choisi d'atteindre le dernier palier : réaliser un jeu complet avec interface graphique, règles respectées et mode multijoueur sur réseau local. C'était ambitieux et facultatif, mais nous avions les compétences pour le faire alors on voulais essayer.
+      Ensuite, nous avons défini les <b>objectifs</b>. Le sujet de l'école proposait plusieurs paliers, permettant à chaque groupe d'obtenir une note en fonction du palier atteint. Nous avons choisi d'atteindre le <b>dernier palier</b> : réaliser un jeu complet avec interface graphique, règles respectées et mode multijoueur sur réseau local. C'était ambitieux et facultatif, mais nous avions les compétences pour le faire alors on voulais essayer.
     </p>
 
     <p class="paragraph">
-      Après définition des objectifs, nous avons découpé le projet en grosses tâches, puis réparti le travail selon les compétences et les préférences de chacun, avant de lancer le développement.
+      Après définition des objectifs, nous avons découpé le projet en <b>grosses tâches</b>, puis réparti le travail selon les compétences et les préférences de chacun, avant de lancer le <b>développement</b>.
     </p>
 
     <p class="paragraph">
-      Parallèlement au développement, j'ai assuré la communication avec les enseignants et la rédaction du rapport de projet. Habituellement, j'encourage les membres moins techniques à rédiger le rapport pour qu'ils apprennent, mais sur ce projet personne n'a souhaité le faire, je l'ai donc pris en charge.
+      Parallèlement au développement, j'ai assuré la <b>communication avec les enseignants</b> et la <b>rédaction du rapport de projet</b>. Habituellement, j'encourage les membres moins techniques à rédiger le rapport pour qu'ils apprennent, mais sur ce projet personne n'a souhaité le faire, je l'ai donc pris en charge.
     </p>
 
     <p class="paragraph">
-      Tout s'est bien déroulé, nous avons réalisé un très bon projet, qui nous a valu les félicitations des enseignants et la meilleure note de la promotion (18/20). J'en suis très fier, car il a demandé beaucoup de travail et de coordination en peu de temps.
+      Tout s'est bien déroulé, nous avons réalisé un <b>très bon projet</b>, qui nous a valu les félicitations des enseignants et la <b>meilleure note de la promotion</b> (18/20). J'en suis très fier, car il a demandé beaucoup de travail et de coordination en peu de temps.
     </p>
 
     <p class="paragraph">
-      Malgré le succès, la gestion du projet n'était pas parfaite, les tâches n'étaient pas toujours réparties équitablement et certaines étaient trop volumineuses. Dans l'idéal, il aurait fallu découper le travail en tâches plus petites pour mieux suivre l'avancement et répartir la charge de travail.
+      Malgré le succès, la gestion du projet n'était pas parfaite, les tâches n'étaient pas toujours réparties équitablement et certaines étaient trop volumineuses. Dans l'idéal, il aurait fallu découper le travail en <b>tâches plus petites</b> pour mieux suivre l'<b>avancement</b> et répartir la <b>charge de travail</b>.
     </p>
 
-    <h3 class="title-h3">Econoris</h3>
+    <h3 class="title-h3">{EconorisProjet?.title}</h3>
     <p class="paragraph">
-      J'ai également de l'expérience en gestion de projet à travers le développement d'applications personnelles, comme Econoris. Je dois gérer les mises à jour, les nouvelles fonctionnalités, les corrections de bugs, ainsi que l'API et la base de données. Je suis aussi en charge de la communication avec les utilisateurs pour les tenir informés des nouveautés.
-    </p>
-
-    <p class="paragraph">
-      C'est avec Econoris que j'ai beaucoup progressé. L'absence de contraintes strictes me permet d'expérimenter différentes méthodes et d'identifier celles qui me conviennent, afin d'améliorer ma pratique au fil du temps.
+      J'ai également de l'expérience en gestion de projet à travers le développement d'applications personnelles, comme <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>. Je dois gérer les <b>mises à jour</b>, les <b>nouvelles fonctionnalités</b>, les <b>corrections de bugs</b>, ainsi que l'<b>API</b> et la <b>base de données</b>. Je suis aussi en charge de la <b>communication avec les utilisateurs</b> pour les tenir informés des nouveautés.
     </p>
 
     <p class="paragraph">
-      Sur Econoris, je n'ai pas à gérer de budget, d'équipe ou de délais stricts, ce qui me permet de me concentrer sur la planification, l'organisation et le pilotage. Ces bases me permettront ensuite d'ajouter les composantes manquantes (budget, équipes, contraintes) pour gérer des projets plus complexes.
+      C'est avec <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> que j'ai beaucoup progressé. L'absence de contraintes strictes me permet d'<b>expérimenter différentes méthodes</b> et d'<b>identifier celles qui me conviennent</b>, afin d'améliorer ma pratique au fil du temps.
     </p>
 
     <p class="paragraph">
-      La première chose que je vais ajouter est la gestion du temps : j'estimerai la durée des tâches et m'efforcerai de respecter ces estimations pour m'entraîner à mieux planifier et estimer mes efforts.
+      Sur <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, je n'ai pas à gérer de <b>budget</b>, d'<b>équipe</b> ou de <b>délais stricts</b>, ce qui me permet de me concentrer sur la <b>planification</b>, l'<b>organisation</b> et le <b>pilotage</b>. Ces bases me permettront ensuite d'ajouter les composantes manquantes (budget, équipes, contraintes) pour gérer des <b>projets plus complexes</b>.
     </p>
 
     <p class="paragraph">
-      Ensuite, j'intègrerai la gestion d'équipe en recrutant progressivement des collaborateurs, à commencer par une personne, puis agrandir l'équipe si besoin. Cela me permettra d'apprendre à manager une équipe progressivement sans être submergé.
+      La première chose que je vais ajouter est la <b>gestion du temps</b> : j'estimerai la durée des tâches et m'efforcerai de respecter ces estimations pour m'entraîner à <b>mieux planifier</b> et <b>estimer mes efforts</b>.
     </p>
 
     <p class="paragraph">
-      La dimension financière dépend de la gestion du temps et de l'équipe. Si ces aspects sont maîtrisés, le budget le sera aussi. Ce qui coûte de l'argent, c'est principalement le temps de travail des personnes impliquées, donc en gérant bien le temps et les équipes, on gère aussi le budget.
+      Ensuite, j'intègrerai la <b>gestion d'équipe</b> en recrutant progressivement des collaborateurs, à commencer par une personne, puis agrandir l'équipe si besoin. Cela me permettra d'apprendre à <b>manager une équipe progressivement</b> sans être submergé.
+    </p>
+
+    <p class="paragraph">
+      La dimension financière dépend de la <b>gestion du temps</b> et de l'<b>équipe</b>. Si ces aspects sont maîtrisés, le budget le sera aussi. Ce qui coûte de l'argent, c'est principalement le <b>temps de travail</b> des personnes impliquées, donc en gérant bien le temps et les équipes, on gère aussi le budget.
     </p>
 
     <h2 class="title-h2">Mon autocritique</h2>
     <p class="paragraph">
-      La gestion de projet est une compétence que j'apprends encore. J'ai déjà des bases solides pour organiser les tâches et transformer une idée en liste d'actions concrètes et mon plan d'apprentissage par la pratique me semble efficace pour progresser.
+      La gestion de projet est une compétence que j'apprends encore. J'ai déjà des <b>bases solides</b> pour <b>organiser les tâches</b> et <b>transformer une idée en liste d'actions concrètes</b> et mon plan d'apprentissage par la pratique me semble efficace pour progresser.
     </p>
 
     <p class="paragraph">
-      Je suis confiant de pouvoir atteindre une bonne maîtrise de la gestion de projet, mais je sais que cela demandera du travail et de la pratique. Je suis prêt à relever ces défis pour progresser.
+      Je suis confiant de pouvoir atteindre une <b>bonne maîtrise de la gestion de projet</b>, mais je sais que cela demandera du <b>travail</b> et de la <b>pratique</b>. Je suis prêt à relever ces défis pour progresser.
     </p>
 
     <p class="paragraph">
-      L'important est de procéder par étapes, apprendre chaque composante séparément, en commençant par les plus simples, puis ajouter progressivement de la complexité. Cela évite les erreurs et construit une pratique solide.
+      L'important est de <b>procéder par étapes</b>, apprendre chaque composante séparément, en commençant par les plus simples, puis ajouter progressivement de la complexité. Cela évite les erreurs et construit une <b>pratique solide</b>.
     </p>
 
     <h2 class="title-h2">Mon évolution dans cette compétence</h2>
     <p class="paragraph">
-      La gestion de projet est essentielle pour qui veut réaliser ses propres idées, d'où la nécessité, pour moi, de l'acquérir. C'est une compétence exigeante car elle combine plusieurs dimensions (temps, équipe, budget), chacune demandant beaucoup de pratique.
+      La gestion de projet est <b>essentielle</b> pour qui veut réaliser ses propres idées, d'où la nécessité, pour moi, de l'acquérir. C'est une compétence exigeante car elle combine plusieurs dimensions (<b>temps</b>, <b>équipe</b>, <b>budget</b>), chacune demandant beaucoup de pratique.
     </p>
 
     <p class="paragraph">
-      Comme indiqué plus haut, je maîtrise déjà la gestion des tâches, je peux transformer une idée en liste d'actions concrètes. Il me reste à progresser sur la gestion du temps et du personnel pour mener des projets de plus grande envergure.
+      Comme indiqué plus haut, je maîtrise déjà la <b>gestion des tâches</b>, je peux transformer une idée en liste d'actions concrètes. Il me reste à progresser sur la <b>gestion du temps</b> et du <b>personnel</b> pour mener des projets de plus grande envergure.
     </p>
 
     <p class="paragraph">
-      La gestion du temps est la compétence que je souhaite acquérir en priorité après mon alternance. La gestion d'équipe rejoint la compétence de travail en équipe, que je maîtrise déjà relativement bien (voir la section Travail d'équipe) donc je ne pense pas avoir de difficultés à l'acquérir.
+      La <b>gestion du temps</b> est la compétence que je souhaite acquérir en priorité après mon alternance. La <b>gestion d'équipe</b> rejoint la compétence de <a href={travailEquipeCompetence?.localLink}><b>travail en équipe</b></a>, que je maîtrise déjà relativement bien (voir la section <a href={travailEquipeCompetence?.localLink}><b>Travail d'équipe</b></a>) donc je ne pense pas avoir de difficultés à l'acquérir.
     </p>
   </div>
 </section>

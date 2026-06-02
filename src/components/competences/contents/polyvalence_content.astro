@@ -2,74 +2,80 @@
 import FlutterArchitecturePaper from "@assets/competences/flutter_architecture_paper.jpg";
 
 import Picture from "astro/components/Picture.astro";
+import { getCompetenceById } from '@/data/competences';
+import { getProjectById } from "@/data/projects";
+
+const polyvalenceCompetence = getCompetenceById('polyvalence');
+const GenesisProjet = getProjectById('genesis');
+const EconorisProjet = getProjectById('econoris');
 ---
 
 <section class="flex flex-col items-center">
   <div class="max-w-[80%]">
     <h2 class="title-h2">Ma définition</h2>
     <p class="paragraph">
-      La polyvalence est la capacité à s'adapter et à intervenir efficacement dans des domaines, tâches ou rôles variés. Elle repose sur une flexibilité intellectuelle et une ouverture d'esprit qui permettent de passer d'un sujet à l'autre, d'acquérir rapidement de nouvelles compétences et de gérer différents aspects d'un projet.
+      <a href={polyvalenceCompetence?.localLink}><b>La polyvalence</b></a> est la <b>capacité à s'adapter</b> et à intervenir efficacement dans des domaines, tâches ou rôles variés. Elle repose sur une <b>flexibilité intellectuelle</b> et une <b>ouverture d'esprit</b> qui permettent de passer d'un sujet à l'autre, <b>d'acquérir rapidement de nouvelles compétences</b> et de gérer différents aspects d'un projet.
     </p>
 
     <p class="paragraph">
-      Dans un poste salarié, la polyvalence n'est pas toujours requise. La plupart des rôles demandent de la spécialisation. En revanche, pour progresser, encadrer des équipes ou lancer ses propres projets, la polyvalence devient un atout majeur. Elle facilite la compréhension globale d'un projet, la communication avec les parties prenantes et la gestion des imprévus.
+      Dans un poste salarié, la <b>polyvalence</b> n'est pas toujours requise. La plupart des rôles demandent de la spécialisation. En revanche, pour progresser, <b>encadrer des équipes</b> ou lancer ses propres projets, la polyvalence devient un <b>atout majeur</b>. Elle facilite la <b>compréhension globale</b> d'un projet, la communication avec les parties prenantes et la gestion des imprévus.
     </p>
 
     <p class="paragraph">
-      Par exemple, un chef de projet polyvalent sait appréhender les aspects techniques (développement, design, sécurité), aussi bien que les dimensions commerciales et financières. Il doit pouvoir communiquer efficacement avec les équipes pour garantir la réussite du projet.
+      Par exemple, un chef de projet polyvalent sait appréhender les aspects <b>techniques</b> (développement, design, sécurité), aussi bien que les dimensions <b>commerciales</b> et <b>financières</b>. Il doit pouvoir <b>communiquer efficacement</b> avec les équipes pour garantir la réussite du projet.
     </p>
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
     <p class="paragraph">
-      Deux projets illustrent particulièrement ma polyvalence : Genesis et Econoris. Sur ces projets, j'ai pris en charge des aspects variés : développement, design, sécurité, optimisation et documentation.
+      Deux projets illustrent particulièrement ma polyvalence : <a href={GenesisProjet?.localLink}>{GenesisProjet?.localLink}</a> et <a href={EconorisProjet?.localLink}>Econoris</a>. Sur ces projets, j'ai pris en charge des aspects variés : <b>développement</b>, <b>design</b>, <b>sécurité</b>, <b>optimisation</b> et <b>documentation</b>.
     </p>
 
     <p class="paragraph">
-      Sur Genesis, j'ai développé le backend, ma spécialité, puis j'ai revu l'architecture complète du front-end pour l'optimiser et la rendre
-      maintenable. J'ai ainsi basculé du backend au front-end tout en conservant les standards de qualité et de performance. En une semaine, j'ai appris
-      le langage Dart, le framework Flutter et leurs bonnes pratiques, en tenant compte des contraintes de performance et de maintenabilité.
+      Sur <a href={GenesisProjet?.localLink}><b>Genesis</b></a>, j'ai développé le <b>backend</b>, ma spécialité, puis j'ai revu l'architecture complète du front-end pour l'optimiser et la rendre
+      <b>maintenable</b>. J'ai ainsi basculé du backend au front-end tout en conservant les standards de qualité et de performance. En une semaine, j'ai appris
+      le langage <b>Dart</b>, le framework <b>Flutter</b> et leurs bonnes pratiques, en tenant compte des contraintes de performance et de maintenabilité.
     </p>
 
     <p class="paragraph">
       Après cette montée en compétence, j'ai documenté l'architecture du front-end (mini documentation) pour la transmettre à mon collègue développeur mobile.
       Avec mon collègue, nous avons ensuite implémenté l'architecture en deux semaines, en nous appuyant sur des conventions recommandées par Google
-      pour Flutter. La difficulté principale venait de l'adoption des bibliothèques GoRouter et Riverpod, qui imposent des approches de conception
+      pour Flutter. La difficulté principale venait de l'adoption des bibliothèques <b>GoRouter</b> et <b>Riverpod</b>, qui imposent des approches de conception
       spécifiques qui ne sont pas référencées sur la documentation officielle Flutter.
     </p>
 
     <p class="paragraph">
-      Apprendre un nouveau langage, un nouveau framework et maîtriser des bibliothèques complexes en peu de temps fut un vrai défi, relevé grâce à
-      ma capacité d'adaptation et ma volonté d'apprendre.
+      <b>Apprendre un nouveau langage, un nouveau framework</b> et maîtriser des bibliothèques complexes en peu de temps fut un vrai défi, relevé grâce à
+      ma <b>capacité d'adaptation</b> et ma <b>volonté d'apprendre</b>.
     </p>
 
     <p class="paragraph">
-      Mon objectif est d'ajouter cette architecture optimisée à ma documentation technique pour la partager. Elle combine des bonnes pratiques Flutter
-      avec des conventions Riverpod/GoRouter et n'est actuellement pas trouvable en une seul documentation, ce qui en fait une ressource précieuse pour les développeurs Flutter souhaitant adopter une architecture performante et maintenable.
+      Mon objectif est d'ajouter cette architecture optimisée à ma documentation technique pour la partager. Elle combine des <b>bonnes pratiques Flutter</b>
+      avec des conventions <b>Riverpod/GoRouter</b> et n'est actuellement pas trouvable en une seul documentation, ce qui en fait une <b>ressource précieuse</b> pour les développeurs Flutter souhaitant adopter une architecture performante et maintenable.
     </p>
 
       <p class="paragraph">
-      Le deuxième projet illustrant ma polyvalence est Econoris, un gestionnaire de finances que j'ai réalisé seul. J'ai dû assurer toutes les parties du projet.
+      Le deuxième projet illustrant ma polyvalence est <a href={EconorisProjet?.localLink}><b>Econoris</b></a>, un gestionnaire de finances que j'ai réalisé seul. J'ai dû assurer toutes les parties du projet.
       </p>
 
       <p class="paragraph">
-      J'ai commencé par concevoir la base de données au moyen de scripts SQL, en veillant à une structure performante et facile d'usage. La nouveautée
-      fut la création d'une image Docker pour la base de données afin de faciliter le déploiement. Avec l'aide de mon maître d'apprentissage, j'ai
+      J'ai commencé par concevoir la <b>base de données</b> au moyen de scripts SQL, en veillant à une structure performante et facile d'usage. La nouveautée
+      fut la création d'une <b>image Docker</b> pour la base de données afin de faciliter le déploiement. Avec l'aide de mon maître d'apprentissage, j'ai
       dockerisé la base sans difficulté majeure.
       </p>
 
       <p class="paragraph">
-      J'ai ensuite développé le backend (API) en réutilisant l'architecture que j'avais mise en place pour Genesis. Cette architecture, que je maîtrise,
-      est optimisée et sécurisée. Chaque donnée entrante et sortante est validée et corrigée selon des schémas stricts.
+      J'ai ensuite développé le <b>backend (API)</b> en réutilisant l'architecture que j'avais mise en place pour Genesis. Cette architecture, que je maîtrise,
+      est <b>optimisée et sécurisée</b>. Chaque donnée entrante et sortante est validée et corrigée selon des <b>schémas stricts</b>.
       </p>
 
       <p class="paragraph">
       Pour le front-end, j'ai d'abord tenté une génération automatique avec une IA, mais le code produit était loin d'être exploitable (bugs,
-      problèmes de performance). J'ai donc tout repris. Une semaine intense d'apprentissage (Dart, Flutter, bonnes pratiques, GoRouter, Riverpod),
+      problèmes de performance). J'ai donc tout repris. Une semaine intense d'apprentissage (<b>Dart, Flutter, bonnes pratiques, GoRouter, Riverpod</b>),
       puis j'ai réimplémentée tous le front-end selon la nouvelle architecture.
       </p>
 
       <p class="paragraph">
-        Une fois l'architecture mise en place et testée sur Econoris (plus simple que Genesis), j'ai écrit un brouillon de documentation, visible ci-dessous, pour expliquer les choix d'architecture et les bonnes pratiques associées à mes collègues, afin de les aider à implémenter la même architecture sur Genesis.
+        Une fois l'architecture mise en place et testée sur <b>Econoris</b> (plus simple que Genesis), j'ai écrit un brouillon de documentation, visible ci-dessous, pour expliquer les choix d'architecture et les <b>bonnes pratiques</b> associées à mes collègues, afin de les aider à implémenter la même architecture sur Genesis.
       </p>
 
       <Picture
@@ -83,28 +89,28 @@ import Picture from "astro/components/Picture.astro";
     />
 
       <p class="paragraph">
-      La réécriture d'Econoris a duré environ deux mois (7 février – 26 mars 2026). J'en ai profité pour moderniser le design, mettre à jour le
-      README et automatiser la construction et la publication des images Docker sur Docker Hub et GitHub Container Registry (GHCR) via des workflows
-      GitHub Actions.
+      La réécriture d'<b>Econoris</b> a duré environ deux mois (7 février – 26 mars 2026). J'en ai profité pour moderniser le <b>design</b>, mettre à jour le
+      README et automatiser la construction et la publication des images Docker sur <b>Docker Hub</b> et <b>GitHub Container Registry (GHCR)</b> via des workflows
+      <b>GitHub Actions</b>.
       </p>
 
       <p class="paragraph">
-      Pour le déploiement, j'ai assemblé un « wrapper » nommé Flower Garden qui regroupe, via Docker Compose, les images (base de données, backend, front-end), un
-      reverse proxy avec certificat SSL et les configurations nécessaires. J'ai acheté le nom de domaine florobart.fr, acheté un VPS OVH, configuré
+      Pour le déploiement, j'ai assemblé un « wrapper » nommé <b>Flower Garden</b> qui regroupe, via Docker Compose, les images (base de données, backend, front-end), un
+      <b>reverse proxy</b> avec certificat SSL et les configurations nécessaires. J'ai acheté le nom de domaine florobart.fr, acheté un VPS OVH, configuré
       l'environnement et déployé le wrapper. L'application est accessible à l'adresse https://econoris.florobart.fr, fonctionnelle, sécurisée et
-      maintenable.
+      <b>maintenable</b>.
     </p>
 
     <h2 class="title-h2">Mon autocritique</h2>
     <p class="paragraph">
-      Au fil de mes expériences (Genesis, Econoris, Flollylist et FlorAccess), j'ai appris à être polyvalent. Je suis capable de m'adapter rapidement, acquérir de nouvelles
-      compétences et gérer différents aspects d'un projet. Je considère la polyvalence comme une compétence que je maîtrise bien.
+      Au fil de mes expériences (<a href={GenesisProjet?.localLink}><b>Genesis</b></a>, <a href={EconorisProjet?.localLink}><b>Econoris</b></a>, <b>Flollylist</b> et <b>FlorAccess</b>), j'ai appris à être polyvalent. Je suis capable de <b>m'adapter rapidement</b>, acquérir de nouvelles
+      compétences et gérer différents aspects d'un projet. Je considère la polyvalence comme une compétence que je <b>maîtrise bien</b>.
       </p>
 
       <p class="paragraph">
-      Il me reste cependant des axes d'amélioration, notamment le déploiement automatisé et scalable. Je souhaite apprendre Kubernetes et les
-      outils de monitoring pour opérer des déploiements plus professionnels. Plus largement, j'aimerais acquérir des compétences non techniques comme 
-      la comptabilité, le marketing, et la gestion d'entreprise pour pouvoir piloter une entreprise de manière plus complète.
+      Il me reste cependant des axes d'amélioration, notamment le <b>déploiement automatisé et scalable</b>. Je souhaite apprendre <b>Kubernetes</b> et les
+      outils de <b>monitoring</b> pour opérer des déploiements plus professionnels. Plus largement, j'aimerais acquérir des compétences non techniques comme 
+      la <b>comptabilité</b>, le <b>marketing</b>, et la <b>gestion d'entreprise</b> pour pouvoir piloter une entreprise de manière plus complète.
       </p>
 
       <p class="paragraph">
@@ -112,7 +118,7 @@ import Picture from "astro/components/Picture.astro";
       </p>
 
       <p class="paragraph">
-      La polyvalence s'apprend, il faut rester curieux, sortir de sa zone de confort et accepter d'apprendre continuellement. C'est un processus
+      La <b>polyvalence</b> s'apprend, il faut rester curieux, sortir de sa <b>zone de confort</b> et accepter d'<b>apprendre continuellement</b>. C'est un processus
       exigeant, mais essentiel dans le monde professionnel actuel.
       </p>
 
@@ -125,8 +131,8 @@ import Picture from "astro/components/Picture.astro";
 
     <h2 class="title-h2">Mon évolution dans cette compétence</h2>
     <p class="paragraph">
-      La polyvalence est essentielle pour moi. En tant que futur entrepreneur, je devrai superviser ou gérer les dimensions techniques, commerciales et
-      financières de mon entreprise. C'est donc une compétence que je me dois de maîtriser.
+      La <b>polyvalence</b> est essentielle pour moi. En tant que futur entrepreneur, je devrai superviser ou gérer les dimensions <b>techniques</b>, <b>commerciales</b> et
+      <b>financières</b> de mon entreprise. C'est donc une compétence que je me dois de maîtriser.
     </p>
 
       <p class="paragraph">

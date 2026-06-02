@@ -1,5 +1,14 @@
 ---
 import { Code } from "astro-expressive-code/components"
+import { getCompetenceById } from "@/data/competences";
+import { getProjectById } from "@/data/projects";
+
+const DockerCompetence = getCompetenceById("docker");
+const FlutterCompetence = getCompetenceById("flutter");
+const LinuxCompetence = getCompetenceById("linux");
+const EconorisProjet = getProjectById("econoris");
+const FloraccessProjet = getProjectById("floraccess");
+const GenesisProjet = getProjectById("genesis");
 
 const EconorisApiDockerfile = `
 # Étape 1 : Build avec TypeScript
@@ -197,56 +206,56 @@ services:
   <div class="max-w-[80%]">
     <h2 class="title-h2">Ma définition</h2>
     <p class="paragraph">
-      Docker est une plateforme de conteneurisation qui permet de créer, déployer et exécuter des applications dans des conteneurs. Un conteneur est une unité légère et portable qui contient tout ce dont une application a besoin pour fonctionner, y compris le code, les bibliothèques, les dépendances et les fichiers de configuration. Docker permet aux développeurs de créer des applications de manière plus rapide et plus efficace, en éliminant les problèmes liés à la compatibilité des environnements de développement et de production. Avec Docker, les développeurs peuvent facilement partager leurs applications avec d'autres personnes, que ce soit pour le développement collaboratif ou pour le déploiement en production.
+      <a href={DockerCompetence?.localLink}>{DockerCompetence?.title}</a> est une <b>plateforme de conteneurisation</b> qui permet de <b>créer, déployer et exécuter</b> des applications dans des <b>conteneurs</b>. Un conteneur est une unité <b>légère</b> et <b>portable</b> qui contient tout ce dont une application a besoin pour fonctionner, y compris le code, les bibliothèques, les dépendances et les fichiers de configuration. Docker permet aux développeurs de créer des applications de manière plus <b>rapide et plus efficace</b>, en éliminant les problèmes liés à la compatibilité des environnements de développement et de production. Avec Docker, les développeurs peuvent facilement partager leurs applications avec d'autres personnes, que ce soit pour le développement collaboratif ou pour le déploiement en production.
     </p>
 
     <p class="paragraph">
-      Docker fonctionne selon deux concepts complémentaires : les images Docker et les conteneurs Docker. Il est important de comprendre la différence entre les deux, car elles sont souvent confondues alors qu'il s'agit de la base du fonctionnement de Docker. Je précise toutefois que Docker est un outil vaste et complexe. Je n'expliquerai pas tout en détail, mais je vais tout de même expliquer, de manière simplifiée, les principes essentiels pour comprendre les images et les conteneurs.
+      <b>Docker fonctionne selon deux concepts complémentaires</b> : les <b>images Docker</b> et les <b>conteneurs Docker</b>. Il est important de comprendre la différence entre les deux, car elles sont souvent confondues alors qu'il s'agit de la base du fonctionnement de Docker. Je précise toutefois que Docker est un outil vaste et complexe. Je n'expliquerai pas tout en détail, mais je vais tout de même expliquer, de manière simplifiée, les principes essentiels pour comprendre les images et les conteneurs.
     </p>
 
     <p class="paragraph">
-      Pour commencer, les images. Une image Docker contient tout le code, les bibliothèques, les dépendances et parfois un système minimal nécessaire pour exécuter l'application. Pour créer l'image d'une application, on choisit une image de base adaptée, puis on ajoute le code, on installe les dépendances et on configure l'environnement nécessaire au bon fonctionnement de l'application. Le but étant d'obtenir une image complète et autonome qui peut être exécutée sur n'importe quelle machine disposant de Docker, sans se soucier des différences d'environnement ou de configuration.
+      Pour commencer, les <b>images</b>. Une image Docker contient tout le code, les bibliothèques, les dépendances et parfois un système minimal nécessaire pour exécuter l'application. Pour créer l'image d'une application, on choisit une image de base adaptée, puis on ajoute le code, on installe les dépendances et on configure l'environnement nécessaire au bon fonctionnement de l'application. Le but étant d'obtenir une image <b>complète et autonome</b> qui peut être exécutée sur n'importe quelle machine disposant de Docker, sans se soucier des différences d'environnement ou de configuration.
     </p>
 
     <p class="paragraph">
-      Une fois l'image créée, on peut l'exécuter dans un conteneur Docker. Peu importe que le conteneur soit lancé sur un serveur, un ordinateur Windows, Linux ou macOS, tant que Docker est installé, l'application va se comporter de la même façon. C'est l'un des principaux intérêts de Docker, car cela facilite considérablement le développement et surtout le déploiement.
+      Une fois l'image créée, on peut l'exécuter dans un <b>conteneur Docker</b>. Peu importe que le conteneur soit lancé sur un serveur, un ordinateur Windows, <a href={LinuxCompetence?.localLink}>{LinuxCompetence?.title}</a> ou macOS, tant que Docker est installé, l'application va se comporter de la même façon. C'est l'un des principaux intérêts de Docker, car cela facilite considérablement le développement et surtout le déploiement.
     </p>
 
     <p class="paragraph">
-      Le conteneur Docker, quant à lui, est l'instance d'une image en cours d'exécution. Pour exécuter plusieurs instances d'une application, il suffit de lancer plusieurs conteneurs à partir de la même image. Chaque conteneur fonctionne de manière isolée, avec sa propre configuration et ses propres données. Cela rend la gestion d'instances multiples simple et fiable.
+      Le conteneur Docker, quant à lui, est l'instance d'une image en cours d'exécution. Pour exécuter plusieurs instances d'une application, il suffit de lancer plusieurs conteneurs à partir de la même image. Chaque conteneur fonctionne de manière <b>isolée, avec sa propre configuration et ses propres données</b>. Cela rend la gestion d'instances multiples simple et fiable.
     </p>
 
     <p class="paragraph">
-      En bre, l'image décrit l'état de votre application (fichiers, dépendances, configuration) tandis que le conteneur est l'environnement d'exécution créé à partir de cette image. L'image est la base, le conteneur est l'instance en fonctionnement.
+      En bref, <b>l'image décrit l'état de votre application</b> (fichiers, dépendances, configuration) tandis que le conteneur est <b>l'environnement d'exécution</b> créé à partir de cette image. L'image est la base, le conteneur est l'instance en fonctionnement.
     </p>
 
     <p class="paragraph">
-      Toutes les données que l'application enregistre (fichiers, etc.) peuvent être écrites dans le conteneur. Vous pouvez arrêter puis redémarrer un conteneur : l'application retrouvera généralement le même état si des volumes persistants sont utilisés. En revanche, si vous supprimez un conteneur sans avoir externalisé les données grâce à des volumes, vous allez perdre ces données. Les volumes sont des fichiers ou des répertoires sur l'hôte qui sont rendus accessibles au conteneur. Ils permettent de stocker les données de manière persistante, même si le conteneur est supprimé ou recréé.
+      Toutes les données que l'application enregistre (fichiers, etc.) peuvent être écrites dans le conteneur. Vous pouvez arrêter puis redémarrer un conteneur : l'application retrouvera généralement le même état si des <b>volumes persistants</b> sont utilisés. En revanche, si vous supprimez un conteneur sans avoir externalisé les données grâce à des volumes, vous allez perdre ces données. Les volumes sont des fichiers ou des répertoires sur l'hôte qui sont rendus accessibles au conteneur. Ils permettent de stocker les données de manière <b>persistante, même si le conteneur est supprimé ou recréé</b>.
     </p>
 
     <p class="paragraph">
-      En plus de ses avantages fonctionnels, Docker apporte un niveau d'isolation qui contribue à la sécurité. Un conteneur isole l'application du système d'exploitation hôte. En cas de faille, l'attaque reste confinée au conteneur et n'affecte pas directement l'hôte ou les autres conteneurs. Cette isolation réduit les risques, mais ne doit pas remplacer d'autres bonnes pratiques de sécurité.
+      En plus de ses avantages fonctionnels, Docker apporte un niveau d'<b>isolation</b> qui contribue à la <b>sécurité</b>. Un conteneur isole l'application du système d'exploitation hôte. En cas de faille, l'attaque reste confinée au conteneur et n'affecte pas directement l'hôte ou les autres conteneurs. Cette isolation réduit les risques, mais ne doit pas remplacer d'autres <b>bonnes pratiques de sécurité</b>.
     </p>
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
     <p class="paragraph">
-      Docker est, au même titre que Git, un outil incontournable pour de nombreux développeurs. Aujourd'hui, il est difficile d'envisager le déploiement sans Docker. Pour ma part, je l'ai utilisé sur absolument tous mes projets, en développement comme en production, car il est à la fois puissant et pratique pour créer des environnements reproductibles.
+      <b>{DockerCompetence?.title}</b> est, au même titre que <a href="https://fr.wikipedia.org/wiki/Git">Git</a>, un outil incontournable pour de nombreux développeurs. Aujourd'hui, il est difficile d'envisager le déploiement sans Docker. Pour ma part, je l'ai utilisé sur absolument tous mes <b>projets, en développement comme en production</b>, car il est à la fois puissant et pratique pour créer des environnements reproductibles.
     </p>
 
     <p class="paragraph">
-      Pour être plus précis, j'utilise Docker Compose, un outil qui permet de définir et de gérer des applications multi-conteneurs. Autrement dit, il permet de décrire plusieurs services (base de données, serveur web, frontend, etc.) qui fonctionnent ensemble pour former une application complète. C'est très pratique pour orchestrer un ensemble de conteneurs.
+      Pour être plus précis, j'utilise <b>Docker Compose</b>, un outil qui permet de définir et de gérer des applications multi-conteneurs. Autrement dit, il permet de décrire plusieurs services (base de données, serveur web, frontend, etc.) qui fonctionnent ensemble pour former une application complète. C'est très pratique pour orchestrer un ensemble de conteneurs.
     </p>
 
     <p class="paragraph">
-      Cela m'est utile car chacune de mes applications repose généralement sur trois conteneurs : frontend, backend et base de données. Grâce à Docker Compose, je peux définir ces conteneurs dans un seul fichier et les lancer simultanément avec une commande, ce qui me fait gagner beaucoup de temps et simplifie la configuration.
+      Cela m'est utile car chacune de mes applications repose généralement sur trois conteneurs : frontend, backend et base de données. Grâce à <b>Docker Compose</b>, je peux définir ces conteneurs dans un seul fichier et les lancer simultanément avec une commande, ce qui me fait gagner beaucoup de temps et simplifie la configuration.
     </p>
 
     <p class="paragraph">
-      La première fois que j'ai réellement utilisé Docker en profondeur, c'était pour Econoris, lors de la mise en production. Auparavant, je n'avais fait que lancer des conteneurs existants. Pour Econoris, j'ai dû créer moi-même les images Docker et les configurer pour la production. Cette expérience m'a permis de comprendre réellement comment Docker fonctionne et comment l'utiliser efficacement pour le développement et le déploiement.
+      La première fois que j'ai réellement utilisé Docker en profondeur, c'était pour <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, lors de la mise en production. Auparavant, je n'avais fait que lancer des conteneurs existants. Pour <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, j'ai dû créer moi-même les images Docker et les configurer pour la production. Cette expérience m'a permis de comprendre réellement comment Docker fonctionne et comment l'utiliser efficacement pour le développement et le déploiement.
     </p>
 
     <p class="paragraph">
-      Le premier concept que j'ai appris concerne évidemment les images. J'ai appris à créer des images optimisées en partant d'images de base légères et en n'incluant que les dépendances nécessaires. Le Dockerfile d'Econoris, que nous présentons ci-dessous, illustre ces bonnes pratiques. Il a d'ailleurs servi de base pour d'autres projets comme FlorAccess et Genesis.
+      Le premier concept que j'ai appris concerne évidemment les <b>images</b>. J'ai appris à créer des images optimisées en partant d'images de base légères et en n'incluant que les dépendances nécessaires. Le Dockerfile d'<a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, que nous présentons ci-dessous, illustre ces bonnes pratiques. Il a d'ailleurs servi de base pour d'autres projets comme <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a> et <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a>.
     </p>
 
     <Code
@@ -259,19 +268,19 @@ services:
     />
 
     <p class="paragraph">
-      Cet exemple est relativement simple, mais il montre à quel point Docker est puissant et flexible pour créer des images optimisées et sécurisées.
+      Cet exemple est relativement simple, mais il montre à quel point Docker est <b>puissant et flexible</b> pour créer des images optimisées et sécurisées.
     </p>
 
     <p class="paragraph">
-      Le Dockerfile bien fait est souvent séparé en deux étapes. L'étape de build et l'étape de production. La première installe les dépendances, compile le projet, exécute éventuellement des tests et peut contenir des secrets nécessaires au build. La seconde crée l'image finale destinée à la production. Elle ne contient que les fichiers nécessaires à l'exécution et est optimisée pour la sécurité, la performance et la fiabilité.
+      Le Dockerfile bien fait est souvent séparé en <b>deux étapes</b>. L'étape de <b>build</b> et l'étape de <b>production</b>. La première installe les dépendances, compile le projet, exécute éventuellement des tests et peut contenir des secrets nécessaires au build. La seconde crée l'image finale destinée à la production. Elle ne contient que les fichiers nécessaires à l'exécution et est optimisée pour la <b>sécurité, la performance et la fiabilité</b>.
     </p>
 
     <p class="paragraph">
-      Cette architecture multi-étapes est puissante car tout ce qui se passe dans l'étape de build est supprimé de l'image finale. On peut donc utiliser des outils de build et inclure des secrets temporaires sans les intégrer à l'image finale. En copiant uniquement l'essentiel dans l'étape de production, on obtient une image plus légère, plus rapide à démarrer et moins exposée aux risques de sécurité.
+      Cette architecture <b>multi-étapes</b> est puissante car tout ce qui se passe dans l'étape de build est supprimé de l'image finale. On peut donc utiliser des outils de build et inclure des secrets temporaires sans les intégrer à l'image finale. En copiant uniquement l'essentiel dans l'étape de production, on obtient une image <b>plus légère, plus rapide à démarrer et moins exposée aux risques de sécurité</b>.
     </p>
 
     <p class="paragraph">
-      Vous remarquerez aussi que, dans l'étape de production, j'exécute l'application avec un utilisateur non-root (sans privilèges). Cette bonne pratique réduit les risques de sécurité. Si l'application est compromise, l'attaquant n'obtient pas automatiquement des droits d'administrateur au sein du conteneur, se qui lui rend plus difficile l'exploitation de la faille.
+      Vous remarquerez aussi que, dans l'étape de production, j'exécute l'application avec un utilisateur <b>non-root</b> (sans privilèges). Cette bonne pratique réduit les risques de sécurité. Si l'application est compromise, l'attaquant n'obtient pas automatiquement des droits d'administrateur au sein du conteneur, ce qui lui rend <b>plus difficile l'exploitation de la faille</b>.
     </p>
 
       <Code
@@ -284,31 +293,31 @@ services:
       />
 
     <p class="paragraph">
-      Nous pouvons également voir ci-dessus le Dockerfile de l'application frontend d'Econoris, qui est une application Flutter. Ce Dockerfile permet de créer une image optimisée pour exécuter une application Flutter web en production, en utilisant NGINX comme serveur web pour servir les fichiers statiques de l'application Flutter web.
+      Nous pouvons également voir ci-dessus le Dockerfile de l'application frontend d'<a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, qui est une application <a href={FlutterCompetence?.localLink}>{FlutterCompetence?.title}</a>. Ce Dockerfile permet de créer une image optimisée pour exécuter une application Flutter web en production, en utilisant <a href="https://fr.wikipedia.org/wiki/NGINX">NGINX</a> comme serveur web pour servir les fichiers statiques de l'application Flutter web.
     </p>
 
     <p class="paragraph">
-      Vous pouvez voir que le Dockerfile est également séparé en deux étapes. La première étape va copier les le code source de l'application, installer les dépendances et build l'application Flutter web pour générer les fichiers statiques qui seront servis par NGINX. La deuxième étape va utiliser une image NGINX légère pour servir les fichiers statiques de l'application Flutter web, et elle est également configuré pour être optimisée pour la production, avec des bonnes pratiques de sécurité, de performance et de fiabilité.
+      Vous pouvez voir que le Dockerfile est également séparé en deux étapes. La première étape va copier le code source de l'application, installer les dépendances et <b>build</b> l'application Flutter web pour générer les fichiers statiques qui seront servis par NGINX. La deuxième étape va utiliser une image NGINX légère pour servir les fichiers statiques de l'application Flutter web, et elle est également configurée pour être optimisée pour la production, avec des bonnes pratiques de sécurité, de performance et de fiabilité.
     </p>
 
     <p class="paragraph">
-      Ce qui est intéressant dans le Dockerfile de l'application frontend d'Econoris, c'est l'utilisation d'images différentes entre l'étape de build et l'étape de production. Par ailleurs, on peut créer autant d'étapes que nécessaire, seule la dernière étape est conservée dans l'image finale.
+      Ce qui est intéressant dans le Dockerfile de l'application frontend d'<a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, c'est l'utilisation d'images différentes entre l'étape de build et l'étape de production. Par ailleurs, on peut créer autant d'étapes que nécessaire, seule la dernière étape est conservée dans l'image finale.
     </p>
 
     <p class="paragraph">
-      Un autre point important est l'optimisation du build. Le build peut être long, plusieurs minutes. Docker dispose donc d'un mécanisme de cache efficace. En ajoutant le code source relativement tard dans le Dockerfile, on maximise l'utilisation du cache pour les étapes précédentes qui changent rarement. Ainsi, lors d'un changement de code, Docker n'a pas à réexécuter toutes les instructions et peut éviter de réinstaller Flutter depuis Internet, ce qui permet de gagner plusieurs minutes par build.
+      Un autre point important est l'optimisation du build. Le build peut être long, plusieurs minutes. Docker dispose donc d'un mécanisme de <b>cache efficace</b>. En ajoutant le code source relativement tard dans le Dockerfile, on maximise l'utilisation du cache pour les étapes précédentes qui changent rarement. Ainsi, lors d'un changement de code, Docker n'a pas à réexécuter toutes les instructions et peut éviter de réinstaller <a href={FlutterCompetence?.localLink}>{FlutterCompetence?.title}</a> depuis Internet, ce qui permet de gagner plusieurs minutes par build.
     </p>
 
     <p class="paragraph">
-      Sur l'aspect sécurité, si un attaquant parvenait à compromettre l'application depuis le conteneur, l'impact reste limité au conteneur. De plus, la configuration (par exemple, l'exécution en read-only, l'impossibilité d'augmentation de privilèges) limite la capacité d'escalade des privilèges, ce qui renforce grandement la sécurité en production.
+      Sur l'aspect sécurité, si un attaquant parvenait à compromettre l'application depuis le conteneur, l'impact reste limité au conteneur. De plus, la configuration (par exemple, l'exécution en <b>read-only</b>, l'impossibilité d'augmentation de privilèges) limite la capacité d'escalade des privilèges, ce qui renforce grandement la sécurité en production.
     </p>
 
     <p class="paragraph">
-      Grâce à Docker et à une configuration soignée, on ajoute plusieurs niveaux d'isolation en complément des sécurités applicatives, ce qui renforce la fiabilité et la sécurité pour la production. C'est en partie pour ces raisons que j'utilise systématiquement Docker pour le déploiement.
+      Grâce à Docker et à une configuration soignée, on ajoute plusieurs niveaux d'<b>isolation en complément des sécurités applicatives</b>, ce qui renforce la fiabilité et la sécurité pour la production. C'est en partie pour ces raisons que j'utilise systématiquement Docker pour le déploiement.
     </p>
 
     <p class="paragraph">
-      Voyons maintenant Docker Compose, qui permet de paramétrer tous les conteneurs d'une application et de les lancer simultanément avec une seule commande. C'est un outil puissant pour gérer les services d'une application, en développement comme en production.
+      Voyons maintenant <b>Docker Compose</b>, qui permet de paramétrer tous les conteneurs d'une application et de les lancer simultanément avec une seule commande. C'est un outil puissant pour gérer les services d'une application, en développement comme en production.
     </p>
 
     <Code
@@ -321,32 +330,32 @@ services:
       />
 
     <p class="paragraph">
-      Vous pouvez voir ci-dessus le Docker Compose complet d'Econoris. Chaque service est un conteneur (base de données, backend, frontend). Les conteneurs sont configurés pour la production : healthchecks, volumes pour la persistance, réseaux internes pour la communication entre services, et options de sécurité visant à limiter les privilèges.
+      Vous pouvez voir ci-dessus le Docker Compose complet d'<a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>. Chaque service est un conteneur (base de données, backend, frontend). Les conteneurs sont configurés pour la production : <b>healthchecks, volumes pour la persistance, réseaux internes pour la communication entre services</b>, et options de sécurité visant à limiter les privilèges.
     </p>
 
     <p class="paragraph">
-      Je ne vais pas passer en revue l'ensemble du fichier de configuration, mais voici quelques points intéressants, notamment sur la sécurité. J'ai défini des réseaux personnalisés pour limiter la communication aux services nécessaires. Par exemple, un réseau partagé avec le reverse-proxy ("flower-garden-net") permet d'exposer le backend via un nom de domaine, tandis qu'un réseau privé ("econoris-net") permet au backend de communiquer avec la base de données sans exposer cette dernière sur Internet.
+      Je ne vais pas passer en revue l'ensemble du fichier de configuration, mais voici quelques points intéressants, notamment sur la sécurité. J'ai défini des réseaux personnalisés pour limiter la communication aux services nécessaires. Par exemple, un réseau partagé avec le reverse-proxy ("<b>flower-garden-net</b>") permet d'exposer le backend via un nom de domaine, tandis qu'un réseau privé ("<b>econoris-net</b>") permet au backend de communiquer avec la base de données sans exposer cette dernière sur Internet.
     </p>
 
     <p class="paragraph">
-      Seuls le backend et la base de données sont présents sur le réseau privé "econoris-net", ce qui évite d'exposer la base de données sur Internet et limite l'accès à cette dernière. De plus, certains conteneurs sont configurés en read-only, de sorte qu'un attaquant ayant compromis un conteneur ne puisse pas modifier ses fichiers, ce qui renforce encore la sécurité.
+      Seuls le backend et la base de données sont présents sur le réseau privé "<b>econoris-net</b>", ce qui évite d'exposer la base de données sur Internet et limite l'accès à cette dernière. De plus, certains conteneurs sont configurés en <b>read-only</b>, de sorte qu'un attaquant ayant compromis un conteneur ne puisse pas modifier ses fichiers, ce qui renforce encore la sécurité.
     </p>
 
     <p class="paragraph">
-      En résumé, grâce à Docker et à une configuration adaptée, mes applications évoluent dans des environnements isolés. Même si une vulnérabilité applicative est exploitée, l'impact reste limité. Il est impossible d'écrire dans le conteneur, d'escalader les privilèges ou d'accéder à l'hôte ou à d'autres conteneurs. Le code source étant généralement public, l'accès aux fichiers ne suffit pas à compromettre l'infrastructure.
+      En résumé, grâce à Docker et à une configuration adaptée, mes applications évoluent dans des <b>environnements isolés</b>. Même si une vulnérabilité applicative est exploitée, <b>l'impact reste limité</b>. Il est impossible d'écrire dans le conteneur, d'escalader les privilèges ou d'accéder à l'hôte ou à d'autres conteneurs. Le code source étant généralement public, l'accès aux fichiers ne suffit pas à compromettre l'infrastructure.
     </p>
 
     <p class="paragraph">
-      L'attaquant pourrait éventuellement accéder au fichier d'environnement contenant des secrets (clés d'accès), mais si la base de données n'est pas exposée et si les accès sont correctement restreints, ces secrets restent difficilement exploitables depuis le conteneur compromise.
+      L'attaquant pourrait éventuellement accéder au <b>fichier d'environnement contenant des secrets</b> (clés d'accès), mais si la base de données n'est pas exposée et si les accès sont correctement restreints, ces secrets restent difficilement exploitables depuis le conteneur compromis.
     </p>
 
     <p class="paragraph">
-      Autrement dit, même si l'application fait l'objet d'attaques ciblées et sophistiquées, la configuration et l'isolation limitent considérablement l'accès aux données, ce qui protège les utilisateurs et les données sensibles.
+      Autrement dit, même si l'application fait l'objet d'attaques ciblées et sophistiquées, la <b>configuration et l'isolation limitent considérablement l'accès aux données</b>, ce qui protège les utilisateurs et les données sensibles.
     </p>
 
     <h2 class="title-h2">Mon autocritique</h2>
     <p class="paragraph">
-      J'ai choisi Econoris comme exemple car c'est le premier projet pour lequel j'ai appliqué systématiquement les bonnes pratiques Docker. Cela m'a permis d'acquérir une solide expérience. J'ai appliqué des pratiques similaires sur d'autres projets, qu'il soit personnel ou professionnel, notamment sur Genesis, où j'ai pu présenter les automatisations et mesures de sécurité mises en place sur Econoris à d'autres développeurs plus expérimentés qui travail sur Genesis.
+      J'ai choisi <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> comme exemple car c'est le premier projet pour lequel j'ai appliqué systématiquement les bonnes pratiques Docker. Cela m'a permis d'acquérir une solide <b>expérience</b>. J'ai appliqué des pratiques similaires sur d'autres projets, qu'il soit personnel ou professionnel, notamment sur <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a>, où j'ai pu présenter les automatisations et mesures de sécurité mises en place sur <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> à d'autres développeurs plus expérimentés qui travaillent sur Genesis.
     </p>
 
     <p class="paragraph">
@@ -354,20 +363,20 @@ services:
     </p>
 
     <p class="paragraph">
-      Grâce à cette expérience, j'ai une bonne maîtrise de Docker. Maintenant, pour continuer de progresser, je compte m'intéresser à Kubernetes. Kubernetes reprend les concepts d'images et de conteneurs, mais ajoute une couche d'orchestration pour gérer les déploiements à grande échelle. Il propose un gestionnaire de secrets, souvent chiffrés, et des fonctionnalités d'auto-scaling pour adapter automatiquement les ressources en fonction de la charge. C'est la prochaine étape logique pour approfondir la conteneurisation.
+      Grâce à cette <b>expérience</b>, j'ai une bonne maîtrise de Docker. Maintenant, pour continuer de progresser, je compte m'intéresser à <a href="https://fr.wikipedia.org/wiki/Kubernetes">Kubernetes</a>. Kubernetes reprend les concepts d'<b>images et de conteneurs</b>, mais ajoute une couche d'<b>orchestration</b> pour gérer les déploiements à grande échelle. Il propose un gestionnaire de <b>secrets, souvent chiffrés</b>, et des fonctionnalités d'<b>auto-scaling</b> pour adapter automatiquement les ressources en fonction de la charge. C'est la prochaine étape logique pour approfondir la conteneurisation.
     </p>
 
     <p class="paragraph">
-      Attention toutefois, pour aborder Kubernetes il faut maîtriser Docker, car Kubernetes repose sur les mêmes concepts, mais il est plus complexe et nécessite une bonne connaissance préalable des images et conteneurs, qui donc plus facile à apprendre avec Docker.
+      Attention toutefois, pour aborder <b>Kubernetes il faut maîtriser Docker</b>, car Kubernetes repose sur les mêmes concepts, mais il est plus complexe et nécessite une bonne connaissance préalable des images et conteneurs, ce qui le rend plus facile à apprendre avec Docker.
     </p>
 
     <h2 class="title-h2">Mon évolution dans cette compétence</h2>
     <p class="paragraph">
-      Pour moi, Docker fait partie du trio d'outils parfait avec Git et Linux. Je compte continuer à l'utiliser sur mes projets actuels et futurs, en développement comme en production. Même si j'estime avoir une bonne maîtrise, je resterai attentif aux nouveautés et aux bonnes pratiques pour l'utiliser de façon toujours plus efficace et sûre.
+      Pour moi, <a href={DockerCompetence?.localLink}>{DockerCompetence?.title}</a> fait partie du trio d'outils parfait avec <a href="https://fr.wikipedia.org/wiki/Git">Git</a> et <a href={LinuxCompetence?.localLink}>{LinuxCompetence?.title}</a>. Je compte continuer à l'utiliser sur mes projets actuels et futurs, en développement comme en production. Même si j'estime avoir une bonne maîtrise, je resterai attentif aux nouveautés et aux bonnes pratiques pour l'utiliser de façon <b>toujours plus efficace et sûre</b>.
     </p>
 
     <p class="paragraph">
-      Je compte également me former à Kubernetes, qui représente selon moi l'évolution logique après Docker pour le déploiement à grande échelle, notamment grâce à son gestionnaire de secrets et à ses fonctionnalités d'auto-scaling. Pour cela, je vais suivre des formations en ligne, lire la documentation officielle et expérimenter Kubernetes sur les trois serveurs de test que j'ai mis en place chez moi.
+      Je compte également me former à <a href="https://fr.wikipedia.org/wiki/Kubernetes">Kubernetes</a>, qui représente selon moi l'évolution logique après Docker pour le déploiement à grande échelle, notamment grâce à son gestionnaire de secrets et à ses fonctionnalités d'auto-scaling. Pour cela, je vais suivre des formations en ligne, lire la documentation officielle et expérimenter Kubernetes sur les trois serveurs de test que j'ai mis en place chez moi.
     </p>
   </div>
 </section>

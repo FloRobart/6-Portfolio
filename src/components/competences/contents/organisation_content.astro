@@ -1,38 +1,43 @@
 ---
 import { getProjectById } from "@/data/projects";
+import { getCompetenceById } from '@/data/competences';
+
+const organisationCompetence = getCompetenceById('organisation');
+const travailEquipeCompetence = getCompetenceById('travail-equipe');
+const AventurierDuRailProjet = getProjectById('jeu-aventuriers-du-rail');
 ---
 
 <section class="flex flex-col items-center">
   <div class="max-w-[80%]">
     <h2 class="title-h2">Ma définition</h2>
     <p class="paragraph">
-      L'organisation est la capacité à structurer, planifier et gérer efficacement des tâches. Cela passe par le découpage d'un projet en
-      sous-tâches et par leur ordonnancement logique afin d'atteindre les objectifs de la manière la plus simple et fiable possible.
+      <a href={organisationCompetence?.localLink}><b>L'organisation</b></a> est la <b>capacité à structurer, planifier et gérer</b> efficacement des tâches. Cela passe par le découpage d'un projet en
+      <b>sous-tâches</b> et par leur ordonnancement logique afin d'atteindre les objectifs de la manière la plus simple et fiable possible.
     </p>
 
     <p class="paragraph">
-      En entreprise, le manque d'organisation entraîne des oublis, des objectifs non atteints et des logiciels mal conçus ou insuffisamment sécurisés.
-      L'organisation est donc essentielle pour fournir un travail de qualité. C'est d'autant plus vrai aujourd'hui, face à la multiplication des
+      En entreprise, le manque d'<b>organisation</b> entraîne des oublis, des objectifs non atteints et des logiciels mal conçus ou insuffisamment sécurisés.
+      L'organisation est donc <b>essentielle pour fournir un travail de qualité</b>. C'est d'autant plus vrai aujourd'hui, face à la multiplication des
       cyberattaques et des fuites de données (<a href="https://bonjourlafuite.eu.org/stats.html">Bonjour la fuite</a>). Certaines structures
       fonctionnent malgré une mauvaise organisation, mais cela se répercute toujours sur la qualité du travail et peut devenir dangereux, notamment
-      en matière de sécurité des données. Pour ces raisons, je considère l'organisation comme une compétence cruciale, particulièrement pour un
+      en matière de sécurité des données. Pour ces raisons, je considère l'organisation comme une <b>compétence cruciale</b>, particulièrement pour un
       développeur qui gère souvent plusieurs projets et priorités simultanément.
     </p>
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
     <p class="paragraph">
-      J'ai toujours aimé classer et organiser ce que je fais, et cela m'a naturellement conduit à développer des méthodes de travail structurées. Cela
+      J'ai toujours aimé <b>classer et organiser</b> ce que je fais, et cela m'a naturellement conduit à développer des <b>méthodes de travail structurées</b>. Cela
       dit, vouloir être organisé ne suffit pas pour piloter un projet informatique. Ma manière d'organiser les projets a beaucoup évolué avec
       l'expérience.
     </p>
 
     <p class="paragraph">
       En première année d'IUT, je découvrais encore l'informatique, contrairement à certains camarades déjà initiés. Cette période m'a permis
-      d'apprendre les bases et de comprendre le travail en équipe au sein de projets techniques.
+      d'apprendre les <b>bases</b> et de comprendre le <b>travail en équipe</b> au sein de projets techniques.
     </p>
 
     <p class="paragraph">
-      En deuxième année, j'ai commencé à apprendre à structurer et organiser des projets informatiques. Je n'avais pas encore l'expérience technique
+      En deuxième année, j'ai commencé à apprendre à <b>structurer et organiser des projets informatiques</b>. Je n'avais pas encore l'expérience technique
       nécessaire pour être chef de projet, mais j'ai acquis suffisamment de recul pour tirer des conclusions sur les postes supervisés par un chef
       d'équipe. J'ai occupé différents rôles qui m'ont aidé à comprendre les problématiques et contraintes de chaque poste. J'ai aussi observé
       attentivement les chefs de projet que j'ai côtoyés pour identifier ce qu'ils faisaient bien et ce qu'il convenait d'améliorer, afin de ne pas
@@ -40,47 +45,47 @@ import { getProjectById } from "@/data/projects";
     </p>
 
     <p class="paragraph">
-      En troisième année, j'ai réellement pris davantage d'initiatives dans la gestion d'équipes et de projets. Les expériences précédentes m'ont
+      En troisième année, j'ai réellement pris davantage d'initiatives dans la <b>gestion d'équipes et de projets</b>. Les expériences précédentes m'ont
       permis de mieux comprendre les difficultés de chacun, qu'il s'agisse de limites techniques, d'un manque d'expérience ou de contraintes liées au
       rôle. Ayant été confronté à ces situations, j'ai appris à les anticiper et à les intégrer dans mon organisation. Mes progrès ont renforcé la
       confiance de mes camarades, qui m'ont confié l'organisation de plusieurs projets.
     </p>
 
     <p class="paragraph">
-      En troisième année, j'ai ainsi assuré le rôle de chef de projet sur plusieurs réalisations, expériences positives qui ont confirmé mon goût et
+      En troisième année, j'ai ainsi assuré le rôle de <b>chef de projet</b> sur plusieurs réalisations, expériences positives qui ont confirmé mon goût et
       mes compétences pour l'organisation. Je pense notamment au projet du jeu <a
-        href={getProjectById("jeu-aventuriers-du-rail")?.localLink}><b><u>Les Aventuriers du Rail</u></b></a>, qui reste pour moi une expérience
+        href={AventurierDuRailProjet?.localLink}>Les Aventuriers du Rail</a>, qui reste pour moi une expérience
       marquante.
     </p>
 
     <h2 class="title-h2">Mon autocritique</h2>
     <p class="paragraph">
-      Je me suis nettement amélioré en organisation au fil des années, ce qui me permet aujourd'hui de gérer efficacement des projets. Je
-      considère avoir un bon niveau dans ce domaine, tout en restant conscient des axes d'amélioration.
+      Je me suis nettement amélioré en <b>organisation</b> au fil des années, ce qui me permet aujourd'hui de gérer efficacement des projets. Je
+      considère avoir un <b>bon niveau</b> dans ce domaine, tout en restant conscient des axes d'amélioration.
     </p>
 
     <p class="paragraph">
-      Malgré cette progression, je peux encore m'améliorer, notamment sur la gestion du temps et des ressources. Mon exigence sur la qualité me
+      Malgré cette progression, je peux encore m'améliorer, notamment sur la <b>gestion du temps</b> et des <b>ressources</b>. Mon exigence sur la qualité me
       pousse parfois à viser la perfection, au risque de retarder certaines livraisons. J'apprends à trouver un meilleur équilibre entre qualité et
       délais en acceptant des compromis raisonnables pour respecter les échéances.
     </p>
 
     <p class="paragraph">
-      Pour développer son sens de l'organisation, il est utile d'adopter une routine adaptée : définir des plages de travail régulières, planifier les
-      tâches journalières et réaliser régulièrement de petites tâches pour éviter l'accumulation. L'étape la plus délicate est d'adapter cette
+      Pour développer son sens de l'organisation, il est utile d'adopter une <b>routine adaptée</b> : définir des plages de travail régulières, planifier les
+      tâches journalières et réaliser régulièrement de <b>petites tâches</b> pour éviter l'accumulation. L'étape la plus délicate est d'adapter cette
       routine aux imprévus et aux changements de priorité. Avec l'expérience, on apprend à rester organisé même dans des conditions difficiles.
     </p>
 
     <p class="paragraph">
       Pour m'aider à structurer mon travail, j'utilise l'application <a href="https://ticktick.com" target="_blank" rel="noopener noreferrer">
-        <b><u>TickTick</u></b>
+        TickTick
       </a>, que j'emploie personnellement depuis six ans pour mes projets personnels, professionnels et pour ma vie quotidienne.
     </p>
 
     <h2 class="title-h2">Mon évolution dans cette compétence</h2>
     <p class="paragraph">J'envisage de créer ma propre entreprise pour proposer mes applications directement aux utilisateurs.</p>
     <p class="paragraph">
-      La gestion du temps reste un axe d'amélioration pour moi. Je travaille actuellement avec mon maître d'apprentissage pour progresser sur ce point
+      La <b>gestion du temps</b> reste un axe d'amélioration pour moi. Je travaille actuellement avec mon maître d'apprentissage pour progresser sur ce point
       car, même si ce n'est pas une faiblesse insurmontable, il est important de mieux gérer les délais. Je pense qu'à la fin de mon alternance je
       serai en mesure de mieux équilibrer temps et qualité.
     </p>
@@ -88,7 +93,7 @@ import { getProjectById } from "@/data/projects";
     <h2 class="title-h2">Liste des projets cités</h2>
     <ul class="list-disc list-inside">
       <li>
-        <a href={getProjectById("jeu-aventuriers-du-rail")?.localLink}><b><u>Les Aventuriers du Rail</u></b></a>
+        <a href={getProjectById("jeu-aventuriers-du-rail")?.localLink}>Les Aventuriers du Rail</a>
       </li>
     </ul>
   </div>

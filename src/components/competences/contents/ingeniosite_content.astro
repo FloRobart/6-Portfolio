@@ -1,4 +1,11 @@
 ---
+import { getCompetenceById } from '@/data/competences';
+import { getProjectById } from '@/data/projects';
+
+const ingeniositeCompetence = getCompetenceById('ingeniosite');
+const FloraccessProjet = getProjectById('floraccess');
+const EconorisProjet = getProjectById('econoris');
+const FlollylistProjet = getProjectById('flollylist');
 
 ---
 
@@ -6,15 +13,15 @@
   <div class="max-w-[80%]">
     <h2 class="title-h2">Ma définition</h2>
     <p class="paragraph">
-      L'ingéniosité est la capacité à trouver des solutions à des problèmes, complexes ou non, uniquement à partir de connaissances et de ressources déjà existantes. Elle implique l'utilisation de l'imagination mais aussi des connaissances techniques approfondies pour concevoir des idées innovantes, pratiques et réalisables. L'ingéniosité consiste souvent à détourner les règles et principes d'un domaine pour créer quelque chose ou surmonter un obstacle de manière optimale, sans forcément viser une découverte majeure.
+      <a href={ingeniositeCompetence?.localLink}><b>L'ingéniosité</b></a> est la capacité à <b>trouver des solutions</b> à des problèmes, complexes ou non, uniquement à partir de <b>connaissances et de ressources déjà existantes</b>. Elle implique l'utilisation de l'imagination mais aussi des connaissances techniques approfondies pour concevoir des idées innovantes, pratiques et réalisables. L'ingéniosité consiste souvent à détourner les règles et principes d'un domaine pour créer quelque chose ou surmonter un obstacle de manière optimale, sans forcément viser une découverte majeure.
     </p>
 
     <p class="paragraph">
-      Le fait de ne pas viser de grandes découvertes distingue souvent l'ingéniosité de l'innovation. L'innovation vise la création de nouveautés potentiellement révolutionnaires, tandis que l'ingéniosité mise sur l'utilisation intelligente de ressources existantes pour résoudre des problèmes ou créer des solutions efficaces. Elle s'applique à la conception de produits, à la résolution de problèmes techniques, à la gestion de projets ou à la vie quotidienne.
+      Le fait de ne pas viser de grandes découvertes distingue souvent l'ingéniosité de l'innovation. L'innovation vise la création de nouveautés potentiellement révolutionnaires, tandis que l'ingéniosité mise sur <b>l'utilisation intelligente de ressources existantes</b> pour résoudre des problèmes ou créer des solutions efficaces. Elle s'applique à la conception de produits, à la résolution de problèmes techniques, à la gestion de projets ou à la vie quotidienne.
     </p>
 
     <p class="paragraph">
-      L'informatique regorge d'exemples ingénieux. Dans <a href="https://fr.wikipedia.org/wiki/Super_Mario_Bros."><b><u>Super Mario Bros.</u></b></a>, les développeurs ont réutilisé des textures en modifiant la couleur et l'orientation pour créer de nouvelles ressources sans augmenter la taille finale du jeu. Git illustre aussi l'ingéniosité, en ne stockant que les différences entre les versions pour économiser de l'espace. Enfin, Bitcoin est sans doute l'une des démonstrations les plus marquantes de ces dernières décennies. Sans découvertes cryptographiques révolutionnaires, il a combiné des concepts existants pour proposer une monnaie numérique décentralisée.
+      L'informatique regorge d'exemples ingénieux. Dans <a href="https://fr.wikipedia.org/wiki/Super_Mario_Bros.">Super Mario Bros.</a>, les développeurs ont réutilisé des textures en modifiant la couleur et l'orientation pour créer de nouvelles ressources sans augmenter la taille finale du jeu. <a href="https://fr.wikipedia.org/wiki/Git"><b>Git</b></a> illustre aussi l'ingéniosité, en ne stockant que les différences entre les versions pour économiser de l'espace. Enfin, <a href="https://fr.wikipedia.org/wiki/Bitcoin"><b>Bitcoin</b></a> est sans doute l'une des démonstrations les plus marquantes de ces dernières décennies. Sans découvertes cryptographiques révolutionnaires, il a <b>combiné des concepts existants</b> pour proposer une monnaie numérique décentralisée.
     </p>
 
     <p class="paragraph">
@@ -23,7 +30,7 @@
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
     <p class="paragraph">
-      Là où j'ai le mieux démontré mon ingéniosité, c'est dans la création de <a href="/projets/floraccess"><b><u>FlorAccess</u></b></a>, une API d'authentification sans mot de passe développée pour centraliser l'authentification et simplifier l'expérience utilisateur. Pour FlorAccess, je n'ai rien inventé, j'ai combiné des technologies existantes, comme les JSON Web Tokens (JWT) pour les sessions et l'utilisation d'un code à usage unique (OTP) pour l'authentification.
+      Là où j'ai le mieux démontré mon ingéniosité, c'est dans la création de <a href={FloraccessProjet?.localLink}>FlorAccess</a>, une API d'authentification sans mot de passe développée pour centraliser l'authentification et simplifier l'expérience utilisateur. Pour FlorAccess, je n'ai rien inventé, j'ai combiné des technologies existantes, comme les <a href="https://fr.wikipedia.org/wiki/JSON_Web_Token"><b>JSON Web Tokens (JWT)</b></a> pour les sessions et l'utilisation d'un code à usage unique (<a href="https://fr.wikipedia.org/wiki/One-time_password"><b>OTP</b></a>) pour l'authentification.
     </p>
 
     <p class="paragraph">
@@ -31,23 +38,23 @@
     </p>
 
     <p class="paragraph">
-      Ma réflexion a été la suivante. Si le mot de passe peut être contourné, pourquoi ne pas s'en passer et utiliser un mécanisme de connexion par OTP envoyé par email ? En envoyant un code à usage unique à l'adresse de l'utilisateur, on s'assure que seul le détenteur de cet email peut se connecter. En associant cela à des JWT pour gérer les sessions, on obtient un système à la fois simple et sécurisé sans stocker d'informations sensibles côté serveur.
+      Ma réflexion a été la suivante. Si le mot de passe peut être contourné, pourquoi ne pas s'en passer et utiliser un mécanisme de connexion par <b>OTP envoyé par email</b> ? En envoyant un code à usage unique à l'adresse de l'utilisateur, on s'assure que <b>seul le détenteur de cet email</b> peut se connecter. En associant cela à des <b>JWT</b> pour gérer les sessions, on obtient un système à la fois <b>simple et sécurisé</b> sans stocker d'informations sensibles côté serveur.
     </p>
 
     <p class="paragraph">
-      Après cela, je me suis intéressé à la faille suivante : l'erreur humaine. Les utilisateurs peuvent être trompés par des emails malveillants semblant légitimes. Comment réduire ce risque ?
+      Après cela, je me suis intéressé à la faille suivante : <b>l'erreur humaine</b>. Les utilisateurs peuvent être trompés par des emails malveillants semblant légitimes. Comment réduire ce risque ?
     </p>
 
     <p class="paragraph">
-      Ma deuxième solution consiste à inclure dans l'email une information vérifiable par l'utilisateur (et non un simple lien). L'utilisateur peut ensuite vérifier cette information depuis le site officiel (accessible, par exemple, via ses favoris) pour s'assurer de l'authenticité du message. Ainsi, même si un attaquant falsifie un email, il ne pourra pas reproduire l'information vérifiable depuis le site légitime. L'objectif est d'offrir à l'utilisateur un moyen concret de se protéger contre le phishing.
+      Ma deuxième solution consiste à inclure dans l'email une <b>information vérifiable</b> par l'utilisateur (et non un simple lien). L'utilisateur peut ensuite vérifier cette information depuis le site officiel (accessible, par exemple, via ses favoris) pour s'assurer de l'<b>authenticité du message</b>. Ainsi, même si un attaquant falsifie un email, il ne pourra pas reproduire l'information vérifiable depuis le site légitime. L'objectif est d'offrir à l'utilisateur un moyen concret de se protéger contre le <b>phishing</b>.
     </p>
 
     <p class="paragraph">
-      Je vais donc ajouté un token dans chaque email, généré à partir d'informations de l'utilisateur et de diverses autres données, incluant un secret partagé côté serveur. L'utilisateur peut vérifier l'authenticité de ce token en le saisissant sur une page dédiée de l'application. Si le token est valide, l'email est légitime. La génération du token est suffisamment robuste pour empêcher sa falsification, et le secret partagé ainsi que le chiffrement garantit que seul le serveur peut produire des tokens valides.
+      Je vais donc ajouté un <b>token</b> dans chaque email, généré à partir d'informations de l'utilisateur et de diverses autres données, incluant un <b>secret partagé côté serveur</b>. L'utilisateur peut vérifier l'authenticité de ce token en le saisissant sur une page dédiée de l'application. Si le token est valide, l'email est légitime. La génération du token est suffisamment robuste pour empêcher sa falsification, et le secret partagé ainsi que le <b>chiffrement</b> garantit que seul le serveur peut produire des tokens valides.
     </p>
 
     <p class="paragraph">
-      Si l'email de l'utilisateur est compromis, d'autres solutions existent : applications d'authentification (Google Authenticator) ou clés de sécurité physiques. Ces options sont plus sécurisées mais souvent plus complexes à déployer pour l'utilisateur, ce qui va à l'encontre de l'objectif de simplicité recherché avec FlorAccess.
+      Si l'email de l'utilisateur est compromis, d'autres solutions existent : <b>applications d'authentification</b> (Google Authenticator) ou <b>clés de sécurité physiques</b>. Ces options sont plus sécurisées mais souvent plus complexes à déployer pour l'utilisateur, ce qui va à l'encontre de l'objectif de <b>simplicité</b> recherché avec <a href={FloraccessProjet?.localLink}><b>FlorAccess</b></a>.
     </p>
 
     <h2 class="title-h2">Mon autocritique</h2>
@@ -69,11 +76,11 @@
 
     <h2 class="title-h2">Mon évolution dans cette compétence</h2>
     <p class="paragraph">
-      Cette compétence est au coeur de mon projet professionnel. À chaque problème, je me demande d'où il vient, s'il est récurrent et si des solutions satisfaisantes existent déjà. Selon les réponses, je décide d'utiliser une solution existante ou de concevoir moi-même une solution ingénieuse.
+      Cette compétence est au coeur de mon projet professionnel. À chaque problème, je me demande d'où il vient, s'il est récurrent et si des <b>solutions satisfaisantes existent déjà</b>. Selon les réponses, je décide d'<b>utiliser une solution existante</b> ou de <b>concevoir moi-même une solution ingénieuse</b>.
     </p>
 
     <p class="paragraph">
-      Tous mes projets reposent sur ce principe. FlorAccess est né d'un besoin d'authentification centralisée et simple. Econoris est né du constat qu'il n'existait pas d'outil simple permettant d'estimer ses dépenses à l'avance. Flollylist est né pour résoudre un problème personnel : garder une trace utilisable des idées de cadeaux.
+      Tous mes projets reposent sur ce principe. <a href={FloraccessProjet?.localLink}><b>FlorAccess</b></a> est né d'un besoin d'<b>authentification centralisée et simple</b>. <a href={EconorisProjet?.localLink}><b>Econoris</b></a> est né du constat qu'il n'existait pas d'outil simple permettant d'estimer ses <b>dépenses à l'avance</b>. <a href={FlollylistProjet?.localLink}><b>Flollylist</b></a> est né pour résoudre un problème personnel : garder une trace utilisable des idées de cadeaux.
     </p>
 
     <p class="paragraph">
