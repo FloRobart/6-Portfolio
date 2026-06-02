@@ -1,6 +1,6 @@
 ---
 import Button from "@components/Button.astro";
-import SocialLink from "@components/Social_link.astro";
+import HeadingSecBar from "@components/Heading_sec_bar.astro";
 
 interface Props {
   id: string;
@@ -27,6 +27,7 @@ const { id, title, description, githubButtonText: buttonText, githubButtonLink: 
     >
       {title}
     </h1>
+    <HeadingSecBar />
     <div class="mt-6 max-w-2xl">
       <p class="text-base leading-relaxed text-[var(--color-text)] sm:text-lg" set:html={description}></p>
     </div>
@@ -37,11 +38,5 @@ const { id, title, description, githubButtonText: buttonText, githubButtonLink: 
         <Button href={externalButtonLink!} text={externalButtonText!} />
       )}
     </div>
-  </div>
-
-  <SocialLink />
-
-  <div>
-    <slot name="content" />
   </div>
 </section>
