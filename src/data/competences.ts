@@ -111,7 +111,7 @@ export const competencesPreviewList: CompetencePreview[] = [
   },
   {
     id: "documentation",
-    title: " Ma Documentation",
+    title: "Documentation",
     description:
       "Savoir rédiger une bonne documentation, qu'elle soit technique ou destinée aux utilisateurs, consiste à produire un document à la fois clair et précis. Il explique de manière simple comment utiliser un produit ou un service, tout en fournissant suffisamment de détails pour comprendre ses fonctionnalités et ses avantages.",
     imageSrc: DocumentationImage,

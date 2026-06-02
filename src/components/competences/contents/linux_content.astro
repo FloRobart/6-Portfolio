@@ -1,7 +1,12 @@
 ---
 import { getProjectById } from "@/data/projects";
+import { getCompetenceById } from "@/data/competences";
 
-const mavenLiteProject = getProjectById("maven-lite");
+const MavenLiteProject = getProjectById("maven-lite");
+const FloraccessProjet = getProjectById("floraccess");
+const FlollylistProjet = getProjectById("flollylist");
+const EconorisProjet = getProjectById("econoris");
+const DocumentationProjet = getProjectById("documentation");
 ---
 
 <section class="flex flex-col items-center">
@@ -57,15 +62,15 @@ const mavenLiteProject = getProjectById("maven-lite");
     </p>
 
     <p class="paragraph">
-      J'ai notamment créé <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a>, une application pour développeurs Java. C'est une version allégée de Maven. <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a> permet de créer, configurer, compiler, lancer et packager des projets Java via une interface en ligne de commande simple et intuitive. L'application est disponible sur Linux, Windows et macOS, avec une distribution au format .deb pour les distributions basées sur Debian.
+      J'ai notamment créé <a href={MavenLiteProject?.localLink}>{MavenLiteProject?.title}</a>, une application pour développeurs Java. C'est une version allégée de Maven. <a href={MavenLiteProject?.localLink}>{MavenLiteProject?.title}</a> permet de créer, configurer, compiler, lancer et packager des projets Java via une interface en ligne de commande simple et intuitive. L'application est disponible sur Linux, Windows et macOS, avec une distribution au format .deb pour les distributions basées sur Debian.
     </p>
 
     <p class="paragraph">
-      <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a> est distribué sur Linux via un paquet .deb, ce qui facilite son installation sur Debian, Ubuntu et distributions dérivées. Des installeurs sont également fournis pour Windows et macOS mais via un fichier compressé contenant l'exécutable, ainsi qu'un script d'installation pour simplifier le processus.
+      <a href={MavenLiteProject?.localLink}>{MavenLiteProject?.title}</a> est distribué sur Linux via un paquet .deb, ce qui facilite son installation sur Debian, Ubuntu et distributions dérivées. Des installeurs sont également fournis pour Windows et macOS mais via un fichier compressé contenant l'exécutable, ainsi qu'un script d'installation pour simplifier le processus.
     </p>
 
     <p class="paragraph">
-      <a href={mavenLiteProject?.localLink}>{mavenLiteProject?.title}</a> inclut, grâce à son paquet .deb, des pages de manuel (manpages) consultables depuis la ligne de commande, un atout pour les utilisateurs Linux habitués aux outils en terminal.
+      <a href={MavenLiteProject?.localLink}>{MavenLiteProject?.title}</a> inclut, grâce à son paquet .deb, des pages de manuel (manpages) consultables depuis la ligne de commande, un atout pour les utilisateurs Linux habitués aux outils en terminal.
     </p>
 
     <p class="paragraph">
@@ -99,7 +104,7 @@ const mavenLiteProject = getProjectById("maven-lite");
 
     <!-- VPS OVH -->
     <p class="paragraph">
-      J'ai également un VPS chez OVH, basé sur Debian, qui héberge mes projets en production : Econoris, FlorAccess, Flollylist, ma documentation, mon CV et ce portfolio.
+      J'ai également un VPS chez OVH, basé sur Debian, qui héberge mes projets en production : <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a>, <a href={FlollylistProjet?.localLink}>{FlollylistProjet?.title}</a>, <a href={DocumentationProjet?.localLink}>{DocumentationProjet?.title}</a>, mon CV et ce portfolio.
     </p>
 
     <p class="paragraph">

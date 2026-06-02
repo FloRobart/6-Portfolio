@@ -6,8 +6,12 @@ import { getCompetenceById } from '@/data/competences';
 import { getProjectById } from "@/data/projects";
 
 const polyvalenceCompetence = getCompetenceById('polyvalence');
+const DocumentationProject = getProjectById('documentation');
 const GenesisProjet = getProjectById('genesis');
 const EconorisProjet = getProjectById('econoris');
+const FloraccessProjet = getProjectById('floraccess');
+const FlollylistProjet = getProjectById('flollylist');
+const FlowerGardenProjet = getProjectById('flower-garden');
 ---
 
 <section class="flex flex-col items-center">
@@ -27,7 +31,7 @@ const EconorisProjet = getProjectById('econoris');
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
     <p class="paragraph">
-      Deux projets illustrent particulièrement ma polyvalence : <a href={GenesisProjet?.localLink}>{GenesisProjet?.localLink}</a> et <a href={EconorisProjet?.localLink}>Econoris</a>. Sur ces projets, j'ai pris en charge des aspects variés : <b>développement</b>, <b>design</b>, <b>sécurité</b>, <b>optimisation</b> et <b>documentation</b>.
+      Deux projets illustrent particulièrement ma polyvalence : <a href={GenesisProjet?.localLink}>{GenesisProjet?.localLink}</a> et <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>. Sur ces projets, j'ai pris en charge des aspects variés : <b>développement</b>, <b>design</b>, <b>sécurité</b>, <b>optimisation</b> et <b>documentation</b>.
     </p>
 
     <p class="paragraph">
@@ -49,12 +53,12 @@ const EconorisProjet = getProjectById('econoris');
     </p>
 
     <p class="paragraph">
-      Mon objectif est d'ajouter cette architecture optimisée à ma documentation technique pour la partager. Elle combine des <b>bonnes pratiques Flutter</b>
+      Mon objectif est d'ajouter cette architecture optimisée à <a href={DocumentationProject?.localLink}>{DocumentationProject?.title}</a> pour la partager. Elle combine des <b>bonnes pratiques Flutter</b>
       avec des conventions <b>Riverpod/GoRouter</b> et n'est actuellement pas trouvable en une seul documentation, ce qui en fait une <b>ressource précieuse</b> pour les développeurs Flutter souhaitant adopter une architecture performante et maintenable.
     </p>
 
       <p class="paragraph">
-      Le deuxième projet illustrant ma polyvalence est <a href={EconorisProjet?.localLink}><b>Econoris</b></a>, un gestionnaire de finances que j'ai réalisé seul. J'ai dû assurer toutes les parties du projet.
+      Le deuxième projet illustrant ma polyvalence est <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, un gestionnaire de finances que j'ai réalisé seul. J'ai dû assurer toutes les parties du projet.
       </p>
 
       <p class="paragraph">
@@ -75,7 +79,7 @@ const EconorisProjet = getProjectById('econoris');
       </p>
 
       <p class="paragraph">
-        Une fois l'architecture mise en place et testée sur <b>Econoris</b> (plus simple que Genesis), j'ai écrit un brouillon de documentation, visible ci-dessous, pour expliquer les choix d'architecture et les <b>bonnes pratiques</b> associées à mes collègues, afin de les aider à implémenter la même architecture sur Genesis.
+        Une fois l'architecture mise en place et testée sur <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> (plus simple que Genesis), j'ai écrit un brouillon de documentation, visible ci-dessous, pour expliquer les choix d'architecture et les <b>bonnes pratiques</b> associées à mes collègues, afin de les aider à implémenter la même architecture sur Genesis.
       </p>
 
       <Picture
@@ -89,21 +93,21 @@ const EconorisProjet = getProjectById('econoris');
     />
 
       <p class="paragraph">
-      La réécriture d'<b>Econoris</b> a duré environ deux mois (7 février – 26 mars 2026). J'en ai profité pour moderniser le <b>design</b>, mettre à jour le
+      La réécriture d'<a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> a duré environ deux mois (7 février – 26 mars 2026). J'en ai profité pour moderniser le <b>design</b>, mettre à jour le
       README et automatiser la construction et la publication des images Docker sur <b>Docker Hub</b> et <b>GitHub Container Registry (GHCR)</b> via des workflows
       <b>GitHub Actions</b>.
       </p>
 
       <p class="paragraph">
-      Pour le déploiement, j'ai assemblé un « wrapper » nommé <b>Flower Garden</b> qui regroupe, via Docker Compose, les images (base de données, backend, front-end), un
+      Pour le déploiement, j'ai assemblé un « wrapper » nommé <a href={FlowerGardenProjet?.localLink}>{FlowerGardenProjet?.title}</a> qui regroupe, via Docker Compose, les images (base de données, backend, front-end), un
       <b>reverse proxy</b> avec certificat SSL et les configurations nécessaires. J'ai acheté le nom de domaine florobart.fr, acheté un VPS OVH, configuré
-      l'environnement et déployé le wrapper. L'application est accessible à l'adresse https://econoris.florobart.fr, fonctionnelle, sécurisée et
+      l'environnement et déployé le wrapper. L'application est accessible à l'adresse <a href="https://econoris.florobart.fr" target="_blank" rel="noopener noreferrer">https://econoris.florobart.fr</a>, fonctionnelle, sécurisée et
       <b>maintenable</b>.
     </p>
 
     <h2 class="title-h2">Mon autocritique</h2>
     <p class="paragraph">
-      Au fil de mes expériences (<a href={GenesisProjet?.localLink}><b>Genesis</b></a>, <a href={EconorisProjet?.localLink}><b>Econoris</b></a>, <b>Flollylist</b> et <b>FlorAccess</b>), j'ai appris à être polyvalent. Je suis capable de <b>m'adapter rapidement</b>, acquérir de nouvelles
+      Au fil de mes expériences (<a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a>, <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, <a href={FlollylistProjet?.localLink}>{FlollylistProjet?.title}</a> et <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a>), j'ai appris à être polyvalent. Je suis capable de <b>m'adapter rapidement</b>, acquérir de nouvelles
       compétences et gérer différents aspects d'un projet. Je considère la polyvalence comme une compétence que je <b>maîtrise bien</b>.
       </p>
 

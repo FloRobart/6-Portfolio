@@ -3,10 +3,10 @@ import { getCompetenceById } from "@/data/competences";
 import { getExperienceById } from "@/data/experiences";
 import { getProjectById } from "@/data/projects";
 
-const documentationCompetence = getCompetenceById("documentation");
 const nodejsCompetence = getCompetenceById("nodejs");
 const flutterCompetence = getCompetenceById("flutter");
 const dockerCompetence = getCompetenceById("docker");
+const DocumentationProject = getProjectById("documentation");
 const extraitAnjouExperience = getExperienceById("extrait-danjou");
 const econorisProject = getProjectById("econoris");
 const mavenLiteProject = getProjectById("maven-lite");
@@ -59,15 +59,15 @@ const mavenLiteProject = getProjectById("maven-lite");
     <!-- Documentation technique (avec ma documentation) -->
     <h3 class="title-h3">Documentation Technique</h3>
     <p class="paragraph">
-      Suite à cette découverte, j'ai commencé ma <b>documentation technique</b> en juin 2023, elle aussi entièrement rédigée en Markdown. Elle a beaucoup évolué : d'un fichier initial, le projet est passé à plusieurs fichiers organisés en dossiers. J'ai ensuite créé un dépôt <a href="https://github.com/">GitHub</a> pour y accéder partout, puis utilisé <a href="https://pages.github.com/">GitHub Pages</a> pour la publier en ligne avec une interface plus agréable et une meilleure organisation.
+      Suite à cette découverte, j'ai commencé <a href={DocumentationProject?.localLink}>{DocumentationProject?.title} technique</a> en juin 2023, elle aussi entièrement rédigée en Markdown. Elle a beaucoup évolué : d'un fichier initial, le projet est passé à plusieurs fichiers organisés en dossiers. J'ai ensuite créé un dépôt <a href="https://github.com/">GitHub</a> pour y accéder partout, puis utilisé <a href="https://pages.github.com/">GitHub Pages</a> pour la publier en ligne avec une interface plus agréable et une meilleure organisation.
     </p>
 
     <p class="paragraph">
-      Aujourd'hui, ma documentation est toujours écrite en <a href="https://fr.wikipedia.org/wiki/Markdown">Markdown</a> mais publiée avec <a href="https://www.mkdocs.org/">MkDocs</a>. À partir des fichiers Markdown, MkDocs génère un site HTML/CSS statique offrant une recherche intégrée et un thème clair/sombre. Les fichiers générés sont hébergés sur GitHub Pages et sont aussi servis via un conteneur <a href={dockerCompetence?.localLink}>{dockerCompetence?.title}</a> sur mon serveur de production. L'objectif de cette double publication est de lier mon nom de domaine à ma documentation pour la rendre facilement accessible et la faire figurer dans la liste automatisée de mes projets.
+      Aujourd'hui, <a href={DocumentationProject?.localLink}>{DocumentationProject?.title}</a> est toujours écrite en <a href="https://fr.wikipedia.org/wiki/Markdown">Markdown</a> mais publiée avec <a href="https://www.mkdocs.org/">MkDocs</a>. À partir des fichiers Markdown, MkDocs génère un site HTML/CSS statique offrant une recherche intégrée et un thème clair/sombre. Les fichiers générés sont hébergés sur GitHub Pages et sont aussi servis via un conteneur <a href={dockerCompetence?.localLink}>{dockerCompetence?.title}</a> sur mon serveur de production. L'objectif de cette double publication est de lier mon nom de domaine à <a href={DocumentationProject?.localLink}>{DocumentationProject?.title}</a> pour la rendre facilement accessible et la faire figurer dans la liste automatisée de mes projets.
     </p>
 
     <p class="paragraph">
-      Ma documentation couvre de nombreux sujets : configuration de serveurs, installation de logiciels, création d'une micro-entreprise en France, etc. Elle me sert de <b>base de connaissances personnelle</b> et d'<b>aide-mémoire</b>, afin de retrouver facilement des procédures éprouvées sans devoir tout réapprendre.
+      <a href={DocumentationProject?.localLink}>{DocumentationProject?.title}</a> couvre de nombreux sujets : configuration de serveurs, installation de logiciels, création d'une micro-entreprise en France, etc. Elle me sert de <b>base de connaissances personnelle</b> et d'<b>aide-mémoire</b>, afin de retrouver facilement des procédures éprouvées sans devoir tout réapprendre.
     </p>
 
     <p class="paragraph">

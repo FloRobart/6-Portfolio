@@ -5,7 +5,8 @@ import NodejsCalculSpeedImage from "@assets/competences/hard/nodejs_calcul_speed
 import { getCompetenceById } from '@/data/competences';
 import { getProjectById } from '@/data/projects';
 
-const nodejsCompetence = getCompetenceById('nodejs');
+const NodejsCompetence = getCompetenceById('nodejs');
+const DockerCompetence = getCompetenceById('docker');
 const EconorisProjet = getProjectById('econoris');
 const FloraccessProjet = getProjectById('floraccess');
 const FlollylistProjet = getProjectById('flollylist');
@@ -18,19 +19,19 @@ const GenesisProjet = getProjectById('genesis');
   <div class="max-w-[80%]">
     <h2 class="title-h2">Ma définition</h2>
     <p class="paragraph">
-      <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> est un <b>environnement d'exécution JavaScript côté serveur</b> qui permet de créer des applications web <b>évolutives et performantes</b>. Il repose sur le moteur V8 de Google Chrome pour exécuter du JavaScript hors navigateur. Node.js est particulièrement adapté aux <b>applications temps réel</b>, aux <b>API RESTful</b>, aux flux (streaming) et aux services nécessitant une <b>forte scalabilité</b>.
+      <a href={NodejsCompetence?.localLink}><b>Node.js</b></a> est un <b>environnement d'exécution JavaScript côté serveur</b> qui permet de créer des applications web <b>évolutives et performantes</b>. Il repose sur le moteur V8 de Google Chrome pour exécuter du JavaScript hors navigateur. Node.js est particulièrement adapté aux <b>applications temps réel</b>, aux <b>API RESTful</b>, aux flux (streaming) et aux services nécessitant une <b>forte scalabilité</b>.
     </p>
 
     <p class="paragraph">
-      À première vue, <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> peut surprendre car il utilise <b>JavaScript</b>, un langage parfois critiqué pour son historicité et ses pièges. Pourtant, Node.js a su tirer parti de la popularité et de l'écosystème JavaScript pour devenir l'un des <b>environnements serveur les plus utilisés</b> dans le développement web.
+      À première vue, <a href={NodejsCompetence?.localLink}><b>Node.js</b></a> peut surprendre car il utilise <b>JavaScript</b>, un langage parfois critiqué pour son historicité et ses pièges. Pourtant, Node.js a su tirer parti de la popularité et de l'écosystème JavaScript pour devenir l'un des <b>environnements serveur les plus utilisés</b> dans le développement web.
     </p>
 
     <p class="paragraph">
-      Les grandes forces de <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> sont sa <b>rapidité</b> et sa capacité à gérer un grand nombre de connexions simultanées grâce à son <b>modèle d'exécution non bloquant, orienté événements</b>. De plus, Node.js dispose d'un écosystème riche de modules et de bibliothèques via le gestionnaire de paquets <a href="https://www.npmjs.com/"><b>npm</b></a>, ce qui facilite le développement d'applications web <b>complexes et robustes</b>. Node.js se met très facilement en production, parfois en une seule commande, sans configuration particulière, ce qui en fait un choix apprécié des développeurs souhaitant livrer rapidement des applications, contrairement à certains environnements serveur nécessitant des configurations plus lourdes comme Apache ou Nginx.
+      Les grandes forces de <a href={NodejsCompetence?.localLink}><b>Node.js</b></a> sont sa <b>rapidité</b> et sa capacité à gérer un grand nombre de connexions simultanées grâce à son <b>modèle d'exécution non bloquant, orienté événements</b>. De plus, Node.js dispose d'un écosystème riche de modules et de bibliothèques via le gestionnaire de paquets <a href="https://www.npmjs.com/"><b>npm</b></a>, ce qui facilite le développement d'applications web <b>complexes et robustes</b>. Node.js se met très facilement en production, parfois en une seule commande, sans configuration particulière, ce qui en fait un choix apprécié des développeurs souhaitant livrer rapidement des applications, contrairement à certains environnements serveur nécessitant des configurations plus lourdes comme Apache ou Nginx.
     </p>
 
     <p class="paragraph">
-      Le graphique ci-dessous compare les performances de plusieurs langages. Selon les cas d'usage, <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> peut être plus performant que des langages interprétés comme PHP ou Python, tandis que des langages compilés comme Java peuvent offrir des performances supérieures dans d'autres scénarios. Le choix dépend donc des exigences fonctionnelles et opérationnelles : Node.js propose un <b>bon compromis entre performance, productivité et richesse d'écosystème</b> pour de nombreuses applications web.
+      Le graphique ci-dessous compare les performances de plusieurs langages. Selon les cas d'usage, <a href={NodejsCompetence?.localLink}><b>Node.js</b></a> peut être plus performant que des langages interprétés comme PHP ou Python, tandis que des langages compilés comme Java peuvent offrir des performances supérieures dans d'autres scénarios. Le choix dépend donc des exigences fonctionnelles et opérationnelles : Node.js propose un <b>bon compromis entre performance, productivité et richesse d'écosystème</b> pour de nombreuses applications web.
     </p>
 
     <p class="paragraph">
@@ -52,11 +53,11 @@ const GenesisProjet = getProjectById('genesis');
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
     <p class="paragraph">
-      Comme pour Flutter, <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> est une compétence que j'ai largement mise en pratique, tant sur des projets personnels que professionnels. J'ai principalement utilisé Node.js pour construire des <b>API RESTful</b>, mais aussi pour des tâches d'automatisation comme la génération automatique de ma <a href="https://florobart.fr/"><b>liste de projets</b></a> à partir d'enregistrements DNS.
+      Comme pour Flutter, <a href={NodejsCompetence?.localLink}><b>Node.js</b></a> est une compétence que j'ai largement mise en pratique, tant sur des projets personnels que professionnels. J'ai principalement utilisé Node.js pour construire des <b>API RESTful</b>, mais aussi pour des tâches d'automatisation comme la génération automatique de ma <a href="https://florobart.fr/"><b>liste de projets</b></a> à partir d'enregistrements DNS.
     </p>
 
     <p class="paragraph">
-      Parmi mes réalisations en <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> : <a href={EconorisProjet?.localLink}><b>Econoris</b></a>, <a href={FlollylistProjet?.localLink}><b>Flollylist</b></a>, <a href={FloraccessProjet?.localLink}><b>FlorAccess</b></a>, <a href={FlowerGardenProjet?.localLink}><b>Flower Garden</b></a>, <a href={GenesisProjet?.localLink}><b>Genesis</b></a> et Nexus (API pour la configuration des passerelles Qowisio).
+      Parmi mes réalisations en <a href={NodejsCompetence?.localLink}><b>Node.js</b></a> : <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, <a href={FlollylistProjet?.localLink}>{FlollylistProjet?.title}</a>, <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a>, <a href={FlowerGardenProjet?.localLink}>{FlowerGardenProjet?.title}</a>, <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a> et Nexus (API pour la configuration des passerelles Qowisio).
     </p>
 
     <p class="paragraph">
@@ -68,7 +69,7 @@ const GenesisProjet = getProjectById('genesis');
     </p>
 
     <p class="paragraph">
-      Flower Garden diffère car ce n'est pas une API : c'est un site statique listant automatiquement mes projets. L'application interroge les enregistrements DNS du domaine, filtre les entrées pertinentes (A, CNAME), récupère les métadonnées Open Graph de chaque cible (titre, description, favicon), puis génère une page HTML statique. Le processus est déclenchable via une URL dédiée et met à jour la liste.
+      <a href={FlowerGardenProjet?.localLink}>{FlowerGardenProjet?.title}</a> diffère car ce n'est pas une API : c'est un site statique listant automatiquement mes projets. L'application interroge les enregistrements DNS du domaine, filtre les entrées pertinentes (A, CNAME), récupère les métadonnées Open Graph de chaque cible (titre, description, favicon), puis génère une page HTML statique. Le processus est déclenchable via une URL dédiée et met à jour la liste.
     </p>
 
     <p class="paragraph">
@@ -81,7 +82,7 @@ const GenesisProjet = getProjectById('genesis');
 
     <h2 class="title-h2">Mon autocritique</h2>
     <p class="paragraph">
-      Grâce à mes expériences, je maîtrise bien <a href={nodejsCompetence?.localLink}><b>Node.js</b></a> et je suis capable de concevoir différents types d'applications web rapidement et efficacement. Toutefois, je peux encore m'améliorer sur les <b>tests unitaires</b> et les solutions de <b>monitoring/logging en production</b>.
+      Grâce à mes expériences, je maîtrise bien <a href={NodejsCompetence?.localLink}><b>Node.js</b></a> et je suis capable de concevoir différents types d'applications web rapidement et efficacement. Toutefois, je peux encore m'améliorer sur les <b>tests unitaires</b> et les solutions de <b>monitoring/logging en production</b>.
     </p>
 
     <p class="paragraph">

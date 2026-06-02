@@ -30,7 +30,7 @@ const FlollylistProjet = getProjectById('flollylist');
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
     <p class="paragraph">
-      Là où j'ai le mieux démontré mon ingéniosité, c'est dans la création de <a href={FloraccessProjet?.localLink}>FlorAccess</a>, une API d'authentification sans mot de passe développée pour centraliser l'authentification et simplifier l'expérience utilisateur. Pour FlorAccess, je n'ai rien inventé, j'ai combiné des technologies existantes, comme les <a href="https://fr.wikipedia.org/wiki/JSON_Web_Token"><b>JSON Web Tokens (JWT)</b></a> pour les sessions et l'utilisation d'un code à usage unique (<a href="https://fr.wikipedia.org/wiki/One-time_password"><b>OTP</b></a>) pour l'authentification.
+      Là où j'ai le mieux démontré mon ingéniosité, c'est dans la création de <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a>, une API d'authentification sans mot de passe développée pour centraliser l'authentification et simplifier l'expérience utilisateur. Pour <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a>, je n'ai rien inventé, j'ai combiné des technologies existantes, comme les <a href="https://fr.wikipedia.org/wiki/JSON_Web_Token"><b>JSON Web Tokens (JWT)</b></a> pour les sessions et l'utilisation d'un code à usage unique (<a href="https://fr.wikipedia.org/wiki/One-time_password"><b>OTP</b></a>) pour l'authentification.
     </p>
 
     <p class="paragraph">
@@ -54,7 +54,7 @@ const FlollylistProjet = getProjectById('flollylist');
     </p>
 
     <p class="paragraph">
-      Si l'email de l'utilisateur est compromis, d'autres solutions existent : <b>applications d'authentification</b> (Google Authenticator) ou <b>clés de sécurité physiques</b>. Ces options sont plus sécurisées mais souvent plus complexes à déployer pour l'utilisateur, ce qui va à l'encontre de l'objectif de <b>simplicité</b> recherché avec <a href={FloraccessProjet?.localLink}><b>FlorAccess</b></a>.
+      Si l'email de l'utilisateur est compromis, d'autres solutions existent : <b>applications d'authentification</b> (Google Authenticator) ou <b>clés de sécurité physiques</b>. Ces options sont plus sécurisées mais souvent plus complexes à déployer pour l'utilisateur, ce qui va à l'encontre de l'objectif de <b>simplicité</b> recherché avec <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a>.
     </p>
 
     <h2 class="title-h2">Mon autocritique</h2>
@@ -80,7 +80,7 @@ const FlollylistProjet = getProjectById('flollylist');
     </p>
 
     <p class="paragraph">
-      Tous mes projets reposent sur ce principe. <a href={FloraccessProjet?.localLink}><b>FlorAccess</b></a> est né d'un besoin d'<b>authentification centralisée et simple</b>. <a href={EconorisProjet?.localLink}><b>Econoris</b></a> est né du constat qu'il n'existait pas d'outil simple permettant d'estimer ses <b>dépenses à l'avance</b>. <a href={FlollylistProjet?.localLink}><b>Flollylist</b></a> est né pour résoudre un problème personnel : garder une trace utilisable des idées de cadeaux.
+      Tous mes projets reposent sur ce principe. <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a> est né d'un besoin d'<b>authentification centralisée et simple</b>. <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> est né du constat qu'il n'existait pas d'outil simple permettant d'estimer ses <b>dépenses à l'avance</b>. <a href={FlollylistProjet?.localLink}>{FlollylistProjet?.title}</a> est né pour résoudre un problème personnel : garder une trace utilisable des idées de cadeaux.
     </p>
 
     <p class="paragraph">

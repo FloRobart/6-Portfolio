@@ -3,7 +3,6 @@ import { getProjectById } from "@/data/projects";
 import { getCompetenceById } from '@/data/competences';
 
 const organisationCompetence = getCompetenceById('organisation');
-const travailEquipeCompetence = getCompetenceById('travail-equipe');
 const AventurierDuRailProjet = getProjectById('jeu-aventuriers-du-rail');
 ---
 
@@ -53,8 +52,8 @@ const AventurierDuRailProjet = getProjectById('jeu-aventuriers-du-rail');
 
     <p class="paragraph">
       En troisième année, j'ai ainsi assuré le rôle de <b>chef de projet</b> sur plusieurs réalisations, expériences positives qui ont confirmé mon goût et
-      mes compétences pour l'organisation. Je pense notamment au projet du jeu <a
-        href={AventurierDuRailProjet?.localLink}>Les Aventuriers du Rail</a>, qui reste pour moi une expérience
+      mes compétences pour l'organisation. Je pense notamment au projet du <a
+        href={AventurierDuRailProjet?.localLink}>{AventurierDuRailProjet?.title}</a>, qui reste pour moi une expérience
       marquante.
     </p>
 
@@ -93,7 +92,7 @@ const AventurierDuRailProjet = getProjectById('jeu-aventuriers-du-rail');
     <h2 class="title-h2">Liste des projets cités</h2>
     <ul class="list-disc list-inside">
       <li>
-        <a href={getProjectById("jeu-aventuriers-du-rail")?.localLink}>Les Aventuriers du Rail</a>
+        <a href={AventurierDuRailProjet?.localLink}>{AventurierDuRailProjet?.title}</a>
       </li>
     </ul>
   </div>

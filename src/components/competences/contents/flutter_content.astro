@@ -4,8 +4,8 @@ import { getExperienceById } from '@/data/experiences';
 import { getProjectById } from '@/data/projects';
 
 const flutterCompetence = getCompetenceById('flutter');
-const documentationCompetence = getCompetenceById('documentation');
 const qowisioExperience = getExperienceById('qowisio');
+const documentationProject = getProjectById('documentation');
 const GenesisProjet = getProjectById('genesis');
 const EconorisProjet = getProjectById('econoris');
 const FloraccessProjet = getProjectById('floraccess');
@@ -34,7 +34,7 @@ const FlollylistProjet = getProjectById('flollylist');
 
     <h2 class="title-h2">Mes éléments de preuve</h2>
     <p class="paragraph">
-      J'ai réalisé <b>quatre projets en Flutter</b> (trois personnels et un professionnel), ce qui m'a permis d'<b>acquérir une solide expérience</b>. Je me concentre ici sur <b>les deux projets les plus significatifs</b>, <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a> et <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>. Pour découvrir <b>d'autres projets</b>, consultez les dépôts <a href="https://github.com"><b>GitHub</b></a> de mes applications personnelles : <a href={FloraccessProjet?.localLink}><b>{FloraccessProjet?.title}</b></a> et <a href={FlollylistProjet?.localLink}><b>{FlollylistProjet?.title}</b></a>.
+      J'ai réalisé <b>quatre projets en Flutter</b> (trois personnels et un professionnel), ce qui m'a permis d'<b>acquérir une solide expérience</b>. Je me concentre ici sur <b>les deux projets les plus significatifs</b>, <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a> et <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>. Pour découvrir <b>d'autres projets</b>, consultez les dépôts <a href="https://github.com/FloRobart"><b>GitHub</b></a> de mes applications personnelles : <a href={FloraccessProjet?.localLink}><b>{FloraccessProjet?.title}</b></a> et <a href={FlollylistProjet?.localLink}><b>{FlollylistProjet?.title}</b></a>.
     </p>
 
     <p class="paragraph">
@@ -42,7 +42,7 @@ const FlollylistProjet = getProjectById('flollylist');
     </p>
 
     <p class="paragraph">
-      Pour <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a>, nous avons choisi <a href={flutterCompetence?.localLink}><b>Flutter</b></a> pour plusieurs raisons : certaines applications du <a href={qowisioExperience?.localLink}><b>groupe Ocea Smart Building</b></a> étaient déjà développées avec Flutter, assurant une <b>homogénéité</b>, et Flutter permet de cibler <b>plusieurs plateformes depuis une seule base de code</b>. Nous étions une <b>équipe de cinq développeurs</b>, dont <b>deux sur Genesis</b>, sans ressources pour maintenir plusieurs codes sources. Le besoin d'une <b>application IOS, Android et Web</b> a confirmé ce choix. Flutter s'est avéré <b>performant</b>, <b>facile à maintenir</b> et <b>très apprécié des utilisateurs</b>.
+      Pour <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a>, nous avons choisi <a href={flutterCompetence?.localLink}><b>Flutter</b></a> pour plusieurs raisons : certaines applications du <a href={qowisioExperience?.localLink}><b>groupe Ocea Smart Building</b></a> étaient déjà développées avec Flutter, assurant une <b>homogénéité</b>, et Flutter permet de cibler <b>plusieurs plateformes depuis une seule base de code</b>. Nous étions une <b>équipe de cinq développeurs</b>, dont <b>deux sur <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a></b>, sans ressources pour maintenir plusieurs codes sources. Le besoin d'une <b>application <a href="https://fr.wikipedia.org/wiki/IOS">IOS</a>, <a href="https://fr.wikipedia.org/wiki/Android">Android</a> et Web</b> a confirmé ce choix. Flutter s'est avéré <b>performant</b>, <b>facile à maintenir</b> et <b>très apprécié des utilisateurs</b>.
     </p>
 
     <p class="paragraph">
@@ -66,15 +66,15 @@ const FlollylistProjet = getProjectById('flollylist');
     </p>
 
     <p class="paragraph">
-      Je n'ai pas encore eu le temps de <b>déployer la troisième refonte sur Econoris</b>, mais c'est prévu, parce que l'expérience sur <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a> montre que cette approche <b>améliore considérablement les performances</b>.
+      Je n'ai pas encore eu le temps de <b>déployer la troisième refonte sur <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a></b>, mais c'est prévu, parce que l'expérience sur <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a> montre que cette approche <b>améliore considérablement les performances</b>.
     </p>
 
     <p class="paragraph">
-      <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> a aussi servi de <b>terrain d'expérimentation pour Genesis</b>. Les enseignements tirés ont été appliqués d'un projet à l'autre, notamment l'utilisation de <a href="https://riverpod.dev/"><b>Riverpod</b></a> pour la <b>gestion d'état</b> et le <b>rafraîchissement automatique de l'interface</b>. Le hasard du calendrier a permis de mener ces <b>deux projets en parallèle</b> (Genesis au travail, Econoris en temps personnel).
+      <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> a aussi servi de <b>terrain d'expérimentation pour Genesis</b>. Les enseignements tirés ont été appliqués d'un projet à l'autre, notamment l'utilisation de <a href="https://riverpod.dev/"><b>Riverpod</b></a> pour la <b>gestion d'état</b> et le <b>rafraîchissement automatique de l'interface</b>. Le hasard du calendrier a permis de mener ces <b>deux projets en parallèle</b> (Genesis au travail, <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> en temps personnel).
     </p>
 
     <p class="paragraph">
-      <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> est <b>plus simple et plus petit que Genesis</b>, ce qui a permis d'<b>expérimenter des idées dans un contexte concret</b>. Compte tenu de la <b>complexité de l'architecture</b>, il aurait été <b>difficile, voir impossible</b>, de l'appliquer directement sur <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a> sans l'expérience acquise sur Econoris.
+      <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> est <b>plus simple et plus petit que Genesis</b>, ce qui a permis d'<b>expérimenter des idées dans un contexte concret</b>. Compte tenu de la <b>complexité de l'architecture</b>, il aurait été <b>difficile, voir impossible</b>, de l'appliquer directement sur <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a> sans l'expérience acquise sur <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>.
     </p>
 
     <p class="paragraph">
@@ -86,11 +86,11 @@ const FlollylistProjet = getProjectById('flollylist');
     </p>
 
     <p class="paragraph">
-      Aujourd'hui, je suis <b>satisfait de l'architecture mise en place pour Genesis et Econoris</b>. Elle est <b>solide</b>, <b>performante</b>, <b>maintenable</b> et respecte les <b>bonnes pratiques Flutter</b>. Je vais réutiliser cette architecture pour mes <b>futurs projets</b>, personnels ou professionnels.
+      Aujourd'hui, je suis <b>satisfait de l'architecture mise en place pour Genesis et <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a></b>. Elle est <b>solide</b>, <b>performante</b>, <b>maintenable</b> et respecte les <b>bonnes pratiques Flutter</b>. Je vais réutiliser cette architecture pour mes <b>futurs projets</b>, personnels ou professionnels.
     </p>
 
     <p class="paragraph">
-      J'ai notamment prévu de <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a> et <a href={FlollylistProjet?.localLink}>{FlollylistProjet?.title}</a> avec cette architecture, et de rédiger une <b>documentation technique complète</b> pour la partager sur <a href={documentationCompetence?.localLink}>{documentationCompetence?.title}</a>. Cette architecture peut bénéficier à des <b>développeurs Flutter de tous niveaux</b>.
+      J'ai notamment prévu de <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a> et <a href={FlollylistProjet?.localLink}>{FlollylistProjet?.title}</a> avec cette architecture, et de rédiger une <b>documentation technique complète</b> pour la partager sur <a href={documentationProject?.localLink}>{documentationProject?.title}</a>. Cette architecture peut bénéficier à des <b>développeurs Flutter de tous niveaux</b>.
     </p>
 
     <h2 class="title-h2">Mon autocritique</h2>

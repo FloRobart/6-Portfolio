@@ -79,7 +79,7 @@ export const projectsPreviewList: ProjectPreview[] = [
   },
   {
     id: "documentation",
-    title: "Documentation",
+    title: "Ma Documentation",
     description:
       "Ce projet n'est pas à proprement parler une application, c'est une <b>collection de documentations</b> que j'ai écrites. Elle <b>répertorie</b> toutes sortes d'<b>aides</b> sur <b>différents sujets</b>, depuis <b>l'installation de logiciels</b> jusqu'à des <b>tutoriels</b>. Je l'ai créée à la fois comme <b>aide-mémoire</b> et pour <b>partager mes connaissances</b> afin d'<b>aider d'autres personnes</b> à apprendre plus facilement.",
     imageSrc: DocumentationImage,
