@@ -1,6 +1,8 @@
 ---
 import ProjetDetail from "@/components/projets/Projet_detail_header.astro";
 import MainLayout from "@layouts/MainLayout.astro";
+import SocialLink from "@/components/Social_link.astro";
+import LyssecureContent from "@components/projets/contents/lyssecure_content.astro";
 import { getProjectById } from "@/data/projects";
 
 const project = getProjectById("lyssecure");
@@ -19,9 +21,11 @@ if (!project) {
     githubButtonLink={project.githubLink}
     externalButtonText="Voir le projet en ligne"
     externalButtonLink={project.projectLink}
-  >
-    <Fragment slot="content">
-      <p>Test</p>
-    </Fragment>
-  </ProjetDetail>
+  />
+
+  <SocialLink />
+
+  <div class="max-w-7xl mx-auto mb-24">
+    <LyssecureContent />
+  </div>
 </MainLayout>

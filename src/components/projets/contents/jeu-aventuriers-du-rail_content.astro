@@ -1,13 +1,12 @@
 ---
 import ProjetDetail from "@/components/projets/Projet_detail_header.astro";
 import MainLayout from "@layouts/MainLayout.astro";
-import SocialLink from "@/components/Social_link.astro";
 import { getProjectById } from "@/data/projects";
 
-const project = getProjectById("flower-garden");
+const project = getProjectById("jeu-aventuriers-du-rail");
 
 if (!project) {
-  throw new Error("Project 'flower-garden' not found in projects data.");
+  throw new Error("Project 'jeu-aventuriers-du-rail' not found in projects data.");
 }
 ---
 
@@ -20,10 +19,9 @@ if (!project) {
     githubButtonLink={project.githubLink}
     externalButtonText="Voir le projet en ligne"
     externalButtonLink={project.projectLink}
-  />
-
-  <SocialLink />
-
-  <div class="max-w-7xl mx-auto mb-24">
-  </div>
+  >
+    <Fragment slot="content">
+      <p>Test</p>
+    </Fragment>
+  </ProjetDetail>
 </MainLayout>
