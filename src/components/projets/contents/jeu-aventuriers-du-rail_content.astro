@@ -1,27 +1,42 @@
 ---
-import ProjetDetail from "@/components/projets/Projet_detail_header.astro";
-import MainLayout from "@layouts/MainLayout.astro";
-import { getProjectById } from "@/data/projects";
 
-const project = getProjectById("jeu-aventuriers-du-rail");
-
-if (!project) {
-  throw new Error("Project 'jeu-aventuriers-du-rail' not found in projects data.");
-}
 ---
 
-<MainLayout>
-  <ProjetDetail
-    id={project.id}
-    title={project.title}
-    description={project.description}
-    githubButtonText="Voir le projet sur Github"
-    githubButtonLink={project.githubLink}
-    externalButtonText="Voir le projet en ligne"
-    externalButtonLink={project.projectLink}
-  >
-    <Fragment slot="content">
-      <p>Test</p>
-    </Fragment>
-  </ProjetDetail>
-</MainLayout>
+<section class="flex flex-col items-center">
+  <div class="max-w-[80%]">
+    <h2 class="title-h2">Présentation</h2>
+    <p class="paragraph">
+      paragraphe
+    </p>
+
+    <h2 class="title-h2">Contexte et Objectif (enjeu et risque)</h2>
+    <p class="paragraph">
+      paragraphe
+    </p>
+
+    <h2 class="title-h2">Acteur</h2>
+    <p class="paragraph">
+      paragraphe
+    </p>
+
+    <h2 class="title-h2">Déroulement</h2>
+    <p class="paragraph">
+      paragraphe
+    </p>
+
+    <h2 class="title-h2">Résultats</h2>
+    <p class="paragraph">
+      paragraphe
+    </p>
+
+    <h2 class="title-h2">Avenir</h2>
+    <p class="paragraph">
+      paragraphe
+    </p>
+
+    <h2 class="title-h2">Auto-critique</h2>
+    <p class="paragraph">
+      paragraphe
+    </p>
+  </div>
+</section>

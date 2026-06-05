@@ -30,6 +30,10 @@ html {
     @apply text-xl font-semibold mt-8 mb-2 text-[var(--color-primary-dark)];
 }
 
+.title-h4 {
+    @apply text-xl font-normal mt-6 mb-2 text-[var(--color-primary-dark)];
+}
+
 /* Links style */
 .paragraph a, .paragraph-link {
     @apply font-bold underline hover:text-[var(--color-primary)] transition;
