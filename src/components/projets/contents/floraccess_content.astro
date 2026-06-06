@@ -6,18 +6,13 @@ import { getCompetenceById } from "@/data/competences";
 import { getProjectById } from "@/data/projects";
 
 const NodejsCompetence = getCompetenceById("nodejs");
-const DockerCompetence = getCompetenceById("docker");
 const FlutterCompetence = getCompetenceById("flutter");
-const DocumentationCompetence = getCompetenceById("documentation");
 
 const EconorisProjet = getProjectById("econoris");
-const LysSecureProjet = getProjectById("lyssecure");
-const JeuAventuriersDuRailProjet = getProjectById("jeu-aventuriers-du-rail");
-const GenesisProjet = getProjectById("genesis");
 
-import FloraccessDoc1White from "@assets/projects/floraccess/floraccess_docs_1_white.png";
-import FloraccessDoc2White from "@assets/projects/floraccess/floraccess_docs_2_white.png";
-import FloraccessAdminWhite from "@assets/projects/floraccess/floraccess_1_white.png";
+import FloraccessDocs1White from "@assets/projects/floraccess/floraccess_docs_1_white.png";
+import FloraccessDocs2White from "@assets/projects/floraccess/floraccess_docs_2_white.png";
+import Floraccess1White from "@assets/projects/floraccess/floraccess_1_white.png";
 
 const usersTableInit = `
 -- Table to store user information
@@ -311,10 +306,10 @@ FlorAccess-api
 
     <div class="my-4">
       <Picture
-        src={FloraccessDoc1White}
+        src={FloraccessDocs1White}
         alt="Swagger Documentation Example"
-        width={FloraccessDoc1White.width}
-        height={FloraccessDoc1White.height}
+        width={FloraccessDocs1White.width}
+        height={FloraccessDocs1White.height}
         loading="lazy"
         decoding="async"
         class="paragraph rounded shadow"
@@ -327,10 +322,10 @@ FlorAccess-api
 
     <div class="my-4">
       <Picture
-        src={FloraccessDoc2White}
+        src={FloraccessDocs2White}
         alt="Swagger Documentation Example"
-        width={FloraccessDoc2White.width}
-        height={FloraccessDoc2White.height}
+        width={FloraccessDocs2White.width}
+        height={FloraccessDocs2White.height}
         loading="lazy"
         decoding="async"
         class="paragraph rounded shadow"
@@ -412,10 +407,10 @@ FlorAccess-api
 
     <div class="my-4">
       <Picture
-        src={FloraccessAdminWhite}
+        src={Floraccess1White}
         alt="FlorAccess Admin Application"
-        width={FloraccessAdminWhite.width}
-        height={FloraccessAdminWhite.height}
+        width={Floraccess1White.width}
+        height={Floraccess1White.height}
         loading="lazy"
         decoding="async"
         class="paragraph rounded shadow"
