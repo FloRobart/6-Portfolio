@@ -4,6 +4,7 @@ import Picture from "astro/components/Picture.astro";
 
 import FloraccessDoc1White from "@assets/projects/floraccess/floraccess_docs_1_white.png";
 import FloraccessDoc2White from "@assets/projects/floraccess/floraccess_docs_2_white.png";
+import FloraccessAdminWhite from "@assets/projects/floraccess/floraccess_1_white.png";
 
 const usersTableInit = `
 -- Table to store user information
@@ -57,13 +58,6 @@ export const UserInsertSchema = z.object({
 const FloraccessArchitecture = `
 FlorAccess-api
 ├── public
-│   ├── logo-1024.png
-│   ├── logo-144.png
-│   ├── logo-16.png
-│   ├── logo-192.png
-│   ├── logo-512.png
-│   ├── logo-72.png
-│   ├── logo-96.png
 │   ├── favicon.ico
 │   └── favicon.png
 ├── src
@@ -71,12 +65,10 @@ FlorAccess-api
 │   ├── config
 │   │   └── AppConfig.ts
 │   ├── core
-│   │   ├── cron
-│   │   │   └── validate_users.job.ts
 │   │   ├── email
 │   │   │   ├── error.email.ts
 │   │   │   ├── mailer.ts
-│   │   │   └── mailTemplate.ts
+│   │   │   └── mail_template.ts
 │   │   ├── middlewares
 │   │   │   ├── default_route.middleware.ts
 │   │   │   ├── error.middleware.ts
@@ -91,14 +83,22 @@ FlorAccess-api
 │   │   └── utils
 │   │       └── logger.ts
 │   ├── modules
-│   │   ├── users
-│   │   │   ├── users.controller.ts
-│   │   │   ├── users.repository.ts
-│   │   │   ├── users.routes.ts
-│   │   │   ├── users.schema.ts
-│   │   │   ├── users.service.ts
-│   │   │   ├── users.swagger.ts
-│   │   │   └── users.types.ts
+│   │   ├── admins
+│   │   │   ├── admins.controller.ts
+│   │   │   ├── admins.repository.ts
+│   │   │   ├── admins.routes.ts
+│   │   │   ├── admins.schema.ts
+│   │   │   ├── admins.service.ts
+│   │   │   ├── admins.swagger.ts
+│   │   │   └── admins.types.ts
+│   │   └── users
+│   │       ├── users.controller.ts
+│   │       ├── users.repository.ts
+│   │       ├── users.routes.ts
+│   │       ├── users.schema.ts
+│   │       ├── users.service.ts
+│   │       ├── users.swagger.ts
+│   │       └── users.types.ts
 │   ├── server.ts
 │   └── swagger
 │       └── swagger.ts
@@ -203,7 +203,7 @@ FlorAccess-api
     />
 
     <p class="paragraph">
-      <b>Id</b> : C'est la clé primaire de la table, elle est générée automatiquement à chaque fois qu'un nouvel utilisateur s'inscrit. Elle sert à identifier de manière unique chaque utilisateur dans la base de données. C'est une pratique très courante et basique, rien de très original ici, si se n'est que j'ai utilisé un ID classique et non un UUID (Universally Unique Identifier) pour des raisons de simplicité.
+      <b>Id</b> : C'est la clé primaire dhttps://florobart.github.io/Documentations/01_development/backend/create_api_typescript/e la table, elle est générée automatiquement à chaque fois qu'un nouvel utilisateur s'inscrit. Elle sert à identifier de manière unique chaque utilisateur dans la base de données. C'est une pratique très courante et basique, rien de très original ici, si se n'est que j'ai utilisé un ID classique et non un UUID (Universally Unique Identifier) pour des raisons de simplicité.
     </p>
 
     <p class="paragraph">
@@ -269,133 +269,355 @@ FlorAccess-api
     <h3 class="title-h3">API d'authentification</h3>
     <p class="paragraph">
       Après avoir créé la base de données, j'ai développé l'API d'authentification elle même. Cette API est construite en utilisant Node.js, TypeScript, Express, Zod et Swagger. En réalité j'ai aussi utilisé d'autre librairies et outils pour m'aider dans le développement de l'API, <b>jsonwebtoken</b> pour gérer les JWT mais les technologies que j'ai mentionné précédement sont les technologies principales de l'API, celles qui définissent vraiment l'architecture et la structure de l'API. J'ai choisi ces technologies pour leur performance, leur flexibilité, leur sécurité et surtout leur facilité d'utilisation.
-      
+    </p>
+
+    <p class="paragraph">
       J'ai également choisi ces technologies parce que c'est celle qui sont utilisé à Qowisio, donc j'avais déjà de l'expérience et mon maître d'apprentissage m'avait conseillé de les utiliser avec des arguments très convaincants, notamment le fait que ces technologies sont très populaires et qu'elle permet de faire très facilement de l'asynchrone, ce qui est essentiel pour gérer de nombreuses requêtes simultanées ou pour faire des opérations de base de données sans bloquer le thread principal.
+    </p>
 
+    <p class="paragraph">
       Nous allons voir plus en détail pourquoi j'ai choisi chaque technologie et comment je les ai utilisées dans le développement de l'API d'authentification FlorAccess.
+    </p>
 
+    <p class="paragraph">
       <b>Node.js</b> est un environnement d'exécution JavaScript côté serveur qui permet de construire des applications web rapides et évolutives. À l'origine JavaScript s'exécutait uniquement dans les navigateurs web, grâce au moteur V8 de Google. En 2009, Ryan Dahl a l'idée de prendre le moteur V8 et de l'utiliser pour exécuter du JavaScript autre part que dans les navigateurs, c'est ainsi que Node.js est né.
+    </p>
 
+    <p class="paragraph">
       JavaScript étant un langage très simple a apprendre et très populaire, cela à permis à Node.js de devenir rapidement très populaire auprès des développeurs, car il leur permettait d'utiliser un langage qu'ils connaissaient déjà pour construire des applications web côté serveur et d'utiliser un seul langage pour le développement frontend et backend, ce qui simplifie considérablement le processus de développement. De plus, Node.js est très performant grâce à son architecture non bloquante et à son moteur V8, ce qui le rend idéal pour gérer de nombreuses requêtes simultanées, comme c'est le cas pour une API d'authentification.
+    </p>
 
+    <p class="paragraph">
       Pour ma part, j'ai choisi Node.js pour sa performance, pour éviter d'avoir a configurer un serveur web comme Apache ou Nginx et aussi parce que l'experience que j'ai eu avec Node.js a été très positive, j'ai trouvé que c'était un environnement d'exécution très rapide et très facile à utiliser pour construire des applications web côté serveur.
+    </p>
 
+    <p class="paragraph">
       En revanche je l'utilise systématiquement avec d'autres technologies. Par exemple, je n'aime vraiment pas JavaScript, je trouve que c'est un langage trop permissif, le manque de types statiques rend le code difficile à maintenir et à faire évoluer et très souvent source de bugs. C'est pour cela que j'utilise Node.js uniquement avec TypeScript. 
+    </p>
 
+    <p class="paragraph">
       <b>TypeScript</b> est un langage de programmation qui est un sur-ensemble de JavaScript, ce qui signifie qu'il ajoute des fonctionnalités supplémentaires à JavaScript tout en restant compatible avec lui. En fait TypeScript ne peux pas être exécuté directement, il doit d'abord être compilé en JavaScript, c'est ce processus de compilation qui permet à TypeScript d'ajouter des fonctionnalités supplémentaires à JavaScript, notamment les types statiques.
+    </p>
 
+    <p class="paragraph">
       Donc le développeur écrit du code en TypeScript, en bénéficiant de toutes les fonctionnalités supplémentaires que TypeScript offre, comme les types statiques, les interfaces, les classes, etc. Ensuite, le code TypeScript est compilé en JavaScript, qui peut être exécuté dans n'importe quel environnement JavaScript, y compris Node.js.
+    </p>
 
+    <p class="paragraph">
       Il faut savoir que TypeScript est devenu très populaire auprès des développeurs JavaScript. Cela signifie que de nombreuses bibliothèques et frameworks JavaScript populaires, comme React, Angular, Vue.js, Express, etc. ont ajouté un support officiel pour TypeScript, ce qui facilite grandement l'utilisation de TypeScript dans les projets JavaScript. Beaucoup de projet historiquement écrit en JavaScript ont aussi été migré vers TypeScript. Aujourd'hui, la plupart des librairies et frameworks sont compatibles avec TypeScript, que se sois grâce à un support officiel ou grâce à des types tiers créés par la communauté, ce qui rend l'utilisation de TypeScript très facile et très pratique pour les développeurs JavaScript.
+    </p>
 
+    <p class="paragraph">
       <b>Express</b> est un framework web pour Node.js qui facilite grandement la création d'API RESTful en fournissant une structure simple et flexible pour gérer les routes, les requêtes et les réponses. Les routes sont les points d'entrée de l'API, elles définissent les différentes URL que les clients peuvent utiliser pour accéder aux différentes fonctionnalités de l'API. Express permet de définir facilement ces routes et de gérer les requêtes et les réponses associées à chaque route, ce qui simplifie considérablement le processus de développement d'une API RESTful.
+    </p>
 
+    <p class="paragraph">
       Express est devenu très populaire auprès des développeurs Node.js en raison de sa simplicité, de sa flexibilité et de sa performance. Il est largement utilisé pour construire des API RESTful, des applications web et des microservices, ce qui en fait un choix idéal pour le développement de l'API d'authentification FlorAccess.
+    </p>
 
+    <p class="paragraph">
       C'est Express couplé à Zod qui vont définir l'architecture de l'API. En effet, Express va gérer les routes, les requêtes et les réponses, tandis que Zod va gérer la validation des données et la définition des schémas de données. Ensemble, ils permettent de construire une API d'authentification robuste, sécurisée et facile à maintenir.
+    </p>
 
+    <p class="paragraph">
       <b>Zod</b> est une bibliothèque de validation de données pour TypeScript. Le principe de Zod est définnir des schémas de données qui décrivent la structure et les types des données que l'on veux valider. Le type TypeScript est automatiquement créé à partir du schéma Zod, ce qui permet de typé tout le code qui utilise ces données, ce qui améliore considérablement la sécurité et la maintenabilité du code.
-      
+    </p>
+
+    <p class="paragraph">
       Ensuite Zod fournit des fonctions de validation qui permettent de vérifier que les données respectent les schémas définis. Si les données sont valides, elles sont retournées, sinon une erreur de validation est levée, ce qui permet de gérer les erreurs de manière efficace et de fournir des messages d'erreur clairs et personnalisés aux clients de l'API.
+    </p>
 
+    <p class="paragraph">
       Les schémas Zod peuvent également transformer les données, ce qui permet de normaliser les données d'entrée avant de les utiliser dans le code de l'API. Par exemple, on peut définir un schéma Zod qui accepte une date au format string et qui la transforme en objet Date, ce qui facilite grandement la manipulation des données dans le code de l'API.
+    </p>
 
+    <p class="paragraph">
       J'utilise les schémas Zod pour validé absolument toutes les données d'entrée et de sortie de l'API, que se sois les données des requêtes ou les données des réponses. Cela me permet de garantir que les données utilisées dans le code de l'API et les données renvoyées aux clients sont toujours valides et conformes aux schémas définis. Donc je suis assuré qu'aucune donnée invalide ne peut causer des bugs ou des comportements inattendus dans l'API, ce qui améliore considérablement la robustesse et la fiabilité de l'API d'authentification FlorAccess.
+    </p>
 
+    <p class="paragraph">
       Grâce à Zod, aucune donnée invalide ne peux entrer dans le code de l'API, ce qui signifie que je peux me concentrer sur la logique métier de l'API sans avoir à me soucier de la validation des données, car je sais que toutes les données qui entrent dans le code de l'API sont déjà validées et conformes aux schémas définis. Mais ce n'est pas tout, aucune données invalide ne peux non plus sortir de l'API, ce qui signifie que les clients de l'API peuvent être assurés que les données qu'ils reçoivent sont toujours valides et conformes aux schémas définis, ce qui améliore considérablement l'expérience des développeurs qui utilisent l'API d'authentification FlorAccess.
+    </p>
 
+    <p class="paragraph">
       Voici un exemple de schéma Zod que j'ai défini pour valider les données d'inscription des utilisateurs :
+    </p>
 
-      <Code
-        class="paragraph"
-        code={zodSchemaExample}
-        lang="ts"
-        title="Zod Schema Example"
-        frame="code"
-        showLineNumbers
-      />
+    <Code
+      class="paragraph"
+      code={zodSchemaExample}
+      lang="ts"
+      title="Zod Schema Example"
+      frame="code"
+      showLineNumbers
+    />
 
+    <p class="paragraph">
       On peux voir que ce schéma Zod définit les règles de validation pour les données d'inscription des utilisateurs, notamment l'email et le pseudo. Le schéma utilise la fonction z.preprocess pour normaliser l'email en le convertissant en minuscules et en supprimant les espaces, ce qui permet de garantir que les emails sont toujours stockés dans un format cohérent dans la base de données. Ensuite, le schéma utilise la fonction z.email() pour valider que l'email est bien au format email, et la fonction z.string().trim().min(3).max(255) pour valider que le pseudo est une chaîne de caractères non vide, sans espaces au début ou à la fin, et avec une longueur comprise entre 3 et 255 caractères.
+    </p>
 
+    <p class="paragraph">
       Grâce à ce schéma Zod, je peux être assuré que les données d'inscription des utilisateurs sont toujours valides et conformes aux règles définies.
+    </p>
 
-      Mais que j'ai des données fiables et bien structurées, je dois documenter les données que je demande et que je renvoie pour chaque point d'entrée de l'API pour que les développeurs et moi même puisse comprendre facilement comment utiliser l'API et quelles données sont attendues pour chaque point d'entrée.
+    <p class="paragraph">
+      Maintenant que j'ai des données fiables et bien structurées, je dois documenter les données que je demande et que je renvoie pour chaque point d'entrée de l'API pour que les développeurs et moi même puisse comprendre facilement comment utiliser l'API et quelles données sont attendues pour chaque point d'entrée.
+    </p>
 
+    <p class="paragraph">
       Pour cela, j'ai utilisé Swagger, anciennement connu sous le nom de OpenAPI, qui est un outil de documentation d'API très populaire et très puissant. Je dois avouer que la première fois que j'ai utilisé Swagger, j'étais septique quant à son utilité, son écriture me semblait très verbeuse et redondante, et je ne voyais pas vraiment l'intérêt de documenter mon API de manière aussi détaillée.
+    </p>
 
+    <p class="paragraph">
       Cependant, cela avait l'air d'être une bonne pratique largement recommandée par la communauté des développeurs d'API, et je voulais vraiment faire les choses bien pour FlorAccess, donc j'ai décidé de lui donner une chance. Et je dois dire que j'ai été agréablement surpris par les avantages que Swagger m'a apporté.
+    </p>
 
+    <p class="paragraph">
       Déjà la documentation Swagger s'écrit directement dans le code de l'API, grâce à des commentaires spéciaux qui suivent une syntaxe précise. Cela signifie que la documentation est toujours au même endroit que le code de l'API, ce qui facilite grandement la maintenance de la documentation, car il est plus facile de mettre à jour la documentation en même temps que le code de l'API.
+    </p>
 
+    <p class="paragraph">
       Ensuite j'ai remarqué que la documentation générée par Swagger est très claire et très facile à comprendre, même pour les développeurs qui ne sont pas familiers avec l'API d'authentification.
+    </p>
 
-      <Picture
-        src={FloraccessDoc1White}
-        alt="Swagger Documentation Example"
-        width={FloraccessDoc1White.width}
-        height={FloraccessDoc1White.height}
-        loading="lazy"
-        decoding="async"
-        class="paragraph"
-      />
+    <Picture
+      src={FloraccessDoc1White}
+      alt="Swagger Documentation Example"
+      width={FloraccessDoc1White.width}
+      height={FloraccessDoc1White.height}
+      loading="lazy"
+      decoding="async"
+      class="paragraph"
+    />
 
+    <p class="paragraph">
       Comme vous pouvez le voir dans l'exemple ci-dessus, la documentation générée par Swagger est très bien structurée et très facile à lire. Elle permet de visualiser rapidement tous les points d'entrée de l'API, classé par catégorie, et les méthodes HTTP associées à chaque point d'entrée avec des couleurs différentes pour différencier rapidement les méthodes HTTP. Le cadena permet de savoir rapidement si la route nécessite une authentification ou pas.
+    </p>
 
+    <p class="paragraph">
       Mais ce n'est pas tout, la documentation Swagger, si elle est bien configurée, inclut également des exemples de requêtes et de réponses pour chaque point d'entrée, ce qui permet de comprendre rapidement comment utiliser chaque point d'entrée de l'API et quelles données sont attendues en entrée et en sortie, comme vous pouvez le voir dans l'exemple ci-dessous :
-      
-      <Picture
-        src={FloraccessDoc2White}
-        alt="Swagger Documentation Example"
-        width={FloraccessDoc2White.width}
-        height={FloraccessDoc2White.height}
-        loading="lazy"
-        decoding="async"
-        class="paragraph"
-      />
+    </p>
 
+    <Picture
+      src={FloraccessDoc2White}
+      alt="Swagger Documentation Example"
+      width={FloraccessDoc2White.width}
+      height={FloraccessDoc2White.height}
+      loading="lazy"
+      decoding="async"
+      class="paragraph"
+    />
+
+    <p class="paragraph">
       Mais ce n'est pas fini, vous vous demandez peut-être à quoi peut bien servir le bouton <b>Try it out</b>. Et bien, la documentation Swagger inclut également une interface interactive qui permet de tester les points d'entrée de l'API directement depuis la documentation.
-      
+    </p>
+
+    <p class="paragraph">
       Cela signifie qu'en tant que développeur, je défini mes schémas de données avec Zod, je documente mes points d'entrée avec Swagger, et ensuite je peux tester mes points d'entrée directement depuis la documentation pour vérifier que tout fonctionne correctement et que les données sont bien validées et conformes aux schémas définis.
+    </p>
 
+    <p class="paragraph">
       C'est une fonctionnalité que j'ai découvert assez tard dans le développement de l'API, mais qui s'est avérée être extrêmement utile pour tester rapidement les points d'entrée de l'API et pour vérifier que la validation des données fonctionne correctement. Grâce à cette interface interactive, je peux tester mes points d'entrée en quelques clics, sans avoir à utiliser des outils externes comme Postman ou Insomnia, ce qui rend le processus de développement beaucoup plus rapide et plus efficace.
+    </p>
 
+    <p class="paragraph">
       Pour faire les appelles HTTP, Swagger utilise CURL, qui est un outil en ligne de commande très populaire pour faire des requêtes HTTP. Cela signifie que lorsque je clique sur le bouton <b>Try it out</b>, Swagger génère automatiquement la commande CURL correspondante à la requête que je veux tester, ce qui me permet de voir exactement quelle requête est envoyée à l'API et quelles données sont incluses dans la requête, en plus de me permettre de la copier facilement pour la réutiliser dans d'autres outils.
+    </p>
 
-      <h3 class="title-h3">Conclusion des outils utilisés</h3>
+    <h3 class="title-h3">Conclusion des outils utilisés</h3>
+    <p class="paragraph">
       Tous ses outils que j'ai utilisé pour développer l'API d'authentification FlorAccess, Node.js, TypeScript, Express, Zod et Swagger, ont été choisis avec soin pour leurs avantages respectifs et sont devenus des éléments indispensables pour le développement de mes API. Chaque outils à un rôle spécifique dans le développement de l'API, et ensemble ils permettent de construire une API d'authentification robuste, sécurisée, facile à maintenir et agréable à utiliser pour les développeurs qui l'utilisent.
+    </p>
 
+    <p class="paragraph">
       Tous ensemble ils définissent l'architecture de l'API FlorAccess et de toutes mes API, en fournissant une structure solide pour gérer les routes, les requêtes et les réponses (Express), en garantissant que toutes les données sont valides et conformes aux schémas définis (Zod), en offrant une expérience de développement agréable et efficace grâce au typage statique (TypeScript) et en fournissant une documentation claire, complète et interactive pour les développeurs qui utilisent l'API (Swagger).
     </p>
 
     <h3 class="title-h3">Architecture</h3>
+    <p class="paragraph">
+      L'architecture est l'élément le plus important de tous projets, c'est ce qui définit la structure et l'organisation du projet, et c'est ce qui permet de construire une application robuste, évolutive et facile à maintenir. L'architecture de l'API d'authentification FlorAccess est une architecture feature-based, ce qui signifie que le projet est organisé en fonction des différentes fonctionnalités de l'API, plutôt qu'en fonction des différentes couches de l'application (comme une architecture en couches traditionnelle).
+    </p>
 
-    
+    <p class="paragraph">
+      L'intérêt d'une architecture feature-based est qu'elle permet de regrouper tous les éléments liés à une même fonctionnalité dans un même dossier, ce qui facilite grandement la maintenance et l'évolution du projet, car il est plus facile de trouver et de modifier les éléments liés à une même fonctionnalité. De plus, cela permet de réduire les dépendances entre les différentes fonctionnalités, ce qui rend le projet plus modulaire et plus facile à faire évoluer.
+    </p>
+
+    <p class="paragraph">
+      Voici un diagramme architectural simplifié de l'API d'authentification FlorAccess, qui montre comment les différentes fonctionnalités de l'API sont organisées et comment elles interagissent entre elles :
+    </p>
 
     <Code
-        class="paragraph"
-        code={FloraccessArchitecture}
-        lang="architectural-diagram"
-        title="FlorAccess API Architecture"
-        frame="code"
-        showLineNumbers
-      />
+      class="paragraph"
+      code={FloraccessArchitecture}
+      lang="architectural-diagram"
+      title="FlorAccess API Architecture"
+      frame="code"
+      showLineNumbers
+    />
+
+    <p class="paragraph">
+      Je ne vais pas entrer dans les détails de chaque dossier et de chaque fichier de l'architecture, mais si cela vous intéresse, je vous invite à consulter <a href="https://florobart.github.io/Documentations/01_development/backend/create_api_typescript/" target="_blank">ma documentation complète sur le sujet</a>.
+    </p>
+
+    <p class="paragraph">
+      Nous pouvons tous de même faire une revue rapide du dossier le plus important de l'architecture, le dossier <b>"src/modules"</b>. En fait chaque module correspond à une fonctionnalité de l'API. Dans FlorAccess, il existe deux fonctionnalité, "users" et "admins". Le module "users" contient tous les éléments liés à la gestion des utilisateurs, comme les routes d'inscription, de connexion, de déconnexion, etc. Le module "admins" contient tous les éléments liés à la gestion des administrateurs, comme les routes pour envoyer un email aux utilisateurs et voir tous les utilisateurs inscrits.
+    </p>
+
+    <p class="paragraph">
+      grâce à cette architecture feature-based, si je veux modifier l'inscription de l'utilisateur, je sais que j'aurais uniquement à aller dans le dossier "src/modules/users" pour trouver tous les éléments liés à l'inscription des utilisateurs, ce qui rend la maintenance et l'évolution du projet beaucoup plus facile et plus rapide.
+    </p>
+
+    <p class="paragraph">
+      Vous pouvez aussi voir dans le diagramme architectural qu'il y a un fichier par outils que j'ai utilisé. Tous d'abord il y a un fichier "users.schemas.ts" qui contient les schémas de validation pour les données des utilisateurs.
+    </p>
+
+    <p class="paragraph">
+    Un fichier "users.types.ts" qui contient les types TypeScript dérivé directement des schémas Zod, ce qui permet de typé tout le code qui utilise les données des utilisateurs, ce qui améliore considérablement la sécurité et la maintenabilité du code.
+    </p>
+
+    <p class="paragraph">
+    Un fichier "users.swagger.ts" qui contient une représentation des schemas Zod au format Swagger, ce qui permet de les utilisées dans la documentation Swagger pour documenter les points d'entrée de l'API qui utilisent les données des utilisateurs. Cela permet notament de réutiliser les schemas swagger à plusieur endroit dans l'API, parce que la documention de chaque point d'entrée (route) de l'API est écrite au même endroit que le code de la route en question.
+    </p>
+
+    <p class="paragraph">
+    Il y a aussi un fichier "users.routes.ts" qui contient les routes liées à la gestion des utilisateurs, comme les routes d'inscription, de connexion, de déconnexion, etc. Ce fichier contient également la documentation swagger pour chaque route, ce qui permet de documenter les points d'entrée de l'API en même temps que le code de la route, ce qui facilite grandement la maintenance de la documentation.
+    </p>
+
+    <p class="paragraph">
+    Si la route à des paramètres d'entrée, elle utilise les schémas Zod couplé avec le fichier "request_validator.middleware.ts" pour valider les données d'entrée de la requête, ce qui permet de garantir que les données qui seront récupérées dans le controlleur seront toujours valides et conformes aux schémas définis.
+    </p>
+
+    <p class="paragraph">
+    Il y a aussi un fichier "users.controller.ts" qui récupère les données validées par le middleware de validation des requêtes et gère la réponse à l'utilisateur en fonction de se qui est renvoyé par le service "users.service.ts".
+    </p>
+
+    <p class="paragraph">
+    Le service "users.service.ts" contient la logique métier liée à la gestion des utilisateurs, comme la création d'un nouvel utilisateur, la génération des tokens d'authentification, etc. Tous se qui est calculé ou traité est fait dans le service, le controller se contente de récupérer les données validées par le middleware de validation des requêtes, de les envoyer au service et de gérer la réponse à l'utilisateur en fonction de se qui est renvoyé par le service.
+    </p>
+
+    <p class="paragraph">
+    Et enfin, le dernier fichier est "users.repository.ts" qui permet de faire le lien avec un service externe. Se service externe peux être n'importe quoi, une file d'attente, une autre API, le système de fichiers, mais dans le cas de FlorAccess, le repository "users.repository.ts" execute des requêtes SQL pour interagir avec la base de données PostgreSQL.
+    </p>
+
+    <p class="paragraph">
+    Grâce à cette organisation, je peux facilement faire évoluer le projet en ajoutant de nouvelles fonctionnalités, en modifiant les fonctionnalités existantes ou en changeant la technologie utilisée pour interagir avec la base de données, sans avoir à modifier l'ensemble du projet, ce qui rend le projet très flexible et facile à faire évoluer. Par exemple, si j'ai un problème de d'enregistrement des informations des utilisateurs dans la base de données, je sais que se sera forcément dans le fichier "users.repository.ts" que je trouverais le problème, plus besoin de chercher dans tout le projet, ce qui rend la maintenance du projet beaucoup plus facile et plus rapide.
+    </p>
 
     <h3 class="title-h3">Intégration avec mes autres applications</h3>
+    <p class="paragraph">
+      Maintenant que j'ai une API d'authentification robuste, sécurisée et facile à maintenir, je peux l'intégrer avec mes autres applications pour gérer l'authentification de mes utilisateurs. L'API d'authentification FlorAccess est conçue pour être utilisée comme un service d'authentification centralisé pour toutes mes applications, ce qui signifie que toutes mes applications peuvent utiliser la même API pour gérer l'authentification de leurs utilisateurs, ce qui simplifie considérablement le processus de développement et de maintenance de mes applications.
+    </p>
+
+    <p class="paragraph">
+      Je précise toute fois que pour le moment, chaque projet qui utilise l'API d'authentification FlorAccess à le même code, qui est copier coller pour chaque nouveau projet. J'ai déjà prevu de créer un librairie NPM (Node.js) qui contiendra tout le code nécessaire pour intégrer facilement l'API d'authentification FlorAccess dans n'importe quelle application et une librairie Flutter pour faciliter l'intégration de l'API d'authentification FlorAccess dans mes applications Flutter, mais pour le moment, je me contente de copier coller le code d'intégration dans chaque projet qui utilise FlorAccess. J'ai fais ce choix pour des raisons de temps.
+    </p>
+
+    <p class="paragraph">
+      Nous allons prendre Econoris comme exemple d'application qui utilise l'API d'authentification FlorAccess. Il y a deux partie de l'application Econoris qui utilise FlorAccess.
+    </p>
+
+    <p class="paragraph">
+      Il y a dabord le frontend, donc l'application Flutter, qui va demander à l'utilisateur d'entré ses informations à l'utilisateur pour s'inscrire ou se connecter, puis elle va envoyer une requête à FlorAccess pour authentifier l'utilisateur et récupérer un JWT, ensuite elle va stocker ce JWT côté client. Ensuite, à chaque requête que Econoris envoie à son backend, elle va inclure le JWT dans les en-têtes de la requête. Le backend de Econoris va ensuite vérifier la présence du JWT dans les en-têtes de la requête, puis il va envoyer une requête à FlorAccess pour vérifier que le JWT est valide et que l'utilisateur est bien authentifié.
+    </p>
+
+    <p class="paragraph">
+      Seul FlorAccess peux vérifier un JWT, car seul FlorAccess a la clé secrète nécessaire pour vérifier la signature du JWT. Donc le backend de Econoris doit envoyer une requête à FlorAccess pour vérifier que le JWT est valide et que l'utilisateur est bien authentifié. Si FlorAccess répond que le JWT est valide et que l'utilisateur est authentifié, alors le backend de Econoris peut traiter la requête normalement, sinon il refuse la requête et renvoie une réponse d'erreur à l'utilisateur.
+    </p>
+
+    <p class="paragraph">
+      Cela me permet de ne pas dupliquer la clé secrète de vérification des JWT dans chaque application, ce qui améliore considérablement la sécurité de mes applications, car la clé secrète est probablement l'élément le plus sensible de toute l'API d'authentification. En centralisant aussi la vérification des JWT dans FlorAccess, je peux également mettre en place des mesures de sécurité supplémentaires, comme un changement de clé secrète périodique, sans avoir à mettre à jour chaque application qui utilise FlorAccess, ce qui rend la maintenance de mes applications beaucoup plus facile et plus rapide.
+    </p>
+
+    <p class="paragraph">
+      En résumé, FlorAccess s'intégre à deux niveaux dans mes applications, au niveau du frontend pour gérer l'inscription et la connexion des utilisateurs, et au niveau du backend pour vérifier l'authentification des utilisateurs à chaque requête. Cette intégration me permet de centraliser la gestion de l'authentification de mes utilisateurs dans FlorAccess, ce qui simplifie considérablement le processus de développement et de maintenance de mes applications, tout en améliorant considérablement la sécurité de mes applications grâce à la centralisation de la gestion des JWT et de la clé secrète.
+    </p>
+
     <h3 class="title-h3">Application d'administration</h3>
+    <p class="paragraph">
+      FlorAccess inclut également une application d'administration qui permet de gérer les utilisateurs inscrits sur l'API d'authentification. Cette application utilise le module "admins" de l'API pour permettre aux administrateurs de voir tous les utilisateurs inscrits sur l'API, d'envoyer des emails aux utilisateurs, etc.
+    </p>
+
+    <p class="paragraph">
+      Cette application d'administration est réalisé en Flutter, comme toutes mes applications frontend, pour bénéficier de la portabilité et de la facilité de développement que Flutter offre. L'application d'administration est conçue pour être simple et facile à utiliser, avec une interface utilisateur claire et intuitive qui permet aux administrateurs de gérer facilement les utilisateurs inscrits, comme vous pouvez le voir dans l'image ci-dessous :
+    </p>
+
+    <Picture
+      src={FloraccessAdminWhite}
+      alt="FlorAccess Admin Application"
+      width={FloraccessAdminWhite.width}
+      height={FloraccessAdminWhite.height}
+      loading="lazy"
+      decoding="async"
+      class="paragraph"
+    />
+
+    <p class="paragraph">
+      L'application d'administration est évidement responsive, c'est à dire qu'elle s'adapte à la taille de l'écran de l'appareil utilisé, que se sois un ordinateur de bureau, une tablette ou un smartphone et elle possède comme toute mes applications un thème clair et un thème sombre, que l'utilisateur peut choisir en fonction de ses préférences ou de son environnement, ce qui améliore l'expérience utilisateur et rend l'application d'administration agréable à utiliser dans toutes les conditions.
+    </p>
+
+    <p class="paragraph">
+      Il est strictement impossible d'ajouter des administrateurs, l'API ne le permet pas. J'ai fais ce choix pour des raisons de sécurité, je ne veux pas risquer que quelqu'un puisse devenir administrateur et avoir accès à tous les utilisateurs inscrits, que se sois en contournant les règles de l'API ou si quelqu'un parvient à accéder au compte d'un administrateur, ce qui pourrait être catastrophique pour la sécurité de mes applications et la confidentialité des données de mes utilisateurs. Par conséquent, le seul moyen de devenir administrateur est que je le fasse moi même en ajoutant manuellement les informations de l'administrateur dans la base de données directement, ce qui me permet de contrôler strictement qui a accès à l'application d'administration et de minimiser les risques de sécurité associés à la gestion des administrateurs.
+    </p>
+
+    <p class="paragraph">
+      Dans l'idéal il faudrait un système de rôles et de permissions plus sophistiqué pour gérer les administrateurs, mais pour le moment, je me contente de ce système très simple pour minimiser les risques de sécurité et pour pouvoir me concentré sur le développement de mes autres applications. Avant de pensé à la gestion des rôles, il est plus important pour moi d'avoir des applications fonctionnel et qui sont utilisés par des utilisateurs.
+    </p>
 
     <h2 class="title-h2">Résultats</h2>
     <p class="paragraph">
-      paragraphe
+      Ce projet m'a beaucoup apris sur le fonctionnement de l'authentification dans les applications web et deviendra une brique central dans mon projet professionnel de création d'entreprise de développement d'applications. Grâce à ce projet, j'ai pu comprendre en profondeur les différentes étapes du processus d'authentification, les différentes technologies et outils qui peuvent être utilisés pour construire une API d'authentification robuste, sécurisée et facile à maintenir, et comment intégrer cette API avec mes autres applications pour gérer l'authentification de mes utilisateurs de manière centralisée et sécurisée.
     </p>
 
-    <h2 class="title-h2">Avenir</h2>
     <p class="paragraph">
-      paragraphe
+      J'ai également pu mettre en pratique mes compétences en développement backend, en utilisant des technologies comme Node.js, TypeScript, Express, Zod et Swagger pour construire une API d'authentification complète et fonctionnelle.
+    </p>
+
+    <h2 class="title-h2" id="avenir">Avenir</h2>
+    <h3 class="title-h3">Court terme</h3>
+    <p class="paragraph">
+      À cours terme, je prévois d'ajouter quelque fonctionnalité supplémentaire à l'API comme la suppression des comptes inactif au bout d'un certain temps.
+    </p>
+
+    <p class="paragraph">
+      Et surtout je prévoie d'exporter FlorAccess sous forme de librairie (NPM et Flutter) pour faciliter son intégration dans mes autres applications, ce qui me permettra de ne plus avoir à copier coller le code d'intégration dans chaque projet qui utilise FlorAccess, ce qui rendra le processus d'intégration beaucoup plus rapide et plus efficace.
+    </p>
+
+    <p class="paragraph">
+      De plus quand je modifirais le code dans la librairie, toutes les applications qui utilisent cette librairie bénéficieront automatiquement des modifications, ce qui rendra la maintenance de mes applications beaucoup plus facile et plus rapide.
+    </p>
+
+    <p class="paragraph">
+      Ce sont vraiment les prochaines étapes que je prévois pour FlorAccess que je ferais juste après l'obtention de mon diplôme.
+    </p>
+
+    <h3 class="title-h3">Long terme</h3>
+    <p class="paragraph">
+      À plus long terme, je prévois d'ajouter plusieurs méthode d'authentification supplémentaires à l'API, comme l'authentification par mot de passe, l'authentification par application tierce (Google, Facebook, etc.). J'aimerai également ajouter des fonctionnalité de suivie sur l'application d'administration, comme la possibilité de voir les connexions des utilisateurs, les tentatives de connexion échouées, etc. pour pouvoir détecter rapidement les activités suspectes et réagir en conséquence pour protéger la sécurité de mes applications et la confidentialité des données de mes utilisateurs.
+    </p>
+
+    <p class="paragraph">
+      Le but final de tous cela, c'est que FlorAccess devienne un standard au même titre que OAuth ou Google. Aujourd'hui, il existe de nombreux services d'authentification directement intégrable dans les frameworks, et il est très facile de créer un système tous simple avec email plus mot de passe. Mais j'aimerai que FlorAccess devienne une alternative open-source, auto-hébergé et personnalisable à ces services d'authentification, qui permettrait aux développeurs de gérer l'authentification de leurs utilisateurs de manière sécurisé tous en bénificiant de la simplcité et de la flexibilité que FlorAccess offre.
+    </p>
+
+    <p class="paragraph">
+      Parce que toute les alternatives sont soit des services d'authentification tiers, qui peuvent être coûteux et qui appartiennent à des entreprises qui peuvent décider de changer leurs conditions d'utilisation ou de fermer leur service du jour au lendemain, soit des solutions open-source ultra traditionnel avec un simple email plus mot de passe, qui ne sont pas très sécurisées et qui oblige l'utilisateur à créer un mot de passe, ce qui est une source de mauvaise expérience utilisateur.
+    </p>
+
+    <p class="paragraph">
+      FlorAccess a pour ambition de devenir une solution d'authentification moderne, sécurisée, flexible, qui combine les avantages des services d'authentification tiers et des solutions open-source traditionnelles, tout en évitant leurs inconvénients, pour offrir aux développeurs une solution d'authentification complète, facile à utiliser et à maintenir pour gérer l'authentification de leurs utilisateurs de manière centralisée et sécurisée.
     </p>
 
     <h2 class="title-h2">Auto-critique</h2>
     <p class="paragraph">
-      paragraphe
+      FlorAccess est un projet fiable et sécurisé, il est déjà utilisé en production pour gérer l'authentification de mes applications, et ses montrés très efficace pour gérer l'authentification de mes utilisateurs de manière centralisée et sécurisée.
+    </p>
+
+    <p class="paragraph">
+      Malgré il n'est pas parfait, il y a encore beaucoup de fonctionnalité que je prévois d'ajouter à l'API d'authentification FlorAccess pour la rendre encore plus complète, comme je l'ai mentionné dans la <a href="/projets/floraccess#avenir">section "Avenir"</a> de cet article. Cependant, même dans sa version actuelle, FlorAccess est déjà une solution d'authentification robuste, sécurisée et facile à maintenir qui répond parfaitement à mes besoins actuels en matière d'authentification pour mes applications.
+    </p>
+
+    <p class="paragraph">
+      J'ai déjà identifier la plupart des faiblesses et des limitations de l'API d'authentification FlorAccess, et j'ai déjà prévu des solutions pour y remédier dans les prochaines mises à jour de l'API. Par conséquent, je suis confiant que FlorAccess continuera à évoluer et à s'améliorer au fil du temps pour devenir une solution d'authentification encore plus complète, sécurisée et facile à maintenir pour gérer l'authentification de mes utilisateurs de manière centralisée et sécurisée.
     </p>
   </div>
 </section>
