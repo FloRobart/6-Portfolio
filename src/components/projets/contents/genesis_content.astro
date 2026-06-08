@@ -17,15 +17,15 @@ const QowisioExperience = getExperienceById("qowisio");
   <div class="max-w-[80%]">
     <h2 class="title-h2">Présentation</h2>
     <p class="paragraph">
-      Avant d'aborder l'application Genesis en elle-même, il convient de poser le contexte entourant les activités de l'entreprise <a href={QowisioExperience?.localLink}>{QowisioExperience?.title}</a>. Le coeur de métier de Qowisio repose sur la conception de compteurs connectés dédiés à <a href="https://fr.wikipedia.org/wiki/Internet_des_objets" target="_blank">l'Internet des Objets (IoT)</a>. Néanmoins, ces capteurs ne disposent pas de la portée nécessaire pour expédier leurs relevés directement aux serveurs centraux. C'est pourquoi l'infrastructure s'appuie sur des <b>passerelles</b> : des boîtiers physiques chargés de collecter les flux de données émis par l'ensemble des capteurs environnants pour les centraliser et les acheminer vers le cloud.
+      Avant d'aborder l'application Genesis en elle-même, il convient de poser le contexte entourant les activités de l'entreprise <a href={QowisioExperience?.localLink}>{QowisioExperience?.title}</a>. Le coeur de métier de <a href={QowisioExperience?.localLink}>{QowisioExperience?.title}</a> repose sur la conception de compteurs connectés dédiés à <a href="https://fr.wikipedia.org/wiki/Internet_des_objets" target="_blank">l'Internet des Objets (IoT)</a>. Néanmoins, ces capteurs ne disposent pas de la portée nécessaire pour expédier leurs relevés directement aux serveurs centraux. C'est pourquoi l'infrastructure s'appuie sur des <b>passerelles</b> : des boîtiers physiques chargés de collecter les flux de données émis par l'ensemble des capteurs environnants pour les centraliser et les acheminer vers le cloud.
     </p>
 
     <p class="paragraph">
-      Cette mécanique technique est essentielle, car elle constitue le socle fonctionnel de <b>Genesis</b>, qui s'impose comme une application métier d'<b>aide à la pose de passerelles</b>. L'intérêt d'un tel outil est stratégique. En effet, la majeure partie du parc immobilier géré par Ocea Smart Building comprend des bâtiments résidentiels ou tertiaires regroupant de quelques dizaines à plusieurs milliers de capteurs. Les passerelles doivent donc être positionnées de manière <b>optimale et stratégique</b> dans les immeubles afin de maximiser le taux de captation des données, tout en évitant le déploiement superflu et coûteux d'un boîtier dans chaque logement.
+      Cette mécanique technique est essentielle, car elle constitue le socle fonctionnel de <b>Genesis</b>, qui s'impose comme une application métier d'<b>aide à la pose de passerelles</b>. L'intérêt d'un tel outil est stratégique. En effet, la majeure partie du parc immobilier géré par <a href="https://www.groupe-ocea.fr/">Ocea Smart Building</a> comprend des bâtiments résidentiels ou tertiaires regroupant de quelques dizaines à plusieurs milliers de capteurs. Les passerelles doivent donc être positionnées de manière <b>optimale et stratégique</b> dans les immeubles afin de maximiser le taux de captation des données, tout en évitant le déploiement superflu et coûteux d'un boîtier dans chaque logement.
     </p>
 
     <p class="paragraph">
-      De plus, il est primordial qu'Ocea conserve une <b>traçabilité rigoureuse</b> de l'ensemble de son parc de passerelles opérationnelles. L'application doit permettre d'enregistrer l'emplacement géographique précis de chaque équipement, son historique d'installation, des clichés photographiques de l'infrastructure sur le terrain ainsi qu'un ensemble de métadonnées d'exploitation essentielles.
+      De plus, il est primordial qu'<a href="https://www.groupe-ocea.fr/">Ocea</a> conserve une <b>traçabilité rigoureuse</b> de l'ensemble de son parc de passerelles opérationnelles. L'application doit permettre d'enregistrer l'emplacement géographique précis de chaque équipement, son historique d'installation, des clichés photographiques de l'infrastructure sur le terrain ainsi qu'un ensemble de métadonnées d'exploitation essentielles.
     </p>
 
     <p class="paragraph">
@@ -38,236 +38,146 @@ const QowisioExperience = getExperienceById("qowisio");
 
     <h2 class="title-h2">Contexte et Objectif</h2>
     <p class="paragraph">
-      Avant de se pencher sur l'application Genesis en elle-même, on va voir un petit peu l'historique.
+      Avant de se pencher sur l'architecture de Genesis, il est essentiel de comprendre l'historique des outils de l'entreprise. 
     </p>
 
     <p class="paragraph">
-      Historiquement Il faisait ça sur papier Puis, c'est les personnes dans les bureaux Qui notait ensuite dans des tableurs Excel Les informations remontées par les techniciens. Ensuite, ils ont créé une Zeus, une application Windows Pour que les techniciens puissent noter eux-mêmes directement là où ils avaient posé les passerelles.
+      Initialement, le suivi du parc s'effectuait manuellement sur des supports papier. Les agents administratifs en bureau saisissaient ensuite ces données terrain dans des tableurs <a href="https://www.microsoft.com/fr-fr/microsoft-365/excel" target="_blank">Microsoft Excel</a>. Pour moderniser ce flux, le groupe <a href="https://www.groupe-ocea.fr/">Ocea</a> a développé <b>Zeus</b>, une application lourde sous Windows. Elle permettait enfin aux techniciens de déclarer directement l'emplacement des passerelles installées.
     </p>
 
     <p class="paragraph">
-      Cette application Windows était donc destinée aux techniciens qui vont sur le terrain et qui donc sont mobiles. Le problème, c'est comme si une application Windows uniquement, L'entreprise a dû acheter spécifiquement des tablettes Windows pour soit un peu plus pratique à transporter mais qui puisse quand même utiliser l'application sur le terrain. Certains n'ayant pas de tablette Utilise un PC et portable Mais comme vous vous en doutez, 1 PC portable quand on est dans un hall d'immeuble pour poser une passerelle, c'est pas très pratique.
+      Cependant, cette application Windows présentait une limite majeure : elle était exploitée par des équipes intrinsèquement nomades. Pour pallier ce manque de mobilité, l'entreprise a dû investir dans des tablettes Windows dédiées, onéreuses et peu ergonomiques sur le terrain. Les techniciens ne disposant pas de ce matériel devaient manipuler un ordinateur portable traditionnel au milieu des halls d'immeubles, une logistique particulièrement inconfortable lors des phases de pose.
     </p>
 
     <p class="paragraph">
-      Cette application a été faite par le groupe (Ocea Smart Building) Mais il cherchait à remplacer cette application qui était pas très pratique à utiliser. Comme entre la création de l'application et maintenant ils ont racheté Qowisio Ils nous ont demandé à nous qui sommes donc les experts informatiques, de refaire complètement l'application.
+      Face à ces contraintes, la direction a souhaité remplacer Zeus. L'intégration de <a href={QowisioExperience?.localLink}>{QowisioExperience?.title}</a> au sein du groupe a offert l'opportunité idéale : confier à notre pôle d'experts informatiques la refonte intégrale de cette solution métier.
     </p>
 
     <p class="paragraph">
-      Le cahier des charges de l'application C'était qu'elle soit facile à utiliser pour des techniciens. Et qu'elle soit au minimum aussi fonctionnelle que Zeus. Qui est l'ancienne application Windows. C'est un cahier des charges à la fois simple et en même temps complexe puisque les techniciens, il en existe de toutes sortes certains très à l'aise avec l'informatique, d'autres très peu à l'aise, donc il faut que ça puisse convenir à tout le monde. De plus, c'est une application technique Donc il faut beaucoup d'informations, il faut que les gens sur le terrain ne soient jamais bloqués Mais Mais pour autant, il ne faut pas surcharger l'application comme le font beaucoup d'applications techniques, c'est-à-dire tout mettre en vrac et. Et tant pis pour l'expérience utilisateur. De toute façon, ils auront sûrement des formations. 
+      Le cahier des charges exigeait une application à l'ergonomie irréprochable pour les opérateurs terrain, tout en garantissant un périmètre fonctionnel au moins équivalent à celui de l'ancien système Windows. La complexité de cet enjeu résidait dans l'hétérogénéité des utilisateurs, dont l'appétence pour l'outil informatique variait grandement. L'application se devait d'être hautement technique pour afficher des indicateurs réseaux denses, sans pour autant saturer l'espace visuel au détriment de l'<b>expérience utilisateur (UX)</b>, un écueil fréquent sur les logiciels industriels.
     </p>
 
     <p class="paragraph">
-      Ce problème des applications techniques était vraiment un problème dans lequel on ne voulait pas tomber, Déjà parce que on voulait que les techniciens sur le terrain soient satisfaits de ce qu'on leur offre Mais aussi Parce que cette application Nous servait un peu de galop d'essai, c'est à dire que c'est la première fois que Qowisio crée une application complète pour océa, donc ça permettait aussi à océa de nous tester en quelque sorte. Pour savoir si on était capable de fournir un produit fini, fonctionnel, sans bugs Dans un délai imposé.
+      Éviter une interface surchargée était capital, d'autant plus que Genesis représentait un enjeu stratégique majeur : c'était la première fois que <a href={QowisioExperience?.localLink}>{QowisioExperience?.title}</a> concevait une application complète pour le compte d'<a href="https://www.groupe-ocea.fr/">Ocea</a>. Ce projet faisait office de <b>galop d'essai</b> et de test de confiance quant à notre capacité à livrer un produit fini, performant, stable et aligné sur des délais de production particulièrement stricts.
     </p>
 
     <p class="paragraph">
-      Il y a eu quelques autres contraintes, notamment le fait que l'application devait être utilisée par les techniciens, évidemment, mais aussi par leur supérieur dans les bureaux qui eux, font plutôt de l'analyse, donc pas du tout le même travail que les techniciens. Ce sont les mêmes données, mais pas le même travail, donc c'est compliqué d'allier les deux.
+      Le défi consistait également à concilier deux usages distincts au sein d'une même base de données : l'<b>utilisation nomade</b> des techniciens (axée sur la saisie rapide et la cartographie) et l'<b>utilisation sédentaire</b> des managers en bureau (centrée sur l'analyse de données globales et la planification). Enfin, l'abandon de l'environnement Windows au profit d'une <b>approche mobile</b> imposait d'assurer une compatibilité multi-plateforme stricte, une minorité de collaborateurs exploitant des appareils Apple iOS (iPhone) face à une majorité de terminaux Android.
+    </p>
+
+    <h2 class="title-h2">Acteurs</h2>
+    <p class="paragraph">
+      L'équipe de réalisation logicielle était dimensionnée à taille humaine. Elle se composait d'un premier développeur mobile (n'ayant jamais pratiqué le framework Flutter), de moi-même en tant que second <b>développeur et référent architectural</b>, ainsi que d'un troisième ingénieur. Ce dernier s'est focalisé sur l'intégration du module d'authentification centralisé et a orchestré toute la partie <b>DevOps</b> (automatisation des numéros de version, pipelines CI/CD et préparation des déploiements).
     </p>
 
     <p class="paragraph">
-      L'application devait également être compatible avec Apple Puisque nous sommes partis sur une application mobile vu que elle va être utilisée par des techniciens qui se déplacent. Donc abandon total de l'application Windows, nous avons tout refait de 0. Et donc vu que l'application est prévue pour les appareils mobiles, en l'occurrence, avec Android mais Certaines personnes de l'entreprise ont des iPhone, il y en a pas beaucoup, mais il y en a donc il faut les prendre en compte. Il faut que l'application soit compatible Apple.
-    </p>
-
-    <h2 class="title-h2">Acteur</h2>
-    <p class="paragraph">
-      Pour les acteurs Il y avait un développeur mobile qui n'avait jamais fait de flutter avant. Il y avait moi un 2nd développeur Et il y avait un autre collègue qui ne développait pas l'application, ou du moins peu puisqu'il a juste fait la partie authentification. En revanche, ce dernier collègue supervisait un peu le projet et faisaient tous les automatisations derrière Du genre, vérification, numéro de version et préparation de la mise en prod.
-    </p>
-
-    <p class="paragraph">
-      Ce qui fait qu'on était 2 développeurs vraiment sur le projet Et une personne qui faisait tous les trucs qui gravitent autour du projet sans vraiment être le développement du projet lui-même.
-    </p>
-
-    <p class="paragraph">
-      Dans les acteurs, je pourrais aussi citer mon maître d'apprentissage qui. Disait le tout, donc en fait, Il n'a pas participé au projet mais c'est lui qui avait toutes les informations du groupe. C'est lui qui avait les accès pour mettre en production. C'est lui qui avait toutes les informations finalement à nous communiquer, il faisait vraiment la passerelle entre OCEA et nous et c'est lui qui nous donnait les Deadline à respecter absolument. Et c'est lui aussi qui transmettait nos Deadines ou du moins qui nous demandait quelle Deadline on pouvait respecter pour qu'il transmette tout ça au groupe. Donc il a pas aidé à développer le projet ni des automatisations autour, mais c'est quand même lui qui faisait tout le lien avec Océa.
+      Mon maître d'apprentissage assurait la direction générale du projet. Sans intervenir directement dans les lignes de code, il occupait le rôle indispensable de <b>passerelle organisationnelle</b> entre <a href="https://www.groupe-ocea.fr/">Ocea</a> et notre équipe technique, en négociant les jalons de livraison et en nous protégeant des dérives de périmètre.
     </p>
 
     <h2 class="title-h2">Déroulement</h2>
     <p class="paragraph">
-      Alors, la première chose qu'on a faite, c'est prendre connaissance de l'existant Parce que même si on ne va pas s'en resservir Après, Ils possèdent quand même toutes les fonctionnalités qu'on va devoir implémenter. En plus de ça L'ancien projet, donc l'existant Et en 2 parties, une partie front application Windows et une partie back end avec Une API et une base de données.
+      Notre première phase de travail a consisté à réaliser un audit complet de l'application Zeus afin d'en cartographier l'ensemble des règles de gestion indispensables. Sur le plan technique, l'ancienne infrastructure comprenait un client lourd Windows et une API connectée à une base de données dédiée.
     </p>
 
     <p class="paragraph">
-      Pour des raisons de rapidité Non, on n'a pas refait tout le back-end Ni la base de données. Donc on a créé notre API et notre frontend, mais notre API ne va pas chercher les informations dans une base de données est fait des requêtes à l'API déjà existante de Zeus.
+      Afin d'optimiser les délais de livraison, nous avons fait le choix stratégique de ne pas réécrire immédiatement la base de données sous-jacente. Nous avons conçu notre propre architecture d'API et notre interface frontend, mais notre backend fonctionne en mode <b>proxy réseau</b>, en interrogeant directement l'API historique de Zeus pour consommer et mettre à jour les données.
     </p>
 
     <p class="paragraph">
-      Une fois l'analyse existant terminée, nous avons pris des notes sur Son fonctionnement et ses fonctionnalités. Nous avons également été sur le terrain avec un technicien pour savoir comment il travaille, quelle est exactement sa mission et comment il utilise Zeus à l'heure actuelle. Nous lui avons également demandé quels sont pour lui les limites de Zeus, quels sont ce qu'ils trouvent bien et pas bien sur Zeus pour Pour qu'on sache Ce qui est pratique et qu'ils aimeraient garder Sur la nouvelle application Et pour qu'on sache aussi qu'est-ce qui est vraiment pas bien et qu'il faut absolument changer sur la nouvelle application.
+      En complément de cette analyse technique, nous avons mené une <b>immersion sur le terrain</b> aux côtés d'un technicien afin d'auditer ses processus métiers réels. Cette phase d'observation a permis de lister les forces et les faiblesses ergonomiques de Zeus, isolant ainsi les fonctionnalités indispensables à conserver et les irritants majeurs à supprimer au sein de la nouvelle application.
     </p>
 
     <h3 class="title-h3">Backend</h3>
     <p class="paragraph">
-      Une fois que nous avons eu tous les tenants et aboutissants de l'application Nous avons pu passer à l'analyse des données renvoyées par l'API de Zeus. Et ensuite, nous avons Décider du format donné que nous allons utiliser, nous en interne. Puisque leur format de données est peut-être bien chez eux, mais possèdent des limitations que nous avions envie de dépasser.
+      L'analyse des flux de données de Zeus a révélé des formats d'objets complexes et limités, que nous souhaitions restructurer pour notre application. Nous avons donc mis au point un système de <b>mapping de données</b> pour convertir le formalisme rigide de l'ancienne API vers un modèle de données interne moderne, beaucoup plus agile à manipuler.
     </p>
 
     <p class="paragraph">
-      Une fois que nous avons eu les 2 formats de données, c'est à dire le format renvoyé par l'API de Zeus qu'on ne peut pas changer Et le format de que nous on veut utiliser en interne, qui nous sera plus pratique Nous avons pu commencer à développer Notre API.
+      Pour le développement du backend en <a href={NodejsCompetence?.localLink}>{NodejsCompetence?.title}</a>, j'ai mis en place une <b>architecture orientée fonctionnalités (feature-based)</b>. C'est une structure que je maîtrise parfaitement pour l'avoir éprouvée sur mes projets personnels <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a> et <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, garantissant une excellente modularité. Comme détaillé dans la documentation de FlorAccess, chaque module encapsule sa logique au travers de 7 couches de fichiers aux responsabilités strictes :
     </p>
 
     <p class="paragraph">
-      Pour l'API, j'ai opté pour une architecture features-based. Une architecture que je maîtrise très bien puisque je l'ai utilisée dans de nombreux projets. On pourra notamment citer FlorAccess et Econoris. Je sais donc que c'est une architecture qui est facile à mettre en place, pratique et qui a fait ses preuves.
-    </p>
-
-    <p class="paragraph">
-      Je ne vais pas vous refaire tout le détail de l'architecture dossier par dossier Puisque je l'ai déjà fait dans la section Déroulement de floraccess. Si vous voulez plus de détails, je vous invite donc à aller directement à la section en qeustion.
-    </p>
-
-    <p class="paragraph">
-      Le but Et de réunir au même endroit Tous les éléments Sur lesquels on va travailler si on veut modifier une feature par exemple. Dans un module, on trouve 7 fichiers Avec chacun Un rôle bien précis Qui est définie ci-dessous :
-    </p>
-
-    <p class="paragraph">
-      *.schema.ts : Contient les règles de validation Zod. Permet de Validez les données qui entrent et qui sortent de l'API.
-      *.types.ts : Exporte les types statiques TypeScript déduites des schémas.
-      *.swagger.ts : Traduit les schémas Zod pour l'interface de documentation Swagger.
-      *.routes.ts : Déclare les points d'accès HTTP auprès d'Express et embarque les commentaires Swagger de la route. Les requêtes y passent par un middleware commun de validation (request_validator.middleware.ts) afin de filtrer les données en amont.
-      *.controller.ts : Réceptionne les données préalablement validées par le middleware et orchestre la réponse HTTP finale en fonction des retours de la couche service.
-      *.service.ts : Contient exclusivement la logique métier de l'application (calculs, règles de gestion). C'est le cerveau du module, totalement isolé de la logique réseau Express.
-      *.repository.ts : Gère les accès aux données. Dans Genesis Le repository appelle directement l'API de Zeus. Nous verrons dans le futur du projet Que le back-end de Zeus est voué à disparaître, remplacé par notre propre base de données, hébergé chez nous. Mais pour l'instant Pour des raisons de rapidité, on utilise encore le backend de Zeus.
-    </p>
-
-    <p class="paragraph">
-      Une fois l'API bien avancé, on à pu commencé à développer le Frontend.
+      <ul>
+        <li><code>*.schema.ts</code> : Centralise les schémas de validation <a href="https://zod.dev/" target="_blank">Zod</a> pour sécuriser les flux entrants et sortants.</li>
+        <li><code>*.types.ts</code> : Héberge les types <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> générés par inférence depuis Zod.</li>
+        <li><code>*.swagger.ts</code> : Expose la configuration OpenAPI pour l'interface de documentation interactive <a href="https://swagger.io/" target="_blank">Swagger</a>.</li>
+        <li><code>*.routes.ts</code> : Déclare les routes HTTP auprès d' <a href="https://expressjs.com/" target="_blank">Express</a> et injecte les validateurs de requêtes sous forme de middlewares.</li>
+        <li><code>*.controller.ts</code> : Réceptionne les données validées et formate la réponse HTTP finale renvoyée au client.</li>
+        <li><code>*.service.ts</code> : Encapsule la pure <b>logique métier</b> et les règles de gestion calculées, indépendamment de la couche réseau.</li>
+        <li><code>*.repository.ts</code> : Gère l'accès aux données. Dans Genesis, le repository effectue des requêtes HTTP directes vers l'ancienne API de Zeus. À terme, cette couche permettra de migrer de manière transparente vers notre propre base de données PostgreSQL sans modifier la logique métier des services.</li>
+      </ul>
     </p>
 
     <h3 class="title-h3">Frontend</h3>
     <p class="paragraph">
-      Pour l'application front end nous avons utilisé la technologie flutter Pour plusieurs raisons Déjà Ocea possède d'autres applications faites en flutter Donc l'utiliser nous aussi garde une certaine homogénéité. Ensuite, nous avons des contraintes de plateformes C'est à dire que certains techniciens ont des téléphones Android D'autres, de façon plus rare, mais il y en a quand même, ont des plateformes iOS avec des iPhone. Et ensuite l'application doit également correspondre à des usages dans des bureaux, donc sur des ordinateurs.
+      Pour l'interface graphique, le choix s'est porté sur le framework open-source <a href={FlutterCompetence?.localLink}>{FlutterCompetence?.title}</a> développé par Google. Ce choix répondait à une volonté d'homogénéité technique, <a href="https://www.groupe-ocea.fr/">Ocea</a> exploitant déjà cette technologie. De plus, <a href={FlutterCompetence?.localLink}>{FlutterCompetence?.title}</a> résolvait notre problématique de <b>multi-déploiement</b> en nous permettant de compiler une unique base de code vers Android, iOS et le Web, offrant ainsi une version accessible sur ordinateur pour les équipes de bureau.
     </p>
 
     <p class="paragraph">
-      Flotteur nous permet De développer l'application une seule fois et de le fournir ensuite Sur Android Sur IOS Mais également En version web pour qu'il soit accessible depuis n'importe quel appareil via un navigateur.
+      Le processus créatif du frontend s'est orchestré par <b>itérations successives</b>, une démarche empirique menée en parallèle avec le développement de mon application de gestion budgétaire <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>. L'absence de maîtrise initiale de <a href={FlutterCompetence?.localLink}>{FlutterCompetence?.title}</a> par mon collègue et moi-même nous a imposé une phase de montée en compétences rapide. J'ai pu maximiser mes heures d'apprentissage personnelles pour assimiler en profondeur le framework.
     </p>
 
     <p class="paragraph">
-      Pour le processus de création de l'application frontend Nous y avons été par itérations successifs De la même façon que ce que j'ai pu faire pour Econoris. De toute façon, si vous avez déjà lu la partie econoris, vous avez vu que les 2 projets étaient relativement liés par leur conception.
+      Initialement, une première version de Genesis a été générée en s'appuyant sur des outils d'Intelligence Artificielle afin de délivrer rapidement un <b>Proof of Concept (PoC)</b> visuel à la direction. Cependant, nous nous sommes heurtés aux mêmes limites que j'avais identifiées sur la V2 d'Econoris : un code manquant de structure, instable et <b>impossible à maintenir</b>. Si cette dette technique était indolore sur un projet de petite taille, elle s'est avérée critique sur Genesis qui manipule des volumes de données industriels, générant des blocages de l'interface et des temps de latence réseau supérieurs à une minute.
     </p>
 
     <p class="paragraph">
-      La conception de Genesis et de Econoris ont été faites en parallèle avec les mêmes technologies et les mêmes dépendances. Et comme ni mon collègue, ni moi Ne connaissions flutter Nous vous avons dû passer par une phase d'apprentissage du framework Apprentissage qui a pu être beaucoup plus rapide et approfondi de mon côté puisque je n'ai pas d'impératif familiaux, contrairement à mon collègue.
+      Face à ce constat, nous avons optimisé notre organisation : mon collègue a stabilisé le PoC fonctionnel tandis que je passais une semaine à auditer les documentations officielles de <a href={FlutterCompetence?.localLink}>{FlutterCompetence?.title}</a> et l'état de l'art architectural pour concevoir une <b>structure de gestion d'état</b> hautement performante. J'ai d'abord implémenté et validé cette architecture propre sur mon application <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, l'utilisant comme un laboratoire d'expérimentation isolé pour en éprouver les limites.
     </p>
 
     <p class="paragraph">
-      De plus, comme j'avais Econoris que j'avais déjà fait entièrement avec l'IA à ce moment là, je connaissais un petit peu flutter Et les problèmes que nous allions rencontrer avec Genesis. Pour des questions de rapidité Nous avons conçu une première version de Genesis avec de l'intelligence artificielle. Afin de fournir une preuve de concept en quelque sorte à Ocea.
+      Une fois cette architecture validée en pratique, j'ai partagé ces connaissances avec mon collègue. Nous avons alors collaboré pour réécrire près de 75 % du frontend de Genesis. Ce travail d'équipe a permis de lier mes recherches théoriques à l'expérience en développement mobile de mon binôme. En trois semaines d'efforts, nous avons éliminé la totalité des bugs graphiques et <b>divisé les temps de chargement par deux</b>, les abaissant sous la barre des 30 secondes.
     </p>
 
     <p class="paragraph">
-      Nous nous sommes confrontés aux mêmes problèmes que j'avais déjà eu sur économies, ce que j'avais fait de la même façon quelques semaines auparavant, c'est à dire Que l'application fournie par l'intelligence artificielle était certes fonctionnelle au global, mais. Mais avait beaucoup de bugs Était littéralement impossible à maintenir au vu de la qualité du code fourni Et l'application n'était pas du tout optimisée, ce qui posait pas de problème sur Econoris parce que le projet était simple, mais ce qui, pour Genesis, qui doit manipuler un bien plus grand nombre de données est très problématique puisqu'on pouvait avoir des temps de chargement allant Au-delà de la minute.
+      Pour parfaire l'application, nous avons réalisé une phase d'optimisation majeure concernant la gestion des rendus graphiques. Initialement, chaque composant de l'interface exécutait ses propres algorithmes de tri et de calcul de données lors des rafraîchissements de l'écran, ce qui surchargeait le thread d'affichage. Nous avons résolu ce problème en externalisant ces traitements dans des <b>contrôleurs de calcul isolés</b>, déclenchés uniquement lors de la réception de nouveaux flux réseaux. Les composants de l'interface se contentent désormais de consommer passivement ces données pré-calculées. 
     </p>
 
     <p class="paragraph">
-      Donc mon collègue a réalisé quasiment seul la preuve de concept avec l'intelligence artificielle pendant que de mon côté, j'ai appris beaucoup plus en profondeur les bonnes pratiques de flutter. L'architecture recommandée, les dépendances recommandées, etc. J'ai mis en place cette architecture avec ces dépendances sur econoris, qui était une implémentation Simple en théorie, puisque l'application est beaucoup plus petite, même si en pratique j'ai dû faire face à pas mal de difficultés.
+      Cette optimisation de la gestion d'état a transformé l'expérience utilisateur : le temps de chargement initial de l'application est <b>passé sous la barre des 10 secondes</b>, et la latence d'ouverture des menus contextuels est tombée de 10 secondes à <b>moins d'une seconde</b>, offrant une réactivité immédiate.
     </p>
 
     <p class="paragraph">
-      Une fois l'implémentation faite et éprouvée sur econoris J'ai pu transférer toutes ces connaissances à mon collègue et on a plus à implémenter à 2 toute cette architecture sur Genesis afin que l'application Fonctionne correctement.
-    </p>
-
-    <p class="paragraph">
-      J'ai passé de mon côté près d'une semaine À discuter avec l'intelligence artificielle et à regarder des documentations techniques sur flutter et les dépendances essentielles à utiliser afin de comprendre, de tester Et de voir les limites de l'architecture Trouver grâce à l'intelligence artificielle.
-    </p>
-
-    <p class="paragraph">
-      Vous Vous allez voir que je me suis beaucoup servi de lia pour apprendre puisqu'elle me permet de regarder beaucoup de documentations, que ce soit des documentations officielles, des gens qui partagent leurs propres visions de l'architecture et elle permet de compiler tout ça, de me présenter tout ça et moi avec de la réflexion derrière, je peux me dire si telle architecture Et viable ou si elle ne l'est pas ? Quelles modifications à faire ? Donc c'est une aide précieuse pour faire les choses du mieux possible.
-    </p>
-
-    <p class="paragraph">
-      Une fois que j'ai une architecture qui, sur le papier, me paraît correcte. Je passe à l'implémentation sur econoris. Grâce à cette implémentation, je me rends compte Des problèmes et des limites de l'architecture Problème et limite que je peux corriger directement. Et en y allant par itération J'ai pu créer une architecture extrêmement solide en une seule semaine. J'ai pu présenter tous les fruits de mon travail à mon collègue Qui a validé l'architecture en question et. Et ensuite on a pu commencer l'implémentation à 2 de cette architecture sur genesis.
-    </p>
-
-    <p class="paragraph">
-      Le fait d'être 2 a plusieurs avantages. Le premier, c'est que C'est moi qui ai fait les plus grandes recherches et qui présente l'architecture, donc c'est moi qui ai les connaissances de cette architecture Donc, pendant le développement, ça permet à mon collègue de prendre en main cette architecture. 2e avantage C'est que ça permet aussi que mon collègue avec une vision extérieure Et plus d'expérience dans le développement mobile Puisse voir si l'architecture paraît cohérente par rapport à son expérience.
-    </p>
-
-    <p class="paragraph">
-      Nous avons modifié quelques détails dans l'architecture, mais elle était globalement très correcte et nous a permis de grandement améliorer la qualité de l'application. Nous sommes notamment passés d'un temps de chargement de plus d'une minute à des temps de chargement inférieurs à 30 secondes.
-    </p>
-
-    <p class="paragraph">
-      Cela nous a quand même demandé près de 3 semaines de travail Mais au vu du résultat De la suppression de tous les bugs De l'amélioration notable des performances Et de la maintenabilité qui est passée de impossible à très correct Nous ne regrettons pas d'avoir pris ces 3 semaines pour réécrire 75% de l'application.
-    </p>
-
-    <p class="paragraph">
-      Ensuite, nous avons ajouté des éléments Pour arriver au niveau fonctionnel de Zeus parce que pour l'instant, l'application, bien que fonctionnelle. Et relativement optimisé Manque de certaines fonctionnalités clés de Zeus. Nous avons donc ajouté ces fonctionnalités.
-    </p>
-
-    <p class="paragraph">
-      Ensuite, nous avons fait Un dernier gros changement Au niveau de l'architecture. En fait, dans l'ancienne architecture, chaque composant Avait les données qui lui est nécessaire. Jusque-là, ça va en revanche. En revanche, chaque composant faisait sa petite partie de calcul Ce qui fait qu'à chaque fois que le composant était re-rendu, les calculs étaient offerts. Ce qui fait que la mise à jour de l'interface relance. Relance des calculs parfois longs et complexes.
-    </p>
-
-    <p class="paragraph">
-      Pour pallier à ce problème Nous avons créé des fichiers de calcul spécifiques. Qui sont lancés uniquement quand on reçoit les données de l'API. Ensuite, chaque composant demande uniquement les informations dont il a besoin dans ses fichiers de calcul. Cela nous a pris 2 semaines de travail Mais par contre, nous sommes passés d'un temps de chargement inférieur à 30 secondes. Un temps de chargement Sous les 10 secondes.
-    </p>
-
-    <p class="paragraph">
-      Cela nous a aussi permis de régler un bug Qui était que au clic sur un élément de l'interface Le temps de chargement de l'apparition du menu Et passer de 10 secondes À moins de une seconde. Cela représente des gains de performance non négligeables et un confort d'utilisation au quotidien pour les techniciens incomparables comme on le vera dans les résultats.
-    </p>
-
-    <p class="paragraph">
-      Une fois que nous avons eu une application très robuste qui ne possède plus de bugs, qui est optimisé au maximum Nous avons pu La mettre en production. Cela Et notamment passé par le fait de compiler l'application pour Android, Passez les validations Google, Compilez l'application pour iOS, passer les validations Apple et. Allemand, compiler l'application pour le web, créer un docker pour pouvoir mettre en production la compilation web avec kubernetes.
+      Une fois l'application stabilisée et optimisée, nous avons initié la phase de mise en production multi-plateforme. Cela a impliqué la compilation des livrables natifs Android (Google Play Console) et iOS (Apple App Store Connect), ainsi que la conteneurisation de la déclinaison web via une image <a href={DockerCompetence?.localLink}>{DockerCompetence?.title}</a>, prête à être déployée sur l'infrastructure orchestrée par <a href="https://kubernetes.io/fr/" target="_blank">Kubernetes</a> du groupe.
     </p>
 
     <h2 class="title-h2">Résultats</h2>
     <p class="paragraph">
-      L'application est en production depuis Mars Et nous avons eu que des retours extrêmement positifs de la part des Technicien testeur Qu'il utilise maintenant au quotidien. Les techniciens testeurs en ont même parlé à leurs collègues, ce qui fait que Beaucoup de techniciens sont venus nous voir pour demander à faire partie du programme de test Afin de pouvoir utiliser l'application.
+      Genesis est exploitée en production depuis le mois de mars, et les retours de la part des techniciens de maintenance sont extrêmement positifs. L'adoption de l'outil a été telle que l'effet de bouche-à-oreille a poussé de nombreux opérateurs tiers à solliciter spontanément leur intégration au programme de déploiement pour abandonner l'ancien système Zeus.
     </p>
 
     <p class="paragraph">
-      Depuis le mois de juin, nous avons commencé à implémenter des fonctionnalités qui n'étaient pas dans Zeus et pas envisageables dans Zeus. Comme c'est une application interne à l'entreprise, utilisée uniquement par des employés et que les applications sont disponibles uniquement sur les magasins d'applications privés de l'entreprise. Il n'y a pas de retombées économiques directes comme ça peut être le cas avec des applications dédiées aux utilisateurs Classique.
+      Depuis le mois de juin, nous enrichissons la plateforme avec des fonctionnalités inédites, impossibles à concevoir sur l'ancienne architecture. S'agissant d'une application métier interne déployée sur des stores d'entreprise privés, le retour sur investissement ne se mesure pas en gains financiers directs, mais en <b>efficacité opérationnelle</b> et en confort de travail. Les techniciens manipulant l'application près de 4 heures par jour, le gain de temps obtenu représente une augmentation significative de la productivité globale.
     </p>
 
     <p class="paragraph">
-      Cependant, la réduction du temps de chargement par rapport à Zeus Les nouvelles fonctionnalités qu'on a ajoutées Et surtout Le confort des techniciens et des employés de bureau Montre que l'application est bénéfique pour tout le monde Et les retours Extrêmement positif Des techniciens Nous rend très fiers de Genesis.
-    </p>
-
-    <p class="paragraph">
-      Cela a également montré à Ocea qu'ils peuvent nous faire confiance et qu'on est largement capable de produire un travail de haute qualité dans des délais respectables Ce qui fait qu'ils nous ont fait confiance pour refaire une autre application de leur parc Qui s'appelle Athéna Et qui permet de configurer les passerelles.
-    </p>
-
-    <p class="paragraph">
-      Le résultat de Genesis C'est des techniciens très heureux Parce que leur travail est grandement facilité Et beaucoup plus agréable depuis la nouvelle application Puisque c'est une application qu'ils utilisent près de 04h00 par jour, donc c'est pas négligeable. Mais également une confiance accrue de la part d'Ocea envers Qowisio, Ce qui est très bénéfique Et agréable pour la suite.
+      Ce succès technique a consolidé la relation de confiance entre <a href="https://www.groupe-ocea.fr/">Ocea</a> et <a href={QowisioExperience?.localLink}>{QowisioExperience?.title}</a>. Notre capacité à livrer un produit industriel fini, performant et dans les temps a convaincu le groupe de nous confier la refonte complète d'une seconde application majeure de leur parc réseau : <b>Athéna</b>, l'outil dédié à la configuration logicielle des passerelles.
     </p>
 
     <h2 class="title-h2">Avenir</h2>
     <p class="paragraph">
-      L'avenir de Genesis C'est d'abord des nouvelles fonctionnalités Euh, je pense notamment A la suppression de passerelles redondantes C'est à dire que quand il y a des passerelles Qui capte uniquement des capteurs qui sont déjà captés par d'autres passerelles, Elles peuvent techniquement être supprimées Du parc.
+      La feuille de route à court terme de Genesis intègre le développement d'un algorithme d'analyse décisionnelle capable d'identifier et de planifier la <b>suppression des passerelles redondantes</b>. Si un ensemble de capteurs IoT est entièrement couvert par des boîtiers limitrophes, l'algorithme isolera la passerelle superflue pour permettre son retrait du parc. La logique mathématique lourde a déjà été intégrée et éprouvée sur notre API backend avec des données de production réelles. Il ne reste plus qu'à concevoir son interface de visualisation sous <a href={FlutterCompetence?.localLink}>{FlutterCompetence?.title}</a>.
     </p>
 
     <p class="paragraph">
-      C'est une fonctionnalité Que j'ai déjà développé Et testé sur des données de production. Cependant, elle n'a pas été mise en production réelle Et donc n'est pas encore disponible pour les utilisateurs. Et ces calculs étant des calculs relativement lourds, ils ont été faits dans l'API Mais la fonctionnalité sur l'application flutter n'a pas encore été implémentée.
-    </p>
-
-    <p class="paragraph">
-      Il y a également de prévu pour la suite un algorithme d'optimisation des passerelles, donc cette fois on serait pas uniquement sur de la suppression de passerelles redondantes mais vraiment sur un une optimisation Réel, c'est à dire que l'algorithme devrait être capable De déplacer toutes les passerelles pour définir À quel endroit il faut mettre les passerelles pour en avoir le minimum possible pour capter tout le bâtiment de façon correcte.
-    </p>
-
-    <p class="paragraph">
-      Nous n'avons pas encore d'objectif plus long terme. Et ça reste une application dans un cadre limité pour des techniciens. Donc tant que les passerelles ou les capteurs n'évoluent pas, il n'y a pas raison Que l'application évolue énormément donc à part quelques corrections de bugs potentiels, ce qui n'est pas encore arrivé pour l'instant Et quelques fonctionnalités Qui arriveront au fur à mesure de l'utilisation par les techniciens, Nous n'avons pas besoin d'une vision particulièrement long terme ou de gros changements de l'application à prévoir Elle fait déjà son travail correctement. Les techniciens en sont très contents. Et c'est ce qui compte le plus. Donc tant que les techniciens seront contents de l'application Elle n'est pas vouée à évoluer énormément.
+      À plus long terme, le projet ambitionne d'intégrer un <b>algorithme d'optimisation topologique et radio</b>. L'objectif sera de simuler les déplacements idéaux des équipements afin de cartographier l'implantation théorique parfaite, permettant de couvrir l'intégralité d'un bâtiment avec un nombre minimal de passerelles. L'application ayant atteint ses objectifs de stabilité, ses évolutions futures dépendront exclusivement des retours d'usage des techniciens et des mutations du matériel IoT.
     </p>
 
     <h2 class="title-h2">Auto-critique</h2>
     <p class="paragraph">
-      Nous avons déjà fait cette phase de critiques avec mon maître d'apprentissage et mes collègues qui ont participé au développement de genesis pour faire un point sur les problèmes rencontrés et qu'on ne les rencontre plus dans les applications futures qu'on fera pour océa ou pour Qowisio directement.
+      Une phase de retour d'expérience (Retrospective) menée avec mon maître d'apprentissage et mes collaborateurs a permis d'isoler nos axes d'amélioration pour nos futurs projets d'ingénierie.
     </p>
 
     <p class="paragraph">
-      Ce qui ressort de cette expérience, c'est que. C'est que faire une application entièrement avec de l'IA comme c'est un peu poussé dans beaucoup d'entreprises pour essayer de gagner du temps. C'est une très mauvaise idée sur le long terme.
+      Il en ressort d'abord que la génération intégrale d'une application d'envergure par Intelligence Artificielle (souvent perçue comme un levier de productivité à court terme) s'avère être une stratégie contre-productive sur le long terme en raison de la <b>dette technique</b> massive qu'elle engendre.
     </p>
 
     <p class="paragraph">
-      L'autre point Si sur la qualité de l'application Comme c'est moi qui avais les connaissances sur l'architecture de l'application Et que je prône une haute qualité dans toutes mes applications. J'ai poussé pour avoir une qualité Plus que correct sur Genesis, ce qui nous a presque fait prendre du retard.
+      Sur le plan personnel, ma culture de la rigueur et mon exigence de qualité logicielle m'ont poussé à exiger un niveau de perfection architectural très élevé dès le lancement du projet, un positionnement qui a failli nous mettre en surrégime face aux délais imposés.
     </p>
 
     <p class="paragraph">
-      Donc à l'avenir, plutôt que de faire quelque chose de quasiment parfait tout de suite, il faudrait faire une première ébauche avec un code très propre mais peut être des fonctionnalités un peu réduites et et c'est pas grave si y a des approximations. Comme ça, les utilisateurs peuvent déjà commencer à utiliser l'application beaucoup plus rapidement. Nous, on a des retours comme ça sur les fonctionnalités qui sont déjà implémentées.
-    </p>
-
-    <p class="paragraph">
-      Et dans une 2e phase, on corrige les petits problèmes qu'on n'a pas très bien fait au début et on améliore les fonctionnalités grâce au retour des utilisateurs qu'on a pu avoir plus tôt grâce à la sortie et l'application plus tôt, même si elle est moins parfaite que si on avait plus attendu pour la sortir.
-    </p>
-
-    <p class="paragraph">
-      Ça fait notamment partie de mes examéliorations sur les applications où j'ai tendance à vouloir une trop haute qualité dès le début, ce qui freine le déploiement rapide de l'application et. Et donc nous redonne moins de données sur l'utilisation réelle de l'application.
+      J'ai réalisé qu'il est souvent plus judicieux de privilégier une approche de type <b>Minimum Viable Product (MVP)</b> : livrer plus rapidement une première version au code propre mais au périmètre fonctionnel resserré. Cette stratégie permet de confronter l'application aux utilisateurs réels beaucoup plus tôt, afin de récolter des données d'usage concrètes et d'ajuster les développements futurs de manière itérative, plutôt que de retarder un déploiement pour atteindre une perfection théorique en isolation. Ce recul témoigne de ma maturité technique et de ma volonté d'allier excellence technique et agilité de livraison.
     </p>
   </div>
 </section>
