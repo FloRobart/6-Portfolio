@@ -1,7 +1,11 @@
 ---
+import { Picture } from 'astro:assets';
+
 import { getCompetenceById } from '@/data/competences';
 import { getExperienceById } from '@/data/experiences';
 import { getProjectById } from '@/data/projects';
+
+import FlutterArchitecturePaper from "@assets/competences/flutter_architecture_paper.jpg";
 
 const flutterCompetence = getCompetenceById('flutter');
 const qowisioExperience = getExperienceById('qowisio');
@@ -48,6 +52,19 @@ const FlollylistProjet = getProjectById('flollylist');
     <p class="paragraph">
       La première version de l'application avait été <b>générée en grande partie à l'aide d'outils d'intelligence artificielle</b>, pour <b>accélérer le développement</b>, car ni mon collègue ni moi n'étions <b>expérimentés avec Flutter</b>. Cette version, bien que fonctionnelle, <b>manquait de performance et de maintenabilité</b> et contenait de <b>nombreux bugs</b>. J'ai donc mené des <b>recherches approfondies</b> sur les <b>bonnes pratiques et architectures Flutter</b>. En une <b>semaine intense</b>, j'ai produit une <b>mini-documentation</b> décrivant une <b>architecture frontend optimisée</b>, combinant les bonnes pratiques Flutter avec <a href="https://riverpod.dev/"><b>Riverpod</b></a> et <a href="https://pub.dev/packages/go_router"><b>GoRouter</b></a>, bibliothèques utilisées dans <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a>.
     </p>
+
+    <div class="flex flex-col items-center mb-12">
+      <Picture
+        src={FlutterArchitecturePaper}
+        alt="Econoris Mobile Profile"
+        width={FlutterArchitecturePaper.width/3}
+        height={FlutterArchitecturePaper.height/3}
+        loading="lazy"
+        decoding="async"
+        class="paragraph rounded"
+      />
+      <span class="text-sm">Mini-documentation sur l'architecture Flutter</span>
+    </div>
 
     <p class="paragraph">
       Cette nouvelle architecture nous a contraints à <b>réécrire presque entièrement l'application</b>, mais elle a permis de <b>corriger tous les bugs</b> et d'<b>améliorer sensiblement les performances</b>. Le temps de chargement maximal est passé d'<b>environ 25 secondes</b> à <b>environ 10 secondes</b>.

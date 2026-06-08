@@ -367,7 +367,7 @@ FlorAccess-api
       Chaque dossier de fonctionnalité reproduit une structure de fichiers normalisée :
       <ul>
         <li><code>*.schema.ts</code> : Contient les règles de validation <a href="https://zod.dev/" target="_blank">Zod</a>.</li>
-        <li><code>*.types.ts</code> : Exporte les définitions statiques <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> déduites des schémas.</li>
+        <li><code>*.types.ts</code> : Exporte les types statiques <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> déduites des schémas.</li>
         <li><code>*.swagger.ts</code> : Traduit les schémas Zod pour l'interface de documentation <a href="https://swagger.io/" target="_blank">Swagger</a>.</li>
         <li><code>*.routes.ts</code> : Déclare les points d'accès HTTP auprès d'<a href="https://expressjs.com/" target="_blank">Express</a> et embarque les commentaires Swagger de la route. Les requêtes y passent par un middleware commun de validation (<code>request_validator.middleware.ts</code>) afin de filtrer les données en amont.</li>
         <li><code>*.controller.ts</code> : Réceptionne les données préalablement validées par le middleware et orchestre la réponse HTTP finale en fonction des retours de la couche service.</li>
