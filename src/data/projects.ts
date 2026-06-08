@@ -35,6 +35,47 @@ export const projectsPreviewList: ProjectPreview[] = [
     displayable: true,
   },
   {
+    id: "econoris",
+    title: "Econoris",
+    description:
+      "<b>Econoris</b> est une application de <b>gestion de budget</b>. Elle permet d'<b>enregistrer</b> les <b>dépenses</b> et les <b>revenus</b>, et de <b>visualiser l'évolution de votre budget</b> au fil du temps. Elle se distingue par son <b>interface simple et intuitive</b> et permet de réaliser des <b>prévisions de budget</b>, c'est-à-dire de <b>savoir combien vous pourrez dépenser</b> au début de chaque mois.",
+    imageSrc: EconorisImage,
+    localLink: "/projets/econoris",
+    githubLink: "https://github.com/FloRobart/econoris_app",
+    projectLink: "https://econoris.florobart.fr/",
+    displayable: true,
+  },
+  {
+    id: "genesis",
+    title: "Genesis",
+    description:
+      "Ce projet est une <b>application de gestion des passerelles</b>. Elle permet entre autres de <b>visualiser les passerelles</b> sur une carte, ainsi que dans un tableau représentant les bâœtiments dans lesquels elles se trouvent. L'application permet également d'ajouter des passerelles, de les modifier et de les supprimer. Elle est utilisée par les techniciens de maintenance pour gérer les passerelles et planifier les interventions de maintenance.",
+    imageSrc: GenesisImage,
+    localLink: "/projets/genesis",
+    githubLink: "",
+    displayable: true,
+  },
+  {
+    id: "jeu-aventuriers-du-rail",
+    title: "Jeu Les aventuriers du rail",
+    description:
+      "Ce projet est un jeu vidéo, une <b>adaptation du jeu de société 'Les aventuriers du rail'</b>. Il a été réalisé dans le cadre scolaire lors de ma troisième et dernière année d'IUT informatique, avec quatre autres personnes. J'ai occupé le rôle de <b>chef de projet</b>, responsable de la <b>gestion du projet</b> et de la <b>coordination de l'équipe</b>. J'ai aussi participé à la <b>conception du jeu</b> et à la <b>programmation de fonctionnalités</b>.",
+    imageSrc: JeuAventuriersDuRailImage,
+    localLink: "/projets/jeu-aventuriers-du-rail",
+    githubLink: "https://github.com/FloRobart/Jeu_aventurier_du_rail",
+    displayable: true,
+  },
+  {
+    id: "lyssecure",
+    title: "LysSecure",
+    description:
+      "<b>LysSecure</b> est une <b>application web</b> qui permet de <b>stocker des mots de passe</b> de façon <b>sécurisée</b>. Elle peut <b>générer des mots de passe forts</b> et les <b>stocker</b> de manière sécurisée. Elle permet aussi de <b>copier un mot de passe</b> en un clic. La force de ce gestionnaire réside dans sa sécurité : les mots de passe sont <b>chiffrés</b> à l'aide d'une clé <b>unique</b> pour chaque utilisateur, dérivée de trois sources différentes, dont l'une n'est pas enregistrée. Cela contribue à <b>garantir la sécurité</b> des mots de passe même si la base de données ou le code source sont compromis.<br><em>Ce projet n'est pas disponible en ligne et doit faire l'objet d'une réécriture totale</em>",
+    imageSrc: LysSecureImage,
+    localLink: "/projets/lyssecure",
+    githubLink: "https://github.com/FloRobart/Lys_secure",
+    displayable: true,
+  },
+  {
     id: "flower-garden",
     title: "Flower Garden",
     description:
@@ -55,27 +96,6 @@ export const projectsPreviewList: ProjectPreview[] = [
     githubLink: "https://github.com/FloRobart/flollylist_app",
     projectLink: "https://flollylist.florobart.fr/",
     displayable: false,
-  },
-  {
-    id: "econoris",
-    title: "Econoris",
-    description:
-      "<b>Econoris</b> est une application de <b>gestion de budget</b>. Elle permet d'<b>enregistrer</b> les <b>dépenses</b> et les <b>revenus</b>, et de <b>visualiser l'évolution de votre budget</b> au fil du temps. Elle se distingue par son <b>interface simple et intuitive</b> et permet de réaliser des <b>prévisions de budget</b>, c'est-à-dire de <b>savoir combien vous pourrez dépenser</b> au début de chaque mois.",
-    imageSrc: EconorisImage,
-    localLink: "/projets/econoris",
-    githubLink: "https://github.com/FloRobart/econoris_app",
-    projectLink: "https://econoris.florobart.fr/",
-    displayable: true,
-  },
-  {
-    id: "lyssecure",
-    title: "LysSecure",
-    description:
-      "<b>LysSecure</b> est une <b>application web</b> qui permet de <b>stocker des mots de passe</b> de façon <b>sécurisée</b>. Elle peut <b>générer des mots de passe forts</b> et les <b>stocker</b> de manière sécurisée. Elle permet aussi de <b>copier un mot de passe</b> en un clic. La force de ce gestionnaire réside dans sa sécurité : les mots de passe sont <b>chiffrés</b> à l'aide d'une clé <b>unique</b> pour chaque utilisateur, dérivée de trois sources différentes, dont l'une n'est pas enregistrée. Cela contribue à <b>garantir la sécurité</b> des mots de passe même si la base de données ou le code source sont compromis.<br><em>Ce projet n'est pas disponible en ligne et doit faire l'objet d'une réécriture totale</em>",
-    imageSrc: LysSecureImage,
-    localLink: "/projets/lyssecure",
-    githubLink: "https://github.com/FloRobart/Lys_secure",
-    displayable: true,
   },
   {
     id: "documentation",
@@ -117,25 +137,6 @@ export const projectsPreviewList: ProjectPreview[] = [
     localLink: "/projets/theme-vscode",
     githubLink: "https://github.com/FloRobart/Themes_for_vsCode",
     displayable: false,
-  },
-  {
-    id: "jeu-aventuriers-du-rail",
-    title: "Jeu Les aventuriers du rail",
-    description:
-      "Ce projet est un jeu vidéo, une <b>adaptation du jeu de société 'Les aventuriers du rail'</b>. Il a été réalisé dans le cadre scolaire lors de ma troisième et dernière année d'IUT informatique, avec quatre autres personnes. J'ai occupé le rôle de <b>chef de projet</b>, responsable de la <b>gestion du projet</b> et de la <b>coordination de l'équipe</b>. J'ai aussi participé à la <b>conception du jeu</b> et à la <b>programmation de fonctionnalités</b>.",
-    imageSrc: JeuAventuriersDuRailImage,
-    localLink: "/projets/jeu-aventuriers-du-rail",
-    githubLink: "https://github.com/FloRobart/Jeu_aventurier_du_rail",
-    displayable: true,
-  },
-  {
-    id: "genesis",
-    title: "Genesis",
-    description: "Ce projet est une <b>application de gestion des passerelles</b>. Elle permet entre autres de <b>visualiser les passerelles</b> sur une carte, ainsi que dans un tableau représentant les bâœtiments dans lesquels elles se trouvent. L'application permet également d'ajouter des passerelles, de les modifier et de les supprimer. Elle est utilisée par les techniciens de maintenance pour gérer les passerelles et planifier les interventions de maintenance.",
-    imageSrc: GenesisImage,
-    localLink: "/projets/genesis",
-    githubLink: "",
-    displayable: true,
   },
 ];
 
