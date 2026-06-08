@@ -1,7 +1,10 @@
 ---
+import { Picture } from "astro:assets";
 import { getProjectById } from "@/data/projects";
 import { getCompetenceById } from "@/data/competences";
 import { getExperienceById } from "@/data/experiences";
+
+import GenesisImage from "@assets/projects/genesis/genesis_2_white.png";
 
 const FloraccessProjet = getProjectById("floraccess");
 const EconorisProjet = getProjectById("econoris");
@@ -15,6 +18,19 @@ const QowisioExperience = getExperienceById("qowisio");
 
 <section class="flex flex-col items-center">
   <div class="max-w-[80%]">
+    <div class="flex flex-col items-center">
+      <Picture
+        src={GenesisImage}
+        alt="Econoris Mobile Home"
+        width={GenesisImage.width/2}
+        height={GenesisImage.height/2}
+        loading="lazy"
+        decoding="async"
+        class="paragraph rounded"
+      />
+      <span class="text-sm mt-2">Capture d'écran de <b>Genesis</b></span>
+    </div>
+
     <h2 class="title-h2">Présentation</h2>
     <p class="paragraph">
       Avant d'aborder l'application Genesis en elle-même, il convient de poser le contexte entourant les activités de l'entreprise <a href={QowisioExperience?.localLink}>{QowisioExperience?.title}</a>. Le coeur de métier de <a href={QowisioExperience?.localLink}>{QowisioExperience?.title}</a> repose sur la conception de compteurs connectés dédiés à <a href="https://fr.wikipedia.org/wiki/Internet_des_objets" target="_blank">l'Internet des Objets (IoT)</a>. Néanmoins, ces capteurs ne disposent pas de la portée nécessaire pour expédier leurs relevés directement aux serveurs centraux. C'est pourquoi l'infrastructure s'appuie sur des <b>passerelles</b> : des boîtiers physiques chargés de collecter les flux de données émis par l'ensemble des capteurs environnants pour les centraliser et les acheminer vers le cloud.

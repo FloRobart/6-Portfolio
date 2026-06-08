@@ -10,7 +10,7 @@ import MavenLiteImage from "@assets/projects/maven-lite/maven-lite_1_white.png";
 import AlloscpImage from "@assets/projects/alloscp/alloscp_1_white.png";
 import ThemeVscodeImage from "@assets/projects/theme-vscode/theme-vscode_1_dark.png";
 import JeuAventuriersDuRailImage from "@assets/projects/jeu-aventuriers-du-rail/jeu-aventuriers-du-rail_start_menu.png";
-import GenesisImage from "@assets/projects/genesis/genesis_1_white.png";
+import GenesisImage from "@assets/projects/genesis/genesis_pc_white.png";
 
 export interface ProjectPreview {
   id: string;
