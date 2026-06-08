@@ -9,6 +9,7 @@ const NodejsCompetence = getCompetenceById("nodejs");
 const FlutterCompetence = getCompetenceById("flutter");
 
 const EconorisProjet = getProjectById("econoris");
+const FloraccessProjet = getProjectById("floraccess");
 
 import FloraccessDocs1White from "@assets/projects/floraccess/floraccess_docs_1_white.png";
 import FloraccessDocs2White from "@assets/projects/floraccess/floraccess_docs_2_white.png";
@@ -130,11 +131,11 @@ FlorAccess-api
   <div class="max-w-[80%]">
     <h2 class="title-h2">Présentation</h2>
     <p class="paragraph">
-      <b>FlorAccess</b> est avant tout une <b>API d'authentification</b> utilisée par mes autres projets. Elle permet un <b>accès sécurisé</b> et <b>sans mot de passe</b> à toutes mes applications, avec un seul compte utilisateur. <b>FlorAccess</b> inclut aussi une <b>application d'administration</b>, accessible uniquement par moi, qui me permet de <b>gérer les utilisateurs</b>.
+      <b>{FloraccessProjet?.title}</b> est avant tout une <b>API d'authentification</b> utilisée par mes autres projets. Elle permet un <b>accès sécurisé</b> et <b>sans mot de passe</b> à toutes mes applications, avec un seul compte utilisateur. <b>{FloraccessProjet?.title}</b> inclut aussi une <b>application d'administration</b>, accessible uniquement par moi, qui me permet de <b>gérer les utilisateurs</b>.
     </p>
 
     <p class="paragraph">
-      On pourrait comparer FlorAccess au bouton "Se connecter avec Google" que l'on trouve sur de nombreux sites web. Cependant, au lieu d'utiliser Google comme fournisseur d'identité, j'ai créé mon propre <b>fournisseur d'identité</b> personnalisé.
+      On pourrait comparer <b>{FloraccessProjet?.title}</b> au bouton "Se connecter avec Google" que l'on trouve sur de nombreux sites web. Cependant, au lieu d'utiliser Google comme fournisseur d'identité, j'ai créé mon propre <b>fournisseur d'identité</b> personnalisé.
     </p>
 
     <p class="paragraph">
@@ -143,16 +144,16 @@ FlorAccess-api
 
     <h2 class="title-h2">Acteur</h2>
     <p class="paragraph">
-      J'ai créé, testé et déployé FlorAccess de manière <b>totalement autonome</b>. Être le seul acteur de ce projet signifie que j'ai eu le <b>contrôle total</b> sur toutes les décisions de conception et de développement. Cependant, cela implique également que j'ai dû faire face à l'ensemble des <b>défis techniques</b> par moi-même, sans pouvoir m'appuyer sur l'aide directe d'un tiers.
+      J'ai créé, testé et déployé <b>{FloraccessProjet?.title}</b> de manière <b>totalement autonome</b>. Être le seul acteur de ce projet signifie que j'ai eu le <b>contrôle total</b> sur toutes les décisions de conception et de développement. Cependant, cela implique également que j'ai dû faire face à l'ensemble des <b>défis techniques</b> par moi-même, sans pouvoir m'appuyer sur l'aide directe d'un tiers.
     </p>
 
     <p class="paragraph">
-      J'ai tout de même eu l'occasion de discuter de FlorAccess avec d'autres développeurs dans mon cadre professionnel afin de recueillir leurs avis sur le concept, mais je n'ai bénéficié d'aucune aide concrète pour le <b>développement de l'API</b>.
+      J'ai tout de même eu l'occasion de discuter de <b>{FloraccessProjet?.title}</b> avec d'autres développeurs dans mon cadre professionnel afin de recueillir leurs avis sur le concept, mais je n'ai bénéficié d'aucune aide concrète pour le <b>développement de l'API</b>.
     </p>
 
-    <h2 class="title-h2">Contexte et Objectif (enjeux et risques)</h2>
+    <h2 class="title-h2">Contexte et Objectif</h2>
     <p class="paragraph">
-      Avant d'aborder FlorAccess en détail, il convient de se pencher sur ma toute première application, <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>. C'est en effet ce projet qui m'a poussé à concevoir ce système centralisé.
+      Avant d'aborder <b>{FloraccessProjet?.title}</b> en détail, il convient de se pencher sur ma toute première application, <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>. C'est en effet ce projet qui m'a poussé à concevoir ce système centralisé.
     </p>
 
     <p class="paragraph">
@@ -168,20 +169,20 @@ FlorAccess-api
     </p>
 
     <p class="paragraph">
-      C'est face à ces contraintes que j'ai décidé de créer FlorAccess : une API d'authentification simple, hautement sécurisée et totalement <b>indépendante</b>.
+      C'est face à ces contraintes que j'ai décidé de créer <b>{FloraccessProjet?.title}</b> : une API d'authentification simple, hautement sécurisée et totalement <b>indépendante</b>.
     </p>
 
     <p class="paragraph">
-      La philosophie de FlorAccess repose sur la <b>simplicité d'utilisation</b>. Je voulais une API d'authentification sans mot de passe, réduisant au maximum le nombre d'étapes pour s'inscrire ou se connecter. Cette simplicité ne se fait pas au détriment de la sécurité, puisque j'ai mis en place des <b>mesures robustes</b> pour protéger l'accès aux comptes.
+      La philosophie de <b>{FloraccessProjet?.title}</b> repose sur la <b>simplicité d'utilisation</b>. Je voulais une API d'authentification sans mot de passe, réduisant au maximum le nombre d'étapes pour s'inscrire ou se connecter. Cette simplicité ne se fait pas au détriment de la sécurité, puisque j'ai mis en place des <b>mesures robustes</b> pour protéger l'accès aux comptes.
     </p>
 
     <p class="paragraph">
-      De plus, centraliser ce service me permet de lier mes projets entre eux. Si un utilisateur se connecte à <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> avec son compte FlorAccess, il pourra accéder instantanément à mes autres applications compatibles avec les mêmes identifiants. Cela rend l'<b>expérience utilisateur</b> beaucoup plus fluide. À terme, les applications pourront également interagir entre elles pour proposer des fonctionnalités transversales très utiles.
+      De plus, centraliser ce service me permet de lier mes projets entre eux. Si un utilisateur se connecte à <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> avec son compte <b>{FloraccessProjet?.title}</b>, il pourra accéder instantanément à mes autres applications compatibles avec les mêmes identifiants. Cela rend l'<b>expérience utilisateur</b> beaucoup plus fluide. À terme, les applications pourront également interagir entre elles pour proposer des fonctionnalités transversales très utiles.
     </p>
 
-    <h2 class="title-h2">Déroulement</h2>
+    <h2 class="title-h2" id="deroulement">Déroulement</h2>
     <p class="paragraph">
-      Le projet FlorAccess se divise en plusieurs composants distincts : la base de données, l'API d'authentification, l'intégration applicative et l'application d'administration.
+      Le projet <b>{FloraccessProjet?.title}</b> se divise en plusieurs composants distincts : la base de données, l'API d'authentification, l'intégration applicative et l'application d'administration.
     </p>
 
     <h3 class="title-h3">Base de données</h3>
@@ -219,7 +220,7 @@ FlorAccess-api
     </p>
 
     <p class="paragraph">
-      <b>auth_methods_id</b> : Lors de la conception de FlorAccess, j'avais envisagé d'intégrer plusieurs méthodes d'authentification (par mot de passe, par clé asymétrique, ou via des applications tierces comme <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=fr" target="_blank">Google Authenticator</a>). Cette colonne est une clé étrangère pointant vers une table de configuration, ce qui offre une grande <b>évolutivité</b>.
+      <b>auth_methods_id</b> : Lors de la conception de <b>{FloraccessProjet?.title}</b>, j'avais envisagé d'intégrer plusieurs méthodes d'authentification (par mot de passe, par clé asymétrique, ou via des applications tierces comme <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=fr" target="_blank">Google Authenticator</a>). Cette colonne est une clé étrangère pointant vers une table de configuration, ce qui offre une grande <b>évolutivité</b>.
     </p>
 
     <p class="paragraph">
@@ -231,7 +232,7 @@ FlorAccess-api
     </p>
 
     <p class="paragraph">
-      <b>is_connected</b> et <b>last_logout_at</b> : Ces deux colonnes sont cruciales. FlorAccess s'appuie sur les <b>JWT (JSON Web Tokens)</b> pour authentifier les requêtes de manière asynchrone. Un JWT est signé numériquement par le serveur et stocké côté client (par exemple dans le <code>localStorage</code>). Par nature, un JWT classique ne peut pas être invalidé avant sa date d'expiration sans une gestion d'état sur le serveur.
+      <b>is_connected</b> et <b>last_logout_at</b> : Ces deux colonnes sont cruciales. <b>{FloraccessProjet?.title}</b> s'appuie sur les <b>JWT (JSON Web Tokens)</b> pour authentifier les requêtes de manière asynchrone. Un JWT est signé numériquement par le serveur et stocké côté client (par exemple dans le <code>localStorage</code>). Par nature, un JWT classique ne peut pas être invalidé avant sa date d'expiration sans une gestion d'état sur le serveur.
     </p>
 
     <p class="paragraph">
@@ -252,7 +253,7 @@ FlorAccess-api
 
     <h3 class="title-h3">API d'authentification</h3>
     <p class="paragraph">
-      Une fois la base de données modélisée, j'ai développé le cœur de l'API. Elle est construite autour de l'environnement <a href={NodejsCompetence?.localLink}>{NodejsCompetence?.title}</a> en utilisant <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>, le framework <a href="https://expressjs.com/" target="_blank">Express</a>, la bibliothèque de validation <a href="https://zod.dev/" target="_blank">Zod</a> et l'outil de documentation <a href="https://swagger.io/" target="_blank">Swagger</a>. J'utilise également la bibliothèque standard <code>jsonwebtoken</code> pour l'émission des jetons.
+      Une fois la base de données modélisée, j'ai développé le cœur de l'API. Elle est construite autour de l'environnement <a href={NodejsCompetence?.localLink}>{NodejsCompetence?.title}</a> en utilisant <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>, le framework <a href="https://expressjs.com/fr" target="_blank">Express</a>, la bibliothèque de validation <a href="https://zod.dev/" target="_blank">Zod</a> et l'outil de documentation <a href="https://swagger.io/" target="_blank">Swagger</a>. J'utilise également la bibliothèque standard <code>jsonwebtoken</code> pour l'émission des jetons.
     </p>
 
     <p class="paragraph">
@@ -264,7 +265,7 @@ FlorAccess-api
     </p>
 
     <p class="paragraph">
-      <a href={NodejsCompetence?.localLink}>{NodejsCompetence?.title}</a> permet d'exécuter du code JavaScript côté serveur en s'appuyant sur le moteur ultra-rapide V8 de Google. Son architecture événementielle non bloquante est idéale pour les API. De plus, utiliser un langage unique pour le frontend et le backend simplifie grandement le flux de développement. Pour FlorAccess, il m'a permis de monter un serveur performant très rapidement, en évitant la lourdeur de configuration d'outils comme Apache ou Nginx en amont.
+      <a href={NodejsCompetence?.localLink}>{NodejsCompetence?.title}</a> permet d'exécuter du code JavaScript côté serveur en s'appuyant sur le moteur ultra-rapide V8 de Google. Son architecture événementielle non bloquante est idéale pour les API. De plus, utiliser un langage unique pour le frontend et le backend simplifie grandement le flux de développement. Pour <b>{FloraccessProjet?.title}</b>, il m'a permis de monter un serveur performant très rapidement, en évitant la lourdeur de configuration d'outils comme Apache ou Nginx en amont.
     </p>
 
     <p class="paragraph">
@@ -338,7 +339,7 @@ FlorAccess-api
 
     <h3 class="title-h3">Architecture</h3>
     <p class="paragraph">
-      L'organisation du code est le pilier de la maintenabilité d'un projet. Pour FlorAccess, j'ai mis en place une <b>architecture orientée fonctionnalités (feature-based architecture)</b>. Contrairement à une approche traditionnelle en couches (qui sépare tous les contrôleurs d'un côté et tous les modèles de l'autre), l'architecture feature-based regroupe l'intégralité des fichiers nécessaires à une même brique fonctionnelle dans un dossier unique.
+      L'organisation du code est le pilier de la maintenabilité d'un projet. Pour <b>{FloraccessProjet?.title}</b>, j'ai mis en place une <b>architecture orientée fonctionnalités (feature-based architecture)</b>. Contrairement à une approche traditionnelle en couches (qui sépare tous les contrôleurs d'un côté et tous les modèles de l'autre), l'architecture feature-based regroupe l'intégralité des fichiers nécessaires à une même brique fonctionnelle dans un dossier unique.
     </p>
 
     <p class="paragraph">
@@ -348,7 +349,7 @@ FlorAccess-api
     <Code
       class="paragraph"
       code={FloraccessArchitecture}
-      lang="architectural-diagram"
+      lang="txt"
       title="FlorAccess API Architecture"
       frame="code"
       showLineNumbers
@@ -371,7 +372,7 @@ FlorAccess-api
         <li><code>*.routes.ts</code> : Déclare les points d'accès HTTP auprès d'<a href="https://expressjs.com/" target="_blank">Express</a> et embarque les commentaires Swagger de la route. Les requêtes y passent par un middleware commun de validation (<code>request_validator.middleware.ts</code>) afin de filtrer les données en amont.</li>
         <li><code>*.controller.ts</code> : Réceptionne les données préalablement validées par le middleware et orchestre la réponse HTTP finale en fonction des retours de la couche service.</li>
         <li><code>*.service.ts</code> : Contient exclusivement la <b>logique métier</b> de l'application (calculs cryptographiques, génération des jetons, règles de gestion). C'est le cerveau du module, totalement isolé de la logique réseau Express.</li>
-        <li><code>*.repository.ts</code> : Gère les accès aux données. Dans FlorAccess, ce fichier exécute les requêtes SQL vers la base de données PostgreSQL. Isoler cette couche permet de changer de système de stockage (passer à une autre API ou à une base NoSQL) sans jamais impacter la logique métier du service.</li>
+        <li><code>*.repository.ts</code> : Gère les accès aux données. Dans <b>{FloraccessProjet?.title}</b>, ce fichier exécute les requêtes SQL vers la base de données PostgreSQL. Isoler cette couche permet de changer de système de stockage (passer à une autre API ou à une base NoSQL) sans jamais impacter la logique métier du service.</li>
       </ul>
     </p>
 
@@ -385,11 +386,11 @@ FlorAccess-api
     </p>
 
     <p class="paragraph">
-      L'application cliente développée avec <a href={FlutterCompetence?.localLink}>{FlutterCompetence?.title}</a> recueille l'email de l'utilisateur, interroge FlorAccess pour valider l'accès et réceptionne le JWT, qu'elle stocke localement. Par la suite, pour chaque appel vers le backend d'<a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, ce jeton est transmis dans les en-têtes HTTP de la requête. Le serveur d'<a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> extrait ce JWT et effectue une requête en arrière-plan vers FlorAccess pour s'assurer de sa validité.
+      L'application cliente développée avec <a href={FlutterCompetence?.localLink}>{FlutterCompetence?.title}</a> recueille l'email de l'utilisateur, interroge <b>{FloraccessProjet?.title}</b> pour valider l'accès et réceptionne le JWT, qu'elle stocke localement. Par la suite, pour chaque appel vers le backend d'<a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>, ce jeton est transmis dans les en-têtes HTTP de la requête. Le serveur d'<a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> extrait ce JWT et effectue une requête en arrière-plan vers <b>{FloraccessProjet?.title}</b> pour s'assurer de sa validité.
     </p>
 
     <p class="paragraph">
-      Seul le serveur FlorAccess détient la <b>clé secrète de signature</b> cryptographique nécessaire pour valider le jeton. Si FlorAccess confirme l'authenticité du JWT, le backend d'<a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> traite la demande ; dans le cas contraire, l'accès est immédiatement refusé.
+      Seul le serveur <b>{FloraccessProjet?.title}</b> détient la <b>clé secrète de signature</b> cryptographique nécessaire pour valider le jeton. Si <b>{FloraccessProjet?.title}</b> confirme l'authenticité du JWT, le backend d'<a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a> traite la demande ; dans le cas contraire, l'accès est immédiatement refusé.
     </p>
 
     <p class="paragraph">
@@ -398,7 +399,7 @@ FlorAccess-api
 
     <h3 class="title-h3">Application d'administration</h3>
     <p class="paragraph">
-      Pour administrer le système, FlorAccess s'accompagne d'un <b>panneau de contrôle d'administration</b>. Ce client graphique exploite les points d'entrée du module <code>admins</code> pour lister les comptes, analyser les inscriptions et envoyer des emails d'information.
+      Pour administrer le système, <b>{FloraccessProjet?.title}</b> s'accompagne d'un <b>panneau de contrôle d'administration</b>. Ce client graphique exploite les points d'entrée du module <code>admins</code> pour lister les comptes, analyser les inscriptions et envoyer des emails d'information.
     </p>
 
     <p class="paragraph">
@@ -431,7 +432,7 @@ FlorAccess-api
 
     <h2 class="title-h2">Résultats</h2>
     <p class="paragraph">
-      Ce projet m'a permis d'approfondir mes connaissances sur les rouages de la sécurité et des protocoles d'authentification web. FlorAccess représente désormais une <b>brique logicielle centrale</b> de mon projet d'entreprise de développement d'applications. J'ai pu maîtriser l'architecture de bout en bout et appliquer des technologies modernes de façon professionnelle.
+      Ce projet m'a permis d'approfondir mes connaissances sur les rouages de la sécurité et des protocoles d'authentification web. <b>{FloraccessProjet?.title}</b> représente désormais une <b>brique logicielle centrale</b> de mon projet d'entreprise de développement d'applications. J'ai pu maîtriser l'architecture de bout en bout et appliquer des technologies modernes de façon professionnelle.
     </p>
 
     <p class="paragraph">
@@ -441,7 +442,7 @@ FlorAccess-api
     <h2 class="title-h2" id="avenir">Avenir</h2>
     <h3 class="title-h3">Court terme</h3>
     <p class="paragraph">
-      À court terme, je prévois d'ajouter une routine automatisée pour purger les comptes inactifs après une longue période d'inactivité.
+      À court terme, je prévois d'ajouter une routine automatisée pour supprimer les comptes inactifs après une longue période d'inactivité.
     </p>
 
     <p class="paragraph">
@@ -454,12 +455,12 @@ FlorAccess-api
     </p>
 
     <p class="paragraph">
-      L'ambition ultime est de propulser FlorAccess comme une <b>alternative open-source</b>, auto-hébergée et hautement personnalisable face aux géants du marché ou aux solutions d'authentification propriétaires payantes, qui imposent des barrières tarifaires ou des contraintes sur la vie privée. FlorAccess combinera la flexibilité des infrastructures cloud modernes et la souveraineté totale d'une solution hébergée chez soi.
+      L'ambition ultime est de propulser <b>{FloraccessProjet?.title}</b> comme une <b>alternative open-source</b>, auto-hébergée et hautement personnalisable face aux géants du marché ou aux solutions d'authentification propriétaires payantes, qui imposent des barrières tarifaires ou des contraintes sur la vie privée. <b>{FloraccessProjet?.title}</b> combinera la flexibilité des infrastructures cloud modernes et la souveraineté totale d'une solution hébergée chez soi.
     </p>
 
     <h2 class="title-h2">Auto-critique</h2>
     <p class="paragraph">
-      FlorAccess est un projet mature, stable et hautement sécurisé. Il propulse déjà mes outils en production et s'est avéré d'une <b>efficacité remarquable</b> pour centraliser la gestion des accès utilisateurs.
+      <b>{FloraccessProjet?.title}</b> est un projet mature, stable et hautement sécurisé. Il propulse déjà mes outils en production et s'est avéré d'une <b>efficacité remarquable</b> pour centraliser la gestion des accès utilisateurs.
     </p>
 
     <p class="paragraph">
