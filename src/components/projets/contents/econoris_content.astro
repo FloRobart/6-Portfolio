@@ -1,9 +1,16 @@
 ---
 import Picture from "astro/components/Picture.astro";
 
+import { getCompetenceById } from "@/data/competences";
 import { getProjectById } from "@/data/projects";
+import { getExperienceById } from "@/data/experiences";
+
+const FlutterCompetence = getCompetenceById("flutter");
 
 const FloraccessProjet = getProjectById("floraccess");
+const GenesisProjet = getProjectById("genesis");
+
+const QowisioExperience = getExperienceById("qowisio");
 
 import EconorisMobileHome from "@assets/projects/econoris/econoris_mobile_home_dark.png";
 import EconorisMobileProfile from "@assets/projects/econoris/econoris_mobile_profile_white.png";
@@ -16,39 +23,37 @@ import FinaryPaiement from "@assets/projects/econoris/finary_paiement.png";
   <div class="max-w-[80%]">
     <h2 class="title-h2">Présentation</h2>
     <p class="paragraph">
-      Econoris est une application de gestion de budget et de finances personnelles. Elle permet aux utilisateurs de savoir combien ils pourrons dépenser chaque mois en fonction de leurs revenus et de leurs dépenses.
+      <b>Econoris</b> est une application de <b>gestion de budget</b> et de finances personnelles. Elle permet aux utilisateurs de connaître à l'avance le montant qu'ils peuvent dépenser chaque mois en fonction de leurs revenus et de leurs charges fixes.
+    </p>
 
-      La force d'éconoris réside dans sa simplicité d'utilisation et son approche proactive de la gestion financière. Contrairement à de nombreuses applications de gestion de budget qui se concentrent sur l'analyse des dépenses passées, Econoris se concentre sur la planification future. En fournissant aux utilisateurs une estimation claire de leur budget disponible avant même qu'ils ne dépensent, Econoris les aide à prendre des décisions financières éclairées et à éviter les dépenses excessives.
+    <p class="paragraph">
+      La force d'Econoris réside dans sa <b>simplicité d'utilisation</b> et son approche proactive de la gestion financière. Contrairement à de nombreuses applications de gestion budgétaire qui se contentent d'analyser les dépenses passées, Econoris se focalise sur la <b>planification future</b>. En fournissant une estimation claire du budget disponible avant même le moindre achat, Econoris aide à prendre des décisions financières éclairées et à éviter le surendettement ou les dépenses excessives.
     </p>
 
     <h2 class="title-h2">Acteur</h2>
     <p class="paragraph">
-      J'ai créé, testé et déployé <b>Econoris</b> de manière <b>totalement autonome</b>. Être le seul acteur de ce projet signifie que j'ai eu le <b>contrôle total</b> sur toutes les décisions de conception et de développement. Cependant, cela implique également que j'ai dû faire face à l'ensemble des <b>défis techniques</b> par moi-même, sans pouvoir m'appuyer sur l'aide directe d'un tiers.
+      J'ai conçu, testé et déployé Econoris de manière <b>totalement autonome</b>. Être le seul acteur de ce projet signifie que j'ai eu le <b>contrôle total</b> sur toutes les décisions de conception et de développement. Cependant, cela implique également que j'ai dû faire face à l'ensemble des <b>défis techniques</b> par moi-même, sans pouvoir m'appuyer sur l'aide directe d'un tiers.
     </p>
 
     <h2 class="title-h2">Contexte et Objectif</h2>
     <p class="paragraph">
-      Lorsque j'ai reçu mes premiers salaires, j'ai réalisé que je ne savais pas comment gérer mon argent. J'avais du mal à savoir combien je pouvais dépenser chaque mois, je ne sais jamais si je peux me permettre de faire une sortie avec mes amis ou si je devais économiser pour payer mes depenses courantes. 
+      Lorsque j'ai perçu mes premiers salaires, j'ai réalisé que je ne savais pas comment gérer mon argent efficacement. J'avais des difficultés à évaluer mon reste à vivre mensuel et je ne savais jamais si je pouvais me permettre une sortie entre amis ou s'il fallait économiser pour anticiper mes prélèvements courants.
     </p>
 
     <p class="paragraph">
-      J'ai donc chercher une solution pour m'aider à gérer mon budget. Un tableau Excel ? Non, c'est pas pratique et pas très visuel. Une application de gestion de budget ? Oui, mais laquelle ? J'ai essayé plusieurs applications et globalement, elles avait toute les mêmes problèmes. elles permettent de savoir si on a bien gérer sont budget à la fin du mois, c'est bien mais trop tard, moi c'est avant que je dépense que j'ai besoin de savoir si je peux me permettre de faire une sortie ou pas. Le deuxième commun avec toute ses application c'est qu'elles sont complexe à utiliser, J'ai prix deux exemple d'application de gestion de budget très populaires, Bankin et Finary, avec respectivement 1 million et 100 000 téléchargements sur le Play Store, et j'ai essayé de les utiliser pour gérer mon budget.
+      J'ai donc cherché une solution adaptée. Un tableur <a href="https://www.microsoft.com/fr-fr/microsoft-365/excel" target="_blank">Microsoft Excel</a> ? Trop contraignant et peu visuel au quotidien. Une application mobile ? Oui, mais les solutions du marché partageaient toutes les mêmes défauts : elles permettent de savoir si l'on a bien géré ses finances à la fin du mois, ce qui s'avère trop tard. C'est en amont que j'ai besoin de cette information. Pour valider ce constat, j'ai testé deux applications très populaires : <a href="https://bankin.com/" target="_blank">Bankin'</a> et <a href="https://finary.com/" target="_blank">Finary</a> (disposant respectivement de un million et 100 000 téléchargements sur le Google Play Store).
     </p>
 
     <p class="paragraph">
-      Pour Bankin, c'est simple, sans connecter mon compte bancaire, je ne peux rien faire, l'application ne sert litéralement à rien. Pour Finary, on sens que c'est vraiment destiné au investisseur, je ne peux pas ajouter de revenu mais je peux définir mon épargne et mes investissements. EN revanche, pour chaque ajout, que se sois de l'epargne ou de l'investissement, je dois passé au minimum par 3 page différentes, chacune demandant des informations différentes et en plus de cela je doit au préalable recréer un miroir de chaque compte bancaire que j'ai, pour pouvoir les associer à mes investissements et mon épargne. C'est simple j'ai mis 30 minutes avant de pouvoir commencer à ajouter des investissements et malgré le fait que je sois familiarisé avec l'investissement et l'informatique j'ai franchement eu du mal à utiliser l'application, alors je n'imagine même pas pour une personne qui n'est pas du tout familiarisé avec l'investissement et l'informatique.
+      Concernant Bankin', l'application s'avère totalement inutilisable si l'on refuse d'y connecter son compte bancaire. Pour Finary, l'interface s'adresse principalement aux investisseurs : impossible d'y ajouter simplement des revenus sans passer par la case épargne ou placements. De plus, chaque ajout requiert de naviguer sur au moins trois pages différentes exigeant des données complexes, tout en obligeant à créer au préalable un miroir technique de chaque compte bancaire détenu. J'ai personnellement mis 30 minutes avant de pouvoir configurer mes premiers éléments. Si un profil technique éprouve des difficultés, cette expérience s'avère rapidement décourageante pour un utilisateur novice.
     </p>
 
     <p class="paragraph">
-      Après il y a quand même d'autre application de gestion de budget comme "Gestion budget - dépenses" télécharger quand même 10 millions de fois sur le Play Store, qui sont plus simple à utiliser, mais elles sont vraiment basique et on toujours se problème de ne pas pouvoir savoir combien on peut dépenser avant de dépenser, elles permettent juste de savoir si on a bien gérer son budget à la fin du mois, c'est bien mais trop tard.
+      Il existe certes des applications plus simples comme "Gestion budget - dépenses" (10 millions de téléchargements), mais elles restent très basiques et souffrent du même problème : elles se limitent à un constat passif en fin de mois au lieu d'offrir une <b>vision prévisionnelle</b>. Enfin, la majorité de ces solutions intègrent des barrières payantes ou des fonctionnalités gratuites fortement bridées.
     </p>
 
     <p class="paragraph">
-      Le dernier problème que j'ai rencontré avec les applications de gestion de budget, c'est que la plupart d'entre elles sont payante, et même si certaines proposent une version gratuite, elle sont souvent limité en fonctionnalités.
-    </p>
-
-    <p class="paragraph">
-      Vous pouvez voir sur les captures d'écran ci-dessous l'ensemble des problèmes que j'ai cité :
+      Les captures d'écran ci-dessous illustrent cette complexité visuelle et fonctionnelle, ainsi que les nombreuses incitations à souscrire à la version payante :
     </p>
 
     <div class="flex flex-row gap-12 justify-center">
@@ -59,7 +64,7 @@ import FinaryPaiement from "@assets/projects/econoris/finary_paiement.png";
         height={FinaryHome.height/3}
         loading="lazy"
         decoding="async"
-        class="paragraph"
+        class="paragraph rounded"
       />
 
       <Picture
@@ -69,20 +74,20 @@ import FinaryPaiement from "@assets/projects/econoris/finary_paiement.png";
         height={FinaryPaiement.height/3}
         loading="lazy"
         decoding="async"
-        class="paragraph"
+        class="paragraph rounded"
       />
     </div>
 
     <p class="paragraph">
-      Comme vous pouvez le voir, il y a beaucoup d'information affichée sur l'écran d'accueil de Finary, ce qui peut être déroutant pour les utilisateurs qui cherchent simplement à gérer leur budget. On nous parle de patrimoine, de performance, de rendement, il y a un fil d'actualité, un graphique et évidement, le bouton pour avoir la version payante. En revanche ça ne sert à rien de naviguer dans l'application puisque la quasi totalité des fonctionnalités sont payante.
+      Comme on peut le constater sur l'écran d'accueil de Finary, la densité d'informations (patrimoine, performance, rendement, fil d'actualités, graphiques complexes) peut s'avérer déroutante. De plus, les incitations à souscrire à la version payante sont omniprésentes, bloquant la quasi-totalité des fonctionnalités.
     </p>
 
     <p class="paragraph">
-      C'est pour cela que j'ai décidé de créer Econoris, une application de gestion de budget qui permet aux utilisateurs de savoir combien ils peuvent dépenser chaque mois en fonction de leurs revenus et de leurs dépenses, avant même de les faire. L'application est simple à utiliser et permet de gérer son budget de manière efficace, le tout 100% gratuitement.
+      C'est pourquoi j'ai créé Econoris : une alternative épurée qui permet de connaître instantanément son <b>reste à vivre disponible</b> avant même d'effectuer la moindre dépense. L'application se veut simple, efficace et accessible <b>100 % gratuitement</b>.
     </p>
 
     <p class="paragraph">
-      Comme vous pouvez le voir sur les captures d'écran ci-dessous, Econoris est beaucoup plus simple, il y a les dates du mois en cours, un indice de gestion de budget qui indique, en un chiffre, si on gère correctement son budget ou pas, le nombre d'opérations effectuées dans le mois, le montant que l'utilisateur peut encore dépenser dans le mois et enfin une liste de ses opérations, le tout sans aucune publicité ni aucune incitation à prendre une version payante, puisqu'il n'y en a pas.
+      Les captures d'écran suivantes mettent en avant la sobriété de l'interface d'Econoris : elle affiche les dates de la période en cours, un unique <b>indice de gestion</b> synthétique, le volume d'opérations mensuelles, le montant disponible à la dépense et l'historique des transactions.
     </p>
 
     <div class="flex flex-row gap-12 justify-center mb-12">
@@ -94,9 +99,9 @@ import FinaryPaiement from "@assets/projects/econoris/finary_paiement.png";
           height={EconorisMobileHome.height/3}
           loading="lazy"
           decoding="async"
-          class="paragraph"
+          class="paragraph rounded"
         />
-        <span>Page d'accueil avec le thème sombre</span>
+        <span class="text-sm mt-2">Page d'accueil (Thème sombre)</span>
       </div>
 
       <div class="flex flex-col items-center">
@@ -107,96 +112,80 @@ import FinaryPaiement from "@assets/projects/econoris/finary_paiement.png";
           height={EconorisMobileProfile.height/3}
           loading="lazy"
           decoding="async"
-          class="paragraph"
+          class="paragraph rounded"
         />
-        <span>Page de profil avec le thème clair</span>
+        <span class="text-sm mt-2">Page de profil (Thème clair)</span>
       </div>
     </div>
 
     <p class="paragraph">
-      On peux également voir une différence notable au niveau des couleurs. Finary à un design avec des dégradés et beaucoup de transparence, tiré directement des design de Apple, classique des applications qui se veulent premium. Sur Econoris j'ai fais le choix d'un design plus simple avec du vert quand tous va bien, du rouge quand ça va pas et du blanc ou noir selon le thème) pour les éléments neutres, comme les dates du mois et les opérations. J'ai choisi ce design pour que l'utilisateur puisse rapidement savoir si il gère bien son budget ou pas, sans avoir à lire des chiffres ou des graphiques, juste en regardant la couleur de l'indice de gestion de budget.
+      La direction artistique marque également une rupture. Là où Finary utilise des dégradés, des flous et des transparences complexes inspirés de l'écosystème Apple pour un positionnement premium, Econoris mise sur un code couleur minimaliste et purement <b>fonctionnel</b> : du vert quand la situation est stable, du rouge en cas de vigilance, et des tons neutres (blanc ou noir selon le thème actif) pour le contenu. L'utilisateur évalue la santé de son budget en un coup d'oeil, sans avoir à analyser de graphiques.
     </p>
 
     <h2 class="title-h2">Déroulement</h2>
     <p class="paragraph">
-      Pour le déroulement du projet, j'ai fais exactement la même chose que pour <a href={FloraccessProjet?.localLink + "#deroulement"}>{FloraccessProjet?.title}</a>. Je vais donc uniquement parler des se que je n'ai pas déjà dit dans <a href={FloraccessProjet?.localLink + "#deroulement"}>la section déroulement de {FloraccessProjet?.title}</a>.
+      Concernant la méthodologie de développement global de ce projet, j'ai appliqué la même rigueur que pour <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a>. Je vais donc me concentrer ici sur les spécificités propres à Econoris, qui ne figurent pas dans la <a href={FloraccessProjet?.localLink + "#deroulement"}>section déroulement de {FloraccessProjet?.title}</a>.
     </p>
 
     <p class="paragraph">
-      Il y a une différences majeures entre les deux projets et c'est que j'ai développé <b>Econoris</b> en parallèle de Genesis, se qui veux dire que j'ai pu bénéficier indirectement de l'aide de mes collègues pour améliorer le projet.
+      La différence majeure réside dans le fait que j'ai développé Econoris en parallèle du projet professionnel, <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a>, créant ainsi une synergie et un <b>cercle vertueux</b> d'apprentissage.
     </p>
 
     <p class="paragraph">
-      En fait j'ai commencé à réécrire entièrement Econoris en même temps qu'on développais Genesis au travail et comme les deux projets utilisent les mêmes technologies, j'ai apprendre des choses sur Genesis qui m'ont permis d'améliorer Econoris et inversement.
+      La réécriture complète d'Econoris s'est faite au moment où nous concevions <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a> dans mon entreprise (<a href={QowisioExperience?.localLink}>{QowisioExperience?.title}</a>). Les deux applications exploitant la même stack technique, chaque compétence acquise sur un projet enrichissait directement l'autre.
     </p>
 
     <p class="paragraph">
-      Pendant cette pariode, quand je rentrais chez moi je travaillais sur Econoris et pour faire un travail de qualité, j'ai fais beaucoup de recherches sur les bonnes pratiques de développement, les design patterns, les architectures logicielles, etc... et j'ai appliqué tout ce que j'ai appris sur Econoris, ce qui me permettais de mettre en pratique se que j'apprenais. Ensuite le landemain au travail, je travaillais sur Genesis et j'appliquais tout ce que j'avais appris sur Econoris la veille. Ensuite avec mon collègues on discutait de Genesis et de se qui allais et n'allais pas, et on essayait de trouver des solutions pour améliorer le projet, et souvent les solutions qu'on trouvais pour Genesis étaient applicable à Econoris, donc le soir je corrigeais les problèmes qu'on avais trouvés sur Genesis pendant la journée et j'approfondissais les solutions qu'on avais trouvés, ce qui me permettais d'améliorer encore plus Econoris. C'était un cercle vertueux qui m'a permis d'améliorer considérablement mes compétences en développement et de faire de Econoris et de Genesis un projet de qualité.
+      Mon quotidien s'organisait ainsi : en journée, je développais <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a> en équipe (avec mon collègue) pendant 8 heures. Nous partagions nos retours d'expérience, analysions ce qui fonctionnait ou non et cherchions à optimiser l'application. Le soir, je dédiais environ 4 heures à Econoris. J'en profitais pour mener des recherches approfondies sur les bonnes pratiques, les <b>design patterns</b> ou les architectures logicielles afin de corriger et d'épurer mon code personnel. Le lendemain, je transposais ces architectures optimisées sur le projet d'entreprise. 
     </p>
 
     <p class="paragraph">
-      Un des avantages c'est que Econoris est beaucoup plus simple que Genesis, donc les conceptes que je ne maitrise pas encore bien sont plus facile à implémenter sur Econoris que sur Genesis, ce qui me permet de les maitriser plus rapidement et de les appliquer ensuite sur Genesis. La différence de complexité et de taille entre les deux projets permet aussi de vérifier que l'architecture que j'ai mis en place convient à des petits projets comme Econoris mais aussi à des projets plus complexe comme Genesis, ce qui me permet de m'assurer que l'architecture que j'ai choisi est solide et évolutive.
+      Econoris étant fonctionnellement plus simple que <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a>, il me servait de <b>laboratoire d'expérimentation</b> idéal. Les concepts complexes y étaient plus faciles à implémenter et à maîtriser en amont. Cette différence d'échelle m'a également permis de valider que notre structure architecture feature-based était parfaitement <b>flexible et évolutive</b>, s'adaptant aussi bien à une micro-application personnelle qu'à un projet d'envergure industrielle.
     </p>
 
     <p class="paragraph">
-      Le dernière avantage c'est que cette différence de taille ma permis de faire presque tous les développements en parrallèle, c'est à dire qu'avec 4 heures de travail par jour seul sur econoris j'arrivais à suivre le rythme de développement de Genesis qui était développé par une équipe de 2 personnes (moi et mon collègue) pendant 8 heures par jour. C'étais intense mais ça ma permis de faire énormément de progrès en très peu de temps, et d'avoir un projet de qualité à la fin de la période.
-    </p>
-
-    <p class="paragraph">
-      Comme je l'ai dis plus haut l'architecture que j'ai mis en place pour Econoris est la même que celle de FlorAccess, donc je ne vais pas revenir dessus mais si vous voulez en savoir plus sur le code de Econoris, je vous invite à aller voir directement <a href="https://github.com/FloRobart/econoris_app">le code source sur mon github</a>.
+      Cette cadence de développement intensive m'a permis de suivre, seul, le rythme de production d'une équipe de deux personnes à plein temps, tout en réalisant des progrès techniques considérables en un temps record. Si vous souhaitez analyser la structure du code, le <a href="https://github.com/FloRobart/econoris_app" target="_blank">code source complet est disponible sur mon profil GitHub</a>.
     </p>
 
     <h2 class="title-h2">Résultats</h2>
     <p class="paragraph">
-      en moins d'un mois de développement, j'ai réussi à créer une application de gestion de budget complète, avec une interface utilisateur simple et intuitive, qui permet aux utilisateurs de savoir combien ils peuvent dépenser chaque mois en fonction de leurs revenus et de leurs dépenses, avant même de les faire. L'application est 100% gratuite et ne contient aucune publicité ni aucune incitation à prendre une version payante, puisqu'il n'y en a pas.
+      En moins de deux mois de développement, j'ai mis au point une application de gestion budgétaire <b>complète, fluide et intuitive</b>. Elle remplit parfaitement son objectif prévisionnel d'aide à la décision financière, sans aucune contrepartie payante ni publicité intrusive.
     </p>
 
     <p class="paragraph">
-      En plus de cela, le développement d'Econoris à permis a Genesis de profiter de tous les progrès que j'ai fait sur Flutter et sur les bonnes pratiques de développement, ce qui a permis de faire de Genesis un projet de qualité et ceux dans des délais très court, puisque Genesis est un projet beaucoup plus complexe que Econoris. Le fait d'avoir développé les deux projets en parallèle m'a permis de faire énormément de progrès en très peu de temps, et d'avoir deux projets de qualité à la fin de la période.
+      Sur le plan professionnel, l'application <a href={GenesisProjet?.localLink}>{GenesisProjet?.title}</a> a directement bénéficié de cette dynamique en profitant de l'intégralité de mes montées en compétences sur le framework <a href={FlutterCompetence?.localLink}>{FlutterCompetence?.title}</a> et les architectures logicielles propres, permettant de livrer un produit industriel de haute qualité dans des délais particulièrement serrés.
     </p>
 
     <h2 class="title-h2">Avenir</h2>
     <h3 class="title-h3">Court terme</h3>
     <p class="paragraph">
-      À court terme, je prévois d'ajouter des fonctionnalités, comme un "what's news" pour informer les utilisateurs des nouveautés de l'application, un système de notification pour rappeler aux utilisateurs de saisir leurs dépenses et leurs revenus, et bien d'autres fonctionnalités pour améliorer l'expérience utilisateur et rendre l'application encore plus utile pour la gestion de budget.
+      À court terme, je prévois d'ajouter un module d'actualités ("What's new") pour informer les utilisateurs des évolutions de la plateforme, ainsi qu'un système de <b>notifications push</b> pour rappeler la saisie des opérations.
     </p>
 
     <p class="paragraph">
-      J'aimerais également ajouter des conseils sur la gestion du budget, sur comment bien gérer son argent, comment économiser, comment faire des gros achats intelligemment, etc... pour aider les utilisateurs à mieux gérer leur argent et par voix de conséquence, à mieux vivre. Je pense que c'est important d'accompagner les utilisateurs dans leur gestion de budget, et pas seulement de leur fournir un outil pour gérer leur budget, mais aussi de leur donner des conseils pour les aider à mieux gérer leur argent.
-    </p>
-
-    <p class="paragraph">
-      Et enfin j'aimerais publier l'application sur le Play Store. L'application est déjà prête à être publiée, elle est parfaitement fonctionnelle sur Android, il ne me reste plus qu'à faire les démarches pour la publier sur le Play Store, ce qui prend un peu de temps, mais c'est un objectif à court terme que je compte atteindre juste après l'obtention de mon diplôme.
+      Je souhaite également enrichir l'application en y intégrant des modules de <b>conseils financiers</b> et d'éducation budgétaire (bonnes pratiques d'épargne, gestion des achats importants, etc.) afin d'accompagner l'utilisateur vers une meilleure santé financière globale. Enfin, l'objectif principal post-diplôme sera de mener les démarches nécessaires pour publier officiellement l'application sur le <a href="https://play.google.com/store" target="_blank">Google Play Store</a>, l'application étant déjà pleinement fonctionnel sur l'environnement Android.
     </p>
 
     <h3 class="title-h3">Long terme</h3>
     <p class="paragraph">
-      À plus long terme, j'aimerais faire connaître mon application pour qu'elle puisse aider le plus de personnes possible à mieux gérer leur budget. J'aimerais également mettre un peux de publicité sur l'application pour pouvoir la monétiser et ainsi pouvoir au moins rembourser les frais d'hébergement et de développement, mais je ne veux pas que la publicité soit intrusive ou qu'elle incite les utilisateurs à prendre une version payante, donc je réfléchis encore à la meilleure façon de monétiser l'application sans nuire à l'expérience utilisateur.
+      À plus long terme, je mènerai des actions de communication pour faire connaître Econoris au plus grand nombre. Afin de pérenniser le projet et d'amortir les frais d'hébergement et de serveurs, j'envisage d'intégrer une <b>monétisation responsable</b> via des bannières publicitaires légères et non intrusives, en veillant scrupuleusement à ne pas dégrader l'expérience utilisateur globale.
     </p>
 
     <h2 class="title-h2">Auto-critique</h2>
     <p class="paragraph">
-      Econoris est une application de gestion de budget complète, avec une interface utilisateur simple et intuitive. Elle permet aux utilisateurs de savoir combien ils peuvent dépenser chaque mois en fonction de leurs revenus et de leurs dépenses, avant même de les faire. L'application est 100% gratuite et ne contient aucune publicité ni aucune incitation à prendre une version payante, puisqu'il n'y en a pas.
+      Econoris est aujourd'hui une application de gestion budgétaire prévisionnelle mature et stable. Le parcours pour y parvenir a été jalonné de défis techniques et d'arbitrages de conception complexes, mais je suis pleinement satisfait du résultat. Développer cette application m'a permis de maîtriser simultanément le framework <a href={FlutterCompetence?.localLink}>{FlutterCompetence?.title}</a> et le langage <a href="https://dart.dev/" target="_blank">Dart</a>, tout en appliquant des standards industriels rigoureux.
     </p>
 
     <p class="paragraph">
-      La création de l'application a été un long chemin parsemé de défis techniques et de décisions de conception pas toujours évidentes, mais je suis fier du résultat final. J'ai réussi à créer une application de qualité dans un langage que je ne connaissais pas du tout au départ, et j'ai pu appliquer toutes les bonnes pratiques de développement que j'ai apprises pendant le développement de Genesis, ce qui m'a permis de faire de Econoris un projet de qualité.
+      Néanmoins, cette stabilité est le fruit d'un long processus d'itération. Comme l'indique le numéro de version (v3.0.13), l'application a été entièrement <b>réécrite à trois reprises</b>.
     </p>
 
     <p class="paragraph">
-      Cependant, ça n'a pas été sans difficultés. Comme vous l'avais peux être remarqué sur les captures d'écran, l'application est en version 3.0.13, ce qui veux dire que j'ai réécrit l'application 3 fois.
+      La première version reposait sur une architecture monolitique en <a href="https://www.php.net/" target="_blank">PHP</a>. Jamais publiée, elle tournait exclusivement en local sur un serveur domestique. Bien que fonctionnelle, elle souffrait d'un design rudimentaire et de fonctionnalités trop limitées. La deuxième version, développée en s'appuyant massivement sur la génération par Intelligence Artificielle, s'est avérée instable et truffée de bugs logiques, ce qui m'a conduit à l'abandonner rapidement. 
     </p>
 
     <p class="paragraph">
-      La première version était une version écrite en PHP, qui n'a jamais été publiée, elle était héberger sur un serveur que j'ai chez moi, donc disponible uniquement sur mon réseau local. Elle étais pas mal mais très basique avec un design qui fait franchement pas envie.
-    </p>
-
-    <p class="paragraph">
-      La deuxième version était entièrement faite avec l'IA, qui était franchement pas fonctionnel et remplie de bugs, elle à donc vite été abandonnée pour passer à la troisième version, qui est la version actuelle, et qui est de loin la meilleure version que j'ai faite, elle est fonctionnelle, avec un design simple mais efficace, elle n'a pas de bug, elle est fluide, elle est agréable à utiliser, elle répond parfaitement à mon besoin de savoir combien je peux dépenser chaque début de mois.
-    </p>
-
-    <p class="paragraph">
-      Elle n'est pas parfaite, il y a encore des fonctionnalités que j'aimerais ajouter, comme je l'ai dit avant mais dans l'ensemble je suis très satisfait du résultat final, surtout compte tenu du fait que j'ai appris à utiliser Flutter et Dart en même temps que je développais l'application, ce qui n'était pas une mince affaire, mais qui m'a permis de faire énormément de progrès en très peu de temps, et d'avoir une application de qualité à la fin.
+      La troisième version, actuelle, représente l'aboutissement de ma démarche : le code est propre, l'application est extrêmement fluide, exempte de bugs, et elle répond idéalement à mon besoin initial de pilotage financier proactif.
     </p>
   </div>
 </section>
