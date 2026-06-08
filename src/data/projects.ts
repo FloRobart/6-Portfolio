@@ -69,7 +69,7 @@ export const projectsPreviewList: ProjectPreview[] = [
     id: "lyssecure",
     title: "LysSecure",
     description:
-      "<b>LysSecure</b> est une <b>application web</b> qui permet de <b>stocker des mots de passe</b> de façon <b>sécurisée</b>. Elle peut <b>générer des mots de passe forts</b> et les <b>stocker</b> de manière sécurisée. Elle permet aussi de <b>copier un mot de passe</b> en un clic. La force de ce gestionnaire réside dans sa sécurité : les mots de passe sont <b>chiffrés</b> à l'aide d'une clé <b>unique</b> pour chaque utilisateur, dérivée de trois sources différentes, dont l'une n'est pas enregistrée. Cela contribue à <b>garantir la sécurité</b> des mots de passe même si la base de données ou le code source sont compromis.<br><em>Ce projet n'est pas disponible en ligne et doit faire l'objet d'une réécriture totale</em>",
+      "<b>LysSecure</b> est une <b>application web</b> qui permet de <b>stocker des mots de passe</b> de façon <b>sécurisée</b>. Elle peut <b>générer des mots de passe forts</b> et les <b>stocker</b> de manière sécurisée. Elle permet aussi de <b>copier un mot de passe</b> en un clic. La force de ce gestionnaire réside dans sa sécurité : les mots de passe sont <b>chiffrés</b> à l'aide d'une clé <b>unique</b> pour chaque utilisateur, dérivée de trois sources différentes, dont l'une n'est pas enregistrée. Cela contribue à <b>garantir la sécurité</b> des mots de passe même si la base de données ou le code source sont compromis.",
     imageSrc: LysSecureImage,
     localLink: "/projets/lyssecure",
     githubLink: "https://github.com/FloRobart/Lys_secure",

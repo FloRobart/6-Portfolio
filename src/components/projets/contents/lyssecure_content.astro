@@ -1,5 +1,8 @@
 ---
+import { Picture } from "astro:assets";
 import { getProjectById } from "@/data/projects";
+
+import LyssecureImage from "@assets/projects/lyssecure/lyssecure_1_white.png"
 
 const FloraccessProjet = getProjectById("floraccess");
 const EconorisProjet = getProjectById("econoris");
@@ -7,6 +10,22 @@ const EconorisProjet = getProjectById("econoris");
 
 <section class="flex flex-col items-center">
   <div class="max-w-[80%]">
+
+    <div class="flex flex-row gap-12 justify-center mb-12">
+      <div class="flex flex-col items-center">
+        <Picture
+          src={LyssecureImage}
+          alt="Econoris Mobile Home"
+          width={LyssecureImage.width}
+          height={LyssecureImage.height}
+          loading="lazy"
+          decoding="async"
+          class="paragraph rounded"
+        />
+        <span class="text-sm mt-2">Page d'accueil de <b>LysSecure</b></span>
+      </div>
+    </div>
+
     <h2 class="title-h2">Présentation</h2>
     <p class="paragraph">
       <b>LysSecure</b> est un <b>gestionnaire de mots de passe</b> développé sous la forme d'un bloc monolithique en <a href="https://www.php.net/" target="_blank">PHP</a>. Le choix de cette technologie, associée au framework <a href="https://laravel.com/" target="_blank">Laravel</a>, s'est fait tout naturellement à l'époque, puisqu'il s'agissait de l'un des rares environnements web que je maîtrisais et pratiquais au quotidien.

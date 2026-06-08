@@ -1,10 +1,74 @@
 ---
+import { Picture } from "astro:assets";
+
+import JADRStartMenu from "@assets/projects/jeu-aventuriers-du-rail/jeu-aventuriers-du-rail_start_menu.png"
+import JADRStartGame from "@assets/projects/jeu-aventuriers-du-rail/jeu-aventuriers-du-rail_start_game.png"
+import JADRChooseObjectif from "@assets/projects/jeu-aventuriers-du-rail/jeu-aventuriers-du-rail_choose_objectif_card.png"
+import JADRVictory from "@assets/projects/jeu-aventuriers-du-rail/jeu-aventuriers-du-rail_victoire.png"
+
 import { getExperienceById } from "@/data/experiences";
 const IutLeHavreExperience = getExperienceById("iut-le-havre");
 ---
 
 <section class="flex flex-col items-center">
   <div class="max-w-[80%]">
+
+    <div class="flex flex-row gap-12 justify-center mb-12">
+      <div class="flex flex-col items-center">
+        <Picture
+          src={JADRStartMenu}
+          alt="Econoris Mobile Home"
+          width={JADRStartMenu.width}
+          height={JADRStartMenu.height}
+          loading="lazy"
+          decoding="async"
+          class="paragraph rounded"
+        />
+        <span class="text-sm mt-2">Page d'accueil du jeu (Thème sombre)</span>
+      </div>
+
+      <div class="flex flex-col items-center">
+        <Picture
+          src={JADRStartGame}
+          alt="Econoris Mobile Profile"
+          width={JADRStartGame.width}
+          height={JADRStartGame.height}
+          loading="lazy"
+          decoding="async"
+          class="paragraph rounded"
+        />
+        <span class="text-sm mt-2">Page de début de partie (Thème sombre)</span>
+      </div>
+    </div>
+
+    <div class="flex flex-row gap-12 justify-center mb-12">
+      <div class="flex flex-col items-center">
+        <Picture
+          src={JADRChooseObjectif}
+          alt="Econoris Mobile Home"
+          width={JADRChooseObjectif.width}
+          height={JADRChooseObjectif.height}
+          loading="lazy"
+          decoding="async"
+          class="paragraph rounded"
+        />
+        <span class="text-sm mt-2">Page de choix de carte objectif (Thème sombre)</span>
+      </div>
+
+      <div class="flex flex-col items-center">
+        <Picture
+          src={JADRVictory}
+          alt="Econoris Mobile Profile"
+          width={JADRVictory.width}
+          height={JADRVictory.height}
+          loading="lazy"
+          decoding="async"
+          class="paragraph rounded"
+        />
+        <span class="text-sm mt-2">Page de fin de partie : Victoire (Thème sombre)</span>
+      </div>
+    </div>
+
     <h2 class="title-h2">Présentation</h2>
     <p class="paragraph">
       Cette application est une réécriture numérique fidèle du célèbre <b>jeu de société éponyme</b>. Ce projet a été mené à bien par une équipe de <b>cinq personnes</b> dans un cadre académique, en suivant scrupuleusement les spécifications fonctionnelles et techniques imposées par le corps enseignant.
