@@ -1,150 +1,127 @@
 ---
+import { getProjectById } from "@/data/projects";
 
+const FloraccessProjet = getProjectById("floraccess");
+const EconorisProjet = getProjectById("econoris");
 ---
 
 <section class="flex flex-col items-center">
   <div class="max-w-[80%]">
     <h2 class="title-h2">Présentation</h2>
     <p class="paragraph">
-      LysSecure est un Gestionnaire de mots de passe Réaliser En bloc monolithique avec PHP. Le choix de la technologie PHP avec le framework Laravel Ces faits assis naturellement puisque c'était l'une des seules technologies web que je connaissais et que je pratiquais au quotidien.
+      <b>LysSecure</b> est un <b>gestionnaire de mots de passe</b> développé sous la forme d'un bloc monolithique en <a href="https://www.php.net/" target="_blank">PHP</a>. Le choix de cette technologie, associée au framework <a href="https://laravel.com/" target="_blank">Laravel</a>, s'est fait tout naturellement à l'époque, puisqu'il s'agissait de l'un des rares environnements web que je maîtrisais et pratiquais au quotidien.
     </p>
 
     <p class="paragraph">
-      J'ai remarqué une faille dans la plupart des gestionnaires de mots de passe classiques C'est que pour en fournir les mots de passe en un clic, ils stockent la clé déchiffrement. Le problème, c'est qu'en cas de fuite de données Les mots de passe sont certes protégés Grâce à une clé Mais généralement, la clé fuite avec les mots de passe, donc ça sert à rien.
+      En analysant les solutions classiques du marché, j'ai identifié une faille conceptuelle majeure : pour être en mesure de restituer les identifiants en un clic, la plupart d'entre elles stockent directement la <b>clé de déchiffrement</b> côté serveur. Le problème est évident : en cas de <b>compromission de la base de données</b>, cette clé est souvent dérobée en même temps que les données chiffrées, rendant la protection cryptographique totalement caduque.
     </p>
 
     <p class="paragraph">
-      Il y a quand même des solutions qu'ont été mises en place par les géants du secteur, notamment le fait de stocker la clé dans un autre endroit Mais à mon sens, ça n'empêche pas le problème qu'elle est quand même stockée et donc potentiellement vulnérable.
+      Bien que certains géants du secteur isolent le stockage de cette clé sur des serveurs distincts, le risque persiste à mon sens : la clé reste enregistrée sur une infrastructure connectée, et demeure donc potentiellement vulnérable à une attaque ciblée.
     </p>
 
-    <h2 class="title-h2">Contexte et Objectif (enjeu et risque)</h2>
+    <h2 class="title-h2">Contexte et Objectif</h2>
     <p class="paragraph">
-      C'est pour pallier à ce problème que j'ai créé LysSecure. L'objectif était simple, un gestionnaire de mots de passe ultra sécurisé Quitte à ce qu'il soit moins pratique Que le gestionnaire de mots de passe de Google Le tout accessible depuis n'importe quel appareil qui possède la clé.
-    </p>
-
-    <p class="paragraph">
-      J'ai pris la décision avant même de créer le projet, de ne pas Le distribuer sur un serveur connecté à Internet pour des raisons de sécurité. Même si je me sentais relativement confiant sur la sécurité du projet J'ai préféré, par mesure de sécurité, ne pas le mettre en ligne Pour m'assurer que même si il y a des connaissances que je n'ai pas, je ne fais pas futer mes mots de passe.
+      C'est précisément pour combler cette vulnérabilité que j'ai conçu <b>LysSecure</b>. L'objectif était de bâtir un coffre-fort numérique <b>ultra-sécurisé</b>, quitte à ce qu'il s'avère moins automatisé ou ergonomique que l'outil intégré de Google, tout en restant accessible depuis n'importe quelle machine détenant la clé d'accès.
     </p>
 
     <p class="paragraph">
-      C'est pourquoi le projet a été utilisé uniquement par moi Parce que j'héberge ce projet sur mon propre serveur à la maison Et qui n'est pas relié à Internet.
+      Avant même d'initier la moindre ligne de code, j'ai pris la décision radicale de ne jamais exposer cette application sur un serveur connecté à Internet. Même si j'avais confiance en la rigueur de mes développements, j'ai préféré appliquer un <b>principe de précaution</b> strict : n'ayant pas la prétention d'avoir des connaissances exhaustives en cybersécurité, refuser la mise en ligne me garantissait de ne jamais exposer mes identifiants à des fuites massives.
     </p>
 
     <p class="paragraph">
-      Outre mon besoin d'avoir un gestionnaire de mot de passe que je connais et que je contrôle Ce projet avait Aussi et surtout pour but D'apprendre les mécanismes de sécurité informatique, notamment en ce qui concerne le chiffrement.
+      Par conséquent, ce projet est resté à <b>usage strictement personnel</b>, hébergé localement à la maison sur un serveur domestique totalement isolé du réseau public.
+    </p>
+
+    <p class="paragraph">
+      Au-delà du besoin fonctionnel de contrôler mes propres accès, ce projet avait pour but principal de me servir de laboratoire d'apprentissage pour assimiler les <b>mécanismes cryptographiques avancés</b>, notamment le chiffrement symétrique et le hachage.
     </p>
 
     <h2 class="title-h2">Acteur</h2>
     <p class="paragraph">
-      J'ai conçu, testé et déployé Econoris de manière <b>totalement autonome</b>. Être le seul acteur de ce projet signifie que j'ai eu le <b>contrôle total</b> sur toutes les décisions de conception et de développement. Cependant, cela implique également que j'ai dû faire face à l'ensemble des <b>défis techniques</b> par moi-même, sans pouvoir m'appuyer sur l'aide directe d'un tiers.
+      J'ai conçu, testé et déployé <b>LysSecure</b> de manière <b>totalement autonome</b>. Être le seul acteur de ce projet signifie que j'ai eu le <b>contrôle total</b> sur toutes les décisions de conception et de développement. Cependant, cela implique également que j'ai dû faire face à l'ensemble des <b>défis techniques</b> par moi-même, sans pouvoir m'appuyer sur l'aide directe d'un tiers.
     </p>
 
     <h2 class="title-h2">Déroulement</h2>
     <p class="paragraph">
-      Comme je voulais me concentrer sur Le chiffrement et tout l'aspect sécurité du projet Je suis passé assez vite sur les aspects design et fonctionnalités.
+      Souhaitant concentrer mes efforts sur la logique cryptographique et la robustesse de l'infrastructure, j'ai volontairement relégué au second plan les aspects esthétiques et les fonctionnalités superflues.
     </p>
 
     <p class="paragraph">
-      Globalement Le cahier des charges d'un point de vue, fonctionnalités et UX Était quelque chose de simple Sous forme de tableau avec Email pseudo Mot de passe et action. Je voulais également une barre de recherche Pour trouver facilement un Mot de passe. Et un système d'import-export pour pouvoir Exporter mes comptes si besoin Ce qui a pas été une fonctionnalité très utile dans un premier temps C'était là, surtout pour faire une backup au cas où j'ai un problème avec mon serveur Mais ça s'est avéré être une fonctionnalité très utile ces dernières semaines puisque j'ai changé de PC Que ce nouveau PC ne peut pas accéder À mon serveur Local Et que je change de gestionnaire de mot de passe.
+      Le cahier des charges fonctionnel et l'</b>expérience utilisateur (UX)</b> restaient minimalistes : un tableau de bord épuré listant les adresses email, les pseudos, les mots de passe masqués et les actions associées. J'y ai greffé une barre de recherche prédictive ainsi qu'un module d'</b>import/export de données</b>. Initialement conçue pour effectuer des sauvegardes de sécurité (backups) en cas de panne matérielle de mon serveur local, cette fonctionnalité de migration s'est avérée cruciale ces dernières semaines lors de mon changement de machine de développement principale, facilitant le transfert sécurisé de mes données.
     </p>
 
     <p class="paragraph">
-      Pour l'aspect sécurité, c'est là que ça devient important et c'est là où j'ai appris le plus de choses. Mon but était donc de ne jamais sauvegarder la clé De chiffrement. Pour autant, je ne voulais pas une clé simple Je veux que même si l'utilisateur met comme mot de passe 1234, la clé soit extrêmement robuste.
+      C'est sur le plan de la sécurité que le projet prend toute sa dimension. Mon exigence absolue était de ne <b>jamais sauvegarder la clé de chiffrement</b> sur le serveur. Pour autant, je refusais qu'un mot de passe utilisateur faible (comme "1234") puisse fragiliser l'architecture. La clé finale devait être mathématiquement robuste dans tous les cas de figure.
     </p>
 
     <p class="paragraph">
-      Pour ce faire, j'ai utilisé Différentes sources D'informations pour générer la clé qui est ensuite utilisée pour chiffrer les mots de passe.
+      Pour y parvenir, j'ai mis en place un protocole combinant <b>trois sources d'informations distinctes</b> pour générer dynamiquement la clé de chiffrement :
     </p>
 
     <p class="paragraph">
-      La première source était une information unique à l'utilisateur dans la base de données, Comme un ID utilisateur par exemple.
+      <ul>
+        <li><b>La première source :</b> Un identifiant unique et immuable propre à l'utilisateur, stocké en base de données (comme l'ID incrémental).</li>
+        <li><b>La deuxième source :</b> Une clé applicative statique de haut niveau, stockée exclusivement dans le fichier de configuration d'environnement du serveur (de type clé privée générée via <code>ssh-keygen</code>).</li>
+        <li><b>La troisième source (la plus critique) :</b> Une saisie utilisateur directe. Un mot de passe maître complexe, exigé à chaque fois que le client sollicite l'affichage en clair d'un identifiant.</li>
+      </ul>
+    </p>
+
+    <br/>
+
+    <p class="paragraph">
+      Pour éviter qu'une simple concaténation de ces variables ne soit vulnérable, j'ai structuré un algorithme de dérivation de clé plus complexe. L'ID utilisateur est d'abord combiné à un secret serveur, puis l'ensemble est haché pour former une première empreinte numérique. Le mot de passe maître (la saisie utilisateur) est ensuite combiné à cette empreinte, haché à nouveau, puis assemblé à la clé d'environnement avant de subir une ultime fonction de <b>hachage cryptographique</b> pour délivrer la clé de chiffrement finale.
     </p>
 
     <p class="paragraph">
-      La 2e source étais Une clé directement dans le fichier d'environnement du serveur. C'était typiquement une clé privée Ssh, par exemple, quand on lance la commande ssh-keygen.
+      Chaque opération de hachage intégrait un <b>sel cryptographique (salt)</b> généré de manière unique par la bibliothèque sous-jacente, interdisant ainsi toute attaque par table de correspondance (Rainbow Tables). De plus, j'ai volontairement encapsulé ce processus dans un mécanisme d'</b>altération temporelle aléatoire</b> (Time-padding) afin de masquer le temps d'exécution réel et de prémunir l'API contre les attaques par canal auxiliaire (Timing Attacks).
     </p>
 
     <p class="paragraph">
-      La 3e source Était la plus importante C'est elle entrée utilisateur. Donc cela correspond au mot de passe demandé à l'utilisateur avant chaque Demande d'affichage de mot de passe.
-    </p>
-
-    <p class="paragraph">
-      Ces 3 éléments qui composent la clé étaient pas simplement mis bout à bout. En réalité, il y avait un mécanisme un peu plus complexe à l'œuvre pour allonger volontairement La longueur de la clé afin de la rendre plus compliquée à trouver.
-    </p>
-
-    <p class="paragraph">
-      L'id utilisateur était ajouté a un secret détenu par le serveur Le tout était ajouter et ce hash pour formé la première partie de la clé. La 2e source N'était pas modifié puisqu'elle était assez longue vu qu'elle avait été générée en amont. Et la 3e source Était ajouté à la première. Le tout haché Puis ajout A la version hachée de la première source plus la 2e source et le tout formait la clé.
-    </p>
-
-    <p class="paragraph">
-      Pour chaque hash réalisé Il y avait également du sel Ajouter à l'élément Haché. Sous celles étaient générées par la librairie que j'utilisais pour les hashs. Cela ajoutait une petite couche de sécurité en plus.
-    </p>
-
-    <p class="paragraph">
-      Tout ce mécanisme était également englobé Dans un système D'ajout de temps aléatoire au processus pour éviter qu'on puisse deviner la clé En ayant le temps de génération de cette dernière.
-    </p>
-
-    <p class="paragraph">
-      Toutes ces manipulations étaient là pour garantir que la clé était suffisamment robuste Est suffisamment longue Pour que même en cas de fuite de données, il n'y ait pas De fuite, de mots de passe en claire.
+      Ce flux garantissait qu'en cas d'intrusion physique ou logique sur la base de données, l'attaquant ne récupérerait que des blocs de données chiffrés, totalement indéchiffrables en l'absence simultanée de la clé d'environnement et du mot de passe maître de l'utilisateur.
     </p>
 
     <h2 class="title-h2">Résultats</h2>
     <p class="paragraph">
-      Ça a été un projet très enrichissant qui m'a beaucoup appris sur comment fonctionne le chiffrement, sur comment on peut améliorer la sécurité de façon en fait relativement simple Et sur l'utilisation De Secret.
+      LysSecure a été une expérience fondatrice très riche. Ce projet m'a permis de comprendre concrètement les principes du chiffrement appliqué, la gestion des secrets et la manipulation des fonctions cryptographiques complexes.
     </p>
 
     <p class="paragraph">
-      C'est notamment grâce à ce projet que j'ai pu comprendre beaucoup plus facilement le fonctionnement des Json Web Token JWT quand j'ai appris leur existence un peu plus tard dans l'année.
+      C'est d'ailleurs grâce à cette première immersion dans la gestion des jetons et des signatures numériques que j'ai pu assimiler avec une grande facilité les concepts de <b>JWT (JSON Web Tokens)</b> lorsque j'ai structuré l'architecture réseau de <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a> un peu plus tard.
     </p>
 
     <h2 class="title-h2">Avenir</h2>
     <p class="paragraph">
-      Il n'y a aucun avenir pour ce projet. À la base, je comptais l'euro faire en node JS avec flutter comme mes autres projets Econoris et florAccess. Le but était, en plus de ce système de clés que j'aurais perfectionné Faire un système de sauvegarde dans un fichier chiffré. Pour pouvoir partager ce fichier entre différents appareils Et faire un système de gestionnaire de mots de passe Synchroniser entre tous les appareils, mais sans être sur un serveur central.
+      Ce projet est aujourd'hui officiellement clos et n'évoluera plus. Initialement, j'envisageais une refonte complète de la stack technique en migrant le backend vers l'environnement <a href="https://nodejs.org/" target="_blank">Node.js</a> et l'interface vers le framework <a href="https://flutter.dev/" target="_blank">Flutter</a>, à l'image de mes productions récentes comme <a href={EconorisProjet?.localLink}>{EconorisProjet?.title}</a>. L'objectif était de perfectionner mon algorithme de dérivation de clés et d'exporter les coffres sous forme de <b>fichiers chiffrés locaux autonomes</b>, synchronisables entre plusieurs appareils sans dépendre d'un serveur centralisé.
     </p>
 
     <p class="paragraph">
-      C'était un peu l'objectif de la refonte de ce projet. Je ne l'ai jamais fait par manque de temps parce que j'ai préféré prioriser d'autres projets comme Econoris et florAccess notamment.
+      J'ai cependant choisi de suspendre ces développements par manque de temps, préférant concentrer mon énergie sur des briques plus stratégiques de mon portfolio, comme <a href={FloraccessProjet?.localLink}>{FloraccessProjet?.title}</a>.
     </p>
 
     <p class="paragraph">
-      J'ai également appris qu'il existait des solutions open source vraiment très fiables, très sécurisées Qui repose pas tout à fait sur le même principe que les clés que j'ai créées pour lysSecure Mais qui repose quand même sur un principe très solide de sécurité Et qui ont ce système de fichiers qu'on peut partager entre différents appareils. Et même si la synchronisation n'est pas aussi automatique que ce que j'aurais aimé faire sur lysSecure, ça reste des solutions extrêmement fiables. Maintenu par une grande communauté Et que je compte utiliser à la place de lysSecure.
+      Par ailleurs, mes veilles techniques m'ont conduit à étudier des solutions open source industrielles extrêmement matures, à l'instar de <a href="https://keepassxc.org/" target="_blank">KeePassXC</a>. Cet outil repose sur des principes de sécurité rigoureux et met en œuvre exactement ce concept de fichier de clés chiffré, transférable de manière sécurisée. Bien que la synchronisation ne soit pas automatisée via un cloud centralisé, la solution bénéficie de l'audit et de la maintenance d'une vaste communauté internationale d'experts.
     </p>
 
     <p class="paragraph">
-      Et quand je dis des solutions, en fait, je pense à KeePassXC. J'étais déjà réticent a recréer lysSecure A cause du manque de temps Et du fait que j'ai des projets qui me semblent plus intéressants À créer Et quand mon collègue m'a présenté qui passe C'est la solution qu'il me fallait pour définitivement me dire que je ne referais pas lysSecure et Que ce projet viendrait agrandir mon cimetière de projet.
-    </p>
-
-    <p class="paragraph">
-      Mon but avec tous mes projets, c'est toujours d'apporter une valeur ajoutée que les concurrents n'ont pas Et malheureusement l'esecur ne rentre plus dans cette case. Il n'a plus de valeur ajoutée par rapport à une solution comme KeePassXC, C'est pourquoi il n'aura pas d'avenir, Ne sera pas mis à jour et pas maintenu.
+      C'est mon collègue de travail qui m'a présenté KeePassXC, et cette découverte a confirmé ma décision : il était inutile de réinventer un outil hautement sensible alors qu'un standard open source de cette qualité existait déjà. LysSecure a donc rejoint mon <b>cimetière de projets d'apprentissage</b>. Ma philosophie de développement étant de concevoir des applications apportant une réelle valeur ajoutée par rapport à l'existant, maintenir ce projet n'était plus pertinent.
     </p>
 
     <h2 class="title-h2">Auto-critique</h2>
     <p class="paragraph">
-      C'est un projet qui m'a beaucoup apporté et qui m'a fait beaucoup progresser sur le domaine de la sécurité, notamment en ce qui concerne le chiffrement Et le hachage.
+      LysSecure m'a permis d'acquérir de solides compétences théoriques et pratiques en sécurité informatique. Rétrospectivement, si je devais concevoir un tel outil aujourd'hui, j'abandonnerais l'écosystème PHP au profit d'une architecture orientée micro-services, beaucoup plus adaptée.
     </p>
 
     <p class="paragraph">
-      Si c'était à refaire, je ne choisirais pas de le faire en PHP, ni en bloc monolithique.
+      Avec le recul et l'expérience que j'ai acquise depuis, je constate que j'ai eu une excellente intuition en refusant catégoriquement de mettre ce projet en ligne à l'époque. Malgré mes limites techniques d'alors, j'ai su faire preuve de <b>lucidité et de responsabilité</b> en mesurant les risques majeurs liés à l'exposition d'un coffre-fort de mots de passe sur Internet sans détenir une expertise totale en administration système et en durcissement de serveurs.
     </p>
 
     <p class="paragraph">
-      Quand je regarde le projet Avec un œil plus compétent que ce que j'étais à l'époque où je l'ai réalisé Je me dis que j'ai très bien fait de ne pas le mettre en ligne pour des raisons de sécurité Et donc malgré mon manque de connaissances à l'époque J'ai quand même eu la présence d'esprit de ne pas Un projet aussi sensible en ligne sans avoir tout Les connaissances en sécurité nécessaires pour faire ce genre de choses.
+      Aujourd'hui, bien que mes compétences en cybersécurité soient nettement plus avancées, je reste conscient qu'un gestionnaire de mots de passe grand public exige des certifications et des protocoles d'audit de sécurité d'un niveau industriel qu'un développeur seul ne peut matériellement pas assumer. 
     </p>
 
     <p class="paragraph">
-      Aujourd'hui, bien que je sois plus compétent et que je connaisse beaucoup mieux la sécurité qu'à l'époque J'ai toujours Des manques Je ne suis pas un expert de la sécurité, bien que je m'y intéresse énormément et que je connaisse pas mal de choses.
-    </p>
-
-    <p class="paragraph">
-      Je pense que un gestionnaire de mot de passe qui est l'une des applications les plus sensibles à avoir sur un serveur, nécessite des Des éléments de sécurité que je ne peux pas Gérer.
-    </p>
-
-    <p class="paragraph">
-      C'est pourquoi, rétrospectivement, je pense que j'ai fait le bon choix d'arrêter l'isecur ici et de prendre une solution open source comme keep a fixé pour le remplacer.
-    </p>
-
-    <p class="paragraph">
-      Je trouve donc que j'ai su faire Preuve de retenue Quand j'ai réalisé ce projet Et malgré toutes ses faiblesses, ça reste un projet très important pour moi et qui m'a vraiment beaucoup appris sur la sécurité en Général.
+      Savoir faire preuve de retenue et reconnaître les limites de ses propres outils est une qualité essentielle pour un ingénieur. C'est pourquoi le remplacement de LysSecure par une solution éprouvée comme KeePassXC est la meilleure décision que je pouvais prendre. Ce projet reste à mes yeux une <b>totale réussite didactique</b>, ayant servi de tremplin à ma rigueur actuelle.
     </p>
   </div>
 </section>
