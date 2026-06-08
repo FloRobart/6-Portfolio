@@ -1,42 +1,107 @@
 ---
-
+import { getExperienceById } from "@/data/experiences";
+const IutLeHavreExperience = getExperienceById("iut-le-havre");
 ---
 
 <section class="flex flex-col items-center">
   <div class="max-w-[80%]">
     <h2 class="title-h2">Présentation</h2>
     <p class="paragraph">
-      paragraphe
+      Cette application est une réécriture numérique fidèle du célèbre <b>jeu de société éponyme</b>. Ce projet a été mené à bien par une équipe de <b>cinq personnes</b> dans un cadre académique, en suivant scrupuleusement les spécifications fonctionnelles et techniques imposées par le corps enseignant.
     </p>
 
-    <h2 class="title-h2">Contexte et Objectif (enjeu et risque)</h2>
+    <h2 class="title-h2">Contexte et Objectif</h2>
     <p class="paragraph">
-      paragraphe
+      C'est dans le cadre des modules de travaux pratiques de troisième année à l' <a href={IutLeHavreExperience?.localLink}>{IutLeHavreExperience?.title}</a> que notre groupe s'est constitué. Notre objectif principal était de concevoir et de développer une version logicielle du jeu de plateau <b>Les Aventuriers du Rail</b>.
     </p>
 
-    <h2 class="title-h2">Acteur</h2>
     <p class="paragraph">
-      paragraphe
+      En amont du développement du jeu en lui-même, nous avons réalisé un premier projet consistant à modéliser et concevoir un <b>générateur de cartes personnalisé</b>. L'application finale exploite directement ce module : les plateaux de jeu sur lesquels s'affrontent les joueurs sont des fichiers cartographiques préalablement générés par notre propre éditeur.
+    </p>
+
+    <p class="paragraph">
+      Pour illustrer le fonctionnement du jeu dans les captures d'écran suivantes, nous avons utilisé une carte de France que nous avions modélisée lors de cette première phase technique, nous en servant de support de validation tout au long du cycle de développement.
+    </p>
+
+    <h2 class="title-h2">Acteurs</h2>
+    <p class="paragraph">
+      Notre équipe était composée de cinq étudiants. Évoluant ensemble en dernière année de cursus informatique, nous formions un groupe soudé. Nous avons réparti les responsabilités de manière démocratique, en tenant compte des affinités naturelles et des <b>compétences techniques</b> de chacun.
+    </p>
+
+    <p class="paragraph">
+      Pour ma part, j'ai assumé les rôles de <b>chef d'équipe et de lead technique</b>. Très stimulé par la complexité algorithmique du sujet, j'ai pris la responsabilité de coordonner l'architecture globale. Un second collaborateur occupait le rôle de <b>chef de projet fonctionnel</b> : il était chargé de valider la trajectoire des développements, d'arbitrer les choix fonctionnels et de prioriser les tâches afin de garantir le respect strict du calendrier.
+    </p>
+
+    <p class="paragraph">
+      Un troisième profil, doté d'excellentes qualités relationnelles, s'est chargé de la rédaction des livrables et de la <b>communication institutionnelle</b> auprès des enseignants. Enfin, les deux derniers membres de l'équipe étaient des <b>développeurs à plein temps</b>. Nous avons instauré un management horizontal et collaboratif où chaque décision stratégique impliquait l'ensemble du groupe. Cette approche a permis de maintenir une forte implication collective. S'agissant d'un projet universitaire, notre philosophie était que chaque membre puisse monter en compétences et appréhender les problématiques des autres rôles, au-delà de sa stricte fiche de poste.
+    </p>
+
+    <p class="paragraph">
+      L'attribution des rôles s'est formalisée par consensus : chaque membre soumettait ses souhaits au groupe, et la répartition finale était validée d'un commun accord. L'équipe s'est ainsi structurée autour d'un chef d'équipe (moi-même), d'un chef de projet, d'un développeur-communicant et de deux ingénieurs d'application.
     </p>
 
     <h2 class="title-h2">Déroulement</h2>
     <p class="paragraph">
-      paragraphe
+      Le livrable final est une <b>application lourde</b> développée en <a href="https://www.oracle.com/java/" target="_blank">Java</a>, assurant une compatibilité multi-plateforme native sous Windows, macOS et Linux. Nous avons opté pour une <b>architecture monolithique</b>, d'une part parce que le langage Java nous était imposé et constituait notre cœur de compétence commun, et d'autre part parce qu'une approche en micro-services n'aurait apporté qu'une complexité superflue à ce type de logiciel. Ce choix d'application cliente lourde garantissait de plus d'excellentes performances pour une exécution locale fluide.
+    </p>
+
+    <p class="paragraph">
+      Sur le plan des règles métiers, le sujet imposait une transcription fidèle des mécanismes algorithmiques du jeu de société original (pioche de cartes, prise de lignes, calcul des scores). L'enjeu technique résidait donc principalement dans la mise en œuvre de ces structures de données et de l'</b>ergonomie de l'interface graphique</b>.
+    </p>
+
+    <p class="paragraph">
+      Le sujet d'évaluation encourageait les équipes à dépasser le cadre fonctionnel de base. Si le barème standard exigeait un mode multijoueur local au tour par tour sur une seule machine, les groupes les plus avancés pouvaient tenter d'implémenter une architecture réseau. Disposant d'une équipe particulièrement performante et motivée, nous avons relevé le défi de concevoir un mode <b>multijoueur en réseau local (LAN)</b>.
+    </p>
+
+    <p class="paragraph">
+      Pour orchestrer ce sprint de <b>deux semaines</b>, nous avons défini un périmètre fonctionnel cible ambitieux. Nous avons sérialisé les développements en débutant par les briques fondamentales indispensables, impossibles à paralléliser. Une fois ce noyau stable disponible, nous avons réparti les modules complémentaires en flux de travail parallèles afin de maximiser notre productivité face à une date butoir très serrée.
+    </p>
+
+    <p class="paragraph">
+      En parallèle du code, le projet exigeait la production de livrables documentaires denses (note de cadrage, méthodologie de gestion de projet, modélisation des phases de test). Avoir dédié un profil à la gestion de ces rapports nous a permis de soumettre nos dossiers PDF en avance sur le calendrier. Sa mission documentaire accomplie, ce collaborateur a pu réintégrer le flux de développement pour prêter main-forte sur la programmation des interfaces graphiques.
+    </p>
+
+    <p class="paragraph">
+      Le suivi des sources s'est opéré de manière classique via la plateforme <a href="https://github.com/" target="_blank">GitHub</a>. Chaque fonctionnalité faisait l'objet d'une branche dédiée et d'une <b>Merge Request</b>. L'évaluation et la validation du code étaient principalement assurées par mon collègue chef de projet avant toute fusion sur la branche principale.
+    </p>
+
+    <p class="paragraph">
+      Ce flux de travail a fonctionné sans aucune friction. L'absence de conflits et l'enthousiasme général m'ont convaincu qu'en impliquant activement chaque collaborateur dans les choix d'architecture, on garantit la cohésion de l'équipe et, par extension, la <b>réussite opérationnelle du projet</b>. Le cycle s'est conclu par une soutenance orale devant un jury d'enseignants, au cours de laquelle nous avons simulé une partie complète en réseau et présenté des extraits de notre code source pour attester du respect des <b>bonnes pratiques de propreté du code</b> (Clean Code) inculquées à l'<a href={IutLeHavreExperience?.localLink}>{IutLeHavreExperience?.title}</a>.
     </p>
 
     <h2 class="title-h2">Résultats</h2>
     <p class="paragraph">
-      paragraphe
+      Le livrable final est un logiciel pleinement fonctionnel, stable et conforme aux règles officielles du jeu de plateau. Nous avons validé l'intégration du protocole réseau permettant de jouer en <b>multijoueur local</b>. Notre soutenance et la qualité du code ont reçu les félicitations du jury, se soldant par la note de <b>18 sur 20</b> et nous hissant au rang de <b>majors de promotion</b> sur ce projet.
+    </p>
+
+    <p class="paragraph">
+      Au-delà de la note, cette expérience a été techniquement et humainement très formatrice. Elle nous a permis d'assimiler les contraintes de l'</b>ingénierie des protocoles réseau</b> en Java et de la gestion d'équipe. La mixité des niveaux au sein du groupe a créé une dynamique d'entraide enrichissante : les profils les plus techniques ont accompagné les autres sur l'architecture, tandis que ces derniers ont partagé leurs compétences en communication et en vulgarisation technique.
     </p>
 
     <h2 class="title-h2">Avenir</h2>
     <p class="paragraph">
-      paragraphe
+      S'agissant d'un projet purement académique sur un périmètre fermé, ce logiciel n'a <b>pas vocation à évoluer</b> ni à faire l'objet d'une publication.
+    </p>
+
+    <p class="paragraph">
+      De plus, la propriété intellectuelle du jeu appartenant à une marque déposée, toute démarche de commercialisation ou de distribution publique nécessiterait un accord de licence officiel. Le code actuel, bien que d'excellente facture pour un cadre universitaire, reste un prototype de laboratoire éloigné des exigences de robustesse et de sécurité d'un logiciel commercialisable sur le marché grand public. Ce projet est donc officiellement clôturé.
     </p>
 
     <h2 class="title-h2">Auto-critique</h2>
     <p class="paragraph">
-      paragraphe
+      Bien que le bilan de ce projet soit extrêmement positif, il convient de rappeler que nous étions alors étudiants en cours de formation et que notre méthodologie de gestion de projet conservait un aspect artisanal. Sur une infrastructure logicielle plus massive ou sur un calendrier de production étalé sur plusieurs mois, ce manque de formalisme aurait pu générer des dérives de planning.
+    </p>
+
+    <p class="paragraph">
+      Sur le plan de l'</b>interface utilisateur (UI)</b>, l'ergonomie graphique reste perfectible. N'ayant pas réalisé de phase de maquettage préalable (Wireframing), l'intégration visuelle s'est faite de manière empirique au fil du codage, ce qui limite l'harmonie visuelle globale de l'application. 
+    </p>
+
+    <p class="paragraph">
+      De plus, l'équipe présentait un profil très homogène, exclusivement composé de développeurs informatiques en devenir. L'absence de profils spécialisés (comme des designers d'interface ou des experts en assurance qualité) a rendu la prise en charge des tâches non liées au code plus complexe. Une équipe industrielle classique réunit des <b>expertises métiers diversifiées</b> (Product Owners, UX Designers, QA Engineers), ce qui équilibre la production et optimise la qualité du produit fini. Bien que cette homogénéité nous ait été imposée par le cadre académique, elle constitue un excellent retour d'expérience sur la réalité des équipes en entreprise.
+    </p>
+
+    <p class="paragraph">
+      Pour autant, notre capacité à résoudre les verrous technologiques et à délivrer un logiciel complexe en réseau local en seulement deux semaines atteste de notre réactivité. L'ambiance de travail est restée excellente du début à la fin, ce qui demeure un indicateur de performance managériale essentiel. C'est à ce titre que je considère ce projet comme une <b>véritable réussite technique et humaine</b>.
     </p>
   </div>
 </section>
